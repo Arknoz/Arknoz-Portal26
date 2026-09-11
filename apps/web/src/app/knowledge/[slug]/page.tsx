@@ -1,16 +1,30 @@
 ﻿import { notFound } from "next/navigation";
-import EntityDetailPage from "@/components/EntityDetailPage";
-import { getEntity } from "@/lib/entities";
+
+import KnowledgeDetailPage from "@/components/KnowledgeDetailPage";
+
+import {
+  getEntity,
+} from "@/lib/entities";
 
 export default async function Page({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{
+    slug: string;
+  }>;
 }) {
   const { slug } = await params;
-  const entity = getEntity("knowledge", slug);
 
-  if (!entity) notFound();
+  const entity =
+    getEntity("knowledge", slug);
 
-  return <EntityDetailPage entity={entity} />;
+  if (!entity) {
+    notFound();
+  }
+
+  return (
+    <KnowledgeDetailPage
+      entity={entity}
+    />
+  );
 }

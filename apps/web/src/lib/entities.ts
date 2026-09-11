@@ -354,6 +354,16 @@ export const entities: EntityRecord[] = [
     trust: "Official source",
   },
   {
+    slug: "world-cities-report-2024",
+    type: "knowledge",
+    title: "World Cities Report 2024",
+    subtitle: "Cities and Climate Action",
+    geography: "Global",
+    summary:
+      "UN-Habitat's 2024 World Cities Report examines cities and climate action, including urban climate risks, resilience, mitigation and inequality.",
+    trust: "Official source",
+  },
+  {
     slug: "mass-timber-system",
     type: "product",
     title: "Mass Timber System",
@@ -430,6 +440,7 @@ export function getEntity(type: EntityType, slug: string) {
     (entity) => entity.type === type && entity.slug === slug
   );
 }
+
 
 
 
