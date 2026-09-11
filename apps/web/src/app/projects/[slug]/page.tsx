@@ -1,5 +1,5 @@
 ﻿import { notFound } from "next/navigation";
-import EntityDetailPage from "@/components/EntityDetailPage";
+import ProjectDetailPage from "@/components/ProjectDetailPage";
 import { getEntity } from "@/lib/entities";
 
 export default async function Page({
@@ -12,5 +12,5 @@ export default async function Page({
 
   if (!entity) notFound();
 
-  return <EntityDetailPage entity={entity} />;
+  return <ProjectDetailPage entity={entity} />;
 }
