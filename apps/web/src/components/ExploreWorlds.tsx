@@ -44,82 +44,71 @@ export default function ExploreWorlds() {
   const rail = useRef<HTMLDivElement>(null);
 
   function move(direction: number) {
-    rail.current?.scrollBy({
-      left: direction * 760,
-      behavior: "smooth",
-    });
+    rail.current?.scrollBy({ left: direction * 860, behavior: "smooth" });
   }
 
   return (
-    <section id="explore" className="scroll-mt-24 bg-white pt-10 pb-5">
+    <section id="explore" className="scroll-mt-24 bg-[#f6f8fb] py-10">
       <div className="mx-auto max-w-[1600px] px-6 lg:px-10">
-        <div className="flex items-end justify-between gap-6">
-          <div>
-            <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-blue-700">
-              DISCOVER
-            </p>
-            <h2 className="mt-1.5 text-3xl font-bold tracking-tight text-slate-950 md:text-4xl">
-              Explore the Built World
-            </h2>
-            <p className="mt-2 text-slate-600">
-              Nine ways to discover, learn and take action.
-            </p>
+        <div className="rounded-[30px] bg-[#0b2949] p-6 text-white md:p-8">
+          <div className="flex items-end justify-between gap-6">
+            <div>
+              <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-200">
+                EXPLORE
+              </p>
+              <h2 className="mt-1.5 text-3xl font-bold tracking-tight md:text-4xl">
+                Nine ways into the Built World.
+              </h2>
+              <p className="mt-2 max-w-2xl text-slate-300">
+                Start with what matters to you, then follow the connections.
+              </p>
+            </div>
+
+            <div className="flex items-center gap-3">
+              <Link href="/explore" className="group hidden items-center gap-1.5 font-semibold text-white sm:inline-flex">
+                View all
+                <ArrowRight />
+              </Link>
+              <button type="button" onClick={() => move(-1)} aria-label="Previous" className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white/5 hover:bg-white/10">
+                <ChevronLeft />
+              </button>
+              <button type="button" onClick={() => move(1)} aria-label="Next" className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white/5 hover:bg-white/10">
+                <ChevronRight />
+              </button>
+            </div>
           </div>
 
-          <div className="flex items-center gap-3">
-            <Link href="/explore" className="group hidden items-center gap-1.5 font-semibold text-blue-700 sm:inline-flex">
-              View all
-              <ArrowRight />
-            </Link>
-
-            <button
-              type="button"
-              onClick={() => move(-1)}
-              aria-label="Previous"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white shadow-sm transition hover:border-blue-300 hover:bg-blue-50"
-            >
-              <ChevronLeft />
-            </button>
-
-            <button
-              type="button"
-              onClick={() => move(1)}
-              aria-label="Next"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white shadow-sm transition hover:border-blue-300 hover:bg-blue-50"
-            >
-              <ChevronRight />
-            </button>
+          <div
+            ref={rail}
+            className="mt-6 flex snap-x gap-4 overflow-x-auto pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          >
+            {worlds.map(([title, description, href, image]) => (
+              <Link
+                key={href}
+                href={href}
+                className="group relative min-w-[250px] max-w-[250px] snap-start overflow-hidden rounded-[24px] bg-slate-950 md:min-w-[280px] md:max-w-[280px]"
+              >
+                <div className="aspect-[1/1.05] overflow-hidden">
+                  <img
+                    src={image}
+                    alt=""
+                    className="h-full w-full object-cover opacity-90 transition duration-700 group-hover:scale-[1.04]"
+                  />
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/18 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 p-5 text-white">
+                  <h3 className="text-xl font-bold">{title}</h3>
+                  <p className="mt-1.5 line-clamp-2 text-sm leading-5 text-slate-200">
+                    {description}
+                  </p>
+                  <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold">
+                    Explore
+                    <ArrowRight />
+                  </span>
+                </div>
+              </Link>
+            ))}
           </div>
-        </div>
-
-        <div
-          ref={rail}
-          className="mt-6 flex snap-x gap-4 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-        >
-          {worlds.map(([title, description, href, image]) => (
-            <Link
-              key={href}
-              href={href}
-              className="group min-w-[220px] max-w-[220px] snap-start overflow-hidden rounded-2xl border border-slate-200 bg-white transition duration-300 hover:-translate-y-1.5 hover:border-blue-300 hover:shadow-[0_14px_35px_rgba(15,23,42,0.09)] md:min-w-[235px] md:max-w-[235px]"
-            >
-              <div className="aspect-[1.55/1] overflow-hidden bg-slate-100">
-                <img
-                  src={image}
-                  alt=""
-                  className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.04]"
-                />
-              </div>
-
-              <div className="flex min-h-[142px] flex-col p-4">
-                <h3 className="font-bold text-slate-950">{title}</h3>
-                <p className="mt-2 text-sm leading-5 text-slate-600">{description}</p>
-                <span className="mt-auto inline-flex items-center gap-1.5 pt-3 font-semibold text-blue-700">
-                  Open
-                  <ArrowRight />
-                </span>
-              </div>
-            </Link>
-          ))}
         </div>
       </div>
     </section>

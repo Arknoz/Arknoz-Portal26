@@ -12,18 +12,16 @@ import GlobalFooter from "@/components/GlobalFooter";
 
 export default function Home() {
   return (
-    <main id="top" className="min-h-screen bg-white">
+    <main className="min-h-screen bg-white">
       <GlobalHeader />
       <GlobalHero />
       <LiveTicker />
-
       <ExploreWorlds />
       <M01WorldFeatureSplit />
       <EditorsChoice />
       <M01ActionConnectionsRow />
       <M01CommunityDiscoverRow />
       <PhaseRoadmap />
-
       <BuiltWorldPulse />
       <GlobalFooter />
     </main>

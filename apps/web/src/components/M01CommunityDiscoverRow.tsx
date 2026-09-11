@@ -9,69 +9,87 @@ function ArrowRight() {
   );
 }
 
+const discover = [
+  ["Show me inspiring projects", "/projects"],
+  ["Take me somewhere in the world", "/global"],
+  ["Teach me something useful", "/knowledge"],
+  ["Show current opportunities", "/opportunities"],
+  ["Find people and organisations", "/people"],
+  ["Explore universities", "/universities"],
+] as const;
+
 export default function M01CommunityDiscoverRow() {
   return (
-    <section className="bg-white py-5">
-      <div className="mx-auto grid max-w-[1600px] gap-5 px-6 lg:grid-cols-2 lg:px-10">
-        <div className="rounded-3xl border border-slate-200 bg-white p-7 md:p-8">
-          <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-blue-700">
-            ARKNOZ COMMUNITY
-          </p>
-          <h2 className="mt-2 text-3xl font-bold tracking-tight text-slate-950">
-            People, ideas and participation around the Built World.
-          </h2>
-          <p className="mt-3 max-w-2xl text-slate-600">
-            Members can discover collaboration, contribute knowledge and follow Arknoz development.
-          </p>
+    <section className="bg-white py-10">
+      <div className="mx-auto grid max-w-[1600px] gap-5 px-6 lg:grid-cols-[.88fr_1.12fr] lg:px-10">
+        <div className="relative overflow-hidden rounded-[30px] bg-[#0b2949] p-7 text-white">
+          <div
+            className="absolute inset-0 opacity-20"
+            style={{
+              backgroundImage:
+                "url(https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1200&q=70)",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          />
+          <div className="absolute inset-0 bg-[#0b2949]/88" />
 
-          <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3">
-            {["Members", "Collaboration", "Contribution", "News & Development", "Competitions & Jobs", "Chapters"].map((item) => (
-              <Link
-                key={item}
-                href="/community"
-                className="rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm font-semibold text-slate-900 transition duration-200 hover:-translate-y-0.5 hover:border-blue-300 hover:bg-blue-50"
-              >
-                {item}
-              </Link>
-            ))}
+          <div className="relative">
+            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-200">
+              ARKNOZ COMMUNITY
+            </p>
+            <h2 className="mt-2 max-w-xl text-3xl font-bold tracking-tight md:text-4xl">
+              Knowledge grows when people contribute.
+            </h2>
+            <p className="mt-3 max-w-xl leading-7 text-slate-300">
+              Community is where participation, collaboration and useful contribution become part of the Built World.
+            </p>
+
+            <div className="mt-6 grid grid-cols-2 gap-2.5">
+              {["Members", "Collaboration", "Contribution", "News & Development", "Competitions & Jobs", "Chapters"].map((item) => (
+                <Link
+                  key={item}
+                  href="/community"
+                  className="group flex items-center justify-between rounded-[18px] border border-white/10 bg-white/[0.06] px-4 py-3 text-sm font-semibold transition hover:bg-white/[0.1]"
+                >
+                  <span>{item}</span>
+                  <span className="text-blue-200"><ArrowRight /></span>
+                </Link>
+              ))}
+            </div>
           </div>
-
-          <Link href="/community" className="group mt-6 inline-flex items-center gap-1.5 font-semibold text-blue-700">
-            Go to Community
-            <ArrowRight />
-          </Link>
         </div>
 
-        <div className="rounded-3xl bg-slate-50 p-7 md:p-8">
-          <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-blue-700">
+        <div className="rounded-[30px] bg-[#f4f7fb] p-7">
+          <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-700">
             DISCOVER NOW
           </p>
-          <h2 className="mt-2 text-3xl font-bold tracking-tight text-slate-950">
-            A broader view of the Built World.
+          <h2 className="mt-2 text-3xl font-bold tracking-tight text-slate-950 md:text-4xl">
+            Start with what you want to do.
           </h2>
-          <p className="mt-3 text-slate-600">
-            Hand-picked cross-world discovery for visitors.
+          <p className="mt-2 text-slate-600">
+            Arknoz should feel useful before a visitor understands its entire structure.
           </p>
 
-          <div className="mt-6 grid grid-cols-2 gap-3">
-            {[
-              ["/projects", "Buildings, infrastructure and built-environment projects."],
-              ["/knowledge", "Research, standards, publications and evidence."],
-              ["/places", "Countries, regions, cities and local context."],
-              ["/opportunities", "Jobs, internships, competitions, grants and more."],
-            ].map(([href, text]) => (
+          <div className="mt-6 grid gap-3 sm:grid-cols-2">
+            {discover.map(([label, href], index) => (
               <Link
-                key={href}
+                key={label}
                 href={href}
-                className="rounded-2xl border border-slate-200 bg-white p-4 text-sm leading-5 text-slate-700 transition duration-200 hover:-translate-y-0.5 hover:border-blue-300 hover:shadow-sm"
+                className={`group flex min-h-[82px] items-center justify-between gap-4 rounded-[20px] px-5 py-4 font-semibold shadow-sm transition hover:-translate-y-0.5 hover:shadow-md ${
+                  index === 0 ? "bg-[#0f55c8] text-white" : "bg-white text-slate-950"
+                }`}
               >
-                {text}
+                <span>{label}</span>
+                <span className={index === 0 ? "text-white" : "text-blue-700"}>
+                  <ArrowRight />
+                </span>
               </Link>
             ))}
           </div>
 
-          <Link href="/explore" className="group mt-6 inline-flex items-center gap-1.5 font-semibold text-blue-700">
-            Explore more
+          <Link href="/explore" className="group mt-5 inline-flex items-center gap-1.5 font-semibold text-blue-700">
+            Open full Explore
             <ArrowRight />
           </Link>
         </div>
