@@ -415,6 +415,16 @@ export const entities: EntityRecord[] = [
   },
 
   {
+    slug: "vancouver-tall-challenge",
+    type: "opportunity",
+    title: "Vancouver Tall Challenge",
+    subtitle: "Competition",
+    geography: "Vancouver, Canada",
+    summary:
+      "An international architecture ideas competition exploring the future of height and density in downtown Vancouver.",
+    trust: "Official source",
+  },
+  {
     slug: "research-fellowship",
     type: "opportunity",
     title: "Research Fellowship",
@@ -440,6 +450,7 @@ export function getEntity(type: EntityType, slug: string) {
     (entity) => entity.type === type && entity.slug === slug
   );
 }
+
 
 
 
