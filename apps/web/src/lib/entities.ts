@@ -344,6 +344,16 @@ export const entities: EntityRecord[] = [
     },
   },
   {
+    slug: "holcim-ecopact",
+    type: "product",
+    title: "Holcim ECOPact",
+    subtitle: "Product",
+    geography: "Global",
+    summary:
+      "Holcim's range of low-carbon concrete for buildings and infrastructure.",
+    trust: "Official source",
+  },
+  {
     slug: "mass-timber-system",
     type: "product",
     title: "Mass Timber System",
@@ -420,5 +430,6 @@ export function getEntity(type: EntityType, slug: string) {
     (entity) => entity.type === type && entity.slug === slug
   );
 }
+
 
 

@@ -1,5 +1,6 @@
 ﻿import { notFound } from "next/navigation";
-import EntityDetailPage from "@/components/EntityDetailPage";
+
+import ProductDetailPage from "@/components/ProductDetailPage";
 import { getEntity } from "@/lib/entities";
 
 export default async function Page({
@@ -8,9 +9,12 @@ export default async function Page({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
+
   const entity = getEntity("product", slug);
 
-  if (!entity) notFound();
+  if (!entity) {
+    notFound();
+  }
 
-  return <EntityDetailPage entity={entity} />;
+  return <ProductDetailPage entity={entity} />;
 }
