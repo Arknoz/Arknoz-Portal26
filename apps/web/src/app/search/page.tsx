@@ -343,7 +343,7 @@ export default function SearchPage() {
           "research fellowship",
           "Milan",
         ]}
-        featured={featured}
+        featured={[...featured]}
         ticker={[
           { text: "Search across nine connected Arknoz worlds", href: "/explore" },
           { text: "Try project, product, topic, person or place", href: "/search" },
@@ -359,3 +359,4 @@ export default function SearchPage() {
     </main>
   );
 }
+
