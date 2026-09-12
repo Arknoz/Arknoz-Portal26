@@ -4,10 +4,16 @@ import Link from "next/link";
 import { FormEvent, useMemo, useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import GlobalHeader from "@/components/GlobalHeader";
+import GeographyContextBar from "@/components/GeographyContextBar";
 import UniversalTopicHero from "@/components/UniversalTopicHero";
 import UniversalFooterStrip from "@/components/UniversalFooterStrip";
 import GlobalFooter from "@/components/GlobalFooter";
 import { entities } from "@/lib/entities";
+import {
+  type GeographyItem,
+  findGeography,
+  getChildren,
+} from "@/lib/geography";
 import { getEntityHref } from "@/components/EntityCard";
 
 const worlds = [
@@ -59,6 +65,71 @@ const featured = [
   },
 ] as const;
 
+function collectGeographyTerms(
+  context: GeographyItem
+) {
+  const terms = new Set<string>();
+
+  function visit(item: GeographyItem) {
+    terms.add(
+      item.name.toLowerCase()
+    );
+
+    terms.add(
+      item.slug
+        .replaceAll("-", " ")
+        .toLowerCase()
+    );
+
+    getChildren(item.slug).forEach(
+      visit
+    );
+  }
+
+  visit(context);
+
+  return Array.from(terms);
+}
+
+function matchesGeography(
+  geography: string,
+  context?: GeographyItem
+) {
+  if (
+    !context ||
+    context.type === "global"
+  ) {
+    return true;
+  }
+
+  const value =
+    geography.toLowerCase();
+
+  return collectGeographyTerms(
+    context
+  ).some(
+    (term) =>
+      value.includes(term)
+  );
+}
+
+function buildSearchHref(
+  value: string,
+  context?: GeographyItem
+) {
+  const q =
+    encodeURIComponent(value);
+
+  if (
+    context &&
+    context.type !== "global"
+  ) {
+    return `/search?q=${q}&geo=${encodeURIComponent(context.slug)}`;
+  }
+
+  return `/search?q=${q}`;
+}
+
 function ArrowRight() {
   return (
     <svg
@@ -80,6 +151,13 @@ function SearchBody() {
   const router = useRouter();
 
   const urlQuery = (params.get("q") ?? "").trim();
+  const geoSlug = (params.get("geo") ?? "").trim();
+
+  const context =
+    geoSlug
+      ? findGeography(geoSlug)
+      : undefined;
+
   const [query, setQuery] = useState(urlQuery);
   const [world, setWorld] = useState("all");
 
@@ -104,21 +182,30 @@ function SearchBody() {
 
       const matchesText = terms.every((term) => haystack.includes(term));
       const matchesWorld = world === "all" || entity.type === world;
+      const matchesGeo =
+        matchesGeography(
+          entity.geography,
+          context
+        );
 
-      return matchesText && matchesWorld;
+      return (
+        matchesText &&
+        matchesWorld &&
+        matchesGeo
+      );
     });
-  }, [urlQuery, world]);
+  }, [urlQuery, world, geoSlug]);
 
   function submit(event: FormEvent) {
     event.preventDefault();
     const value = query.trim();
     if (!value) return;
-    router.push(`/search?q=${encodeURIComponent(value)}`);
+    router.push(buildSearchHref(value, context));
   }
 
   function runPrompt(value: string) {
     setQuery(value);
-    router.push(`/search?q=${encodeURIComponent(value)}`);
+    router.push(buildSearchHref(value, context));
   }
 
   return (
@@ -173,7 +260,9 @@ function SearchBody() {
                   SEARCH RESULTS
                 </p>
                 <h2 className="mt-2 text-3xl font-bold tracking-tight text-slate-950 md:text-4xl">
-                  Results for “{urlQuery}”
+                  {context && context.type !== "global"
+                    ? `Results in ${context.name} for “${urlQuery}”`
+                    : `Results for “${urlQuery}”`}
                 </h2>
               </div>
 
@@ -326,14 +415,70 @@ function SearchBody() {
 }
 
 export default function SearchPage() {
+  const params = useSearchParams();
+
+  const geoSlug =
+    (params.get("geo") ?? "").trim();
+
+  const context =
+    geoSlug
+      ? findGeography(geoSlug)
+      : undefined;
+
+  const locationLabel =
+    context &&
+    context.type !== "global"
+      ? context.name
+      : undefined;
+
+  const geographyTerms =
+    context &&
+    context.type !== "global"
+      ? collectGeographyTerms(context)
+      : [];
+
+  const contextualFeatured =
+    locationLabel
+      ? featured.filter(
+          (item) => {
+            const meta =
+              item.meta.toLowerCase();
+
+            return geographyTerms.some(
+              (term) =>
+                meta.includes(term)
+            );
+          }
+        )
+      : [...featured];
+
   return (
     <main className="min-h-screen bg-white">
       <GlobalHeader />
 
+      {context &&
+        context.type !== "global" && (
+          <GeographyContextBar
+            context={context}
+          />
+        )}
+
       <UniversalTopicHero
-        eyebrow="SEARCH & DISCOVERY"
-        title="Find what matters in the Built World."
-        description="Search across projects, products, knowledge, people, organisations, universities, opportunities and places."
+        eyebrow={
+          locationLabel
+            ? `${locationLabel.toUpperCase()} · SEARCH & DISCOVERY`
+            : "SEARCH & DISCOVERY"
+        }
+        title={
+          locationLabel
+            ? `Find what matters in ${locationLabel}.`
+            : "Find what matters in the Built World."
+        }
+        description={
+          locationLabel
+            ? `Search projects, products, knowledge, people, organisations, universities, opportunities and places connected to ${locationLabel}.`
+            : "Search across projects, products, knowledge, people, organisations, universities, opportunities and places."
+        }
         searchPlaceholder="Search the Built World..."
         popular={[
           "sustainable buildings",
@@ -343,7 +488,13 @@ export default function SearchPage() {
           "research fellowship",
           "Milan",
         ]}
-        featured={[...featured]}
+        searchGeo={
+          context &&
+          context.type !== "global"
+            ? context.slug
+            : undefined
+        }
+        featured={contextualFeatured}
         ticker={[
           { text: "Search across nine connected Arknoz worlds", href: "/explore" },
           { text: "Try project, product, topic, person or place", href: "/search" },

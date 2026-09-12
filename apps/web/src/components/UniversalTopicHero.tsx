@@ -25,6 +25,7 @@ type Props = {
   popular: string[];
   featured: Feature[];
   ticker: TickerItem[];
+  searchGeo?: string;
 };
 
 function SearchIcon() {
@@ -53,6 +54,7 @@ export default function UniversalTopicHero({
   popular,
   featured,
   ticker,
+  searchGeo,
 }: Props) {
   const router = useRouter();
   const [query, setQuery] = useState("");
@@ -60,16 +62,25 @@ export default function UniversalTopicHero({
   const lead = featured[0];
   const secondary = featured.slice(1, 3);
 
+  function getSearchHref(value: string) {
+    const queryPart =
+      `q=${encodeURIComponent(value)}`;
+
+    return searchGeo
+      ? `/search?${queryPart}&geo=${encodeURIComponent(searchGeo)}`
+      : `/search?${queryPart}`;
+  }
+
   function submitSearch(event: FormEvent) {
     event.preventDefault();
     const value = query.trim();
     if (!value) return;
-    router.push(`/search?q=${encodeURIComponent(value)}`);
+    router.push(getSearchHref(value));
   }
 
   function searchPopular(value: string) {
     setQuery(value);
-    router.push(`/search?q=${encodeURIComponent(value)}`);
+    router.push(getSearchHref(value));
   }
 
   return (
