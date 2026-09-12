@@ -1,6 +1,6 @@
-﻿import { notFound } from "next/navigation";
+import { notFound } from "next/navigation";
 import ProjectDetailPage from "@/components/ProjectDetailPage";
-import { getEntity } from "@/lib/entities";
+import { getProductionEntity } from "@/lib/data/production-entities";
 
 export default async function Page({
   params,
@@ -8,7 +8,7 @@ export default async function Page({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const entity = getEntity("project", slug);
+  const entity = await getProductionEntity("project", slug);
 
   if (!entity) notFound();
 
