@@ -1,16 +1,44 @@
 import Link from "next/link";
 
-const worldLinks = [
-  ["Projects", "/projects"],
-  ["Products", "/products"],
-  ["Knowledge", "/knowledge"],
-  ["Learning & Education", "/learning"],
-  ["Opportunities", "/opportunities"],
-  ["People", "/people"],
-  ["Organisations", "/organisations"],
-  ["Universities", "/universities"],
-  ["Places", "/places"],
-] as const;
+import {
+  arknozSections,
+  isPaidArknozSection,
+} from "@/lib/arknoz-sections";
+
+const worldLinks =
+  arknozSections.map(
+    (section) => ({
+      key: section.key,
+      label: section.title,
+      href: section.href,
+      paid:
+        isPaidArknozSection(
+          section.key
+        ),
+    })
+  );
+
+function LockIcon() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+      className="h-3 w-3"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+    >
+      <rect
+        x="6"
+        y="10"
+        width="12"
+        height="9"
+        rx="2"
+      />
+      <path d="M9 10V7a3 3 0 0 1 6 0v3" />
+    </svg>
+  );
+}
 
 function ArrowRight() {
   return (
@@ -37,15 +65,30 @@ export default function UniversalFooterStrip() {
             EXPLORE BY WORLD
           </span>
 
-          {worldLinks.map(([label, href]) => (
-            <Link
-              key={label}
-              href={href}
-              className="rounded-full border border-white/10 bg-white/[0.045] px-3 py-1.5 text-xs text-slate-200 transition hover:bg-white/[0.1]"
-            >
-              {label}
-            </Link>
-          ))}
+          {worldLinks.map(
+            (item) => (
+              <Link
+                key={item.key}
+                href={item.href}
+                title={
+                  item.paid
+                    ? `${item.label} · Arknoz Pro`
+                    : item.label
+                }
+                className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs transition ${
+                  item.paid
+                    ? "border-white/15 bg-white/[0.025] text-slate-400"
+                    : "border-white/10 bg-white/[0.045] text-slate-200 hover:bg-white/[0.1]"
+                }`}
+              >
+                {item.label}
+
+                {item.paid && (
+                  <LockIcon />
+                )}
+              </Link>
+            )
+          )}
         </div>
 
         <div className="h-px bg-white/10 lg:h-10 lg:w-px" />
@@ -58,10 +101,12 @@ export default function UniversalFooterStrip() {
             <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-blue-200">
               WHAT&apos;S NEW
             </p>
+
             <p className="mt-1 text-xs text-slate-300">
               Latest projects and opportunities
             </p>
           </div>
+
           <span className="text-white">
             <ArrowRight />
           </span>

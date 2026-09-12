@@ -1,17 +1,28 @@
-﻿import WorldIndexPage from "@/components/WorldIndexPage";
+﻿import WorldIndexRoute from "@/components/WorldIndexRoute";
+import { resolveArknozSubsectionFromQuery } from "@/lib/arknoz-route-context";
 
 export default async function Page({
   searchParams,
 }: {
-  searchParams: Promise<{ geo?: string }>;
+  searchParams: Promise<{
+    geo?: string;
+    type?: string;
+    view?: string;
+  }>;
 }) {
-  const { geo } = await searchParams;
+  const params = await searchParams;
+
+  const activeSubsection =
+    resolveArknozSubsectionFromQuery(
+      "learning",
+      params
+    );
 
   return (
-    <WorldIndexPage
-      title="Learning & Education"
-      description="Courses, programmes, skills and professional development."
-      geoSlug={geo}
+    <WorldIndexRoute
+      sectionKey="learning"
+      geoSlug={params.geo}
+      activeSubsection={activeSubsection}
     />
   );
 }

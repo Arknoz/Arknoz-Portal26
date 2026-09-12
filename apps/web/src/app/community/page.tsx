@@ -1,17 +1,28 @@
-﻿import WorldIndexPage from "@/components/WorldIndexPage";
+﻿import WorldIndexRoute from "@/components/WorldIndexRoute";
+import { resolveArknozSubsectionFromQuery } from "@/lib/arknoz-route-context";
 
 export default async function Page({
   searchParams,
 }: {
-  searchParams: Promise<{ geo?: string }>;
+  searchParams: Promise<{
+    geo?: string;
+    type?: string;
+    view?: string;
+  }>;
 }) {
-  const { geo } = await searchParams;
+  const params = await searchParams;
+
+  const activeSubsection =
+    resolveArknozSubsectionFromQuery(
+      "community",
+      params
+    );
 
   return (
-    <WorldIndexPage
-      title="Community"
-      description="Members, collaboration, contribution, news and development, competitions and jobs, and regional chapters."
-      geoSlug={geo}
+    <WorldIndexRoute
+      sectionKey="community"
+      geoSlug={params.geo}
+      activeSubsection={activeSubsection}
     />
   );
 }

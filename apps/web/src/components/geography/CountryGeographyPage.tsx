@@ -1,3 +1,9 @@
+import { buildGeographyHref } from "@/lib/geography";
+import {
+  arknozSections,
+  buildArknozSectionHref,
+  isPaidArknozSection,
+} from "@/lib/arknoz-sections";
 import Link from "next/link";
 
 import GlobalHeader from "@/components/GlobalHeader";
@@ -16,16 +22,18 @@ const regionImages: Record<string, string> = {
     "https://images.unsplash.com/photo-1570168007204-dfb528c6958f?auto=format&fit=crop&w=1200&q=82",
 };
 
-const worldLinks = [
-  ["Projects", "/projects"],
-  ["Products", "/products"],
-  ["Knowledge", "/knowledge"],
-  ["Learning & Education", "/learning"],
-  ["Opportunities", "/opportunities"],
-  ["People", "/people"],
-  ["Organisations", "/organisations"],
-  ["Universities", "/universities"],
-] as const;
+const worldLinks =
+  arknozSections.map(
+    (section) => ({
+      key: section.key,
+      label: section.title,
+      href: section.href,
+      paid:
+        isPaidArknozSection(
+          section.key
+        ),
+    })
+  );
 
 function getPresentation(
   context: GeographyItem,
@@ -36,7 +44,7 @@ function getPresentation(
       title: "Explore India.",
 
       description:
-        "Move through regions, cities and places across India while connecting projects, products, knowledge, people, organisations and opportunities through one Arknoz geography system.",
+        "Explore regions, cities, projects, products, knowledge, people, organisations and opportunities across India.",
 
       popular: [
         "Maharashtra",
@@ -193,13 +201,13 @@ export default function CountryGeographyPage({
               </h2>
 
               <p className="mt-2 max-w-3xl text-slate-600">
-                Move from the country view into regions, cities and places while keeping every Arknoz record connected to one canonical geography.
+                Move from the country view into regions, cities and places to discover connected Arknoz content at each level.
               </p>
 
             </div>
 
             <Link
-              href={`/global/${context.parent}`}
+              href={buildGeographyHref(context.parent ?? "global")}
               className="text-sm font-bold text-blue-700"
             >
               Back to Asia →
@@ -216,7 +224,7 @@ export default function CountryGeographyPage({
 
                   <Link
                     key={child.slug}
-                    href={`/global/${child.slug}`}
+                    href={buildGeographyHref(child.slug)}
                     className="group overflow-hidden rounded-[24px] bg-white shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-1 hover:shadow-md"
                   >
 
@@ -306,36 +314,56 @@ export default function CountryGeographyPage({
           </h2>
 
           <p className="mt-2 max-w-3xl text-slate-600">
-            Geography provides context while each project, product, person, organisation and knowledge record remains one canonical Arknoz identity.
+            Discover projects, products, people, organisations and knowledge connected across this part of the Built World.
           </p>
 
           <div className="mt-7 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
 
             {worldLinks.map(
               (
-                [label, href],
+                item,
                 index
               ) => (
-
                 <Link
-                  key={href}
-                  href={`${href}?geo=${context.slug}`}
+                  key={item.key}
+                  href={buildArknozSectionHref(
+                    item.key,
+                    {
+                      geo: context.slug,
+                    }
+                  )}
+                  title={
+                    item.paid
+                      ? `${item.label} - Arknoz Pro`
+                      : item.label
+                  }
                   className={`rounded-[20px] p-5 transition hover:-translate-y-1 hover:shadow-md ${
-                    index === 0
-                      ? "bg-[#0b2949] text-white"
-                      : "bg-[#eef3f8] text-slate-950"
+                    item.paid
+                      ? "bg-slate-100 text-slate-500"
+                      : index === 0
+                        ? "bg-[#0b2949] text-white"
+                        : "bg-[#eef3f8] text-slate-950"
                   }`}
                 >
+                  <div className="flex flex-wrap items-start justify-between gap-2">
+                    <p
+                      className={`text-[9px] font-bold uppercase tracking-[0.16em] ${
+                        item.paid
+                          ? "text-slate-500"
+                          : index === 0
+                            ? "text-blue-200"
+                            : "text-blue-700"
+                      }`}
+                    >
+                      {item.label}
+                    </p>
 
-                  <p
-                    className={`text-[9px] font-bold uppercase tracking-[0.16em] ${
-                      index === 0
-                        ? "text-blue-200"
-                        : "text-blue-700"
-                    }`}
-                  >
-                    {label}
-                  </p>
+                    {item.paid && (
+                      <span className="rounded-full border border-slate-300 px-2 py-1 text-[8px] font-bold uppercase tracking-[0.12em] text-slate-500">
+                        Arknoz Pro &middot; Locked
+                      </span>
+                    )}
+                  </div>
 
                   <p className="mt-7 font-bold">
                     Explore in {context.name}
@@ -343,14 +371,17 @@ export default function CountryGeographyPage({
 
                   <p
                     className={`mt-4 text-sm font-bold ${
-                      index === 0
-                        ? "text-blue-200"
-                        : "text-blue-700"
+                      item.paid
+                        ? "text-slate-500"
+                        : index === 0
+                          ? "text-blue-200"
+                          : "text-blue-700"
                     }`}
                   >
-                    Explore →
+                    {item.paid
+                      ? "Preview Arknoz Pro →"
+                      : "Explore →"}
                   </p>
-
                 </Link>
               )
             )}

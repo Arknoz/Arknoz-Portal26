@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState } from "react";
 import Link from "next/link";
@@ -817,7 +817,7 @@ export default function ProjectDetailTabs({
                   ].map((item) => (
                     <div
                       key={item}
-                      title="Available with Arknoz Pro"
+                      title="Planned for Arknoz Pro"
                       aria-disabled="true"
                       className="cursor-not-allowed rounded-[13px] border border-white/10 bg-white/[0.06] px-3 py-3 opacity-80 transition hover:bg-white/[0.09]"
                     >
@@ -837,11 +837,11 @@ export default function ProjectDetailTabs({
             <article className="flex min-h-0 flex-col gap-3">
               <div className="flex-1 rounded-[22px] border border-slate-200 bg-[#f6f8fb] p-5">
                 <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-blue-700">
-                  SUBSCRIBER PREVIEW
+                  ARKNOZ PRO PREVIEW
                 </p>
 
                 <h3 className="mt-2 text-xl font-bold">
-                  Original Arknoz intelligence for professional subscribers.
+                  Preview of planned Arknoz Pro intelligence.
                 </h3>
 
                 <div className="mt-4 space-y-2">
@@ -874,7 +874,7 @@ export default function ProjectDetailTabs({
                   </p>
 
                   <p className="mt-1 text-[10px] text-slate-500">
-                    Public project information stays free. Arknoz Deep is available to Pro subscribers.
+                    Public project information stays free. Arknoz Deep is planned for Arknoz Pro.
                   </p>
                 </div>
 

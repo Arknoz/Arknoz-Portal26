@@ -1,5 +1,8 @@
-﻿import { notFound } from "next/navigation";
-import EntityDetailPage from "@/components/EntityDetailPage";
+import {
+  notFound,
+  permanentRedirect,
+} from "next/navigation";
+
 import { getEntity } from "@/lib/entities";
 
 export default async function Page({
@@ -8,9 +11,18 @@ export default async function Page({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const entity = getEntity("opportunity", slug);
 
-  if (!entity) notFound();
+  const entity =
+    getEntity(
+      "opportunity",
+      slug
+    );
 
-  return <EntityDetailPage entity={entity} />;
+  if (!entity) {
+    notFound();
+  }
+
+  permanentRedirect(
+    `/opportunities/opportunity/${slug}`
+  );
 }

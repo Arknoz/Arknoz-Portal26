@@ -1,4 +1,6 @@
-﻿export type EntityType =
+import type { ArknozSectionKey } from "@/lib/arknoz-sections";
+
+export type EntityType =
   | "project"
   | "product"
   | "knowledge"
@@ -73,9 +75,11 @@ export type ProjectRecordData = {
 export type EntityRecord = {
   slug: string;
   type: EntityType;
+  sectionSubsections?: Partial<Record<ArknozSectionKey, string[]>>;
   title: string;
   subtitle: string;
   geography: string;
+  geographySlug?: string;
   summary: string;
   trust?: string;
   project?: ProjectRecordData;
@@ -85,6 +89,7 @@ export const entities: EntityRecord[] = [
   {
     slug: "bosco-verticale",
     type: "project",
+    sectionSubsections: { projects: ["buildings"] },
     title: "Bosco Verticale",
     subtitle: "Project",
     geography: "Milan, Italy",
@@ -251,6 +256,7 @@ export const entities: EntityRecord[] = [
   {
     slug: "wonderwoods-utrecht",
     type: "project",
+    sectionSubsections: { projects: ["buildings"] },
     title: "Wonderwoods",
     subtitle: "Project",
     geography: "Utrecht, Netherlands",
@@ -283,6 +289,7 @@ export const entities: EntityRecord[] = [
   {
     slug: "trudo-vertical-forest",
     type: "project",
+    sectionSubsections: { projects: ["buildings"] },
     title: "Trudo Vertical Forest",
     subtitle: "Project",
     geography: "Eindhoven, Netherlands",
@@ -315,6 +322,7 @@ export const entities: EntityRecord[] = [
   {
     slug: "nanjing-vertical-forest",
     type: "project",
+    sectionSubsections: { projects: ["buildings"] },
     title: "Nanjing Vertical Forest",
     subtitle: "Project",
     geography: "Nanjing, China",
@@ -349,6 +357,7 @@ export const entities: EntityRecord[] = [
     title: "Holcim ECOPact",
     subtitle: "Product",
     geography: "Global",
+    geographySlug: "global",
     summary:
       "Holcim's range of low-carbon concrete for buildings and infrastructure.",
     trust: "Official source",
@@ -359,6 +368,7 @@ export const entities: EntityRecord[] = [
     title: "World Cities Report 2024",
     subtitle: "Cities and Climate Action",
     geography: "Global",
+    geographySlug: "global",
     summary:
       "UN-Habitat's 2024 World Cities Report examines cities and climate action, including urban climate risks, resilience, mitigation and inequality.",
     trust: "Official source",
@@ -369,6 +379,7 @@ export const entities: EntityRecord[] = [
     title: "Mass Timber System",
     subtitle: "Product & System",
     geography: "Global",
+    geographySlug: "global",
     summary: "A structured material and building-system example.",
     trust: "Technical information",
   },
@@ -379,6 +390,7 @@ export const entities: EntityRecord[] = [
     title: "Urban Biodiversity",
     subtitle: "Knowledge",
     geography: "Global",
+    geographySlug: "global",
     summary:
       "Research and evidence related to biodiversity in the Built World.",
     trust: "Evidence-led",
@@ -417,6 +429,7 @@ export const entities: EntityRecord[] = [
   {
     slug: "vancouver-tall-challenge",
     type: "opportunity",
+    sectionSubsections: { opportunities: ["competitions"] },
     title: "Vancouver Tall Challenge",
     subtitle: "Competition",
     geography: "Vancouver, Canada",
@@ -427,9 +440,11 @@ export const entities: EntityRecord[] = [
   {
     slug: "research-fellowship",
     type: "opportunity",
+    sectionSubsections: { opportunities: ["fellowships"] },
     title: "Research Fellowship",
     subtitle: "Opportunity",
     geography: "Global",
+    geographySlug: "global",
     summary:
       "Example opportunity for research and professional development.",
   },

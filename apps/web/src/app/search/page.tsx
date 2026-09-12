@@ -1,5 +1,8 @@
 "use client";
 
+import { entityMatchesGeography } from "@/lib/entity-geography";
+
+
 import Link from "next/link";
 import { FormEvent, useMemo, useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
@@ -15,19 +18,24 @@ import {
   getChildren,
 } from "@/lib/geography";
 import { getEntityHref } from "@/components/EntityCard";
+import { arknozSections } from "@/lib/arknoz-sections";
 
 const worlds = [
-  ["All", "all"],
-  ["Projects", "project"],
-  ["Products", "product"],
-  ["Knowledge", "knowledge"],
-  ["Learning", "learning"],
-  ["Opportunities", "opportunity"],
-  ["People", "person"],
-  ["Organisations", "organisation"],
-  ["Universities", "university"],
-  ["Places", "place"],
-] as const;
+  ["All", "all"] as const,
+
+  ...arknozSections
+    .filter(
+      (section) =>
+        section.entityTypes.length === 1
+    )
+    .map(
+      (section) =>
+        [
+          section.title,
+          section.entityTypes[0],
+        ] as const
+    ),
+];
 
 const discoveryPrompts = [
   ["Sustainable buildings in India", "sustainable buildings India"],
@@ -89,28 +97,6 @@ function collectGeographyTerms(
   visit(context);
 
   return Array.from(terms);
-}
-
-function matchesGeography(
-  geography: string,
-  context?: GeographyItem
-) {
-  if (
-    !context ||
-    context.type === "global"
-  ) {
-    return true;
-  }
-
-  const value =
-    geography.toLowerCase();
-
-  return collectGeographyTerms(
-    context
-  ).some(
-    (term) =>
-      value.includes(term)
-  );
 }
 
 function buildSearchHref(
@@ -183,8 +169,8 @@ function SearchBody() {
       const matchesText = terms.every((term) => haystack.includes(term));
       const matchesWorld = world === "all" || entity.type === world;
       const matchesGeo =
-        matchesGeography(
-          entity.geography,
+        entityMatchesGeography(
+          entity,
           context
         );
 
@@ -368,7 +354,7 @@ function SearchBody() {
                 SEARCH ACROSS WORLDS
               </p>
               <h2 className="mt-2 text-3xl font-bold tracking-tight md:text-4xl">
-                One search. Nine connected worlds.
+                One search. One connected Built World.
               </h2>
               <p className="mt-3 max-w-xl leading-7 text-slate-300">
                 Search should surface the right record first, then expose related projects, products, people, knowledge, institutions and places.
@@ -496,7 +482,7 @@ export default function SearchPage() {
         }
         featured={contextualFeatured}
         ticker={[
-          { text: "Search across nine connected Arknoz worlds", href: "/explore" },
+          { text: "Search across connected Arknoz worlds", href: "/explore" },
           { text: "Try project, product, topic, person or place", href: "/search" },
           { text: "Zero-result recovery never invents records", href: "/search" },
           { text: "Explore geography from world to city", href: "/global" },

@@ -1,17 +1,28 @@
-﻿import WorldIndexPage from "@/components/WorldIndexPage";
+﻿import WorldIndexRoute from "@/components/WorldIndexRoute";
+import { resolveArknozSubsectionFromQuery } from "@/lib/arknoz-route-context";
 
 export default async function Page({
   searchParams,
 }: {
-  searchParams: Promise<{ geo?: string }>;
+  searchParams: Promise<{
+    geo?: string;
+    type?: string;
+    view?: string;
+  }>;
 }) {
-  const { geo } = await searchParams;
+  const params = await searchParams;
+
+  const activeSubsection =
+    resolveArknozSubsectionFromQuery(
+      "universities",
+      params
+    );
 
   return (
-    <WorldIndexPage
-      title="Universities"
-      description="Programmes, research, faculty, laboratories and student work."
-      geoSlug={geo}
+    <WorldIndexRoute
+      sectionKey="universities"
+      geoSlug={params.geo}
+      activeSubsection={activeSubsection}
     />
   );
 }

@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState } from "react";
 import Link from "next/link";
@@ -791,7 +791,7 @@ export default function LearningDetailTabs({
         ) : null}
 
         {/* ==================================================
-            DEEP — SUBSCRIBER PREVIEW
+            DEEP — ARKNOZ PRO PREVIEW
         ================================================== */}
 
         {active === "deep" ? (
@@ -859,11 +859,11 @@ export default function LearningDetailTabs({
 
               <div className="flex-1 rounded-[22px] border border-slate-200 bg-[#f6f8fb] p-5">
                 <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-blue-700">
-                  SUBSCRIBER PREVIEW
+                  ARKNOZ PRO PREVIEW
                 </p>
 
                 <h3 className="mt-2 text-xl font-bold">
-                  Original Arknoz intelligence for professional subscribers.
+                  Preview of planned Arknoz Pro intelligence.
                 </h3>
 
                 <div className="mt-4 space-y-2">
@@ -901,13 +901,13 @@ export default function LearningDetailTabs({
                   </p>
 
                   <p className="mt-1 max-w-sm text-[10px] leading-4 text-slate-500">
-                    Public learning information stays free. Arknoz Deep is available to Pro subscribers.
+                    Public learning information stays free. Arknoz Deep is planned for Arknoz Pro.
                   </p>
                 </div>
 
                 <span className="inline-flex cursor-not-allowed items-center gap-2 rounded-full bg-[#0b2949] px-4 py-2 text-[11px] font-bold text-white">
                   <LockIcon />
-                  Subscriber
+                  Planned
                 </span>
               </div>
             </article>

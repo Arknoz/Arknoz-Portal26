@@ -1,17 +1,28 @@
-﻿import WorldIndexPage from "@/components/WorldIndexPage";
+﻿import WorldIndexRoute from "@/components/WorldIndexRoute";
+import { resolveArknozSubsectionFromQuery } from "@/lib/arknoz-route-context";
 
 export default async function Page({
   searchParams,
 }: {
-  searchParams: Promise<{ geo?: string }>;
+  searchParams: Promise<{
+    geo?: string;
+    type?: string;
+    view?: string;
+  }>;
 }) {
-  const { geo } = await searchParams;
+  const params = await searchParams;
+
+  const activeSubsection =
+    resolveArknozSubsectionFromQuery(
+      "places",
+      params
+    );
 
   return (
-    <WorldIndexPage
-      title="Places"
-      description="Countries, regions, cities and local Built World context."
-      geoSlug={geo}
+    <WorldIndexRoute
+      sectionKey="places"
+      geoSlug={params.geo}
+      activeSubsection={activeSubsection}
     />
   );
 }

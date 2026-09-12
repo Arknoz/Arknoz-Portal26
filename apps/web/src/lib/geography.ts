@@ -1,4 +1,4 @@
-﻿export type GeographyItem = {
+export type GeographyItem = {
   name: string;
   slug: string;
   type: "global" | "continent" | "country" | "region" | "city" | "place";
@@ -40,4 +40,208 @@ export function findGeography(slug: string) {
 
 export function getChildren(parent: string) {
   return geography.filter((item) => item.parent === parent);
+}
+export function getGeographyAncestors(
+  slug: string
+) {
+  const result: GeographyItem[] = [];
+  const visited = new Set<string>();
+
+  let current = findGeography(slug);
+
+  while (
+    current?.parent &&
+    !visited.has(current.parent)
+  ) {
+    visited.add(current.parent);
+
+    const parent =
+      findGeography(current.parent);
+
+    if (!parent) {
+      break;
+    }
+
+    result.push(parent);
+    current = parent;
+  }
+
+  return result;
+}
+
+export function getGeographyDescendants(
+  slug: string
+) {
+  const result: GeographyItem[] = [];
+  const queue = [...getChildren(slug)];
+  const visited = new Set<string>();
+
+  while (queue.length > 0) {
+    const current = queue.shift();
+
+    if (
+      !current ||
+      visited.has(current.slug)
+    ) {
+      continue;
+    }
+
+    visited.add(current.slug);
+    result.push(current);
+
+    queue.push(
+      ...getChildren(current.slug)
+    );
+  }
+
+  return result;
+}
+
+export function getGeographyLineage(
+  slug: string
+) {
+  const current = findGeography(slug);
+
+  if (!current) {
+    return [];
+  }
+
+  return [
+    current,
+    ...getGeographyAncestors(slug),
+  ];
+}
+
+export function isGeographyWithin(
+  recordGeoSlug: string,
+  contextGeoSlug: string
+) {
+  if (contextGeoSlug === "global") {
+    return true;
+  }
+
+  if (recordGeoSlug === contextGeoSlug) {
+    return true;
+  }
+
+  return getGeographyAncestors(
+    recordGeoSlug
+  ).some(
+    (ancestor) =>
+      ancestor.slug === contextGeoSlug
+  );
+}
+export function buildGeographyHref(
+  slug: string
+) {
+  if (slug === "global") {
+    return "/global";
+  }
+
+  return `/global/${slug}`;
+}
+
+export function getGeographyPath(
+  slug: string
+) {
+  const current = findGeography(slug);
+
+  if (!current) {
+    return [];
+  }
+
+  return [
+    ...getGeographyAncestors(slug)
+      .reverse(),
+    current,
+  ];
+}
+
+export function getGeographyRoot(
+  slug: string
+) {
+  const path = getGeographyPath(slug);
+
+  return path.length > 0
+    ? path[0]
+    : undefined;
+}
+
+export function getGeographyParent(
+  slug: string
+) {
+  const current = findGeography(slug);
+
+  if (!current?.parent) {
+    return undefined;
+  }
+
+  return findGeography(current.parent);
+}
+
+export function geographyExists(
+  slug: string
+) {
+  return Boolean(
+    findGeography(slug)
+  );
+}
+
+export function validateGeographyTree() {
+  const errors: string[] = [];
+  const slugs = new Set<string>();
+
+  for (const item of geography) {
+    if (slugs.has(item.slug)) {
+      errors.push(
+        `Duplicate geography slug: ${item.slug}`
+      );
+    }
+
+    slugs.add(item.slug);
+  }
+
+  for (const item of geography) {
+    if (
+      item.type !== "global" &&
+      !item.parent
+    ) {
+      errors.push(
+        `Missing parent: ${item.slug}`
+      );
+    }
+
+    if (
+      item.parent &&
+      !findGeography(item.parent)
+    ) {
+      errors.push(
+        `Unknown parent "${item.parent}" for ${item.slug}`
+      );
+    }
+
+    const lineage =
+      getGeographyLineage(
+        item.slug
+      );
+
+    const lineageSlugs =
+      lineage.map(
+        (node) => node.slug
+      );
+
+    if (
+      new Set(lineageSlugs).size !==
+      lineageSlugs.length
+    ) {
+      errors.push(
+        `Circular geography lineage: ${item.slug}`
+      );
+    }
+  }
+
+  return {
+    valid: errors.length === 0,
+    errors,
+  };
 }

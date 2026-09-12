@@ -1,17 +1,28 @@
-﻿import WorldIndexPage from "@/components/WorldIndexPage";
+﻿import WorldIndexRoute from "@/components/WorldIndexRoute";
+import { resolveArknozSubsectionFromQuery } from "@/lib/arknoz-route-context";
 
 export default async function Page({
   searchParams,
 }: {
-  searchParams: Promise<{ geo?: string }>;
+  searchParams: Promise<{
+    geo?: string;
+    type?: string;
+    view?: string;
+  }>;
 }) {
-  const { geo } = await searchParams;
+  const params = await searchParams;
+
+  const activeSubsection =
+    resolveArknozSubsectionFromQuery(
+      "projects",
+      params
+    );
 
   return (
-    <WorldIndexPage
-      title="Projects"
-      description="Buildings, infrastructure, landscapes, interiors, cities and real Built World projects."
-      geoSlug={geo}
+    <WorldIndexRoute
+      sectionKey="projects"
+      geoSlug={params.geo}
+      activeSubsection={activeSubsection}
     />
   );
 }

@@ -1,176 +1,194 @@
+import {
+  arknozSections,
+  buildArknozSectionHref,
+  isPaidArknozSection,
+  type ArknozSectionKey,
+} from "@/lib/arknoz-sections";
 import Link from "next/link";
 import GlobalHeader from "@/components/GlobalHeader";
 import UniversalTopicHero from "@/components/UniversalTopicHero";
 import UniversalFooterStrip from "@/components/UniversalFooterStrip";
 import GlobalFooter from "@/components/GlobalFooter";
 
-const worlds = [
-  {
-    name: "Arknoz Projects",
-    short: "Projects",
-    href: "/projects",
+const explorePresentation: Partial<
+  Record<
+    ArknozSectionKey,
+    {
+      image: string;
+      example:
+        | readonly [
+            string,
+            string,
+            string
+          ]
+        | null;
+    }
+  >
+> = {
+  projects: {
     image:
       "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1400&q=82",
-    description:
-      "Explore built work from individual buildings to infrastructure, interiors, landscapes and urban projects.",
-    subsections: [
-      ["Buildings", "/projects?type=buildings"],
-      ["Infrastructure", "/projects?type=infrastructure"],
-      ["Interiors", "/projects?type=interiors"],
-      ["Landscapes", "/projects?type=landscapes"],
-      ["Urban & Masterplanning", "/projects?type=urban"],
-      ["Case Projects", "/projects?type=case-projects"],
+    example: [
+      "Bosco Verticale",
+      "Milan, Italy",
+      "/projects/bosco-verticale",
     ],
-    example: ["Bosco Verticale", "Milan, Italy", "/projects/bosco-verticale"],
   },
-  {
-    name: "Arknoz Products",
-    short: "Products",
-    href: "/products",
+
+  products: {
     image:
       "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=1400&q=82",
-    description:
-      "Discover materials, components, building systems, equipment and technologies used across the Built World.",
-    subsections: [
-      ["Materials", "/products?type=materials"],
-      ["Components", "/products?type=components"],
-      ["Building Systems", "/products?type=systems"],
-      ["Equipment", "/products?type=equipment"],
-      ["Technologies", "/products?type=technologies"],
+    example: [
+      "Mass Timber System",
+      "System",
+      "/products/mass-timber-system",
     ],
-    example: ["Mass Timber System", "System", "/products/mass-timber-system"],
   },
-  {
-    name: "Arknoz Knowledge",
-    short: "Knowledge",
-    href: "/knowledge",
+
+  knowledge: {
     image:
       "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=1400&q=82",
-    description:
-      "Move through publications, research, standards, case studies, methods and ideas for the Built World.",
-    subsections: [
-      ["Books & Publications", "/knowledge/books-publications"],
-      ["Research & Innovation", "/knowledge/research-innovation"],
-      ["Case Studies & Solutions", "/knowledge/case-studies-solutions"],
-      ["Standards & References", "/knowledge/standards-references"],
-      ["Methods & Practice", "/knowledge/methods-practice"],
-      ["Ideas & Insights", "/knowledge/ideas-insights"],
+    example: [
+      "Urban Biodiversity",
+      "Global",
+      "/knowledge/urban-biodiversity",
     ],
-    example: ["Urban Biodiversity", "Global", "/knowledge/urban-biodiversity"],
   },
-  {
-    name: "Arknoz Learning & Education",
-    short: "Learning",
-    href: "/learning",
+
+  learning: {
     image:
       "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1400&q=82",
-    description:
-      "Find structured learning for students, professionals and organisations across the Built World.",
-    subsections: [
-      ["Courses", "/learning?type=courses"],
-      ["Programmes", "/learning?type=programmes"],
-      ["Skills", "/learning?type=skills"],
-      ["Professional Learning", "/learning?type=professional-learning"],
-      ["Tutorials", "/learning?type=tutorials"],
-    ],
     example: null,
   },
-  {
-    name: "Arknoz Opportunities",
-    short: "Opportunities",
-    href: "/opportunities",
+
+  opportunities: {
     image:
       "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1400&q=82",
-    description:
-      "Discover ways to work, compete, study, participate and advance across the Built World.",
-    subsections: [
-      ["Jobs", "/opportunities?type=jobs"],
-      ["Internships", "/opportunities?type=internships"],
-      ["Competitions", "/opportunities?type=competitions"],
-      ["Scholarships", "/opportunities?type=scholarships"],
-      ["Grants", "/opportunities?type=grants"],
-      ["Fellowships", "/opportunities?type=fellowships"],
-      ["Events", "/opportunities?type=events"],
-      ["Awards", "/opportunities?type=awards"],
+    example: [
+      "Research Fellowship",
+      "Global",
+      "/opportunities/research-fellowship",
     ],
-    example: ["Research Fellowship", "Global", "/opportunities/research-fellowship"],
   },
-  {
-    name: "Arknoz People",
-    short: "People",
-    href: "/people",
+
+  people: {
     image:
       "https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1400&q=82",
-    description:
-      "Find the people shaping projects, knowledge, education, products and places.",
-    subsections: [
-      ["Professionals", "/people?type=professionals"],
-      ["Experts", "/people?type=experts"],
-      ["Researchers", "/people?type=researchers"],
-      ["Educators", "/people?type=educators"],
-      ["Students", "/people?type=students"],
-      ["Emerging Professionals", "/people?type=emerging-professionals"],
+    example: [
+      "Stefano Boeri",
+      "Architect",
+      "/people/stefano-boeri",
     ],
-    example: ["Stefano Boeri", "Architect", "/people/stefano-boeri"],
   },
-  {
-    name: "Arknoz Organisations",
-    short: "Organisations",
-    href: "/organisations",
+
+  organisations: {
     image:
       "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1400&q=82",
-    description:
-      "Discover the organisations delivering, manufacturing, regulating, researching and supporting the Built World.",
-    subsections: [
-      ["Firms", "/organisations?type=firms"],
-      ["Manufacturers", "/organisations?type=manufacturers"],
-      ["Contractors", "/organisations?type=contractors"],
-      ["Consultancies", "/organisations?type=consultancies"],
-      ["Professional Bodies", "/organisations?type=professional-bodies"],
-      ["Institutions", "/organisations?type=institutions"],
-      ["Government", "/organisations?type=government"],
+    example: [
+      "White Arkitekter",
+      "Sweden",
+      "/organisations/white-arkitekter",
     ],
-    example: ["White Arkitekter", "Sweden", "/organisations/white-arkitekter"],
   },
-  {
-    name: "Arknoz Universities",
-    short: "Universities",
-    href: "/universities",
+
+  universities: {
     image:
       "https://images.unsplash.com/photo-1564981797816-1043664bf78d?auto=format&fit=crop&w=1400&q=82",
-    description:
-      "Explore universities through their programmes, research, people, labs, student work and partnerships.",
-    subsections: [
-      ["Programmes", "/universities?view=programmes"],
-      ["Research", "/universities?view=research"],
-      ["Faculty", "/universities?view=faculty"],
-      ["Labs", "/universities?view=labs"],
-      ["Student Work", "/universities?view=student-work"],
-      ["Scholarships", "/universities?view=scholarships"],
-      ["Partnerships", "/universities?view=partnerships"],
+    example: [
+      "Politecnico di Milano",
+      "Milan, Italy",
+      "/universities/politecnico-di-milano",
     ],
-    example: ["Politecnico di Milano", "Milan, Italy", "/universities/politecnico-di-milano"],
   },
-  {
-    name: "Arknoz Places",
-    short: "Places",
-    href: "/places",
+
+  places: {
     image:
       "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=1400&q=82",
-    description:
-      "Explore geography as context: from the world to continents, countries, regions, cities and sites.",
-    subsections: [
-      ["World", "/global"],
-      ["Continents", "/global"],
-      ["Countries", "/global"],
-      ["Regions", "/places?type=regions"],
-      ["Cities", "/places?type=cities"],
-      ["Sites", "/places?type=sites"],
-      ["Local Context", "/places?type=context"],
+    example: [
+      "Mumbai",
+      "India",
+      "/global/mumbai",
     ],
-    example: ["Milan", "Italy", "/places/milan"],
   },
-] as const;
+
+  community: {
+    image:
+      "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1400&q=82",
+    example: null,
+  },
+
+  connect: {
+    image:
+      "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1400&q=82",
+    example: null,
+  },
+
+  intelligence: {
+    image:
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=82",
+    example: null,
+  },
+};
+
+const worlds = arknozSections.map(
+  (section) => {
+    const presentation =
+      explorePresentation[
+        section.key
+      ];
+
+    return {
+      key: section.key,
+
+      name:
+        isPaidArknozSection(section.key)
+          ? `Arknoz ${section.title} · PRO`
+          : `Arknoz ${section.title}`,
+
+      short:
+        section.short,
+
+      href:
+        section.href,
+
+      image:
+        presentation?.image ??
+        "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1400&q=82",
+
+      description:
+        section.description,
+
+      subsections:
+        section.subsections.map(
+          (subsection) =>
+            [
+              subsection.label,
+              buildArknozSectionHref(
+                section.key,
+                {
+                  subsection:
+                    subsection.slug,
+                }
+              ),
+            ] as const
+        ),
+
+      example:
+        presentation?.example ??
+        null,
+
+      phase:
+        isPaidArknozSection(section.key)
+          ? "ARKNOZ PRO · LOCKED"
+          : "Current",
+
+      paid:
+        isPaidArknozSection(
+          section.key
+        ),
+    };
+  }
+);
 
 const intents = [
   ["Find inspiring projects", "Discover exemplary projects across regions and disciplines.", "/projects"],
@@ -215,7 +233,7 @@ export default function ExplorePage() {
       <UniversalTopicHero
         eyebrow="EXPLORE"
         title="Explore the Built World."
-        description="Search everything, enter one of the nine worlds, or start with what you want to do."
+        description="Search everything, enter a Built World section, or start with what you want to do."
         searchPlaceholder="Search projects, products, knowledge, people, places..."
         popular={["sustainable buildings", "mass timber", "urban biodiversity", "universities", "jobs", "India"]}
         featured={[
@@ -242,7 +260,7 @@ export default function ExplorePage() {
           },
         ]}
         ticker={[
-          { text: "Explore nine connected Built World sections", href: "#arknoz-worlds" },
+          { text: "Explore the connected Built World", href: "#arknoz-worlds" },
           { text: "Search by project, product, topic, person or place", href: "/search" },
           { text: "Discover genuine records across Arknoz", href: "/featured" },
           { text: "Explore by country, city and local context", href: "/global" },

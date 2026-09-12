@@ -12,6 +12,13 @@ type Feature = {
   image: string;
 };
 
+type PopularItem =
+  | string
+  | {
+      label: string;
+      href: string;
+    };
+
 type TickerItem = {
   text: string;
   href: string;
@@ -22,10 +29,11 @@ type Props = {
   title: string;
   description: string;
   searchPlaceholder: string;
-  popular: string[];
+  popular: PopularItem[];
   featured: Feature[];
   ticker: TickerItem[];
   searchGeo?: string;
+  featuredHref?: string;
 };
 
 function SearchIcon() {
@@ -55,6 +63,7 @@ export default function UniversalTopicHero({
   featured,
   ticker,
   searchGeo,
+  featuredHref,
 }: Props) {
   const router = useRouter();
   const [query, setQuery] = useState("");
@@ -78,9 +87,14 @@ export default function UniversalTopicHero({
     router.push(getSearchHref(value));
   }
 
-  function searchPopular(value: string) {
-    setQuery(value);
-    router.push(getSearchHref(value));
+  function searchPopular(item: PopularItem) {
+    if (typeof item !== "string") {
+      router.push(item.href);
+      return;
+    }
+
+    setQuery(item);
+    router.push(getSearchHref(item));
   }
 
   return (
@@ -96,7 +110,7 @@ export default function UniversalTopicHero({
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,20,37,.97)_0%,rgba(7,27,49,.92)_45%,rgba(7,27,49,.72)_100%)]" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#06182d]/90 via-transparent to-transparent" />
 
-        <div className="relative mx-auto grid min-h-[calc(100vh-132px)] max-w-[1600px] items-center gap-10 px-6 py-8 lg:grid-cols-[1.16fr_.94fr] lg:px-10">
+        <div className="relative mx-auto grid max-w-[1600px] lg:min-h-[calc(100svh-132px)] items-center gap-10 px-6 py-8 lg:grid-cols-[1.16fr_.94fr] lg:px-10">
           <div className="max-w-[830px]">
             <p className="text-[11px] font-bold uppercase tracking-[0.24em] text-blue-200">
               {eyebrow}
@@ -138,12 +152,12 @@ export default function UniversalTopicHero({
               <span className="mr-1 text-slate-300">Popular</span>
               {popular.map((item) => (
                 <button
-                  key={item}
+                  key={typeof item === "string" ? item : item.href}
                   type="button"
                   onClick={() => searchPopular(item)}
                   className="rounded-full border border-white/18 bg-white/8 px-3 py-1.5 text-slate-50 backdrop-blur-sm transition hover:-translate-y-0.5 hover:border-white/30 hover:bg-white/14"
                 >
-                  {item}
+                  {typeof item === "string" ? item : item.label}
                 </button>
               ))}
             </div>
@@ -161,7 +175,7 @@ export default function UniversalTopicHero({
               </div>
 
               <Link
-                href="/featured"
+                href={featuredHref ?? (searchGeo ? `/featured?geo=${encodeURIComponent(searchGeo)}` : "/featured")}
                 className="group inline-flex shrink-0 items-center gap-1.5 text-sm font-semibold text-white"
               >
                 View all

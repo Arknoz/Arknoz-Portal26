@@ -1,17 +1,28 @@
-﻿import WorldIndexPage from "@/components/WorldIndexPage";
+﻿import WorldIndexRoute from "@/components/WorldIndexRoute";
+import { resolveArknozSubsectionFromQuery } from "@/lib/arknoz-route-context";
 
 export default async function Page({
   searchParams,
 }: {
-  searchParams: Promise<{ geo?: string }>;
+  searchParams: Promise<{
+    geo?: string;
+    type?: string;
+    view?: string;
+  }>;
 }) {
-  const { geo } = await searchParams;
+  const params = await searchParams;
+
+  const activeSubsection =
+    resolveArknozSubsectionFromQuery(
+      "opportunities",
+      params
+    );
 
   return (
-    <WorldIndexPage
-      title="Opportunities"
-      description="Jobs, internships, competitions, scholarships, grants, fellowships, events and more."
-      geoSlug={geo}
+    <WorldIndexRoute
+      sectionKey="opportunities"
+      geoSlug={params.geo}
+      activeSubsection={activeSubsection}
     />
   );
 }

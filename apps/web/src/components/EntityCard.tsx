@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import type { EntityRecord } from "@/lib/entities";
 
 const routeByType = {
@@ -12,7 +12,15 @@ const routeByType = {
   place: "places",
 };
 
-export function getEntityHref(entity: EntityRecord) {
+export function getEntityHref(
+  entity: EntityRecord
+) {
+  if (
+    entity.type === "opportunity"
+  ) {
+    return `/opportunities/opportunity/${entity.slug}`;
+  }
+
   return `/${routeByType[entity.type]}/${entity.slug}`;
 }
 

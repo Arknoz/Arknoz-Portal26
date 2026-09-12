@@ -1,4 +1,5 @@
-﻿import { entities, type EntityRecord } from "@/lib/entities";
+import { buildGeographyHref } from "@/lib/geography";
+import { entities, type EntityRecord } from "@/lib/entities";
 import { geography } from "@/lib/geography";
 
 export type SearchResult =
@@ -81,7 +82,7 @@ export function searchArknoz(query: string): SearchResult[] {
       href:
         item.type === "global"
           ? "/global"
-          : `/global/${item.slug}`,
+          : buildGeographyHref(item.slug),
     }));
 
   return [...entityResults, ...geographyResults];

@@ -1,4 +1,6 @@
-﻿"use client";
+"use client";
+
+import { buildGeographyHref } from "@/lib/geography";
 
 import Link from "next/link";
 import { useRef, useState } from "react";
@@ -45,7 +47,7 @@ export default function GeographyRail() {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search country or place..."
-              className="w-[280px] rounded-full border border-slate-300 bg-white px-5 py-3 outline-none focus:border-blue-500"
+              className="w-full sm:w-[280px] rounded-full border border-slate-300 bg-white px-5 py-3 outline-none focus:border-blue-500"
             />
 
             {match ? (
@@ -53,7 +55,7 @@ export default function GeographyRail() {
                 href={
                   match.type === "global"
                     ? "/global"
-                    : `/global/${match.slug}`
+                    : buildGeographyHref(match.slug)
                 }
                 className="rounded-full bg-[#17315c] px-5 py-3 font-semibold text-white"
               >
@@ -103,7 +105,7 @@ export default function GeographyRail() {
             {continents.map((item) => (
               <Link
                 key={item.slug}
-                href={`/global/${item.slug}`}
+                href={buildGeographyHref(item.slug)}
                 className="min-w-[230px] snap-start rounded-2xl border border-slate-200 bg-white p-6 transition hover:-translate-y-1 hover:shadow-lg"
               >
                 <p className="text-sm uppercase tracking-wider text-slate-500">

@@ -1,4 +1,10 @@
-﻿import Link from "next/link";
+import { buildGeographyHref } from "@/lib/geography";
+import {
+  arknozSections,
+  buildArknozSectionHref,
+  isPaidArknozSection,
+} from "@/lib/arknoz-sections";
+import Link from "next/link";
 import GlobalHeader from "@/components/GlobalHeader";
 import GeographyContextBar from "@/components/GeographyContextBar";
 import {
@@ -6,18 +12,18 @@ import {
   getChildren,
 } from "@/lib/geography";
 
-const worlds = [
-  ["Projects", "/projects"],
-  ["Products", "/products"],
-  ["Knowledge", "/knowledge"],
-  ["Learning & Education", "/learning"],
-  ["Opportunities", "/opportunities"],
-  ["People", "/people"],
-  ["Organisations", "/organisations"],
-  ["Universities", "/universities"],
-  ["Places", "/places"],
-  ["Community", "/community"],
-];
+const worlds =
+  arknozSections.map(
+    (section) => ({
+      key: section.key,
+      label: section.title,
+      href: section.href,
+      paid:
+        isPaidArknozSection(
+          section.key
+        ),
+    })
+  );
 
 export default function GeographyPage({
   context,
@@ -53,20 +59,52 @@ export default function GeographyPage({
         </h2>
 
         <div className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-          {worlds.map(([label, href]) => (
+          {worlds.map((item) => (
             <Link
-              key={href}
-              href={`${href}?geo=${context.slug}`}
-              className="rounded-xl border border-slate-200 p-5 transition hover:-translate-y-1 hover:border-blue-300 hover:shadow-md"
+              key={item.key}
+              href={buildArknozSectionHref(
+                item.key,
+                {
+                  geo: context.slug,
+                }
+              )}
+              title={
+                item.paid
+                  ? `${item.label} - Arknoz Pro`
+                  : item.label
+              }
+              className={`rounded-xl border p-5 transition hover:-translate-y-1 hover:shadow-md ${
+                item.paid
+                  ? "border-slate-200 bg-slate-50 text-slate-500"
+                  : "border-slate-200 hover:border-blue-300"
+              }`}
             >
-              <p className="font-semibold">{label}</p>
+              <div className="flex flex-wrap items-start justify-between gap-2">
+                <p className="font-semibold">
+                  {item.label}
+                </p>
+
+                {item.paid && (
+                  <span className="rounded-full border border-slate-300 px-2 py-1 text-[8px] font-bold uppercase tracking-[0.12em]">
+                    Arknoz Pro &middot; Locked
+                  </span>
+                )}
+              </div>
 
               <p className="mt-2 text-sm text-slate-500">
                 {context.name} context
               </p>
 
-              <p className="mt-5 font-bold text-blue-700">
-                →
+              <p
+                className={`mt-5 font-bold ${
+                  item.paid
+                    ? "text-slate-500"
+                    : "text-blue-700"
+                }`}
+              >
+                {item.paid
+                  ? "Preview Arknoz Pro →"
+                  : "→"}
               </p>
             </Link>
           ))}
@@ -84,7 +122,7 @@ export default function GeographyPage({
               {children.map((child) => (
                 <Link
                   key={child.slug}
-                  href={`/global/${child.slug}`}
+                  href={buildGeographyHref(child.slug)}
                   className="min-w-[240px] rounded-xl border border-slate-200 bg-white p-5 transition hover:shadow-md"
                 >
                   <p className="text-xs uppercase tracking-wider text-slate-500">
@@ -110,10 +148,9 @@ export default function GeographyPage({
           <strong>One global format. Local truth.</strong>
 
           <p className="mt-2 max-w-3xl text-slate-600">
-            Arknoz keeps one canonical global architecture while local
-            terminology, evidence, regulation, professional context,
-            availability and geographic relevance change according to the
-            selected place.
+            Arknoz brings together local terminology, evidence, regulation,
+            professional context, availability and geographic relevance for
+            the selected place.
           </p>
         </div>
       </section>

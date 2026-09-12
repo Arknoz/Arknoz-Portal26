@@ -1,4 +1,13 @@
-﻿import Link from "next/link";
+import { entityMatchesGeography } from "@/lib/entity-geography";
+import { entityMatchesSubsection } from "@/lib/entity-subsections";
+import {
+  arknozSections,
+  buildArknozSectionHref,
+  getArknozSection,
+} from "@/lib/arknoz-sections";
+import SectionSubsectionStrip from "@/components/SectionSubsectionStrip";
+import type { ArknozSectionKey } from "@/lib/arknoz-sections";
+import Link from "next/link";
 
 import GlobalHeader from "@/components/GlobalHeader";
 import GlobalFooter from "@/components/GlobalFooter";
@@ -34,227 +43,88 @@ type HeroFeature = {
   image: string;
 };
 
-const worldConfigs: Record<string, WorldConfig> = {
-  Projects: {
-    eyebrow: "PROJECTS",
-    path: "/projects",
-    entityTypes: ["project"],
-    popular: [
-      "Buildings",
-      "Infrastructure",
-      "Interiors",
-      "Landscapes",
-      "Urban & Masterplanning",
-    ],
-    lanes: [
-      "Buildings",
-      "Infrastructure",
-      "Interiors",
-      "Landscapes",
-      "Urban & Masterplanning",
-      "Case Projects",
-    ],
-  },
+function getWorldConfig(
+  title: string,
+  sectionKey?: ArknozSectionKey
+): WorldConfig {
+  const section =
+    sectionKey
+      ? getArknozSection(sectionKey)
+      : arknozSections.find(
+          (item) =>
+            item.title === title
+        );
 
-  Products: {
-    eyebrow: "PRODUCTS",
-    path: "/products",
-    entityTypes: ["product"],
-    popular: [
-      "Materials",
-      "Components",
-      "Building Systems",
-      "Equipment",
-      "Technologies",
-    ],
-    lanes: [
-      "Materials",
-      "Components",
-      "Building Systems",
-      "Equipment",
-      "Technologies",
-    ],
-  },
+  if (!section) {
+    return {
+      eyebrow: title.toUpperCase(),
+      path: "/explore",
+      entityTypes: [],
+      popular: [],
+      lanes: [],
+    };
+  }
 
-  Knowledge: {
-    eyebrow: "KNOWLEDGE",
-    path: "/knowledge",
-    entityTypes: ["knowledge"],
-    popular: [
-      "Books & Publications",
-      "Research & Innovation",
-      "Case Studies & Solutions",
-      "Standards & References",
-    ],
-    lanes: [
-      "Books & Publications",
-      "Research & Innovation",
-      "Case Studies & Solutions",
-      "Standards & References",
-      "Methods & Practice",
-      "Ideas & Insights",
-    ],
-  },
+  return {
+    eyebrow:
+      section.title.toUpperCase(),
 
-  "Learning & Education": {
-    eyebrow: "LEARNING & EDUCATION",
-    path: "/learning",
-    entityTypes: [],
-    popular: [
-      "Courses",
-      "Programmes",
-      "Skills",
-      "Professional Learning",
-      "Resources",
-    ],
-    lanes: [
-      "Courses & Programmes",
-      "Skills & Practice",
-      "Professional Learning",
-      "Workshops & Events",
-      "Learning Resources",
-      "Institutions & Providers",
-    ],
-  },
+    path:
+      section.href,
 
-  Opportunities: {
-    eyebrow: "OPPORTUNITIES",
-    path: "/opportunities",
-    entityTypes: ["opportunity"],
-    popular: [
-      "Jobs",
-      "Competitions",
-      "Internships",
-      "Grants",
-      "Fellowships",
-    ],
-    lanes: [
-      "Jobs",
-      "Internships",
-      "Competitions",
-      "Scholarships",
-      "Grants",
-      "Fellowships",
-      "Events",
-    ],
-  },
+    entityTypes:
+      section.entityTypes,
 
-  People: {
-    eyebrow: "PEOPLE",
-    path: "/people",
-    entityTypes: ["person"],
-    popular: [
-      "Architects",
-      "Engineers",
-      "Researchers",
-      "Educators",
-      "Built World Professionals",
-    ],
-    lanes: [
-      "Architects",
-      "Engineers",
-      "Researchers",
-      "Educators",
-      "Design Leaders",
-      "Built World Professionals",
-    ],
-  },
+    popular:
+      section.subsections
+        .slice(0, 5)
+        .map(
+          (subsection) =>
+            subsection.label
+        ),
 
-  Organisations: {
-    eyebrow: "ORGANISATIONS",
-    path: "/organisations",
-    entityTypes: ["organisation"],
-    popular: [
-      "Practices",
-      "Manufacturers",
-      "Consultancies",
-      "Institutions",
-      "Professional Bodies",
-    ],
-    lanes: [
-      "Practices",
-      "Manufacturers",
-      "Consultancies",
-      "Contractors",
-      "Institutions",
-      "Professional Bodies",
-    ],
-  },
+    lanes:
+      section.subsections.map(
+        (subsection) =>
+          subsection.label
+      ),
+  };
+}
 
-  Universities: {
-    eyebrow: "UNIVERSITIES",
-    path: "/universities",
-    entityTypes: ["university"],
-    popular: [
-      "Programmes",
-      "Research",
-      "Faculty",
-      "Laboratories",
-      "Student Work",
-    ],
-    lanes: [
-      "Programmes",
-      "Research",
-      "Faculty",
-      "Laboratories",
-      "Student Work",
-      "University Networks",
-    ],
-  },
+const connectedWorlds =
+  arknozSections.map(
+    (section) =>
+      [
+        section.title,
+        section.href,
+      ] as const
+  );
 
-  Places: {
-    eyebrow: "PLACES",
-    path: "/places",
-    entityTypes: ["place"],
-    popular: [
-      "Countries",
-      "Regions",
-      "Cities",
-      "Local Context",
-    ],
-    lanes: [
-      "Countries",
-      "Regions",
-      "Cities",
-      "Places",
-      "Local Context",
-    ],
-  },
+function buildConnectedWorldHref(
+  href: string,
+  geoSlug?: string
+) {
+  if (!geoSlug) {
+    return href;
+  }
 
-  Community: {
-    eyebrow: "COMMUNITY",
-    path: "/community",
-    entityTypes: [],
-    popular: [
-      "Members",
-      "Collaboration",
-      "Contribution",
-      "Chapters",
-    ],
-    lanes: [
-      "Arknoz Members",
-      "Collaboration",
-      "Contribution",
-      "Arknoz News & Development",
-      "Competitions & Jobs",
-      "Arknoz Chapters",
-    ],
-  },
-};
+  const section =
+    arknozSections.find(
+      (item) =>
+        item.href === href
+    );
 
-const connectedWorlds = [
-  ["Projects", "/projects"],
-  ["Products", "/products"],
-  ["Knowledge", "/knowledge"],
-  ["Learning & Education", "/learning"],
-  ["Opportunities", "/opportunities"],
-  ["People", "/people"],
-  ["Organisations", "/organisations"],
-  ["Universities", "/universities"],
-  ["Places", "/places"],
-  ["Community", "/community"],
-] as const;
+  if (!section) {
+    return href;
+  }
 
+  return buildArknozSectionHref(
+    section.key,
+    {
+      geo: geoSlug,
+    }
+  );
+}
 const approvedFeatureImages: Record<string, string> = {
   "bosco-verticale":
     "https://www.arup.com/globalassets/images/projects/b/bosco-verticale/bosco-verticale-header.webp?height=1035&quality=80&width=1840",
@@ -426,6 +296,8 @@ function WorldRecordCard({
 }
 
 export default function WorldIndexPage({
+  sectionKey,
+  activeSubsection,
   title,
   description,
   geoSlug,
@@ -433,20 +305,57 @@ export default function WorldIndexPage({
   title: string;
   description: string;
   geoSlug?: string;
+  sectionKey?: ArknozSectionKey;
+  activeSubsection?: string;
 }) {
   const context =
     geoSlug
       ? findGeography(geoSlug)
       : undefined;
 
-  const config =
-    worldConfigs[title] ?? {
-      eyebrow: title.toUpperCase(),
-      path: "/explore",
-      entityTypes: [],
-      popular: [],
-      lanes: [],
-    };
+  const config = getWorldConfig(title, sectionKey);
+  const activeSection =
+    sectionKey
+      ? getArknozSection(sectionKey)
+      : undefined;
+
+  const activeSubsectionConfig =
+    activeSubsection &&
+    activeSection
+      ? activeSection.subsections.find(
+          (subsection) =>
+            subsection.slug ===
+            activeSubsection
+        )
+      : undefined;
+
+  const displayTitle =
+    activeSubsectionConfig?.label ??
+    title;
+
+  const displayDescription =
+    activeSubsectionConfig?.description ??
+    description;
+
+  const heroPopular =
+    activeSection
+      ? activeSection.subsections
+          .map((subsection) => ({
+            label: subsection.label,
+            href: buildArknozSectionHref(
+              activeSection.key,
+              {
+                subsection:
+                  subsection.slug,
+                geo:
+                  context &&
+                  context.type !== "global"
+                    ? context.slug
+                    : undefined,
+              }
+            ),
+          }))
+      : config.popular;
 
   const worldRecords =
     config.entityTypes.length > 0
@@ -461,9 +370,14 @@ export default function WorldIndexPage({
   const visibleRecords =
     worldRecords.filter(
       (entity) =>
-        matchesContext(
+        entityMatchesGeography(
           entity,
           context
+        ) &&
+        entityMatchesSubsection(
+          entity,
+          sectionKey,
+          activeSubsection
         )
     );
 
@@ -501,22 +415,96 @@ export default function WorldIndexPage({
       ? context.name
       : undefined;
 
+  const heroEyebrowBase =
+    activeSubsectionConfig
+      ? `${config.eyebrow} · ${activeSubsectionConfig.label.toUpperCase()}`
+      : config.eyebrow;
+
+  const heroEyebrow =
+    locationLabel
+      ? `${locationLabel.toUpperCase()} · ${heroEyebrowBase}`
+      : heroEyebrowBase;
+
   const heroTitle =
     locationLabel
-      ? `${title} in ${locationLabel}.`
-      : `Explore ${title}.`;
+      ? `${displayTitle} in ${locationLabel}.`
+      : `Explore ${displayTitle}.`;
 
   const heroDescription =
     locationLabel
-      ? `${description} Explore genuine Arknoz records connected to ${locationLabel} without duplicating their canonical identity.`
-      : description;
+      ? `${displayDescription} Explore genuine Arknoz records connected to ${locationLabel} without duplicating their canonical identity.`
+      : displayDescription;
 
+  const discoverLanes =
+    activeSection
+      ? activeSection.subsections.map(
+          (subsection) => ({
+            label:
+              subsection.label,
+            href:
+              buildArknozSectionHref(
+                activeSection.key,
+                {
+                  subsection:
+                    subsection.slug,
+                  geo:
+                    context &&
+                    context.type !==
+                      "global"
+                      ? context.slug
+                      : undefined,
+                }
+              ),
+          })
+        )
+      : config.lanes.map(
+          (lane) => ({
+            label: lane,
+            href: `/search?q=${encodeURIComponent(
+              lane
+            )}`,
+          })
+        );
+  const featuredSearchParams =
+    new URLSearchParams();
+
+  if (sectionKey) {
+    featuredSearchParams.set(
+      "section",
+      sectionKey
+    );
+  }
+
+  if (activeSubsection) {
+    featuredSearchParams.set(
+      "subsection",
+      activeSubsection
+    );
+  }
+
+  if (
+    context &&
+    context.type !== "global"
+  ) {
+    featuredSearchParams.set(
+      "geo",
+      context.slug
+    );
+  }
+
+  const featuredQuery =
+    featuredSearchParams.toString();
+
+  const featuredHref =
+    featuredQuery
+      ? `/featured?${featuredQuery}`
+      : "/featured";
   const ticker = [
     {
       text:
         locationLabel
-          ? `Explore ${title.toLowerCase()} connected to ${locationLabel}`
-          : `Explore genuine ${title.toLowerCase()} across Arknoz`,
+          ? `Explore ${displayTitle.toLowerCase()} connected to ${locationLabel}`
+          : `Explore genuine ${displayTitle.toLowerCase()} across Arknoz`,
       href: "#records",
     },
     {
@@ -544,12 +532,22 @@ export default function WorldIndexPage({
           />
         )}
 
+      {sectionKey === "knowledge" && (
+        <SectionSubsectionStrip
+          sectionKey={sectionKey}
+          geoSlug={
+            context &&
+            context.type !== "global"
+              ? context.slug
+              : undefined
+          }
+          activeSubsection={
+            activeSubsection
+          }
+        />
+      )}
       <UniversalTopicHero
-        eyebrow={
-          locationLabel
-            ? `${locationLabel.toUpperCase()} · ${config.eyebrow}`
-            : config.eyebrow
-        }
+        eyebrow={heroEyebrow}
         title={heroTitle}
         description={
           heroDescription
@@ -557,7 +555,7 @@ export default function WorldIndexPage({
         searchPlaceholder={
           locationLabel
             ? `Search ${title.toLowerCase()} in ${locationLabel}...`
-            : `Search ${title.toLowerCase()}...`
+            : `Search ${displayTitle.toLowerCase()}...`
         }
         searchGeo={
           context &&
@@ -566,11 +564,27 @@ export default function WorldIndexPage({
             : undefined
         }
         popular={
-          config.popular
+          heroPopular
         }
         featured={featured}
+        featuredHref={featuredHref}
         ticker={ticker}
       />
+      {sectionKey &&
+        sectionKey !== "knowledge" && (
+          <SectionSubsectionStrip
+            sectionKey={sectionKey}
+            geoSlug={
+              context &&
+              context.type !== "global"
+                ? context.slug
+                : undefined
+            }
+            activeSubsection={
+              activeSubsection
+            }
+          />
+        )}
 
       <section
         id="explore-world"
@@ -594,13 +608,11 @@ export default function WorldIndexPage({
           </p>
 
           <div className="mt-7 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {config.lanes.map(
+            {discoverLanes.map(
               (lane) => (
                 <Link
-                  key={lane}
-                  href={`/search?q=${encodeURIComponent(
-                    lane
-                  )}`}
+                  key={lane.href}
+                  href={lane.href}
                   className="group rounded-[20px] bg-white p-5 shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-1 hover:shadow-md"
                 >
                   <p className="text-[9px] font-bold uppercase tracking-[0.16em] text-blue-700">
@@ -608,7 +620,7 @@ export default function WorldIndexPage({
                   </p>
 
                   <p className="mt-4 text-lg font-bold text-slate-950">
-                    {lane}
+                    {lane.label}
                   </p>
 
                   <p className="mt-5 text-sm font-bold text-blue-700">
@@ -714,7 +726,7 @@ export default function WorldIndexPage({
                     key={href}
                     href={
                       locationLabel
-                        ? `${href}?geo=${context?.slug}`
+                        ? buildConnectedWorldHref(href, context?.slug)
                         : href
                     }
                     className={`rounded-[20px] p-5 transition hover:-translate-y-1 hover:shadow-md ${

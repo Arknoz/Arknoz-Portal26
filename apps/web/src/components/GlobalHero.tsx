@@ -82,7 +82,7 @@ export default function GlobalHero() {
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,20,37,.97)_0%,rgba(7,27,49,.92)_45%,rgba(7,27,49,.72)_100%)]" />
       <div className="absolute inset-0 bg-gradient-to-t from-[#06182d]/90 via-transparent to-transparent" />
 
-      <div className="relative mx-auto grid min-h-[calc(100vh-132px)] max-w-[1600px] items-center gap-10 px-6 py-8 lg:grid-cols-[1.16fr_.94fr] lg:px-10">
+      <div className="relative mx-auto grid max-w-[1600px] lg:min-h-[calc(100svh-132px)] items-center gap-10 px-6 py-8 lg:grid-cols-[1.16fr_.94fr] lg:px-10">
         <div className="max-w-[820px]">
           <p className="text-[11px] font-bold uppercase tracking-[0.24em] text-blue-200">
             THE DIGITAL BUILT WORLD

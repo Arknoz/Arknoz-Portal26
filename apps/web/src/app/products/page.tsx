@@ -1,17 +1,28 @@
-﻿import WorldIndexPage from "@/components/WorldIndexPage";
+﻿import WorldIndexRoute from "@/components/WorldIndexRoute";
+import { resolveArknozSubsectionFromQuery } from "@/lib/arknoz-route-context";
 
 export default async function Page({
   searchParams,
 }: {
-  searchParams: Promise<{ geo?: string }>;
+  searchParams: Promise<{
+    geo?: string;
+    type?: string;
+    view?: string;
+  }>;
 }) {
-  const { geo } = await searchParams;
+  const params = await searchParams;
+
+  const activeSubsection =
+    resolveArknozSubsectionFromQuery(
+      "products",
+      params
+    );
 
   return (
-    <WorldIndexPage
-      title="Products"
-      description="Materials, components, systems, equipment and Built World solutions."
-      geoSlug={geo}
+    <WorldIndexRoute
+      sectionKey="products"
+      geoSlug={params.geo}
+      activeSubsection={activeSubsection}
     />
   );
 }

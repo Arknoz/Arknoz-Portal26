@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState } from "react";
 import Link from "next/link";
@@ -541,7 +541,7 @@ export default function OpportunityDetailTabs({
                     title:
                       "Build relevant knowledge",
                     label: "LEARNING",
-                    href: "/education",
+                    href: "/learning",
                   },
                   {
                     title:

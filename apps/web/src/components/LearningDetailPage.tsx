@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 
 import GlobalHeader from "@/components/GlobalHeader";
 import GlobalFooter from "@/components/GlobalFooter";
@@ -108,7 +108,7 @@ export default function LearningDetailPage({
 
             <nav className="mb-4 flex shrink-0 flex-wrap items-center gap-2 text-[11px] font-semibold">
               <Link
-                href="/education"
+                href="/learning"
                 className="text-blue-700"
               >
                 Education
@@ -294,7 +294,7 @@ export default function LearningDetailPage({
                 CONTINUE
               </span>
 
-              <Link href="/education">
+              <Link href="/learning">
                 Education →
               </Link>
 
