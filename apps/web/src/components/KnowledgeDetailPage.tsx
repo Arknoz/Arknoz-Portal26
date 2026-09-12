@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 
 import GlobalHeader from "@/components/GlobalHeader";
 import GlobalFooter from "@/components/GlobalFooter";
@@ -9,9 +9,8 @@ import type {
   EntityRecord,
 } from "@/lib/entities";
 
-import {
-  getKnowledgeDetail,
-  type KnowledgeDetailData,
+import type {
+  KnowledgeDetailData,
 } from "@/lib/knowledge-details";
 
 function KnowledgeHeroVisual({
@@ -88,11 +87,13 @@ function KnowledgeHeroVisual({
 
 export default function KnowledgeDetailPage({
   entity,
+  detail,
+  relatedKnowledge = [],
 }: {
   entity: EntityRecord;
+  detail?: KnowledgeDetailData;
+  relatedKnowledge?: EntityRecord[];
 }) {
-  const detail =
-    getKnowledgeDetail(entity.slug);
 
   const facts = detail?.facts ?? [];
 
@@ -293,6 +294,7 @@ export default function KnowledgeDetailPage({
               <KnowledgeDetailTabs
                 entity={entity}
                 detail={detail}
+                relatedKnowledge={relatedKnowledge}
               />
             </div>
 

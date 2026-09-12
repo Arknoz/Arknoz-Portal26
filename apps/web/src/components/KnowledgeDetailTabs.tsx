@@ -3,9 +3,8 @@
 import { useState } from "react";
 import Link from "next/link";
 
-import {
-  entities,
-  type EntityRecord,
+import type {
+  EntityRecord,
 } from "@/lib/entities";
 
 import type {
@@ -109,9 +108,11 @@ function KnowledgeSignal({
 export default function KnowledgeDetailTabs({
   entity,
   detail,
+  relatedKnowledge = [],
 }: {
   entity: EntityRecord;
   detail?: KnowledgeDetailData;
+  relatedKnowledge?: EntityRecord[];
 }) {
   const [active, setActive] =
     useState<TabKey>("overview");
@@ -124,7 +125,7 @@ export default function KnowledgeDetailTabs({
   const topics = detail?.topics ?? [];
   const sources = detail?.sources ?? [];
 
-  const moreKnowledge = entities
+  const moreKnowledge = relatedKnowledge
     .filter(
       (item) =>
         item.type === "knowledge" &&
