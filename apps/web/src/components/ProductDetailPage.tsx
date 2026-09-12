@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 
 import GlobalHeader from "@/components/GlobalHeader";
 import GlobalFooter from "@/components/GlobalFooter";
@@ -9,9 +9,8 @@ import type {
   EntityRecord,
 } from "@/lib/entities";
 
-import {
-  getProductDetail,
-  type ProductDetailData,
+import type {
+  ProductDetailData,
 } from "@/lib/product-details";
 
 function ProductHeroVisual({
@@ -122,11 +121,11 @@ function ProductHeroVisual({
 
 export default function ProductDetailPage({
   entity,
+  detail,
 }: {
   entity: EntityRecord;
+  detail?: ProductDetailData;
 }) {
-  const detail =
-    getProductDetail(entity.slug);
 
   const facts = detail?.facts ?? [];
 

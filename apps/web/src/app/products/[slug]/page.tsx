@@ -1,7 +1,8 @@
-﻿import { notFound } from "next/navigation";
+import { notFound } from "next/navigation";
 
 import ProductDetailPage from "@/components/ProductDetailPage";
-import { getEntity } from "@/lib/entities";
+import { getProductionEntity } from "@/lib/data/production-entities";
+import { getProductionProductDetail } from "@/lib/data/production-product-detail";
 
 export default async function Page({
   params,
@@ -10,11 +11,14 @@ export default async function Page({
 }) {
   const { slug } = await params;
 
-  const entity = getEntity("product", slug);
+  const [entity, detail] = await Promise.all([
+    getProductionEntity("product", slug),
+    getProductionProductDetail(slug),
+  ]);
 
   if (!entity) {
     notFound();
   }
 
-  return <ProductDetailPage entity={entity} />;
+  return <ProductDetailPage entity={entity} detail={detail} />;
 }
