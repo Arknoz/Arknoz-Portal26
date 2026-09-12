@@ -3,6 +3,7 @@
 import GeographyPage from "@/components/geography/GeographyPage";
 import ContinentGeographyPage from "@/components/geography/ContinentGeographyPage";
 import CountryGeographyPage from "@/components/geography/CountryGeographyPage";
+import RegionGeographyPage from "@/components/geography/RegionGeographyPage";
 
 import {
   findGeography,
@@ -45,6 +46,17 @@ export default async function Page({
   ) {
     return (
       <CountryGeographyPage
+        context={context}
+      />
+    );
+  }
+
+  if (
+    context.type ===
+    "region"
+  ) {
+    return (
+      <RegionGeographyPage
         context={context}
       />
     );
