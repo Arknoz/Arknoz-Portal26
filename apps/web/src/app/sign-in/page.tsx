@@ -1,6 +1,8 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import GlobalHeader from "@/components/GlobalHeader";
 import GlobalFooter from "@/components/GlobalFooter";
+import ArknozEmailOtpForm from "@/components/auth/ArknozEmailOtpForm";
+import { sanitizeReturnTo } from "@/lib/auth/return-to";
 
 export default async function SignInPage({
   searchParams,
@@ -10,7 +12,21 @@ export default async function SignInPage({
     action?: string;
   }>;
 }) {
-  const { returnTo = "/", action } = await searchParams;
+  const { returnTo, action } = await searchParams;
+  const safeReturnTo = sanitizeReturnTo(returnTo);
+
+  const joinParams = new URLSearchParams();
+
+  if (safeReturnTo !== "/") {
+    joinParams.set("returnTo", safeReturnTo);
+  }
+
+  if (action) {
+    joinParams.set("action", action);
+  }
+
+  const joinQuery = joinParams.toString();
+  const joinHref = joinQuery ? `/join?${joinQuery}` : "/join";
 
   return (
     <main className="min-h-screen bg-white">
@@ -26,8 +42,8 @@ export default async function SignInPage({
         </h1>
 
         <p className="mt-4 leading-7 text-slate-600">
-          Your Arknoz ID will keep your saved entities, follows,
-          collections and preferences together.
+          Access your saved entities, follows, collections and member
+          activity with your free Arknoz ID.
         </p>
 
         {action && (
@@ -40,30 +56,25 @@ export default async function SignInPage({
           </div>
         )}
 
-        <div className="mt-8 rounded-2xl border border-slate-200 p-7">
-          <p className="font-semibold">
-            Authentication integration is the next production step.
-          </p>
+        <ArknozEmailOtpForm
+          mode="sign-in"
+          returnTo={safeReturnTo}
+          action={action}
+        />
 
-          <p className="mt-2 text-sm leading-6 text-slate-600">
-            We will connect this screen to Supabase Auth rather than
-            creating fake local authentication.
-          </p>
-        </div>
-
-        <div className="mt-7 flex gap-5">
+        <div className="mt-7 flex flex-wrap gap-5">
           <Link
-            href={returnTo}
+            href={safeReturnTo}
             className="font-semibold text-blue-700"
           >
             ← Return
           </Link>
 
           <Link
-            href="/join"
+            href={joinHref}
             className="font-semibold text-blue-700"
           >
-            Create Arknoz ID →
+            Create free Arknoz ID →
           </Link>
         </div>
       </section>

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 
 import LanguageControl from "@/components/LanguageControl";
+import HeaderAuthControls from "@/components/auth/HeaderAuthControls";
 
 import {
   arknozSections,
@@ -157,19 +158,7 @@ export default function GlobalHeader() {
 
           <LanguageControl compact />
 
-          <Link
-            href="/sign-in"
-            className="px-2 hover:text-[#17315c]"
-          >
-            Sign in
-          </Link>
-
-          <Link
-            href="/join"
-            className="rounded-md bg-[#17315c] px-4 py-2.5 font-semibold text-white hover:bg-[#102541]"
-          >
-            Join Arknoz
-          </Link>
+          <HeaderAuthControls />
         </div>
 
         <button
@@ -235,25 +224,12 @@ export default function GlobalHeader() {
                 <LanguageControl />
               </div>
 
-              <Link
-                href="/sign-in"
-                onClick={() =>
+              <HeaderAuthControls
+                mobile
+                onNavigate={() =>
                   setOpen(false)
                 }
-                className="rounded-lg border border-slate-300 px-4 py-3 text-center font-semibold"
-              >
-                Sign in
-              </Link>
-
-              <Link
-                href="/join"
-                onClick={() =>
-                  setOpen(false)
-                }
-                className="rounded-lg bg-[#17315c] px-4 py-3 text-center font-semibold text-white"
-              >
-                Join Arknoz
-              </Link>
+              />
             </div>
           </div>
         </div>

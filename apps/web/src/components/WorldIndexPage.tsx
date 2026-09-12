@@ -14,6 +14,7 @@ import GlobalFooter from "@/components/GlobalFooter";
 import UniversalFooterStrip from "@/components/UniversalFooterStrip";
 import UniversalTopicHero from "@/components/UniversalTopicHero";
 import GeographyContextBar from "@/components/GeographyContextBar";
+import CommunityMemberAccess from "@/components/auth/CommunityMemberAccess";
 
 import {
   entities,
@@ -521,6 +522,22 @@ export default function WorldIndexPage({
     },
   ];
 
+  const communityParams = new URLSearchParams();
+
+  if (geoSlug) {
+    communityParams.set("geo", geoSlug);
+  }
+
+  if (activeSubsection) {
+    communityParams.set("type", activeSubsection);
+  }
+
+  const communityQuery = communityParams.toString();
+
+  const communityReturnTo = communityQuery
+    ? `/community?${communityQuery}`
+    : "/community";
+
   return (
     <main className="min-h-screen bg-white">
       <GlobalHeader />
@@ -585,6 +602,13 @@ export default function WorldIndexPage({
             }
           />
         )}
+
+      {sectionKey === "community" && (
+        <CommunityMemberAccess
+          returnTo={communityReturnTo}
+          area={activeSubsection}
+        />
+      )}
 
       <section
         id="explore-world"

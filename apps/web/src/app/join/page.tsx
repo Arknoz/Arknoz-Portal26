@@ -1,8 +1,35 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import GlobalHeader from "@/components/GlobalHeader";
 import GlobalFooter from "@/components/GlobalFooter";
+import ArknozEmailOtpForm from "@/components/auth/ArknozEmailOtpForm";
+import { sanitizeReturnTo } from "@/lib/auth/return-to";
 
-export default function JoinPage() {
+export default async function JoinPage({
+  searchParams,
+}: {
+  searchParams: Promise<{
+    returnTo?: string;
+    action?: string;
+  }>;
+}) {
+  const { returnTo, action } = await searchParams;
+  const safeReturnTo = sanitizeReturnTo(returnTo);
+
+  const signInParams = new URLSearchParams();
+
+  if (safeReturnTo !== "/") {
+    signInParams.set("returnTo", safeReturnTo);
+  }
+
+  if (action) {
+    signInParams.set("action", action);
+  }
+
+  const signInQuery = signInParams.toString();
+  const signInHref = signInQuery
+    ? `/sign-in?${signInQuery}`
+    : "/sign-in";
+
   return (
     <main className="min-h-screen bg-white">
       <GlobalHeader />
@@ -17,8 +44,8 @@ export default function JoinPage() {
         </h1>
 
         <p className="mt-5 text-xl leading-8 text-slate-600">
-          Join to save projects, follow topics, organise collections
-          and personalise what Arknoz shows you.
+          Create your free Arknoz ID to save, follow, organise,
+          contribute and participate across the Built World.
         </p>
 
         <div className="mt-10 grid gap-4 sm:grid-cols-2">
@@ -28,7 +55,7 @@ export default function JoinPage() {
             "Build collections",
             "Personalise your interests",
             "Track opportunities",
-            "Continue where you left off",
+            "Participate in Community",
           ].map((item) => (
             <div
               key={item}
@@ -40,16 +67,20 @@ export default function JoinPage() {
         </div>
 
         <div className="mt-10 rounded-2xl border border-blue-100 bg-blue-50 p-7">
-          <strong>Arknoz Phase 1 membership is free.</strong>
-
+          <strong>Arknoz ID is free.</strong>
           <p className="mt-2 text-slate-600">
-            Supabase authentication will be connected in the next
-            implementation step.
+            One account connects your activity across Arknoz.
           </p>
         </div>
 
+        <ArknozEmailOtpForm
+          mode="join"
+          returnTo={safeReturnTo}
+          action={action}
+        />
+
         <Link
-          href="/sign-in"
+          href={signInHref}
           className="mt-8 inline-block font-semibold text-blue-700"
         >
           Already have an Arknoz ID? Sign in →
