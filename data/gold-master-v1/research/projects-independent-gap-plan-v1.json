@@ -1,0 +1,113 @@
+{
+  "standard": "ARKNOZ-GOLD-MASTER-V1",
+  "package": "PROJECT-INDEPENDENT-GAP-PLAN-V1",
+  "total_gaps": 18,
+  "direct_independent_closures": 16,
+  "facts_requiring_revision": 2,
+
+  "independent_sources": [
+
+    {
+      "source_key": "mhnsw-sydney-opera-house-history",
+      "organisation": "Museums of History NSW",
+      "independent": true,
+      "url": "https://mhnsw.au/stories/on-this-day/2-march-1959/",
+      "supports": [
+        "sydney-opera-house|construction_started"
+      ]
+    },
+
+    {
+      "source_key": "mhnsw-sydney-opera-house-opening",
+      "organisation": "Museums of History NSW",
+      "independent": true,
+      "url": "https://mhnsw.au/stories/on-this-day/20-october-1973/",
+      "supports": [
+        "sydney-opera-house|opened_year"
+      ]
+    },
+
+    {
+      "source_key": "orr-elizabeth-line-opening",
+      "organisation": "Office of Rail and Road",
+      "independent": true,
+      "url": "https://www.orr.gov.uk/search-news/orr-confirms-green-light-elizabeth-line-opening",
+      "supports": [
+        "elizabeth-line|revenue_service_opened",
+        "elizabeth-line|western_connections",
+        "elizabeth-line|eastern_connections"
+      ]
+    },
+
+    {
+      "source_key": "ice-crossrail",
+      "organisation": "Institution of Civil Engineers",
+      "independent": true,
+      "url": "https://www.ice.org.uk/what-is-civil-engineering/infrastructure-projects/crossrail",
+      "supports": [
+        "elizabeth-line|new_tunnel_length_km",
+        "elizabeth-line|central_london_rail_capacity_increase"
+      ]
+    },
+
+    {
+      "source_key": "laf-high-line",
+      "organisation": "Landscape Architecture Foundation",
+      "independent": true,
+      "url": "https://www.landscapeperformance.org/case-study-briefs/high-line",
+      "supports": [
+        "high-line-new-york|project_type",
+        "high-line-new-york|length_miles",
+        "high-line-new-york|area_acres",
+        "high-line-new-york|design_collaborators",
+        "high-line-new-york|first_section_opened"
+      ]
+    },
+
+    {
+      "source_key": "asla-high-line",
+      "organisation": "American Society of Landscape Architects",
+      "independent": true,
+      "url": "https://www.asla.org/awards-events-main-landing/honors-awards/pro-student-awards/2010-professional-awards/173",
+      "supports": [
+        "high-line-new-york|project_lead",
+        "high-line-new-york|design_collaborators"
+      ]
+    },
+
+    {
+      "source_key": "guardian-noor-2016",
+      "organisation": "The Guardian",
+      "independent": true,
+      "url": "https://www.theguardian.com/environment/2016/feb/04/morocco-to-switch-on-first-phase-of-worlds-largest-solar-plant",
+      "supports": [
+        "noor-ouarzazate-solar-complex|overall_capacity_mw",
+        "noor-ouarzazate-solar-complex|noor_i_capacity_mw",
+        "noor-ouarzazate-solar-complex|noor_i_commissioned"
+      ]
+    }
+
+  ],
+
+  "revision_required": [
+
+    {
+      "project": "noor-ouarzazate-solar-complex",
+      "current_fact_key": "project_type",
+      "current_value": "Multi-technology solar power complex",
+      "action": "REVISE",
+      "proposed_fact_key": "project_type",
+      "proposed_value": "Solar power complex",
+      "reason": "Do not publish a more specific technology characterization until independent evidence explicitly supports the wording."
+    },
+
+    {
+      "project": "noor-ouarzazate-solar-complex",
+      "current_fact_key": "csp_complex_operational_since",
+      "current_value": "2018-10",
+      "action": "REVISE_OR_HOLD",
+      "reason": "Existing project evidence supports the date, but independent evidence at exact month precision is not strong enough for Gold Master publication."
+    }
+
+  ]
+}

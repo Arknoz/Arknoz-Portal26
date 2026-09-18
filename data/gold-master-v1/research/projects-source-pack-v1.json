@@ -1,0 +1,497 @@
+{
+    "standard":  "ARKNOZ-GOLD-MASTER-V1",
+    "package":  "PROJECTS-SOURCE-PACK-V1",
+    "status":  "candidate_research",
+    "records":  [
+                    {
+                        "entity_type":  "project",
+                        "slug":  "sydney-opera-house",
+                        "title":  "Sydney Opera House",
+                        "canonical_path":  "/projects/sydney-opera-house",
+                        "project_parent":  "Buildings",
+                        "geography_label":  "Sydney, Australia",
+                        "geography_slug":  "australia/sydney",
+                        "sources":  [
+                                        {
+                                            "source_key":  "sydney-opera-house-official",
+                                            "label":  "Sydney Opera House â€” Our Story",
+                                            "organisation":  "Sydney Opera House",
+                                            "source_type":  "official",
+                                            "independent":  false,
+                                            "url":  "https://www.sydneyoperahouse.com/our-story",
+                                            "last_checked_at":  "2026-09-18"
+                                        },
+                                        {
+                                            "source_key":  "unesco-sydney-opera-house",
+                                            "label":  "Sydney Opera House â€” World Heritage record",
+                                            "organisation":  "UNESCO World Heritage Centre",
+                                            "source_type":  "institutional",
+                                            "independent":  true,
+                                            "url":  "https://whc.unesco.org/en/list/166",
+                                            "last_checked_at":  "2026-09-18"
+                                        }
+                                    ],
+                        "facts":  [
+                                      {
+                                          "fact_key":  "architect",
+                                          "label":  "Architect",
+                                          "value":  "JÃ¸rn Utzon",
+                                          "origin_type":  "source_extract",
+                                          "fact_status":  "candidate",
+                                          "source_keys":  [
+                                                              "sydney-opera-house-official",
+                                                              "unesco-sydney-opera-house"
+                                                          ],
+                                          "evidence":  [
+                                                           {
+                                                               "source_key":  "sydney-opera-house-official",
+                                                               "locator":  "Our story — introduction: designed by Danish architect Jørn Utzon"
+                                                           },
+                                                           {
+                                                               "source_key":  "unesco-sydney-opera-house",
+                                                               "locator":  "Outstanding Universal Value — Utzon original design concept"
+                                                           }
+                                                       ]
+                                      },
+                                      {
+                                          "fact_key":  "construction_started",
+                                          "label":  "Construction started",
+                                          "value":  "1959-03-02",
+                                          "origin_type":  "source_extract",
+                                          "fact_status":  "candidate",
+                                          "source_keys":  [
+                                                              "sydney-opera-house-official"
+                                                          ],
+                                          "evidence":  [
+                                                           {
+                                                               "source_key":  "sydney-opera-house-official",
+                                                               "locator":  "Our story \u003e Construction begins — ceremony marking construction start on 2 March 1959"
+                                                           }
+                                                       ]
+                                      },
+                                      {
+                                          "fact_key":  "opened_year",
+                                          "label":  "Opened",
+                                          "value":  1973,
+                                          "origin_type":  "source_extract",
+                                          "fact_status":  "candidate",
+                                          "source_keys":  [
+                                                              "sydney-opera-house-official"
+                                                          ],
+                                          "evidence":  [
+                                                           {
+                                                               "source_key":  "sydney-opera-house-official",
+                                                               "locator":  "Our story — Opera House opened its doors in 1973"
+                                                           }
+                                                       ]
+                                      },
+                                      {
+                                          "fact_key":  "world_heritage_inscription_year",
+                                          "label":  "World Heritage inscription",
+                                          "value":  2007,
+                                          "origin_type":  "source_extract",
+                                          "fact_status":  "candidate",
+                                          "source_keys":  [
+                                                              "unesco-sydney-opera-house"
+                                                          ],
+                                          "evidence":  [
+                                                           {
+                                                               "source_key":  "unesco-sydney-opera-house",
+                                                               "locator":  "World Heritage property metadata — Date of Inscription: 2007"
+                                                           }
+                                                       ]
+                                      },
+                                      {
+                                          "fact_key":  "world_heritage_criterion",
+                                          "label":  "World Heritage criterion",
+                                          "value":  "i",
+                                          "origin_type":  "source_extract",
+                                          "fact_status":  "candidate",
+                                          "source_keys":  [
+                                                              "unesco-sydney-opera-house"
+                                                          ],
+                                          "evidence":  [
+                                                           {
+                                                               "source_key":  "unesco-sydney-opera-house",
+                                                               "locator":  "World Heritage property metadata / Outstanding Universal Value — Criterion (i)"
+                                                           }
+                                                       ]
+                                      }
+                                  ]
+                    },
+                    {
+                        "entity_type":  "project",
+                        "slug":  "elizabeth-line",
+                        "title":  "Elizabeth Line",
+                        "canonical_path":  "/projects/elizabeth-line",
+                        "project_parent":  "Transport",
+                        "geography_label":  "London, United Kingdom",
+                        "geography_slug":  "united-kingdom/london",
+                        "sources":  [
+                                        {
+                                            "source_key":  "tfl-elizabeth-line",
+                                            "label":  "Elizabeth line â€” Transport for London",
+                                            "organisation":  "Transport for London",
+                                            "source_type":  "official",
+                                            "independent":  false,
+                                            "url":  "https://tfl-newsroom.prgloo.com/news/tfl-press-release-elizabeth-line-to-open-on-24-may-2022",
+                                            "last_checked_at":  "2026-09-18"
+                                        },
+                                        {
+                                            "source_key":  "arup-crossrail-elizabeth-line",
+                                            "label":  "Crossrail / Elizabeth Line",
+                                            "organisation":  "Arup",
+                                            "source_type":  "project_partner",
+                                            "independent":  false,
+                                            "url":  "https://www.arup.com/projects/crossrail-elizabeth-line-tunnelling-design/",
+                                            "last_checked_at":  "2026-09-18"
+                                        }
+                                    ],
+                        "facts":  [
+                                      {
+                                          "fact_key":  "revenue_service_opened",
+                                          "label":  "Revenue service opened",
+                                          "value":  "2022-05-24",
+                                          "origin_type":  "source_extract",
+                                          "fact_status":  "candidate",
+                                          "source_keys":  [
+                                                              "tfl-elizabeth-line"
+                                                          ],
+                                          "evidence":  [
+                                                           {
+                                                               "source_key":  "tfl-elizabeth-line",
+                                                               "locator":  "TfL press release — Elizabeth line to open on Tuesday 24 May 2022"
+                                                           }
+                                                       ]
+                                      },
+                                      {
+                                          "fact_key":  "new_tunnel_length_km",
+                                          "label":  "New tunnel length",
+                                          "value":  42,
+                                          "unit":  "km",
+                                          "origin_type":  "source_extract",
+                                          "fact_status":  "candidate",
+                                          "source_keys":  [
+                                                              "arup-crossrail-elizabeth-line"
+                                                          ],
+                                          "evidence":  [
+                                                           {
+                                                               "source_key":  "arup-crossrail-elizabeth-line",
+                                                               "locator":  "Project overview — Arup/Atkins JV designed 42 km of new tunnels"
+                                                           }
+                                                       ]
+                                      },
+                                      {
+                                          "fact_key":  "western_connections",
+                                          "label":  "Western connections",
+                                          "value":  [
+                                                        "Reading",
+                                                        "Heathrow"
+                                                    ],
+                                          "origin_type":  "source_extract",
+                                          "fact_status":  "candidate",
+                                          "source_keys":  [
+                                                              "arup-crossrail-elizabeth-line"
+                                                          ],
+                                          "evidence":  [
+                                                           {
+                                                               "source_key":  "arup-crossrail-elizabeth-line",
+                                                               "locator":  "Project overview — service from Reading and Heathrow in the west"
+                                                           }
+                                                       ]
+                                      },
+                                      {
+                                          "fact_key":  "eastern_connections",
+                                          "label":  "Eastern connections",
+                                          "value":  [
+                                                        "Shenfield",
+                                                        "Abbey Wood"
+                                                    ],
+                                          "origin_type":  "source_extract",
+                                          "fact_status":  "candidate",
+                                          "source_keys":  [
+                                                              "arup-crossrail-elizabeth-line"
+                                                          ],
+                                          "evidence":  [
+                                                           {
+                                                               "source_key":  "arup-crossrail-elizabeth-line",
+                                                               "locator":  "Project overview — reaches Shenfield and Abbey Wood in the east"
+                                                           }
+                                                       ]
+                                      },
+                                      {
+                                          "fact_key":  "central_london_rail_capacity_increase",
+                                          "label":  "Central London rail capacity increase",
+                                          "value":  10,
+                                          "unit":  "percent",
+                                          "origin_type":  "source_extract",
+                                          "fact_status":  "candidate",
+                                          "source_keys":  [
+                                                              "arup-crossrail-elizabeth-line"
+                                                          ],
+                                          "evidence":  [
+                                                           {
+                                                               "source_key":  "arup-crossrail-elizabeth-line",
+                                                               "locator":  "Project overview — increased central London rail capacity by 10%"
+                                                           }
+                                                       ]
+                                      }
+                                  ]
+                    },
+                    {
+                        "entity_type":  "project",
+                        "slug":  "high-line-new-york",
+                        "title":  "High Line",
+                        "canonical_path":  "/projects/high-line-new-york",
+                        "project_parent":  "Landscape \u0026 Public Realm",
+                        "geography_label":  "New York, United States",
+                        "geography_slug":  "united-states/new-york",
+                        "sources":  [
+                                        {
+                                            "source_key":  "field-operations-high-line",
+                                            "label":  "High Line project record",
+                                            "organisation":  "Field Operations",
+                                            "source_type":  "project_team",
+                                            "independent":  false,
+                                            "url":  "https://www.fieldoperations.net/project/high-line",
+                                            "last_checked_at":  "2026-09-18"
+                                        },
+                                        {
+                                            "source_key":  "nyc-high-line",
+                                            "label":  "The High Line â€” New York City record",
+                                            "organisation":  "City of New York",
+                                            "source_type":  "government",
+                                            "independent":  false,
+                                            "url":  "https://www.nyc.gov/site/mopd/resources/nyc-parks.page",
+                                            "last_checked_at":  "2026-09-18"
+                                        }
+                                    ],
+                        "facts":  [
+                                      {
+                                          "fact_key":  "project_type",
+                                          "label":  "Project type",
+                                          "value":  "Elevated linear park and public realm",
+                                          "origin_type":  "source_extract",
+                                          "fact_status":  "candidate",
+                                          "source_keys":  [
+                                                              "field-operations-high-line",
+                                                              "nyc-high-line"
+                                                          ],
+                                          "evidence":  [
+                                                           {
+                                                               "source_key":  "field-operations-high-line",
+                                                               "locator":  "Project overview — elevated rail structure reclaimed as public landscape"
+                                                           },
+                                                           {
+                                                               "source_key":  "nyc-high-line",
+                                                               "locator":  "Parks \u003e The Highline — New York City linear park on elevated former rail spur"
+                                                           }
+                                                       ]
+                                      },
+                                      {
+                                          "fact_key":  "length_miles",
+                                          "label":  "Length",
+                                          "value":  1.45,
+                                          "unit":  "miles",
+                                          "origin_type":  "source_extract",
+                                          "fact_status":  "candidate",
+                                          "source_keys":  [
+                                                              "field-operations-high-line",
+                                                              "nyc-high-line"
+                                                          ],
+                                          "evidence":  [
+                                                           {
+                                                               "source_key":  "field-operations-high-line",
+                                                               "locator":  "Project metadata \u003e Size — 1.45 miles long"
+                                                           },
+                                                           {
+                                                               "source_key":  "nyc-high-line",
+                                                               "locator":  "Parks \u003e The Highline — 1.45 mile long linear park"
+                                                           }
+                                                       ]
+                                      },
+                                      {
+                                          "fact_key":  "area_acres",
+                                          "label":  "Area",
+                                          "value":  7.43,
+                                          "unit":  "acres",
+                                          "origin_type":  "source_extract",
+                                          "fact_status":  "candidate",
+                                          "source_keys":  [
+                                                              "field-operations-high-line"
+                                                          ],
+                                          "evidence":  [
+                                                           {
+                                                               "source_key":  "field-operations-high-line",
+                                                               "locator":  "Project metadata \u003e Size — 7.43 acres"
+                                                           }
+                                                       ]
+                                      },
+                                      {
+                                          "fact_key":  "project_lead",
+                                          "label":  "Project lead",
+                                          "value":  "Field Operations",
+                                          "origin_type":  "source_extract",
+                                          "fact_status":  "candidate",
+                                          "source_keys":  [
+                                                              "field-operations-high-line"
+                                                          ],
+                                          "evidence":  [
+                                                           {
+                                                               "source_key":  "field-operations-high-line",
+                                                               "locator":  "Project overview / Role — Field Operations identified as Project Lead"
+                                                           }
+                                                       ]
+                                      },
+                                      {
+                                          "fact_key":  "design_collaborators",
+                                          "label":  "Design collaborators",
+                                          "value":  [
+                                                        "Diller Scofidio + Renfro",
+                                                        "Piet Oudolf"
+                                                    ],
+                                          "origin_type":  "source_extract",
+                                          "fact_status":  "candidate",
+                                          "source_keys":  [
+                                                              "field-operations-high-line"
+                                                          ],
+                                          "evidence":  [
+                                                           {
+                                                               "source_key":  "field-operations-high-line",
+                                                               "locator":  "Project overview — collaboration with Diller Scofidio + Renfro and Piet Oudolf"
+                                                           }
+                                                       ]
+                                      },
+                                      {
+                                          "fact_key":  "first_section_opened",
+                                          "label":  "First section opened",
+                                          "value":  "2009-06",
+                                          "origin_type":  "source_extract",
+                                          "fact_status":  "candidate",
+                                          "source_keys":  [
+                                                              "field-operations-high-line"
+                                                          ],
+                                          "evidence":  [
+                                                           {
+                                                               "source_key":  "field-operations-high-line",
+                                                               "locator":  "Project metadata \u003e Year — June 2009 (Section 1)"
+                                                           }
+                                                       ]
+                                      }
+                                  ]
+                    },
+                    {
+                        "entity_type":  "project",
+                        "slug":  "noor-ouarzazate-solar-complex",
+                        "title":  "Noor Ouarzazate Solar Complex",
+                        "canonical_path":  "/projects/noor-ouarzazate-solar-complex",
+                        "project_parent":  "Industrial \u0026 Energy",
+                        "geography_label":  "Ouarzazate, Morocco",
+                        "geography_slug":  "morocco/ouarzazate",
+                        "sources":  [
+                                        {
+                                            "source_key":  "world-bank-noor-overview",
+                                            "label":  "Noor Ouarzazate Solar Complex project documentation",
+                                            "organisation":  "World Bank Group",
+                                            "source_type":  "institutional",
+                                            "independent":  false,
+                                            "url":  "https://ppp.worldbank.org/sites/default/files/2022-02/MoroccoNoorQuarzazateSolar_WBG_AfDB_EIB.pdf",
+                                            "last_checked_at":  "2026-09-18"
+                                        },
+                                        {
+                                            "source_key":  "world-bank-noor-results",
+                                            "label":  "Morocco Noor Solar Power Project â€” implementation results",
+                                            "organisation":  "World Bank",
+                                            "source_type":  "institutional",
+                                            "independent":  false,
+                                            "url":  "https://documents.worldbank.org/en/publication/documents-reports/documentdetail/099032625151032430",
+                                            "last_checked_at":  "2026-09-18"
+                                        }
+                                    ],
+                        "facts":  [
+                                      {
+                                          "fact_key":  "project_type",
+                                          "label":  "Project type",
+                                          "value":  "Multi-technology solar power complex",
+                                          "origin_type":  "source_extract",
+                                          "fact_status":  "candidate",
+                                          "source_keys":  [
+                                                              "world-bank-noor-overview"
+                                                          ],
+                                          "evidence":  [
+                                                           {
+                                                               "source_key":  "world-bank-noor-overview",
+                                                               "locator":  "Project Description — solar complex using CSP and photovoltaic technologies"
+                                                           }
+                                                       ]
+                                      },
+                                      {
+                                          "fact_key":  "overall_capacity_mw",
+                                          "label":  "Overall planned complex capacity",
+                                          "value":  580,
+                                          "unit":  "MW",
+                                          "origin_type":  "source_extract",
+                                          "fact_status":  "candidate",
+                                          "source_keys":  [
+                                                              "world-bank-noor-overview"
+                                                          ],
+                                          "evidence":  [
+                                                           {
+                                                               "source_key":  "world-bank-noor-overview",
+                                                               "locator":  "Project Description — complex generation capacity stated as 580 MW"
+                                                           }
+                                                       ]
+                                      },
+                                      {
+                                          "fact_key":  "noor_i_capacity_mw",
+                                          "label":  "Noor I capacity",
+                                          "value":  160,
+                                          "unit":  "MW",
+                                          "origin_type":  "source_extract",
+                                          "fact_status":  "candidate",
+                                          "source_keys":  [
+                                                              "world-bank-noor-overview"
+                                                          ],
+                                          "evidence":  [
+                                                           {
+                                                               "source_key":  "world-bank-noor-overview",
+                                                               "locator":  "Project Description — Noor I generates 160 MW"
+                                                           }
+                                                       ]
+                                      },
+                                      {
+                                          "fact_key":  "noor_i_commissioned",
+                                          "label":  "Noor I commissioned",
+                                          "value":  "2016-02",
+                                          "origin_type":  "source_extract",
+                                          "fact_status":  "candidate",
+                                          "source_keys":  [
+                                                              "world-bank-noor-overview"
+                                                          ],
+                                          "evidence":  [
+                                                           {
+                                                               "source_key":  "world-bank-noor-overview",
+                                                               "locator":  "Project Description — Noor I commissioned in February 2016"
+                                                           }
+                                                       ]
+                                      },
+                                      {
+                                          "fact_key":  "csp_complex_operational_since",
+                                          "label":  "Three-plant CSP complex fully operational since",
+                                          "value":  "2018-10",
+                                          "origin_type":  "source_extract",
+                                          "fact_status":  "candidate",
+                                          "source_keys":  [
+                                                              "world-bank-noor-results"
+                                                          ],
+                                          "evidence":  [
+                                                           {
+                                                               "source_key":  "world-bank-noor-results",
+                                                               "locator":  "Implementation Completion and Results Report, paragraph 26 — three plants fully operational by October 2018"
+                                                           }
+                                                       ]
+                                      }
+                                  ]
+                    }
+                ]
+}
