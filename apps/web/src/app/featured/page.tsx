@@ -16,8 +16,6 @@ import { entityMatchesSubsection } from "@/lib/entity-subsections";
 import { findGeography } from "@/lib/geography";
 
 const imageBySlug: Record<string, string> = {
-  "bosco-verticale":
-    "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1400&q=82",
 };
 
 function ArrowRight() {
@@ -150,7 +148,7 @@ export default async function FeaturedPage({
           className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage:
-              "url(https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=2200&q=82)",
+              "url(/visuals/arknoz-neutral.svg)",
           }}
         />
 

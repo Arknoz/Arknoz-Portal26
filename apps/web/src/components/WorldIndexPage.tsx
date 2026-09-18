@@ -127,20 +127,18 @@ function buildConnectedWorldHref(
   );
 }
 const approvedFeatureImages: Record<string, string> = {
-  "bosco-verticale":
-    "https://www.arup.com/globalassets/images/projects/b/bosco-verticale/bosco-verticale-header.webp?height=1035&quality=80&width=1840",
 
   "mass-timber-system":
-    "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=1200&q=82",
+    "/visuals/arknoz-neutral.svg",
 
   "urban-biodiversity":
-    "https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=1200&q=82",
+    "/visuals/arknoz-neutral.svg",
 
   "politecnico-di-milano":
-    "https://images.unsplash.com/photo-1564981797816-1043664bf78d?auto=format&fit=crop&w=1200&q=82",
+    "/visuals/arknoz-neutral.svg",
 
   "white-arkitekter":
-    "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1200&q=82",
+    "/visuals/arknoz-neutral.svg",
 };
 
 function getEntityHref(entity: EntityRecord) {

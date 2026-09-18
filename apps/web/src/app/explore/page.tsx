@@ -27,17 +27,17 @@ const explorePresentation: Partial<
 > = {
   projects: {
     image:
-      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1400&q=82",
+      "/visuals/arknoz-neutral.svg",
     example: [
-      "Bosco Verticale",
-      "Milan, Italy",
-      "/projects/bosco-verticale",
+      "Projects",
+      "Built World",
+      "/projects",
     ],
   },
 
   products: {
     image:
-      "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=1400&q=82",
+      "/visuals/arknoz-neutral.svg",
     example: [
       "Mass Timber System",
       "System",
@@ -47,7 +47,7 @@ const explorePresentation: Partial<
 
   knowledge: {
     image:
-      "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=1400&q=82",
+      "/visuals/arknoz-neutral.svg",
     example: [
       "Urban Biodiversity",
       "Global",
@@ -57,13 +57,13 @@ const explorePresentation: Partial<
 
   learning: {
     image:
-      "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1400&q=82",
+      "/visuals/arknoz-neutral.svg",
     example: null,
   },
 
   opportunities: {
     image:
-      "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1400&q=82",
+      "/visuals/arknoz-neutral.svg",
     example: [
       "Research Fellowship",
       "Global",
@@ -73,7 +73,7 @@ const explorePresentation: Partial<
 
   people: {
     image:
-      "https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1400&q=82",
+      "/visuals/arknoz-neutral.svg",
     example: [
       "Stefano Boeri",
       "Architect",
@@ -83,7 +83,7 @@ const explorePresentation: Partial<
 
   organisations: {
     image:
-      "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1400&q=82",
+      "/visuals/arknoz-neutral.svg",
     example: [
       "White Arkitekter",
       "Sweden",
@@ -93,7 +93,7 @@ const explorePresentation: Partial<
 
   universities: {
     image:
-      "https://images.unsplash.com/photo-1564981797816-1043664bf78d?auto=format&fit=crop&w=1400&q=82",
+      "/visuals/arknoz-neutral.svg",
     example: [
       "Politecnico di Milano",
       "Milan, Italy",
@@ -103,7 +103,7 @@ const explorePresentation: Partial<
 
   places: {
     image:
-      "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=1400&q=82",
+      "/visuals/arknoz-neutral.svg",
     example: [
       "Mumbai",
       "India",
@@ -113,19 +113,19 @@ const explorePresentation: Partial<
 
   community: {
     image:
-      "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1400&q=82",
+      "/visuals/arknoz-neutral.svg",
     example: null,
   },
 
   connect: {
     image:
-      "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1400&q=82",
+      "/visuals/arknoz-neutral.svg",
     example: null,
   },
 
   intelligence: {
     image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=82",
+      "/visuals/arknoz-neutral.svg",
     example: null,
   },
 };
@@ -153,7 +153,7 @@ const worlds = arknozSections.map(
 
       image:
         presentation?.image ??
-        "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1400&q=82",
+        "/visuals/arknoz-neutral.svg",
 
       description:
         section.description,
@@ -210,10 +210,9 @@ const places = [
 ] as const;
 
 const curated = [
-  ["PROJECT", "Bosco Verticale", "Milan, Italy", "/projects/bosco-verticale", "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=80"],
-  ["KNOWLEDGE", "Urban Biodiversity", "Global", "/knowledge/urban-biodiversity", "https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=900&q=80"],
-  ["UNIVERSITY", "Politecnico di Milano", "Milan, Italy", "/universities/politecnico-di-milano", "https://images.unsplash.com/photo-1564981797816-1043664bf78d?auto=format&fit=crop&w=900&q=80"],
-  ["ORGANISATION", "White Arkitekter", "Sweden", "/organisations/white-arkitekter", "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=900&q=80"],
+  ["KNOWLEDGE", "Urban Biodiversity", "Global", "/knowledge/urban-biodiversity", "/visuals/arknoz-neutral.svg"],
+  ["UNIVERSITY", "Politecnico di Milano", "Milan, Italy", "/universities/politecnico-di-milano", "/visuals/arknoz-neutral.svg"],
+  ["ORGANISATION", "White Arkitekter", "Sweden", "/organisations/white-arkitekter", "/visuals/arknoz-neutral.svg"],
 ] as const;
 
 function ArrowRight() {
@@ -238,25 +237,18 @@ export default function ExplorePage() {
         popular={["sustainable buildings", "mass timber", "urban biodiversity", "universities", "jobs", "India"]}
         featured={[
           {
-            type: "PROJECT",
-            title: "Bosco Verticale",
-            meta: "Milan, Italy",
-            href: "/projects/bosco-verticale",
-            image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1100&q=82",
-          },
-          {
             type: "KNOWLEDGE",
             title: "Urban Biodiversity",
             meta: "Global",
             href: "/knowledge/urban-biodiversity",
-            image: "https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=900&q=82",
+            image: "/visuals/arknoz-neutral.svg",
           },
           {
             type: "UNIVERSITY",
             title: "Politecnico di Milano",
             meta: "Milan, Italy",
             href: "/universities/politecnico-di-milano",
-            image: "https://images.unsplash.com/photo-1564981797816-1043664bf78d?auto=format&fit=crop&w=900&q=82",
+            image: "/visuals/arknoz-neutral.svg",
           },
         ]}
         ticker={[
@@ -409,7 +401,7 @@ export default function ExplorePage() {
           <div className="relative overflow-hidden rounded-[30px] border border-slate-200 bg-white">
             <div className="relative min-h-[260px] overflow-hidden">
               <img
-                src="https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=1400&q=82"
+                src="/visuals/arknoz-neutral.svg"
                 alt=""
                 className="absolute inset-0 h-full w-full object-cover"
               />
@@ -517,7 +509,7 @@ export default function ExplorePage() {
             className="group relative block min-h-[320px] overflow-hidden rounded-[30px] bg-[#0b2949] text-white"
           >
             <img
-              src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=1800&q=82"
+              src="/visuals/arknoz-neutral.svg"
               alt=""
               className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-[1.025]"
             />

@@ -3,7 +3,6 @@ import { entities } from "@/lib/entities";
 import { getEntityHref } from "@/components/EntityCard";
 
 const chainSlugs = [
-  "bosco-verticale",
   "stefano-boeri",
   "mass-timber-system",
   "urban-biodiversity",
@@ -12,7 +11,6 @@ const chainSlugs = [
 ];
 
 const discoverySlugs = [
-  "bosco-verticale",
   "urban-biodiversity",
   "research-fellowship",
   "white-arkitekter",

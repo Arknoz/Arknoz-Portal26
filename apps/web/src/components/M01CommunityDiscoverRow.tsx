@@ -27,7 +27,7 @@ export default function M01CommunityDiscoverRow() {
             className="absolute inset-0 opacity-20"
             style={{
               backgroundImage:
-                "url(https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1200&q=70)",
+                "url(/visuals/arknoz-neutral.svg)",
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}

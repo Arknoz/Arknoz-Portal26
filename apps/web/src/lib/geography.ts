@@ -27,6 +27,8 @@ export const geography: GeographyItem[] = [
   { name: "United Arab Emirates", slug: "united-arab-emirates", type: "country", parent: "asia", subtitle: "Cities, infrastructure and ambition" },
   { name: "Kenya", slug: "kenya", type: "country", parent: "africa", subtitle: "People, potential and progress" },
   { name: "Japan", slug: "japan", type: "country", parent: "asia", subtitle: "Technology, craft and resilience" },
+  { name: "United Kingdom", slug: "united-kingdom", type: "country", parent: "europe", subtitle: "Architecture, infrastructure and engineering heritage" },
+  { name: "Scotland", slug: "scotland", type: "region", parent: "united-kingdom", subtitle: "Projects, infrastructure, heritage and places" },
 
   { name: "Maharashtra", slug: "maharashtra", type: "region", parent: "india", subtitle: "Regional Built World context" },
   { name: "Mumbai", slug: "mumbai", type: "city", parent: "maharashtra", subtitle: "Projects, people, products and knowledge" },

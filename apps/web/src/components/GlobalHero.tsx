@@ -17,12 +17,10 @@ const popular = [
 ];
 
 const imageBySlug: Record<string, string> = {
-  "bosco-verticale":
-    "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1400&q=84",
   "urban-biodiversity":
-    "https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=1000&q=82",
+    "/visuals/arknoz-neutral.svg",
   "politecnico-di-milano":
-    "https://images.unsplash.com/photo-1564981797816-1043664bf78d?auto=format&fit=crop&w=1000&q=82",
+    "/visuals/arknoz-neutral.svg",
 };
 
 function SearchIcon() {
@@ -49,7 +47,7 @@ export default function GlobalHero() {
 
   const featured = useMemo(
     () =>
-      ["bosco-verticale", "urban-biodiversity", "politecnico-di-milano"]
+      ["urban-biodiversity", "politecnico-di-milano"]
         .map((slug) => entities.find((entity) => entity.slug === slug))
         .filter(Boolean),
     []
@@ -76,7 +74,7 @@ export default function GlobalHero() {
         className="absolute inset-0 bg-cover bg-center"
         style={{
           backgroundImage:
-            "url(https://images.unsplash.com/photo-1449157291145-7efd050a4d0e?auto=format&fit=crop&w=2200&q=82)",
+            "url(/visuals/arknoz-neutral.svg)",
         }}
       />
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,20,37,.97)_0%,rgba(7,27,49,.92)_45%,rgba(7,27,49,.72)_100%)]" />

@@ -1,4 +1,4 @@
-﻿export type ProfileKind =
+export type ProfileKind =
   | "person"
   | "organisation"
   | "university";
@@ -139,13 +139,6 @@ const PROFILE_DETAILS: Record<
 
     activities: [
       {
-        label: "PROJECT",
-        title: "Bosco Verticale",
-        description:
-          "Residential towers in Milan integrating substantial living vegetation into the architecture.",
-        href: "/projects/bosco-verticale",
-      },
-      {
         label: "ACADEMIC",
         title: "Politecnico di Milano",
         description:
@@ -180,13 +173,6 @@ const PROFILE_DETAILS: Record<
     ],
 
     connections: [
-      {
-        type: "PROJECT",
-        title: "Bosco Verticale",
-        href: "/projects/bosco-verticale",
-        description:
-          "Architectural authorship connection.",
-      },
       {
         type: "UNIVERSITY",
         title: "Politecnico di Milano",

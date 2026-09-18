@@ -48,20 +48,12 @@ const discoveryPrompts = [
 
 const featured = [
   {
-    type: "PROJECT",
-    title: "Bosco Verticale",
-    meta: "Milan, Italy",
-    href: "/projects/bosco-verticale",
-    image:
-      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1100&q=82",
-  },
-  {
     type: "KNOWLEDGE",
     title: "Urban Biodiversity",
     meta: "Global",
     href: "/knowledge/urban-biodiversity",
     image:
-      "https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=900&q=82",
+      "/visuals/arknoz-neutral.svg",
   },
   {
     type: "ORGANISATION",
@@ -69,7 +61,7 @@ const featured = [
     meta: "Sweden",
     href: "/organisations/white-arkitekter",
     image:
-      "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=900&q=82",
+      "/visuals/arknoz-neutral.svg",
   },
 ] as const;
 

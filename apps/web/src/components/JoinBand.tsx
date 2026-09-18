@@ -8,7 +8,7 @@ export default function JoinBand() {
           className="relative overflow-hidden rounded-3xl bg-[#0b2a49] text-white"
           style={{
             backgroundImage:
-              "linear-gradient(90deg,rgba(5,25,48,.97),rgba(7,44,77,.82)),url(https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=1800&q=80)",
+              "linear-gradient(90deg,rgba(5,25,48,.97),rgba(7,44,77,.82)),url(/visuals/arknoz-neutral.svg)",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}

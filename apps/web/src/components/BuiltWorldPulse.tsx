@@ -21,7 +21,6 @@ const worldLinks =
   );
 
 const pulseSlugs = [
-  "bosco-verticale",
   "urban-biodiversity",
   "research-fellowship",
   "milan",

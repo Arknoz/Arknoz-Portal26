@@ -4,15 +4,13 @@ import { getEntityHref } from "@/components/EntityCard";
 
 const imageBySlug: Record<string, string> = {
   "urban-biodiversity":
-    "https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=1200&q=82",
-  "bosco-verticale":
-    "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=82",
+    "/visuals/arknoz-neutral.svg",
   "politecnico-di-milano":
-    "https://images.unsplash.com/photo-1564981797816-1043664bf78d?auto=format&fit=crop&w=900&q=82",
+    "/visuals/arknoz-neutral.svg",
   milan:
-    "https://images.unsplash.com/photo-1529260830199-42c24126f198?auto=format&fit=crop&w=900&q=82",
+    "/visuals/arknoz-neutral.svg",
   "white-arkitekter":
-    "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=900&q=82",
+    "/visuals/arknoz-neutral.svg",
 };
 
 function ArrowRight() {
@@ -34,7 +32,6 @@ function ArrowRight() {
 export default function EditorsChoice() {
   const items = [
     "urban-biodiversity",
-    "bosco-verticale",
     "politecnico-di-milano",
     "milan",
     "white-arkitekter",

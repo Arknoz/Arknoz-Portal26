@@ -7,21 +7,18 @@ import { entities } from "@/lib/entities";
 import { getEntityHref } from "@/components/EntityCard";
 
 const featuredSlugs = [
-  "bosco-verticale",
   "urban-biodiversity",
   "politecnico-di-milano",
   "white-arkitekter",
 ];
 
 const imageBySlug: Record<string, string> = {
-  "bosco-verticale":
-    "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=82",
   "urban-biodiversity":
-    "https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=1000&q=82",
+    "/visuals/arknoz-neutral.svg",
   "politecnico-di-milano":
-    "https://images.unsplash.com/photo-1564981797816-1043664bf78d?auto=format&fit=crop&w=1000&q=82",
+    "/visuals/arknoz-neutral.svg",
   "white-arkitekter":
-    "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1000&q=82",
+    "/visuals/arknoz-neutral.svg",
 };
 
 const geoLinks = [
@@ -79,7 +76,7 @@ export default function M01WorldFeatureSplit() {
         <div className="overflow-hidden rounded-[28px] border border-slate-200 bg-white">
           <div className="relative min-h-[170px] overflow-hidden">
             <img
-              src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=1500&q=82"
+              src="/visuals/arknoz-neutral.svg"
               alt=""
               className="absolute inset-0 h-full w-full object-cover"
             />

@@ -2,20 +2,12 @@ import Link from "next/link";
 
 const chain = [
   {
-    type: "PROJECT",
-    title: "Bosco Verticale",
-    meta: "Milan, Italy",
-    href: "/projects/bosco-verticale",
-    image:
-      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=500&q=80",
-  },
-  {
     type: "PERSON",
     title: "Stefano Boeri",
     meta: "Architect",
     href: "/people/stefano-boeri",
     image:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=500&q=80",
+      "/visuals/arknoz-neutral.svg",
   },
   {
     type: "PLACE",
@@ -23,7 +15,7 @@ const chain = [
     meta: "Italy",
     href: "/places/milan",
     image:
-      "https://images.unsplash.com/photo-1529260830199-42c24126f198?auto=format&fit=crop&w=500&q=80",
+      "/visuals/arknoz-neutral.svg",
   },
   {
     type: "KNOWLEDGE",
@@ -31,7 +23,7 @@ const chain = [
     meta: "Global",
     href: "/knowledge/urban-biodiversity",
     image:
-      "https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=500&q=80",
+      "/visuals/arknoz-neutral.svg",
   },
 ] as const;
 
@@ -95,7 +87,7 @@ export default function M01ActionConnectionsRow() {
             className="absolute inset-0 opacity-20"
             style={{
               backgroundImage:
-                "url(https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=1200&q=70)",
+                "url(/visuals/arknoz-neutral.svg)",
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}

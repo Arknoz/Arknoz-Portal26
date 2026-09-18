@@ -57,7 +57,7 @@ const spotlightItems = [
     href: "/projects",
     action: "Explore projects",
     image:
-      "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=1400&q=82",
+      "/visuals/arknoz-neutral.svg",
   },
   {
     eyebrow: "DISCOVER THE WORLD",
@@ -66,7 +66,7 @@ const spotlightItems = [
     href: "/global",
     action: "Explore places",
     image:
-      "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=1400&q=82",
+      "/visuals/arknoz-neutral.svg",
   },
   {
     eyebrow: "CONTRIBUTE",
@@ -75,7 +75,7 @@ const spotlightItems = [
     href: "/community",
     action: "Open community",
     image:
-      "https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1400&q=82",
+      "/visuals/arknoz-neutral.svg",
   },
   {
     eyebrow: "PHASE 1",
@@ -84,7 +84,7 @@ const spotlightItems = [
     href: "/explore",
     action: "Start exploring",
     image:
-      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1400&q=82",
+      "/visuals/arknoz-neutral.svg",
   },
 ] as const;
 

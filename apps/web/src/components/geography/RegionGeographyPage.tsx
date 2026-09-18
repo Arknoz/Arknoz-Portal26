@@ -20,7 +20,7 @@ import {
 
 const cityImages: Record<string, string> = {
   mumbai:
-    "https://images.unsplash.com/photo-1570168007204-dfb528c6958f?auto=format&fit=crop&w=1200&q=82",
+    "/visuals/arknoz-neutral.svg",
 };
 
 const worldLinks =
@@ -58,7 +58,7 @@ function getPresentation(
           meta: "Maharashtra",
           href: "/global/mumbai",
           image:
-            "https://images.unsplash.com/photo-1570168007204-dfb528c6958f?auto=format&fit=crop&w=1200&q=82",
+            "/visuals/arknoz-neutral.svg",
         },
       ],
 

@@ -19,7 +19,7 @@ import {
 
 const regionImages: Record<string, string> = {
   maharashtra:
-    "https://images.unsplash.com/photo-1570168007204-dfb528c6958f?auto=format&fit=crop&w=1200&q=82",
+    "/visuals/arknoz-neutral.svg",
 };
 
 const worldLinks =
@@ -58,7 +58,7 @@ function getPresentation(
           meta: "India",
           href: "/global/maharashtra",
           image:
-            "https://images.unsplash.com/photo-1570168007204-dfb528c6958f?auto=format&fit=crop&w=1200&q=82",
+            "/visuals/arknoz-neutral.svg",
         },
 
         {
@@ -67,7 +67,7 @@ function getPresentation(
           meta: "Maharashtra",
           href: "/global/mumbai",
           image:
-            "https://images.unsplash.com/photo-1595658658481-d53d3f999875?auto=format&fit=crop&w=900&q=82",
+            "/visuals/arknoz-neutral.svg",
         },
       ],
 

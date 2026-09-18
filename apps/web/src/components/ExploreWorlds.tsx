@@ -15,40 +15,40 @@ const imageBySection:
     string
   > = {
   projects:
-    "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=80",
+    "/visuals/arknoz-neutral.svg",
 
   products:
-    "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=900&q=80",
+    "/visuals/arknoz-neutral.svg",
 
   knowledge:
-    "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=900&q=80",
+    "/visuals/arknoz-neutral.svg",
 
   learning:
-    "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=900&q=80",
+    "/visuals/arknoz-neutral.svg",
 
   opportunities:
-    "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=80",
+    "/visuals/arknoz-neutral.svg",
 
   people:
-    "https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=900&q=80",
+    "/visuals/arknoz-neutral.svg",
 
   organisations:
-    "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=900&q=80",
+    "/visuals/arknoz-neutral.svg",
 
   universities:
-    "https://images.unsplash.com/photo-1564981797816-1043664bf78d?auto=format&fit=crop&w=900&q=80",
+    "/visuals/arknoz-neutral.svg",
 
   places:
-    "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=900&q=80",
+    "/visuals/arknoz-neutral.svg",
 
   community:
-    "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=900&q=80",
+    "/visuals/arknoz-neutral.svg",
 
   connect:
-    "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=900&q=80",
+    "/visuals/arknoz-neutral.svg",
 
   intelligence:
-    "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80",
+    "/visuals/arknoz-neutral.svg",
 };
 
 const worlds =

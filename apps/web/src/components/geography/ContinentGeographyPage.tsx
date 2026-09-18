@@ -20,19 +20,19 @@ import {
 
 const countryImages: Record<string, string> = {
   india:
-    "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=1200&q=82",
+    "/visuals/arknoz-neutral.svg",
 
   singapore:
-    "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?auto=format&fit=crop&w=1200&q=82",
+    "/visuals/arknoz-neutral.svg",
 
   "united-arab-emirates":
-    "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1200&q=82",
+    "/visuals/arknoz-neutral.svg",
 
   japan:
-    "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=1200&q=82",
+    "/visuals/arknoz-neutral.svg",
 
   kenya:
-    "https://images.unsplash.com/photo-1611348586804-61bf6c080437?auto=format&fit=crop&w=1200&q=82",
+    "/visuals/arknoz-neutral.svg",
 };
 
 
@@ -76,7 +76,7 @@ function getPresentation(
           meta: "Asia",
           href: "/global/india",
           image:
-            "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=1200&q=82",
+            "/visuals/arknoz-neutral.svg",
         },
 
         {
@@ -85,7 +85,7 @@ function getPresentation(
           meta: "India",
           href: "/global/mumbai",
           image:
-            "https://images.unsplash.com/photo-1570168007204-dfb528c6958f?auto=format&fit=crop&w=900&q=82",
+            "/visuals/arknoz-neutral.svg",
         },
 
         {
@@ -94,7 +94,7 @@ function getPresentation(
           meta: "Asia",
           href: "/global/singapore",
           image:
-            "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?auto=format&fit=crop&w=900&q=82",
+            "/visuals/arknoz-neutral.svg",
         },
       ],
 

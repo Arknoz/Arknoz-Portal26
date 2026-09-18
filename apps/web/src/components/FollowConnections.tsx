@@ -1,8 +1,7 @@
-﻿import EntityCard from "@/components/EntityCard";
+import EntityCard from "@/components/EntityCard";
 import { entities } from "@/lib/entities";
 
 const chain = [
-  entities.find((e) => e.slug === "bosco-verticale")!,
   entities.find((e) => e.slug === "stefano-boeri")!,
   entities.find((e) => e.slug === "mass-timber-system")!,
   entities.find((e) => e.slug === "urban-biodiversity")!,

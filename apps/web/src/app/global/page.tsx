@@ -22,35 +22,35 @@ const countries = [
     href: "/global/india",
     region: "Asia",
     image:
-      "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=1200&q=82",
+      "/visuals/arknoz-neutral.svg",
   },
   {
     name: "Singapore",
     href: "/global/singapore",
     region: "Asia",
     image:
-      "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?auto=format&fit=crop&w=1200&q=82",
+      "/visuals/arknoz-neutral.svg",
   },
   {
     name: "United Arab Emirates",
     href: "/global/uae",
     region: "Middle East",
     image:
-      "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1200&q=82",
+      "/visuals/arknoz-neutral.svg",
   },
   {
     name: "Kenya",
     href: "/global/kenya",
     region: "Africa",
     image:
-      "https://images.unsplash.com/photo-1611348586804-61bf6c080437?auto=format&fit=crop&w=1200&q=82",
+      "/visuals/arknoz-neutral.svg",
   },
   {
     name: "Japan",
     href: "/global/japan",
     region: "Asia",
     image:
-      "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=1200&q=82",
+      "/visuals/arknoz-neutral.svg",
   },
 ] as const;
 
@@ -60,14 +60,14 @@ const places = [
     href: "/global/mumbai",
     meta: "India",
     image:
-      "https://images.unsplash.com/photo-1570168007204-dfb528c6958f?auto=format&fit=crop&w=1200&q=82",
+      "/visuals/arknoz-neutral.svg",
   },
   {
     name: "Nairobi",
     href: "/global/nairobi",
     meta: "Kenya",
     image:
-      "https://images.unsplash.com/photo-1611348586804-61bf6c080437?auto=format&fit=crop&w=1200&q=82",
+      "/visuals/arknoz-neutral.svg",
   },
 ] as const;
 
@@ -120,7 +120,7 @@ export default function GlobalPage() {
             meta: "Asia",
             href: "/global/india",
             image:
-              "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=1100&q=82",
+              "/visuals/arknoz-neutral.svg",
           },
           {
             type: "CITY",
@@ -128,7 +128,7 @@ export default function GlobalPage() {
             meta: "India",
             href: "/global/mumbai",
             image:
-              "https://images.unsplash.com/photo-1570168007204-dfb528c6958f?auto=format&fit=crop&w=900&q=82",
+              "/visuals/arknoz-neutral.svg",
           },
           {
             type: "COUNTRY",
@@ -136,7 +136,7 @@ export default function GlobalPage() {
             meta: "Asia",
             href: "/global/singapore",
             image:
-              "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?auto=format&fit=crop&w=900&q=82",
+              "/visuals/arknoz-neutral.svg",
           },
         ]}
         ticker={[
