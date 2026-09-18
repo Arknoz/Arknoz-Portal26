@@ -1,0 +1,24 @@
+﻿{
+  "standard": "ARKNOZ-GOLD-MASTER-V1",
+  "target_total": 24,
+  "existing_records": 6,
+  "new_records_required": 18,
+  "entity_mix": {
+    "project": 4,
+    "product": 4,
+    "knowledge": 4,
+    "organisation": 3,
+    "person": 3,
+    "university": 2,
+    "opportunity": 2,
+    "place": 2
+  },
+  "rules": {
+    "minimum_sources_normal": 2,
+    "facts_start_as_candidate": true,
+    "detail_is_presentation_layer": true,
+    "media_requires_rights_and_provenance": true,
+    "missing_values_are_not_invented": true,
+    "publication_requires_verification_gate": true
+  }
+}

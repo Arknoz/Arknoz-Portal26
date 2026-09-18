@@ -1,0 +1,229 @@
+{
+  "standard": "ARKNOZ-GOLD-MASTER-V1",
+  "selection_status": "research_candidates_frozen",
+  "new_records": 18,
+
+  "records": [
+
+    {
+      "entity_type": "project",
+      "slug": "sydney-opera-house",
+      "title": "Sydney Opera House",
+      "geography": "Sydney, Australia",
+      "continent": "Oceania",
+      "project_parent": "Buildings",
+      "source_targets": [
+        "Sydney Opera House official",
+        "UNESCO World Heritage Centre"
+      ]
+    },
+
+    {
+      "entity_type": "project",
+      "slug": "elizabeth-line",
+      "title": "Elizabeth Line",
+      "geography": "London, United Kingdom",
+      "continent": "Europe",
+      "project_parent": "Transport",
+      "source_targets": [
+        "Transport for London / Crossrail",
+        "Arup"
+      ]
+    },
+
+    {
+      "entity_type": "project",
+      "slug": "high-line-new-york",
+      "title": "High Line",
+      "geography": "New York, United States",
+      "continent": "North America",
+      "project_parent": "Landscape & Public Realm",
+      "source_targets": [
+        "High Line / City of New York",
+        "Field Operations"
+      ]
+    },
+
+    {
+      "entity_type": "project",
+      "slug": "noor-ouarzazate-solar-complex",
+      "title": "Noor Ouarzazate Solar Complex",
+      "geography": "Ouarzazate, Morocco",
+      "continent": "Africa",
+      "project_parent": "Industrial & Energy",
+      "source_targets": [
+        "MASEN",
+        "World Bank"
+      ]
+    },
+
+    {
+      "entity_type": "product",
+      "slug": "arcelormittal-xcarb-recycled-renewably-produced",
+      "title": "XCarb Recycled and Renewably Produced Steel",
+      "geography": "Global",
+      "continent": "Global",
+      "source_targets": [
+        "ArcelorMittal product and EPD documentation",
+        "Independent EPD programme operator"
+      ]
+    },
+
+    {
+      "entity_type": "product",
+      "slug": "interface-cquest-biox",
+      "title": "Interface CQuest BioX",
+      "geography": "Global",
+      "continent": "Global",
+      "source_targets": [
+        "Interface technical documentation",
+        "Interface product-specific EPD"
+      ]
+    },
+
+    {
+      "entity_type": "product",
+      "slug": "velux-polyurethane-roof-windows-triple-glazing",
+      "title": "VELUX Polyurethane Roof Windows — Triple Glazing",
+      "geography": "Europe",
+      "continent": "Europe",
+      "source_targets": [
+        "VELUX technical documentation",
+        "Independent IBU EPD"
+      ]
+    },
+
+    {
+      "entity_type": "knowledge",
+      "slug": "global-status-report-buildings-construction-2025-2026",
+      "title": "Global Status Report for Buildings and Construction 2025–2026",
+      "geography": "Global",
+      "continent": "Global",
+      "source_targets": [
+        "UN Environment Programme",
+        "GlobalABC"
+      ]
+    },
+
+    {
+      "entity_type": "knowledge",
+      "slug": "ipcc-ar6-wg3-chapter-9-buildings",
+      "title": "IPCC AR6 WGIII — Chapter 9: Buildings",
+      "geography": "Global",
+      "continent": "Global",
+      "source_targets": [
+        "IPCC Working Group III",
+        "IPCC report publication record"
+      ]
+    },
+
+    {
+      "entity_type": "knowledge",
+      "slug": "bringing-embodied-carbon-upfront",
+      "title": "Bringing Embodied Carbon Upfront",
+      "geography": "Global",
+      "continent": "Global",
+      "source_targets": [
+        "World Green Building Council",
+        "Report partner / supporting publication record"
+      ]
+    },
+
+    {
+      "entity_type": "organisation",
+      "slug": "arup",
+      "title": "Arup",
+      "geography": "Global",
+      "continent": "Global",
+      "source_targets": [
+        "Arup corporate record",
+        "Arup annual report"
+      ]
+    },
+
+    {
+      "entity_type": "organisation",
+      "slug": "mass-design-group",
+      "title": "MASS Design Group",
+      "geography": "United States / Rwanda / Global",
+      "continent": "Global",
+      "source_targets": [
+        "MASS official record",
+        "Harvard Graduate School of Design"
+      ]
+    },
+
+    {
+      "entity_type": "person",
+      "slug": "francis-kere",
+      "title": "Diébédo Francis Kéré",
+      "geography": "Burkina Faso / Germany",
+      "continent": "Africa",
+      "source_targets": [
+        "Kéré Architecture",
+        "Pritzker Architecture Prize"
+      ]
+    },
+
+    {
+      "entity_type": "person",
+      "slug": "alejandro-aravena",
+      "title": "Alejandro Aravena",
+      "geography": "Chile",
+      "continent": "South America",
+      "source_targets": [
+        "ELEMENTAL",
+        "Pritzker Architecture Prize"
+      ]
+    },
+
+    {
+      "entity_type": "university",
+      "slug": "nus-college-design-engineering",
+      "title": "NUS College of Design and Engineering",
+      "geography": "Singapore",
+      "continent": "Asia",
+      "source_targets": [
+        "NUS College of Design and Engineering",
+        "NUS Bulletin"
+      ]
+    },
+
+    {
+      "entity_type": "opportunity",
+      "slug": "yong-ding-changan-pavilion-competition-2026",
+      "title": "International Architectural Design Competition — Yong Ding Chang’an Pavilion",
+      "geography": "Beijing, China",
+      "continent": "Asia",
+      "source_targets": [
+        "International Union of Architects",
+        "Official competition brief"
+      ]
+    },
+
+    {
+      "entity_type": "place",
+      "slug": "singapore",
+      "title": "Singapore",
+      "geography": "Singapore",
+      "continent": "Asia",
+      "source_targets": [
+        "Urban Redevelopment Authority Long-Term Plan",
+        "Urban Redevelopment Authority Master Plan 2025"
+      ]
+    },
+
+    {
+      "entity_type": "place",
+      "slug": "medellin",
+      "title": "Medellín",
+      "geography": "Colombia",
+      "continent": "South America",
+      "source_targets": [
+        "Alcaldía de Medellín Plan de Ordenamiento Territorial",
+        "Medellín official district planning records"
+      ]
+    }
+
+  ]
+}
