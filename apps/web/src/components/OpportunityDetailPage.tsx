@@ -1,8 +1,8 @@
-﻿import Link from "next/link";
+import HomeNowOnArknozLoop from "@/components/HomeNowOnArknozLoop";
+import Link from "next/link";
 
 import GlobalHeader from "@/components/GlobalHeader";
-import GlobalFooter from "@/components/GlobalFooter";
-import UniversalFooterStrip from "@/components/UniversalFooterStrip";
+import UniversalPublicLastScreen from "@/components/UniversalPublicLastScreen";
 import OpportunityDetailTabs from "@/components/OpportunityDetailTabs";
 
 import type { EntityRecord } from "@/lib/entities";
@@ -263,6 +263,13 @@ export default function OpportunityDetailPage({
           </div>
         </section>
 
+      {/* ==================================================
+          02 — ARKNOZ NOW · UNIVERSAL
+      ================================================== */}
+
+      <HomeNowOnArknozLoop />
+
+
         {/* SCREEN 2 */}
         <section
           id="opportunity-intelligence"
@@ -321,8 +328,7 @@ export default function OpportunityDetailPage({
           </div>
         </section>
 
-        <UniversalFooterStrip />
-        <GlobalFooter />
+        <UniversalPublicLastScreen />
 
       </main>
     </>

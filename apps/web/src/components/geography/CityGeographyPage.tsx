@@ -1,11 +1,14 @@
 import { buildGeographyHref } from "@/lib/geography";
 import Link from "next/link";
 
-import GlobalHeader from "@/components/GlobalHeader";
-import GlobalFooter from "@/components/GlobalFooter";
-import GeographyContextBar from "@/components/GeographyContextBar";
-import UniversalFooterStrip from "@/components/UniversalFooterStrip";
-import UniversalTopicHero from "@/components/UniversalTopicHero";
+import { getGeographyContextNav } from "@/components/GeographyContextBar";
+import UniversalPublicFirstScreen from "@/components/UniversalPublicFirstScreen";
+import UniversalPublicLastScreen from "@/components/UniversalPublicLastScreen";
+import { getAllFeaturedResolverSlots } from "@/lib/featured-slots";
+import { getProductionEntities } from "@/lib/data/production-entities";
+import { getActivePlacementEntityRef } from "@/lib/placement-data";
+import { getDevelopmentPlacementEntity } from "@/lib/development-placement-preview";
+import { entityMatchesGeography } from "@/lib/entity-geography";
 
 import {
   arknozSections,
@@ -19,7 +22,11 @@ import {
   getChildren,
 } from "@/lib/geography";
 
-export default function CityGeographyPage({
+const cityPlacementSlots =
+  getAllFeaturedResolverSlots().map(
+    (item) => item.resolverSlotId
+  );
+export default async function CityGeographyPage({
   context,
 }: {
   context: GeographyItem;
@@ -69,22 +76,147 @@ export default function CityGeographyPage({
       }
     );
 
+  // ARKNOZ_CITY_PLACEMENT_WIRING_V1
+  //
+  // Permanent City slots are reused for every city.
+  // context.slug selects the actual city placement.
+  // Draft/disabled assignments resolve to nothing.
+  const cityPlacementRefs =
+    cityPlacementSlots.map(
+      (slotId) =>
+        getActivePlacementEntityRef(
+          slotId,
+          context.slug
+        )
+    );
+
+  const needsProductionProjects =
+    cityPlacementRefs.some(
+      (ref) =>
+        ref?.type === "project"
+    );
+
+  const productionRecords =
+    needsProductionProjects
+      ? await getProductionEntities()
+      : [];
+
+  const cityFeatured =
+    cityPlacementRefs.flatMap(
+      (ref) => {
+        if (
+          !ref ||
+          ref.type !== "project"
+        ) {
+          return [];
+        }
+
+        const entity =
+          productionRecords.find(
+            (candidate) =>
+              candidate.type ===
+                "project" &&
+              candidate.slug ===
+                ref.slug
+          );
+
+        if (
+          !entity ||
+          entity.type !== "project" ||
+          !entityMatchesGeography(
+            entity,
+            context
+          )
+        ) {
+          return [];
+        }
+
+        return [
+          {
+            type: "PROJECT",
+            title: entity.title,
+            meta:
+              entity.geography ||
+              entity.subtitle ||
+              context.name,
+            href:
+              `/projects/${entity.slug}`,
+            image:
+              entity.project
+                ?.media?.[0]
+                ?.src ||
+              "/visuals/arknoz-neutral.svg",
+          },
+        ];
+      }
+    );
+  // ARKNOZ_DEV_DISCOVERY_OVERLAY_V5
+  const cityDisplayFeatured =
+    process.env.NODE_ENV === "development"
+      ? cityPlacementSlots.flatMap(
+          (slotId) => {
+            const entity =
+              getDevelopmentPlacementEntity(
+                slotId,
+                context.slug
+              );
+
+            if (
+              !entity ||
+              !entityMatchesGeography(
+                entity,
+                context
+              )
+            ) {
+              return [];
+            }
+
+            return [
+              {
+                type: "PROJECT",
+                title: entity.title,
+                meta:
+                  entity.geography ||
+                  entity.subtitle ||
+                  context.name,
+                href:
+                  `/preview/projects/${entity.slug}`,
+                image:
+                  entity.project?.media?.[0]?.src ||
+                  "/visuals/arknoz-neutral.svg",
+              },
+            ];
+          }
+        )
+      : cityFeatured;
+
+  // ARKNOZ_GEOGRAPHY_HOME_AGGREGATOR_V1
+  //
+  // Geography Home owns NO additional placement identities.
+  // It displays up to three unique cards resolved from the
+  // geography's existing 12 sections x 3 slots = 36 slots.
+  const cityHomeFeatured =
+    cityDisplayFeatured
+      .filter(
+        (item, index, items) =>
+          items.findIndex(
+            (candidate) =>
+              candidate.href === item.href
+          ) === index
+      )
+      .slice(0, 3);
+
   return (
     <main className="min-h-screen bg-white">
-      <GlobalHeader />
-
-      <GeographyContextBar
-        context={context}
-      />
-
-      <UniversalTopicHero
+      <UniversalPublicFirstScreen
         eyebrow={`${context.name.toUpperCase()} · CITY`}
         title={`Explore ${context.name}.`}
         description={`Discover projects, products, knowledge, people, organisations, universities and opportunities shaping ${context.name}'s built environment.`}
         searchPlaceholder={`Search ${context.name} — project, product, knowledge, person, organisation or topic...`}
         searchGeo={context.slug}
         popular={popular}
-        featured={[]}
+        contextNav={getGeographyContextNav(context)}
+        featured={cityHomeFeatured}
         ticker={[
           {
             text: `Explore projects in ${context.name}`,
@@ -222,8 +354,7 @@ export default function CityGeographyPage({
         </div>
       </section>
 
-      <UniversalFooterStrip />
-      <GlobalFooter />
+      <UniversalPublicLastScreen />
     </main>
   );
 }

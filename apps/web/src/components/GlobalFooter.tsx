@@ -8,12 +8,12 @@ import FooterMetricsPanel, {
 import LanguageControl from "@/components/LanguageControl";
 
 import {
-  arknozSections,
+  arknozExploreSections,
   isPaidArknozSection,
 } from "@/lib/arknoz-sections";
 
 const exploreLinks =
-  arknozSections.map(
+  arknozExploreSections.map(
     (section) => ({
       key: section.key,
       label: section.title,
@@ -26,10 +26,10 @@ const exploreLinks =
   );
 
 const exploreA =
-  exploreLinks.slice(0, 6);
+  exploreLinks.slice(0, 3);
 
 const exploreB =
-  exploreLinks.slice(6);
+  exploreLinks.slice(3);
 
 const discover = [
   ["Global", "/global"],
@@ -44,7 +44,7 @@ const discover = [
 const arknoz = [
   ["About Arknoz", "/about"],
   ["Our Mission", "/about"],
-  ["Contribute", "/community"],
+  ["Contribute", "/contribute"],
   ["Contact", "/about"],
   ["Help Centre", "/about"],
   ["Privacy", "/about"],
@@ -145,8 +145,8 @@ export default function GlobalFooter({
             </div>
 
             <p className="mt-5 max-w-md text-[13px] leading-5 text-slate-400">
-              One global portal connecting people, places, projects, products,
-              knowledge, learning and opportunities across the Built World.
+              One global portal for projects, products, knowledge, education,
+              opportunities and the Arknoz member community across the Built World.
             </p>
           </div>
 
@@ -210,25 +210,13 @@ export default function GlobalFooter({
               Projects, knowledge, opportunities and Arknoz developments.
             </p>
 
-            <div className="mt-4 flex">
-              <input
-                type="email"
-                aria-label="Email updates coming soon"
-                placeholder="Email updates coming soon"
-                disabled
-                className="min-w-0 flex-1 cursor-not-allowed rounded-l-lg bg-white/90 px-3 py-2.5 text-sm text-slate-500 outline-none"
-              />
-
-              <button
-                type="button"
-                disabled
-                aria-disabled="true"
-                className="cursor-not-allowed rounded-r-lg bg-blue-600/70 px-4 py-2.5 text-sm font-semibold text-white"
-              >
-                Coming soon
-              </button>
-            </div>
-
+            <Link
+              href="/featured"
+              className="mt-4 inline-flex items-center gap-2 rounded-full bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
+            >
+              Explore Arknoz featured
+              <span aria-hidden="true">{"\u2192"}</span>
+            </Link>
             <div className="mt-5 rounded-2xl border border-white/10 bg-white/[0.035] p-4">
               <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-blue-200">
                 Community
@@ -250,7 +238,7 @@ export default function GlobalFooter({
                 </Link>
 
                 <Link
-                  href="/community"
+                  href="/contribute"
                   className="hover:text-white"
                 >
                   Contribution

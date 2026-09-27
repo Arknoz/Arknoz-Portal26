@@ -4,6 +4,7 @@ import type { ArknozSectionKey } from "@/lib/arknoz-sections";
 import type {
   EntityRecord,
   EntityType,
+  ProjectMedia,
   ProjectRecordData,
 } from "@/lib/entities";
 import { createClient } from "@/lib/supabase/server";
@@ -57,6 +58,47 @@ function buildSubsections(
   return result;
 }
 
+function getEntityMedia(
+  detail: unknown
+): ProjectMedia[] | undefined {
+
+  if (
+    !detail ||
+    typeof detail !== "object"
+  ) {
+    return undefined;
+  }
+
+  const media =
+    (
+      detail as {
+        media?: unknown;
+      }
+    ).media;
+
+  if (!Array.isArray(media)) {
+    return undefined;
+  }
+
+  const valid =
+    media.filter(
+      (
+        item
+      ): item is ProjectMedia =>
+        Boolean(item) &&
+        typeof item === "object" &&
+        typeof (
+          item as {
+            src?: unknown;
+          }
+        ).src === "string"
+    );
+
+  return valid.length > 0
+    ? valid
+    : undefined;
+}
+
 function mapEntity(
   row: DatabaseEntityRow,
   subsectionRows: DatabaseSubsectionRow[]
@@ -76,6 +118,11 @@ function mapEntity(
     trust: row.trust_label ?? undefined,
     sectionSubsections:
       buildSubsections(subsectionRows),
+
+    media:
+      getEntityMedia(
+        row.detail
+      ),
 
     project:
       type === "project"

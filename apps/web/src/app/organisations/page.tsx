@@ -1,4 +1,11 @@
-﻿import WorldIndexRoute from "@/components/WorldIndexRoute";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Organisations",
+  description:
+    "Explore architecture practices, companies, institutions and other organisations across the Built World.",
+};
+import WorldIndexRoute from "@/components/WorldIndexRoute";
 import { resolveArknozSubsectionFromQuery } from "@/lib/arknoz-route-context";
 
 export default async function Page({

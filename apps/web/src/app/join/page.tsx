@@ -1,3 +1,10 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Join Arknoz",
+  description:
+    "Create a free Arknoz ID for your professional identity, Community access, saved activity, contributions and professional connections.",
+};
 import Link from "next/link";
 import GlobalHeader from "@/components/GlobalHeader";
 import GlobalFooter from "@/components/GlobalFooter";

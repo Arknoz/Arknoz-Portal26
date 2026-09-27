@@ -1,4 +1,11 @@
-﻿import WorldIndexRoute from "@/components/WorldIndexRoute";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "People",
+  description:
+    "Explore professionals, contributors and people connected to projects, organisations, knowledge and the wider Built World.",
+};
+import WorldIndexRoute from "@/components/WorldIndexRoute";
 import { resolveArknozSubsectionFromQuery } from "@/lib/arknoz-route-context";
 
 export default async function Page({

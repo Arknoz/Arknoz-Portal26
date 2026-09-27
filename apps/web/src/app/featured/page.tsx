@@ -1,3 +1,10 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Featured",
+  description:
+    "Discover featured projects, products, knowledge, people, organisations, universities, opportunities and places across Arknoz.",
+};
 import Link from "next/link";
 
 import GlobalHeader from "@/components/GlobalHeader";
@@ -6,6 +13,9 @@ import GlobalFooter from "@/components/GlobalFooter";
 import { getEntityHref } from "@/components/EntityCard";
 
 import { entities } from "@/lib/entities";
+import { getProductionEntities } from "@/lib/data/production-entities";
+import { getActivePlacementEntityRef } from "@/lib/placement-data";
+import { getDevelopmentPlacementEntity } from "@/lib/development-placement-preview";
 import {
   arknozSections,
   buildArknozSectionHref,
@@ -15,6 +25,11 @@ import { entityMatchesGeography } from "@/lib/entity-geography";
 import { entityMatchesSubsection } from "@/lib/entity-subsections";
 import { findGeography } from "@/lib/geography";
 
+const featuredPlacementSlots = [
+  "FEATURED-P01",
+  "FEATURED-P02",
+  "FEATURED-P03",
+] as const;
 const imageBySlug: Record<string, string> = {
 };
 
@@ -88,8 +103,22 @@ export default async function FeaturedPage({
     activeSubsection?.description ??
     activeSection.description;
 
-  const featuredRecords =
-    entities.filter(
+  // ARKNOZ_FEATURED_PRODUCTION_PROJECTS_V2
+  //
+  // Project discovery must always use the same canonical
+  // published production Project source.
+  // Other Arknoz sections keep their existing source for now.
+  const recordSource =
+    activeSection.key === "projects"
+      ? await getProductionEntities()
+      : entities;
+  // ARKNOZ_FEATURED_PLACEMENT_WIRING_V1
+  //
+  // Active curated Featured slots appear first.
+  // Draft and disabled assignments resolve to nothing.
+  // Automatic genuine matching records continue afterward.
+  const automaticFeaturedRecords =
+    recordSource.filter(
       (entity) =>
         activeSection.entityTypes.some(
           (type) =>
@@ -106,6 +135,125 @@ export default async function FeaturedPage({
         )
     );
 
+  const placementContext =
+    context?.slug ??
+    "global";
+
+  const curatedFeaturedRecords =
+    activeSection.key ===
+    "projects"
+      ? featuredPlacementSlots.flatMap(
+          (slotId) => {
+            const ref =
+              getActivePlacementEntityRef(
+                slotId,
+                placementContext
+              );
+
+            if (!ref) {
+              return [];
+            }
+
+            const entity =
+              recordSource.find(
+                (candidate) =>
+                  candidate.type ===
+                    ref.type &&
+                  candidate.slug ===
+                    ref.slug
+              );
+
+            if (!entity) {
+              return [];
+            }
+
+            if (
+              !activeSection.entityTypes.some(
+                (type) =>
+                  type === entity.type
+              ) ||
+              !entityMatchesGeography(
+                entity,
+                context
+              ) ||
+              !entityMatchesSubsection(
+                entity,
+                activeSection.key,
+                activeSubsection?.slug
+              )
+            ) {
+              return [];
+            }
+
+            return [
+              entity
+            ];
+          }
+        )
+      : [];
+
+  const curatedKeys =
+    new Set(
+      curatedFeaturedRecords.map(
+        (entity) =>
+          `${entity.type}:${entity.slug}`
+      )
+    );
+
+  const featuredRecords = [
+    ...curatedFeaturedRecords,
+    ...automaticFeaturedRecords.filter(
+      (entity) =>
+        !curatedKeys.has(
+          `${entity.type}:${entity.slug}`
+        )
+    ),
+  ];
+  // ARKNOZ_DEV_DISCOVERY_OVERLAY_V5
+  const developmentFeaturedRecords =
+    process.env.NODE_ENV === "development" &&
+    activeSection.key === "projects" &&
+    !activeSubsection
+      ? featuredPlacementSlots.flatMap(
+          (slotId) => {
+            const entity =
+              getDevelopmentPlacementEntity(
+                slotId,
+                placementContext
+              );
+
+            if (
+              !entity ||
+              !entityMatchesGeography(
+                entity,
+                context
+              )
+            ) {
+              return [];
+            }
+
+            return [entity];
+          }
+        )
+      : [];
+
+  const developmentFeaturedKeys =
+    new Set(
+      developmentFeaturedRecords.map(
+        (entity) =>
+          `${entity.type}:${entity.slug}`
+      )
+    );
+
+  const displayFeaturedRecords = [
+    ...developmentFeaturedRecords,
+    ...featuredRecords.filter(
+      (entity) =>
+        !developmentFeaturedKeys.has(
+          `${entity.type}:${entity.slug}`
+        )
+    ),
+  ];
   const activeGeo =
     context &&
     context.type !== "global"
@@ -201,14 +349,14 @@ export default async function FeaturedPage({
             </Link>
           </div>
 
-          {featuredRecords.length > 0 ? (
+          {displayFeaturedRecords.length > 0 ? (
             <div className="mt-7 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {featuredRecords.map(
+              {displayFeaturedRecords.map(
                 (entity) => {
                   const image =
-                    imageBySlug[
-                      entity.slug
-                    ];
+                      entity.project?.media?.[0]?.src ??
+                      imageBySlug[entity.slug] ??
+                      "/visuals/arknoz-neutral.svg";
 
                   return (
                     <Link

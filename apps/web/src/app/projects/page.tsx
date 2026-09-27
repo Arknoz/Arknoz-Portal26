@@ -1,4 +1,11 @@
-﻿import WorldIndexRoute from "@/components/WorldIndexRoute";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Projects",
+  description:
+    "Explore architecture, buildings, infrastructure, development and Built World projects across countries, cities and regions.",
+};
+import WorldIndexRoute from "@/components/WorldIndexRoute";
 import { resolveArknozSubsectionFromQuery } from "@/lib/arknoz-route-context";
 
 export default async function Page({

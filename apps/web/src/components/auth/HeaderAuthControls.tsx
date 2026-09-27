@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -58,7 +58,11 @@ export default function HeaderAuthControls({
     router.refresh();
   }
 
-  if (!ready || !signedIn) {
+  if (!ready) {
+    return null;
+  }
+
+  if (!signedIn) {
     if (mobile) {
       return (
         <>
@@ -103,9 +107,13 @@ export default function HeaderAuthControls({
   if (mobile) {
     return (
       <>
-        <div className="rounded-lg border border-slate-300 px-4 py-3 text-center font-semibold">
-          Arknoz ID
-        </div>
+        <Link
+          href="/dashboard"
+          onClick={onNavigate}
+          className="rounded-lg border border-slate-300 px-4 py-3 text-center font-semibold text-[#17315c]"
+        >
+          My Arknoz
+        </Link>
 
         <button
           type="button"
@@ -121,9 +129,12 @@ export default function HeaderAuthControls({
 
   return (
     <>
-      <span className="px-2 font-semibold text-[#17315c]">
-        Arknoz ID
-      </span>
+      <Link
+        href="/dashboard"
+        className="px-2 font-semibold text-[#17315c] hover:text-blue-700"
+      >
+        My Arknoz
+      </Link>
 
       <button
         type="button"

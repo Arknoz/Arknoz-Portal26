@@ -1,4 +1,4 @@
-export type ArknozSectionKey =
+﻿export type ArknozSectionKey =
   | "projects"
   | "products"
   | "knowledge"
@@ -62,39 +62,39 @@ export const arknozSections: ArknozSection[] = [
     short: "Projects",
     href: "/projects",
     description:
-      "Explore built work from individual buildings to infrastructure, interiors, landscapes and urban projects.",
+      "Explore buildings, interiors, landscapes, urban development, infrastructure and industrial projects across the Built World.",
     geoAware: true,
     entityTypes: ["project"],
     subsections: [
       {
-        slug: "buildings",
-        label: "Buildings",
-        route: { kind: "query", key: "type", value: "buildings" },
+        slug: "buildings-architecture",
+        label: "Buildings & Architecture",
+        route: { kind: "query", key: "type", value: "buildings-architecture" },
       },
       {
-        slug: "infrastructure",
-        label: "Infrastructure",
-        route: { kind: "query", key: "type", value: "infrastructure" },
+        slug: "interiors-renovation-adaptive-reuse",
+        label: "Interiors, Renovation & Adaptive Reuse",
+        route: { kind: "query", key: "type", value: "interiors-renovation-adaptive-reuse" },
       },
       {
-        slug: "interiors",
-        label: "Interiors",
-        route: { kind: "query", key: "type", value: "interiors" },
+        slug: "landscape-public-realm",
+        label: "Landscape & Public Realm",
+        route: { kind: "query", key: "type", value: "landscape-public-realm" },
       },
       {
-        slug: "landscapes",
-        label: "Landscapes",
-        route: { kind: "query", key: "type", value: "landscapes" },
+        slug: "urbanism-planning-development",
+        label: "Urbanism, Planning & Development",
+        route: { kind: "query", key: "type", value: "urbanism-planning-development" },
       },
       {
-        slug: "urban-masterplanning",
-        label: "Urban & Masterplanning",
-        route: { kind: "query", key: "type", value: "urban" },
+        slug: "infrastructure-mobility",
+        label: "Infrastructure & Mobility",
+        route: { kind: "query", key: "type", value: "infrastructure-mobility" },
       },
       {
-        slug: "case-projects",
-        label: "Case Projects",
-        route: { kind: "query", key: "type", value: "case-projects" },
+        slug: "industrial-energy-utilities",
+        label: "Industrial, Energy & Utilities",
+        route: { kind: "query", key: "type", value: "industrial-energy-utilities" },
       },
     ],
   },
@@ -105,34 +105,39 @@ export const arknozSections: ArknozSection[] = [
     short: "Products",
     href: "/products",
     description:
-      "Discover materials, components, building systems, equipment and technologies used across the Built World.",
+      "Discover materials, components, systems, equipment and technologies used across the Built World.",
     geoAware: true,
     entityTypes: ["product"],
     subsections: [
       {
-        slug: "materials",
-        label: "Materials",
-        route: { kind: "query", key: "type", value: "materials" },
+        slug: "materials-structure",
+        label: "Materials & Structure",
+        route: { kind: "query", key: "type", value: "materials-structure" },
       },
       {
-        slug: "components",
-        label: "Components",
-        route: { kind: "query", key: "type", value: "components" },
+        slug: "envelope-openings",
+        label: "Envelope & Openings",
+        route: { kind: "query", key: "type", value: "envelope-openings" },
       },
       {
-        slug: "building-systems",
-        label: "Building Systems",
-        route: { kind: "query", key: "type", value: "systems" },
+        slug: "interiors-finishes-ffe",
+        label: "Interiors, Finishes & FF&E",
+        route: { kind: "query", key: "type", value: "interiors-finishes-ffe" },
       },
       {
-        slug: "equipment",
-        label: "Equipment",
-        route: { kind: "query", key: "type", value: "equipment" },
+        slug: "building-services-mep",
+        label: "Building Services / MEP",
+        route: { kind: "query", key: "type", value: "building-services-mep" },
       },
       {
-        slug: "technologies",
-        label: "Technologies",
-        route: { kind: "query", key: "type", value: "technologies" },
+        slug: "site-landscape-infrastructure",
+        label: "Site, Landscape & Infrastructure",
+        route: { kind: "query", key: "type", value: "site-landscape-infrastructure" },
+      },
+      {
+        slug: "equipment-smart-systems-technology",
+        label: "Equipment, Smart Systems & Technology",
+        route: { kind: "query", key: "type", value: "equipment-smart-systems-technology" },
       },
     ],
   },
@@ -143,50 +148,38 @@ export const arknozSections: ArknozSection[] = [
     short: "Knowledge",
     href: "/knowledge",
     description:
-      "Move through publications, research, standards, case studies, methods and ideas for the Built World.",
+      "Explore publications, research, case studies, standards, methods and ideas across the Built World.",
     geoAware: true,
     entityTypes: ["knowledge"],
     subsections: [
       {
         slug: "books-publications",
         label: "Books & Publications",
-        description:
-          "Explore books, reports, journals and publications that document ideas, evidence and practice across the Built World.",
         route: { kind: "path", value: "books-publications" },
       },
       {
         slug: "research-innovation",
         label: "Research & Innovation",
-        description:
-          "Explore research, experiments and innovations advancing knowledge, methods and technologies across the Built World.",
         route: { kind: "path", value: "research-innovation" },
       },
       {
         slug: "case-studies-solutions",
         label: "Case Studies & Solutions",
-        description:
-          "Explore applied case studies and solutions showing how Built World challenges are addressed in practice.",
         route: { kind: "path", value: "case-studies-solutions" },
       },
       {
         slug: "standards-references",
-        label: "Standards & References",
-        description:
-          "Explore standards, codes, guidelines and reference material that support informed Built World practice.",
+        label: "Standards, Codes & References",
         route: { kind: "path", value: "standards-references" },
       },
       {
         slug: "methods-practice",
-        label: "Methods & Practice",
-        description:
-          "Explore methods, workflows and professional practices used to plan, design, deliver and evaluate the Built World.",
+        label: "Methods, Guides & Practice",
         route: { kind: "path", value: "methods-practice" },
       },
       {
         slug: "ideas-insights",
         label: "Ideas & Insights",
-        description:
-          "Explore perspectives, ideas and insights that help interpret change, debate and emerging directions across the Built World.",
         route: { kind: "path", value: "ideas-insights" },
       },
     ],
@@ -194,11 +187,11 @@ export const arknozSections: ArknozSection[] = [
 
   {
     key: "learning",
-    title: "Learning & Education",
-    short: "Learning",
+    title: "Education",
+    short: "Education",
     href: "/learning",
     description:
-      "Find structured learning for students, professionals and organisations across the Built World.",
+      "Discover structured learning, professional development, skills, credentials and open learning across the Built World.",
     geoAware: true,
     entityTypes: [],
     subsections: [
@@ -208,28 +201,29 @@ export const arknozSections: ArknozSection[] = [
         route: { kind: "query", key: "type", value: "courses" },
       },
       {
-        slug: "programmes",
-        label: "Programmes",
-        route: { kind: "query", key: "type", value: "programmes" },
+        slug: "academic-programmes",
+        label: "Academic Programmes",
+        route: { kind: "query", key: "type", value: "academic-programmes" },
       },
       {
-        slug: "skills",
-        label: "Skills",
-        route: { kind: "query", key: "type", value: "skills" },
+        slug: "professional-development-cpd",
+        label: "Professional Development / CPD",
+        route: { kind: "query", key: "type", value: "professional-development-cpd" },
       },
       {
-        slug: "professional-learning",
-        label: "Professional Learning",
-        route: {
-          kind: "query",
-          key: "type",
-          value: "professional-learning",
-        },
+        slug: "skills-technical-training",
+        label: "Skills & Technical Training",
+        route: { kind: "query", key: "type", value: "skills-technical-training" },
       },
       {
-        slug: "tutorials",
-        label: "Tutorials",
-        route: { kind: "query", key: "type", value: "tutorials" },
+        slug: "certifications-credentials",
+        label: "Certifications & Credentials",
+        route: { kind: "query", key: "type", value: "certifications-credentials" },
+      },
+      {
+        slug: "tutorials-open-learning",
+        label: "Tutorials & Open Learning",
+        route: { kind: "query", key: "type", value: "tutorials-open-learning" },
       },
     ],
   },
@@ -240,49 +234,39 @@ export const arknozSections: ArknozSection[] = [
     short: "Opportunities",
     href: "/opportunities",
     description:
-      "Discover ways to work, compete, study, participate and advance across the Built World.",
+      "Discover time-bound ways to work, compete, bid, participate, attend and advance across the Built World.",
     geoAware: true,
     entityTypes: ["opportunity"],
     subsections: [
       {
-        slug: "jobs",
-        label: "Jobs",
-        route: { kind: "query", key: "type", value: "jobs" },
+        slug: "jobs-careers",
+        label: "Jobs & Careers",
+        route: { kind: "query", key: "type", value: "jobs-careers" },
       },
       {
-        slug: "internships",
-        label: "Internships",
-        route: { kind: "query", key: "type", value: "internships" },
+        slug: "competitions-awards",
+        label: "Competitions & Awards",
+        route: { kind: "query", key: "type", value: "competitions-awards" },
       },
       {
-        slug: "competitions",
-        label: "Competitions",
-        route: { kind: "query", key: "type", value: "competitions" },
+        slug: "tenders-rfps-project-calls",
+        label: "Tenders, RFPs & Project Calls",
+        route: { kind: "query", key: "type", value: "tenders-rfps-project-calls" },
       },
       {
-        slug: "scholarships",
-        label: "Scholarships",
-        route: { kind: "query", key: "type", value: "scholarships" },
+        slug: "grants-funding-fellowships",
+        label: "Grants, Funding & Fellowships",
+        route: { kind: "query", key: "type", value: "grants-funding-fellowships" },
       },
       {
-        slug: "grants",
-        label: "Grants",
-        route: { kind: "query", key: "type", value: "grants" },
+        slug: "events-conferences-exhibitions",
+        label: "Events, Conferences & Exhibitions",
+        route: { kind: "query", key: "type", value: "events-conferences-exhibitions" },
       },
       {
-        slug: "fellowships",
-        label: "Fellowships",
-        route: { kind: "query", key: "type", value: "fellowships" },
-      },
-      {
-        slug: "events",
-        label: "Events",
-        route: { kind: "query", key: "type", value: "events" },
-      },
-      {
-        slug: "awards",
-        label: "Awards",
-        route: { kind: "query", key: "type", value: "awards" },
+        slug: "open-calls-participation",
+        label: "Open Calls & Participation",
+        route: { kind: "query", key: "type", value: "open-calls-participation" },
       },
     ],
   },
@@ -488,7 +472,7 @@ export const arknozSections: ArknozSection[] = [
     short: "Community",
     href: "/community",
     description:
-      "Members, collaboration, contribution, news and development, competitions and jobs, and regional chapters. Community participation will be free with an Arknoz ID.",
+      "The Arknoz member community for participation, collaboration, contribution, discussion and regional chapters.",
     geoAware: true,
     entityTypes: [],
     subsections: [
@@ -508,22 +492,14 @@ export const arknozSections: ArknozSection[] = [
         route: { kind: "query", key: "type", value: "contribution" },
       },
       {
-        slug: "news-development",
-        label: "Arknoz News & Development",
-        route: {
-          kind: "query",
-          key: "type",
-          value: "news-development",
-        },
+        slug: "discussions-activity",
+        label: "Discussions & Activity",
+        route: { kind: "query", key: "type", value: "discussions-activity" },
       },
       {
-        slug: "competitions-jobs",
-        label: "Competitions & Jobs",
-        route: {
-          kind: "query",
-          key: "type",
-          value: "competitions-jobs",
-        },
+        slug: "news-development",
+        label: "Arknoz News & Development",
+        route: { kind: "query", key: "type", value: "news-development" },
       },
       {
         slug: "chapters",
@@ -680,6 +656,33 @@ export const arknozSections: ArknozSection[] = [
   },
 ];
 
+export const exploreSectionKeys = [
+  "projects",
+  "products",
+  "knowledge",
+  "learning",
+  "opportunities",
+  "community",
+] as const;
+
+export type ExploreSectionKey =
+  (typeof exploreSectionKeys)[number];
+
+export const arknozExploreSections =
+  arknozSections.filter(
+    (section) =>
+      exploreSectionKeys.includes(
+        section.key as ExploreSectionKey
+      )
+  );
+
+export function isExploreArknozSection(
+  key: ArknozSectionKey
+) {
+  return exploreSectionKeys.includes(
+    key as ExploreSectionKey
+  );
+}
 export function getArknozSection(
   key: ArknozSectionKey
 ) {

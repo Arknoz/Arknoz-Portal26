@@ -1,12 +1,12 @@
 import Link from "next/link";
 
 import {
-  arknozSections,
+  arknozExploreSections,
   isPaidArknozSection,
 } from "@/lib/arknoz-sections";
 
 const worldLinks =
-  arknozSections.map(
+  arknozExploreSections.map(
     (section) => ({
       key: section.key,
       label: section.title,
@@ -62,7 +62,7 @@ export default function UniversalFooterStrip() {
       <div className="mx-auto flex max-w-[1600px] flex-col gap-4 px-6 py-4 lg:flex-row lg:items-center lg:justify-between lg:px-10">
         <div className="flex min-w-0 flex-1 flex-wrap items-center gap-2">
           <span className="mr-2 text-[10px] font-bold uppercase tracking-[0.18em] text-blue-200">
-            EXPLORE BY WORLD
+            EXPLORE ARKNOZ
           </span>
 
           {worldLinks.map(

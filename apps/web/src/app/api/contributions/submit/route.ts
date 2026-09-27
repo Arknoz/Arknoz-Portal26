@@ -1,24 +1,34 @@
 import { NextResponse } from "next/server";
 
-import { createClient } from "@/lib/supabase/server";
-import { submitContributionForAdminReview } from "@/lib/contributions/r2-upload";
+import {
+  submitContributionForAdminReview,
+} from "@/lib/contributions/r2-upload";
+
+import {
+  createClient,
+} from "@/lib/supabase/server";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-export async function POST(request: Request) {
+export async function POST(
+  request: Request
+) {
   try {
-    const supabase = await createClient();
+    const supabase =
+      await createClient();
 
     const {
       data: { user },
-    } = await supabase.auth.getUser();
+    } =
+      await supabase.auth.getUser();
 
     if (!user) {
       return NextResponse.json(
         {
           ok: false,
-          error: "Authentication required.",
+          error:
+            "Authentication required.",
         },
         {
           status: 401,
@@ -26,25 +36,81 @@ export async function POST(request: Request) {
       );
     }
 
-    const body = await request.json();
+    const isPro =
+      String(
+        user.app_metadata
+          ?.membership ??
+          ""
+      ).toUpperCase() ===
+      "PRO";
 
-    const manifestKey = String(
-      body?.manifestKey || ""
-    ).trim();
+    if (!isPro) {
+      return NextResponse.json(
+        {
+          ok: false,
+          error:
+            "Arknoz Pro membership is required for contributions.",
+        },
+        {
+          status: 403,
+        }
+      );
+    }
 
-    const contributionType = String(
-      body?.contributionType || ""
-    ).trim();
+    const body =
+      await request.json();
 
-    const declarationAccepted =
-      body?.declarationAccepted === true;
+    const contributionType =
+      String(
+        body
+          ?.contributionType ||
+          ""
+      );
 
     const manifest =
       await submitContributionForAdminReview({
-        manifestKey,
-        contributorUserId: user.id,
+        manifestKey:
+          String(
+            body?.manifestKey ||
+              ""
+          ),
+
+        supportingManifestKeys:
+          Array.isArray(
+            body
+              ?.supportingManifestKeys
+          )
+            ? body
+                .supportingManifestKeys
+                .map(
+                  (
+                    item: unknown
+                  ) =>
+                    String(
+                      item || ""
+                    )
+                )
+            : [],
+
+        contributorUserId:
+          user.id,
+
         contributionType,
-        declarationAccepted,
+
+        declarationAccepted:
+          body
+            ?.declarationAccepted ===
+          true,
+
+        details:
+          body?.details &&
+          typeof body.details ===
+            "object" &&
+          !Array.isArray(
+            body.details
+          )
+            ? body.details
+            : {},
       });
 
     return NextResponse.json({
@@ -52,21 +118,46 @@ export async function POST(request: Request) {
 
       contribution: {
         importId:
-          manifest?.import?.id || null,
+          manifest
+            ?.import
+            ?.id,
 
-        manifestKey,
+        manifestKey:
+          String(
+            body?.manifestKey ||
+              ""
+          ),
 
         contributionType:
-          manifest?.submission
-            ?.contribution_type || null,
+          manifest
+            ?.submission
+            ?.contribution_type ??
+          null,
+
+        title:
+          manifest
+            ?.submission
+            ?.details
+            ?.title ??
+          null,
 
         reviewStatus:
-          manifest?.submission
-            ?.review_status || null,
+          manifest
+            ?.submission
+            ?.review_status ??
+          null,
 
-        publicationAllowed:
-          manifest?.publication
-            ?.allowed === true,
+        submittedAt:
+          manifest
+            ?.submission
+            ?.submitted_at ??
+          null,
+
+        evidenceCount:
+          manifest
+            ?.evidence
+            ?.evidence_count ??
+          0,
       },
     });
   } catch (error) {

@@ -1,3 +1,12 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Sign In",
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
 import Link from "next/link";
 import GlobalHeader from "@/components/GlobalHeader";
 import GlobalFooter from "@/components/GlobalFooter";
@@ -67,7 +76,7 @@ export default async function SignInPage({
             href={safeReturnTo}
             className="font-semibold text-blue-700"
           >
-            ← Return
+            â† Return
           </Link>
 
           <Link

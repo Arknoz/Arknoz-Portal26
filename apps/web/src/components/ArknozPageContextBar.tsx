@@ -1,0 +1,41 @@
+export default function ArknozPageContextBar() {
+  return (
+    <div
+      data-arknoz-page-context="true"
+      className="
+        border-y
+        border-slate-200
+        bg-white
+        px-6
+        py-5
+        sm:py-6
+        lg:px-8
+      "
+    >
+      <div
+        className="
+          mx-auto
+          flex
+          max-w-[1720px]
+          items-center
+          justify-center
+          text-center
+        "
+      >
+        <p
+          className="
+            text-[22px]
+            font-semibold
+            leading-tight
+            tracking-[-0.035em]
+            text-slate-950
+            sm:text-[26px]
+            lg:text-[30px]
+          "
+        >
+          One Built World. Connected through Arknoz.
+        </p>
+      </div>
+    </div>
+  );
+}

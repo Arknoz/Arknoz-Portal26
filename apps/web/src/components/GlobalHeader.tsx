@@ -1,4 +1,6 @@
-"use client";
+﻿"use client";
+
+import ArknozDiscoveryRibbon from "@/components/ArknozDiscoveryRibbon";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -12,17 +14,18 @@ import {
   isPaidArknozSection,
 } from "@/lib/arknoz-sections";
 
-const nav = [
+const nav: ReadonlyArray<readonly [string, string]> = [
   ["Home", "/"],
   ["Explore", "/explore"],
-  ["Connect", "/connect"],
-  ["Intelligence", "/intelligence"],
-  ["Global", "/global"],
-] as const;
+  ["Arknoz Pro", "/intelligence"],
+];
 
 function navIsPaid(
   label: string
 ) {
+  if (label === "Arknoz Pro") {
+    return true;
+  }
   const section =
     arknozSections.find(
       (item) =>
@@ -96,8 +99,7 @@ function ChevronDown() {
 export default function GlobalHeader() {
   const [open, setOpen] =
     useState(false);
-
-  return (
+return (
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
       <div className="mx-auto flex h-[72px] max-w-[1600px] items-center justify-between px-5 lg:px-8">
         <Link
@@ -126,7 +128,7 @@ export default function GlobalHeader() {
                   href={href}
                   title={
                     paid
-                      ? `${label} · Arknoz Pro`
+                      ? label
                       : label
                   }
                   className="flex items-center gap-1.5 hover:text-[#17315c]"
@@ -148,13 +150,29 @@ export default function GlobalHeader() {
         </nav>
 
         <div className="hidden items-center gap-3 text-sm text-slate-700 md:flex">
-          <Link
-            href="/search"
-            aria-label="Search"
-            className="flex h-9 w-9 items-center justify-center rounded-full hover:bg-slate-100"
+          <form
+            action="/search"
+            method="get"
+            role="search"
+            className="flex h-10 w-[220px] items-center rounded-full border border-slate-200 bg-slate-50 px-3 transition focus-within:border-blue-300 focus-within:bg-white"
           >
             <SearchIcon />
-          </Link>
+
+            <input
+              type="search"
+              name="q"
+              placeholder="Search Arknoz..."
+              aria-label="Search Arknoz"
+              className="min-w-0 flex-1 bg-transparent px-2 text-sm text-slate-800 outline-none placeholder:text-slate-400"
+            />
+
+            <button
+              type="submit"
+              className="text-xs font-semibold text-[#17315c]"
+            >
+              Search
+            </button>
+          </form>
 
           <LanguageControl compact />
 
@@ -234,6 +252,9 @@ export default function GlobalHeader() {
           </div>
         </div>
       )}
-    </header>
+
+        <ArknozDiscoveryRibbon />
+
+</header>
   );
 }

@@ -90,6 +90,7 @@ export type EntityRecord = {
   geographySlug?: string;
   summary: string;
   trust?: string;
+  media?: ProjectMedia[];
   project?: ProjectRecordData;
 };
 
@@ -173,7 +174,7 @@ export const entities: EntityRecord[] = [
   {
     slug: "vancouver-tall-challenge",
     type: "opportunity",
-    sectionSubsections: { opportunities: ["competitions"] },
+    sectionSubsections: { opportunities: ["competitions-awards"] },
     title: "Vancouver Tall Challenge",
     subtitle: "Competition",
     geography: "Vancouver, Canada",
@@ -184,7 +185,7 @@ export const entities: EntityRecord[] = [
   {
     slug: "research-fellowship",
     type: "opportunity",
-    sectionSubsections: { opportunities: ["fellowships"] },
+    sectionSubsections: { opportunities: ["grants-funding-fellowships"] },
     title: "Research Fellowship",
     subtitle: "Opportunity",
     geography: "Global",

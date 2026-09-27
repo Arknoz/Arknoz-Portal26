@@ -1,4 +1,11 @@
-﻿import WorldIndexRoute from "@/components/WorldIndexRoute";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Learning",
+  description:
+    "Explore Built World learning, education, professional development and educational resources across Arknoz.",
+};
+import WorldIndexRoute from "@/components/WorldIndexRoute";
 import { resolveArknozSubsectionFromQuery } from "@/lib/arknoz-route-context";
 
 export default async function Page({

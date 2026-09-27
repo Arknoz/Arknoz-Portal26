@@ -1,9 +1,9 @@
 import Link from "next/link";
 
-import GlobalHeader from "@/components/GlobalHeader";
-import GlobalFooter from "@/components/GlobalFooter";
-import UniversalFooterStrip from "@/components/UniversalFooterStrip";
 import KnowledgeDetailTabs from "@/components/KnowledgeDetailTabs";
+import UniversalPublicFirstScreen from "@/components/UniversalPublicFirstScreen";
+import UniversalPublicLastScreen from "@/components/UniversalPublicLastScreen";
+import { getEntityHref } from "@/components/EntityCard";
 
 import type {
   EntityRecord,
@@ -97,174 +97,50 @@ export default function KnowledgeDetailPage({
 
   const facts = detail?.facts ?? [];
 
-  const headlineFacts =
-    facts.slice(0, 4);
-
-  const glanceFacts =
-    facts.slice(3, 6);
-
   const section =
     detail?.section ?? "Knowledge";
 
+  const knowledgeFeatured = relatedKnowledge
+    .slice(0, 3)
+    .map((item) => ({
+      type: item.subtitle || "KNOWLEDGE",
+      title: item.title,
+      meta: `${item.geography}${item.trust ? ` · ${item.trust}` : ""}`,
+      href: getEntityHref(item),
+      image: "/visuals/arknoz-neutral.svg",
+    }));
+
   return (
     <>
-      <GlobalHeader />
-
       <main>
-
-        {/* ==================================================
-            SCREEN 1 — KNOWLEDGE IDENTITY
-        ================================================== */}
-
-        <section className="bg-[#f6f8fb] lg:h-[calc(100svh-88px)]">
-          <div className="mx-auto flex h-full max-w-[1600px] flex-col px-6 py-5 lg:px-8">
-
-            <nav className="mb-4 flex shrink-0 flex-wrap items-center gap-2 text-[11px] font-semibold">
-              <Link
-                href="/knowledge"
-                className="text-blue-700"
-              >
-                Knowledge
-              </Link>
-
-              <span className="text-slate-400">
-                ›
-              </span>
-
-              <span className="text-slate-600">
-                {section}
-              </span>
-
-              <span className="text-slate-400">
-                ›
-              </span>
-
-              <span className="text-slate-950">
-                {entity.title}
-              </span>
-            </nav>
-
-            <div className="grid min-h-0 flex-1 gap-4 lg:grid-cols-[.84fr_1.05fr_190px]">
-
-              {/* IDENTITY */}
-              <article className="flex min-h-0 flex-col justify-between rounded-[26px] border border-slate-200 bg-white p-7 shadow-[0_6px_24px_rgba(15,23,42,.035)]">
-                <div>
-                  <div className="flex flex-wrap gap-2">
-                    <span className="rounded-full bg-blue-50 px-3 py-1 text-[8px] font-bold uppercase tracking-[0.17em] text-blue-700">
-                      {detail?.recordType ??
-                        "KNOWLEDGE"}
-                    </span>
-
-                    <span className="rounded-full bg-[#f3f6f9] px-3 py-1 text-[8px] font-bold uppercase tracking-[0.17em] text-slate-600">
-                      {section}
-                    </span>
-                  </div>
-
-                  <h1 className="mt-6 text-[clamp(34px,3.6vw,58px)] font-bold leading-[1] tracking-[-.04em] text-slate-950">
-                    {entity.title}
-                  </h1>
-
-                  {detail?.strapline ? (
-                    <h2 className="mt-4 max-w-[580px] text-[20px] font-bold leading-7 text-slate-950">
-                      {detail.strapline}
-                    </h2>
-                  ) : null}
-
-                  <p className="mt-4 max-w-[570px] text-[13px] leading-6 text-slate-600">
-                    {entity.summary}
-                  </p>
-
-                  {headlineFacts.length >
-                  0 ? (
-                    <div className="mt-5 grid grid-cols-2 gap-x-6">
-                      {headlineFacts.map(
-                        (fact) => (
-                          <div
-                            key={fact.label}
-                            className="border-t border-slate-200 py-3"
-                          >
-                            <span className="text-[10px] text-slate-500">
-                              {fact.label}
-                            </span>
-
-                            <strong className="ml-2 text-[11px] text-slate-950">
-                              {fact.value}
-                            </strong>
-                          </div>
-                        )
-                      )}
-                    </div>
-                  ) : null}
-                </div>
-
-                <div className="flex items-center justify-between gap-3 pt-4">
-                  <span className="rounded-full bg-[#0b2949] px-5 py-3 text-[10px] font-bold text-white">
-                    Official source identified
-                  </span>
-
-                  <a
-                    href="#knowledge-intelligence"
-                    className="text-[11px] font-bold text-blue-700"
-                  >
-                    Knowledge intelligence ↓
-                  </a>
-                </div>
-              </article>
-
-              {/* VISUAL */}
-              <KnowledgeHeroVisual
-                entity={entity}
-                detail={detail}
-              />
-
-              {/* RIGHT RAIL */}
-              <div className="grid min-h-0 grid-rows-[1.05fr_.95fr] gap-3">
-
-                <article className="flex flex-col justify-between rounded-[24px] bg-[#0b2949] p-5 text-white">
-                  <div>
-                    <p className="text-[8px] font-bold uppercase tracking-[0.18em] text-blue-200">
-                      VERIFIED
-                    </p>
-
-                    <h3 className="mt-3 text-[15px] font-bold">
-                      Knowledge source
-                    </h3>
-                  </div>
-
-                  <p className="text-[10px] leading-5 text-slate-300">
-                    Source-backed identity, publication metadata and provenance.
-                  </p>
-                </article>
-
-                <article className="rounded-[24px] border border-slate-200 bg-white p-5">
-                  <p className="text-[8px] font-bold uppercase tracking-[0.18em] text-blue-700">
-                    AT A GLANCE
-                  </p>
-
-                  <div className="mt-4 space-y-4">
-                    {glanceFacts.map(
-                      (fact) => (
-                        <div
-                          key={fact.label}
-                        >
-                          <p className="text-[9px] text-slate-400">
-                            {fact.label}
-                          </p>
-
-                          <p className="mt-1 text-[12px] font-bold leading-4">
-                            {fact.value}
-                          </p>
-                        </div>
-                      )
-                    )}
-                  </div>
-                </article>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ==================================================
+        <UniversalPublicFirstScreen
+          eyebrow={`${section.toUpperCase()} · KNOWLEDGE`}
+          title={entity.title}
+          description={detail?.strapline || entity.summary}
+          searchPlaceholder={`Search Knowledge — publication, research, standard, method or topic...`}
+          popular={[
+            { label: "Knowledge Home", href: "/knowledge" },
+            { label: section, href: "/knowledge" },
+            { label: "Projects", href: "/projects" },
+            { label: "Global", href: "/global" },
+          ]}
+          contextNav={[
+            { label: "Knowledge Home", href: "/knowledge" },
+            { label: section, href: "/knowledge" },
+            { label: "Projects", href: "/projects" },
+            { label: "Products", href: "/products" },
+            { label: "Global", href: "/global" },
+          ]}
+          featured={knowledgeFeatured}
+          featuredHref="/knowledge"
+          ticker={[
+            { text: "Explore related Knowledge", href: "#knowledge-intelligence" },
+            { text: "Continue into Arknoz Intelligence", href: "#knowledge-intelligence" },
+            { text: "Discover connected Projects", href: "/projects" },
+            { text: "Explore the Built World globally", href: "/global" },
+          ]}
+        />
+{/* ==================================================
             SCREEN 2
         ================================================== */}
 
@@ -322,8 +198,7 @@ export default function KnowledgeDetailPage({
           </div>
         </section>
 
-        <UniversalFooterStrip />
-        <GlobalFooter />
+        <UniversalPublicLastScreen />
       </main>
     </>
   );

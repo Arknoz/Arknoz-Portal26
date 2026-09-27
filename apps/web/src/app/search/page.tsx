@@ -1,17 +1,17 @@
 "use client";
 
-import { entityMatchesGeography } from "@/lib/entity-geography";
+// ARKNOZ_PRODUCTION_SEARCH_V1
 
 
 import Link from "next/link";
-import { FormEvent, useMemo, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import GlobalHeader from "@/components/GlobalHeader";
 import GeographyContextBar from "@/components/GeographyContextBar";
 import UniversalTopicHero from "@/components/UniversalTopicHero";
 import UniversalFooterStrip from "@/components/UniversalFooterStrip";
 import GlobalFooter from "@/components/GlobalFooter";
-import { entities } from "@/lib/entities";
+import type { EntityRecord } from "@/lib/entities";
 import {
   type GeographyItem,
   findGeography,
@@ -139,40 +139,117 @@ function SearchBody() {
   const [query, setQuery] = useState(urlQuery);
   const [world, setWorld] = useState("all");
 
-  const results = useMemo(() => {
-    if (!urlQuery) return [];
+  const [results, setResults] =
+    useState<EntityRecord[]>([]);
 
-    const terms = urlQuery
-      .toLowerCase()
-      .split(/\s+/)
-      .filter(Boolean);
+  const [resolvedSearchKey, setResolvedSearchKey] =
+    useState("");
 
-    return entities.filter((entity) => {
-      const haystack = [
-        entity.title,
-        entity.subtitle,
-        entity.geography,
-        entity.type,
-      ]
-        .filter(Boolean)
-        .join(" ")
-        .toLowerCase();
+  const searchKey =
+    `${urlQuery}|${world}|${geoSlug}`;
 
-      const matchesText = terms.every((term) => haystack.includes(term));
-      const matchesWorld = world === "all" || entity.type === world;
-      const matchesGeo =
-        entityMatchesGeography(
-          entity,
-          context
+  const searchLoading =
+    Boolean(urlQuery) &&
+    resolvedSearchKey !== searchKey;
+
+  const [
+    searchError,
+    setSearchError,
+  ] =
+    useState("");
+
+
+  useEffect(() => {
+    const controller =
+      new AbortController();
+
+    if (!urlQuery) {
+      return () =>
+        controller.abort();
+    }
+
+    const requestParams =
+      new URLSearchParams();
+
+    requestParams.set(
+      "q",
+      urlQuery
+    );
+
+    if (world !== "all") {
+      requestParams.set(
+        "world",
+        world
+      );
+    }
+
+    if (geoSlug) {
+      requestParams.set(
+        "geo",
+        geoSlug
+      );
+    }
+
+    fetch(
+      `/api/search?${requestParams.toString()}`,
+      {
+        cache: "no-store",
+        signal:
+          controller.signal,
+      }
+    )
+      .then(async (response) => {
+        const payload =
+          await response.json() as {
+            results?: EntityRecord[];
+            error?: string;
+          };
+
+        if (!response.ok) {
+          throw new Error(
+            payload.error ??
+            "Search is temporarily unavailable."
+          );
+        }
+
+        return payload;
+      })
+      .then((payload) => {
+        if (controller.signal.aborted) {
+          return;
+        }
+
+        setResults(
+          payload.results ?? []
         );
 
-      return (
-        matchesText &&
-        matchesWorld &&
-        matchesGeo
-      );
-    });
-  }, [urlQuery, world, geoSlug]);
+        setSearchError("");
+        setResolvedSearchKey(searchKey);
+      })
+      .catch((error) => {
+        if (controller.signal.aborted) {
+          return;
+        }
+
+        setResults([]);
+
+        setSearchError(
+          error instanceof Error
+            ? error.message
+            : "Search is temporarily unavailable."
+        );
+
+        setResolvedSearchKey(searchKey);
+      });
+
+    return () =>
+      controller.abort();
+  }, [
+    urlQuery,
+    world,
+    geoSlug,
+    searchKey,
+  ]);
 
   function submit(event: FormEvent) {
     event.preventDefault();
@@ -253,7 +330,35 @@ function SearchBody() {
               </Link>
             </div>
 
-            {results.length > 0 ? (
+            {searchLoading ? (
+
+              <div className="mt-7 rounded-[28px] border border-slate-200 bg-[#f8fafc] p-7">
+
+                <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-blue-700">
+                  SEARCHING PUBLISHED ARKNOZ RECORDS
+                </p>
+
+                <p className="mt-2 text-slate-600">
+                  Checking the current canonical record set for “{urlQuery}”.
+                </p>
+
+              </div>
+
+            ) : searchError ? (
+
+              <div className="mt-7 rounded-[28px] border border-slate-200 bg-[#f8fafc] p-7">
+
+                <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-blue-700">
+                  SEARCH TEMPORARILY UNAVAILABLE
+                </p>
+
+                <p className="mt-2 text-slate-600">
+                  {searchError}
+                </p>
+
+              </div>
+
+            ) : results.length > 0 ? (
               <div className="mt-7 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
                 {results.map((entity) => (
                   <Link

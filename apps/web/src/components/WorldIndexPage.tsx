@@ -2,25 +2,39 @@ import { entityMatchesGeography } from "@/lib/entity-geography";
 import { entityMatchesSubsection } from "@/lib/entity-subsections";
 import {
   arknozSections,
+  arknozExploreSections,
   buildArknozSectionHref,
   getArknozSection,
+  isExploreArknozSection,
 } from "@/lib/arknoz-sections";
 import SectionSubsectionStrip from "@/components/SectionSubsectionStrip";
-import type { ArknozSectionKey } from "@/lib/arknoz-sections";
+import type { ArknozSectionKey, ExploreSectionKey } from "@/lib/arknoz-sections";
 import Link from "next/link";
+import ArknozPageShell from "@/components/ArknozPageShell";
+import ArknozChapter from "@/components/ArknozChapter";
+import ArknozPanel from "@/components/ArknozPanel";
+import ArknozTile from "@/components/ArknozTile";
+import ArknozPlacementSlot from "@/components/ArknozPlacementSlot";
 
-import GlobalHeader from "@/components/GlobalHeader";
-import GlobalFooter from "@/components/GlobalFooter";
-import UniversalFooterStrip from "@/components/UniversalFooterStrip";
-import UniversalTopicHero from "@/components/UniversalTopicHero";
-import GeographyContextBar from "@/components/GeographyContextBar";
+import { getGeographyContextNav } from "@/components/GeographyContextBar";
+import UniversalPublicFirstScreen from "@/components/UniversalPublicFirstScreen";
+import UniversalPublicLastScreen from "@/components/UniversalPublicLastScreen";
+import { resolveFeaturedPlacementContext } from "@/lib/featured-slots";
 import CommunityMemberAccess from "@/components/auth/CommunityMemberAccess";
+import ShowcaseChapter from "@/components/ShowcaseChapter";
+import ProjectCategoryShowcaseScreen from "@/components/ProjectCategoryShowcaseScreen";
+import CoreWorldCategoryShowcaseScreen from "@/components/CoreWorldCategoryShowcaseScreen";
+import CoreWorldCategoryIndexBody from "@/components/CoreWorldCategoryIndexBody";
+import { createShowcaseContext } from "@/lib/universal-showcase";
+import { getAssignedShowcaseItems } from "@/lib/showcase-data";
+import { getArknozVisualTheme } from "@/lib/arknoz-visual-theme";
 
 import {
   entities,
   type EntityRecord,
   type EntityType,
 } from "@/lib/entities";
+import { getProductionEntities } from "@/lib/data/production-entities";
 
 import {
   type GeographyItem,
@@ -93,7 +107,7 @@ function getWorldConfig(
 }
 
 const connectedWorlds =
-  arknozSections.map(
+  arknozExploreSections.map(
     (section) =>
       [
         section.title,
@@ -294,18 +308,26 @@ function WorldRecordCard({
   );
 }
 
-export default function WorldIndexPage({
+export default async function WorldIndexPage({
   sectionKey,
   activeSubsection,
   title,
   description,
   geoSlug,
+  recordSourceOverride,
+  compactHero,
+  featuredOverride,
+  hideTopSubsectionStrip,
 }: {
   title: string;
   description: string;
   geoSlug?: string;
   sectionKey?: ArknozSectionKey;
   activeSubsection?: string;
+  recordSourceOverride?: EntityRecord[];
+  compactHero?: boolean;
+  featuredOverride?: HeroFeature[];
+  hideTopSubsectionStrip?: boolean;
 }) {
   const context =
     geoSlug
@@ -313,6 +335,16 @@ export default function WorldIndexPage({
       : undefined;
 
   const config = getWorldConfig(title, sectionKey);
+  const visualTheme =
+    getArknozVisualTheme(sectionKey);
+
+  // Projects now use real published production entities.
+  // Other Arknoz sections remain unchanged.
+  const recordSource =
+    recordSourceOverride ??
+    (sectionKey === "projects"
+      ? await getProductionEntities()
+      : entities);
   const activeSection =
     sectionKey
       ? getArknozSection(sectionKey)
@@ -358,7 +390,7 @@ export default function WorldIndexPage({
 
   const worldRecords =
     config.entityTypes.length > 0
-      ? entities.filter(
+      ? recordSource.filter(
           (entity) =>
             config.entityTypes.includes(
               entity.type
@@ -380,11 +412,92 @@ export default function WorldIndexPage({
         )
     );
 
+  const showcaseContext =
+    sectionKey &&
+    isExploreArknozSection(sectionKey)
+      ? createShowcaseContext(
+          sectionKey as ExploreSectionKey,
+          activeSubsection,
+          context
+        )
+      : undefined;
+
+  function resolveAssignedShowcaseEntities(
+    type: "featured" | "editors-choice"
+  ): EntityRecord[] {
+    if (!showcaseContext) {
+      return [];
+    }
+
+    return getAssignedShowcaseItems(
+      type,
+      showcaseContext
+    ).flatMap((assignment) => {
+      const entity =
+        recordSource.find(
+          (candidate) =>
+            candidate.type ===
+              assignment.entity_ref.type &&
+            candidate.slug ===
+              assignment.entity_ref.slug
+        );
+
+      if (!entity) {
+        return [];
+      }
+
+      const belongsToCurrentContext =
+        visibleRecords.some(
+          (candidate) =>
+            candidate.type === entity.type &&
+            candidate.slug === entity.slug
+        );
+
+      return belongsToCurrentContext
+        ? [entity]
+        : [];
+    });
+  }
+
+  const featuredShowcaseRecords =
+    resolveAssignedShowcaseEntities(
+      "featured"
+    );
+
+  const featuredShowcaseKeys =
+    new Set(
+      featuredShowcaseRecords.map(
+        (entity) =>
+          `${entity.type}:${entity.slug}`
+      )
+    );
+
+  const editorsChoiceRecords =
+    resolveAssignedShowcaseEntities(
+      "editors-choice"
+    ).filter(
+      (entity) =>
+        !featuredShowcaseKeys.has(
+          `${entity.type}:${entity.slug}`
+        )
+    );
+
+  // Member Choice intentionally remains empty until
+  // genuine member_actions can be converted into a
+  // validated anti-gaming ranking.
+  const memberChoiceRecords:
+    EntityRecord[] = [];
   const featured =
     visibleRecords
       .map((entity) => {
         const image =
-          getEntityImage(entity);
+          getEntityImage(entity) ??
+          (
+            recordSourceOverride &&
+            sectionKey === "knowledge"
+              ? "/visuals/arknoz-neutral.svg"
+              : undefined
+          );
 
         if (!image) {
           return null;
@@ -504,7 +617,7 @@ export default function WorldIndexPage({
         locationLabel
           ? `Explore ${displayTitle.toLowerCase()} connected to ${locationLabel}`
           : `Explore genuine ${displayTitle.toLowerCase()} across Arknoz`,
-      href: "#records",
+      href: "#showcases",
     },
     {
       text:
@@ -537,32 +650,49 @@ export default function WorldIndexPage({
     : "/community";
 
   return (
-    <main className="min-h-screen bg-white">
-      <GlobalHeader />
-
-      {context &&
-        context.type !== "global" && (
-          <GeographyContextBar
-            context={context}
-          />
-        )}
-
-      {sectionKey === "knowledge" && (
-        <SectionSubsectionStrip
-          sectionKey={sectionKey}
-          geoSlug={
-            context &&
-            context.type !== "global"
-              ? context.slug
-              : undefined
-          }
-          activeSubsection={
-            activeSubsection
-          }
-        />
-      )}
-      <UniversalTopicHero
+    <ArknozPageShell tone="light" className="min-h-screen">
+      <UniversalPublicFirstScreen
         eyebrow={heroEyebrow}
+        breadcrumb={[
+          {
+            label: "Explore",
+            href: "/explore",
+          },
+
+          ...(activeSubsectionConfig
+            ? [
+                {
+                  label: title,
+                  href: config.path,
+                },
+              ]
+            : [
+                {
+                  label: title,
+                },
+              ]),
+
+          ...(activeSubsectionConfig
+            ? [
+                {
+                  label:
+                    activeSubsection ===
+                    "competitions-awards"
+                      ? "Competitions"
+                      : activeSubsection ===
+                          "jobs-careers"
+                        ? "Jobs"
+                        : activeSubsection ===
+                            "events-conferences-exhibitions"
+                          ? "Events"
+                          : activeSubsection ===
+                              "grants-funding-fellowships"
+                            ? "Funding"
+                            : activeSubsectionConfig.label,
+                },
+              ]
+            : []),
+        ]}
         title={heroTitle}
         description={
           heroDescription
@@ -581,12 +711,27 @@ export default function WorldIndexPage({
         popular={
           heroPopular
         }
-        featured={featured}
+        contextNav={
+          context &&
+          context.type !== "global"
+            ? getGeographyContextNav(context)
+            : undefined
+        }
+        featured={featuredOverride ?? featured}
         featuredHref={featuredHref}
+        placementContext={
+          sectionKey
+            ? resolveFeaturedPlacementContext(
+                sectionKey,
+                context
+              )
+            : undefined
+        }
         ticker={ticker}
+        theme={visualTheme}
       />
       {sectionKey &&
-        sectionKey !== "knowledge" && (
+        !(sectionKey === "knowledge" && hideTopSubsectionStrip) && (
           <SectionSubsectionStrip
             sectionKey={sectionKey}
             geoSlug={
@@ -607,190 +752,524 @@ export default function WorldIndexPage({
           area={activeSubsection}
         />
       )}
+      {activeSubsectionConfig &&
+      sectionKey &&
+      (
+        sectionKey === "projects" ||
+        sectionKey === "products" ||
+        sectionKey === "knowledge" ||
+        sectionKey === "learning" ||
+        sectionKey === "opportunities" ||
+        sectionKey === "community"
+      ) ? (
 
-      <section
-        id="explore-world"
-        className="bg-[#f6f8fb] py-12"
-      >
-        <div className="mx-auto max-w-[1600px] px-6 lg:px-10">
-          <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-700">
-            EXPLORE {config.eyebrow}
-          </p>
+        <div data-dedicated-category-index="true">
 
-          <h2 className="mt-2 text-3xl font-bold tracking-tight text-slate-950 md:text-4xl">
-            {locationLabel
-              ? `${title} through the ${locationLabel} context.`
-              : `Explore the ${title} world.`}
-          </h2>
+          <CoreWorldCategoryIndexBody
+            sectionKey={sectionKey}
+            sectionTitle={title}
+            sectionHref={config.path}
+            categoryLabel={
+              activeSubsectionConfig.label
+            }
+            description={
+              displayDescription
+            }
+            records={
+              visibleRecords
+            }
+            siblingCategories={
+              discoverLanes
+            }
+            locationLabel={
+              locationLabel
+            }
+          />
 
-          <p className="mt-2 max-w-3xl text-slate-600">
-            {locationLabel
-              ? `The page keeps the complete Arknoz ${title} structure while geography changes relevance, filtering and discovery.`
-              : `Move through the main ${title.toLowerCase()} areas using one consistent Arknoz structure.`}
-          </p>
-
-          <div className="mt-7 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {discoverLanes.map(
-              (lane) => (
-                <Link
-                  key={lane.href}
-                  href={lane.href}
-                  className="group rounded-[20px] bg-white p-5 shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-1 hover:shadow-md"
-                >
-                  <p className="text-[9px] font-bold uppercase tracking-[0.16em] text-blue-700">
-                    DISCOVER
-                  </p>
-
-                  <p className="mt-4 text-lg font-bold text-slate-950">
-                    {lane.label}
-                  </p>
-
-                  <p className="mt-5 text-sm font-bold text-blue-700">
-                    Explore →
-                  </p>
-                </Link>
-              )
-            )}
-          </div>
         </div>
-      </section>
 
-      <section
-        id="records"
-        className="bg-white py-12"
+      ) : null}
+
+      {sectionKey === "projects" && !activeSubsectionConfig ? (
+
+        <div data-project-category-journey="true">
+
+          {(activeSection?.subsections ?? [])
+            .filter(
+              (subsection) =>
+                !activeSubsection ||
+                subsection.slug === activeSubsection
+            )
+            .slice(0, 6)
+            .map((subsection) => {
+
+              const allProjectCategories =
+                activeSection?.subsections ??
+                [];
+
+
+              const categoryIndex =
+                allProjectCategories.findIndex(
+                  (candidate) =>
+                    candidate.slug ===
+                    subsection.slug
+                );
+
+
+              const screenNumber =
+                Math.max(
+                  0,
+                  categoryIndex
+                ) + 2;
+
+
+              const categoryRecords =
+                worldRecords.filter(
+                  (entity) =>
+                    entityMatchesGeography(
+                      entity,
+                      context
+                    ) &&
+                    entityMatchesSubsection(
+                      entity,
+                      "projects",
+                      subsection.slug
+                    )
+                );
+
+
+              const categoryShowcaseContext =
+                createShowcaseContext(
+                  "projects",
+                  subsection.slug,
+                  context
+                );
+
+
+              const assignedFeatured =
+                getAssignedShowcaseItems(
+                  "featured",
+                  categoryShowcaseContext
+                );
+
+
+              const categoryFeaturedProject =
+                assignedFeatured
+                  .map((assignment) =>
+                    categoryRecords.find(
+                      (entity) =>
+                        entity.type ===
+                          assignment.entity_ref.type &&
+                        entity.slug ===
+                          assignment.entity_ref.slug
+                    )
+                  )
+                  .find(
+                    (
+                      entity
+                    ): entity is EntityRecord =>
+                      Boolean(entity)
+                  );
+
+
+              const moreProjects =
+                categoryRecords
+                  .filter(
+                    (entity) =>
+                      !categoryFeaturedProject ||
+                      entity.type !==
+                        categoryFeaturedProject.type ||
+                      entity.slug !==
+                        categoryFeaturedProject.slug
+                  )
+                  .slice(0, 6);
+
+
+              const categoryHref =
+                buildArknozSectionHref(
+                  "projects",
+                  {
+                    subsection:
+                      subsection.slug,
+
+                    geo:
+                      context &&
+                      context.type !==
+                        "global"
+                        ? context.slug
+                        : undefined,
+                  }
+                );
+
+
+              return (
+
+                <ProjectCategoryShowcaseScreen
+                  key={subsection.slug}
+                  screenNumber={
+                    screenNumber
+                  }
+                  category={{
+                    slug:
+                      subsection.slug,
+                    label:
+                      subsection.label,
+                  }}
+                  categoryHref={
+                    categoryHref
+                  }
+                  featuredProject={
+                    categoryFeaturedProject
+                  }
+                  projects={
+                    moreProjects
+                  }
+                  totalCount={
+                    categoryRecords.length
+                  }
+                />
+
+              );
+
+            })}
+
+        </div>
+
+      ) : null}
+
+      {!activeSubsectionConfig &&
+      (
+        sectionKey === "products" ||
+        sectionKey === "knowledge" ||
+        sectionKey === "learning" ||
+        sectionKey === "opportunities" ||
+        sectionKey === "community"
+      ) ? (
+
+        <div data-core-five-world-journey="true">
+
+          {(activeSection?.subsections ?? [])
+            .filter(
+              (subsection) =>
+                !activeSubsection ||
+                subsection.slug === activeSubsection
+            )
+            .slice(0, 6)
+            .map((subsection) => {
+
+              const allCategories =
+                activeSection?.subsections ??
+                [];
+
+
+              const categoryIndex =
+                allCategories.findIndex(
+                  (candidate) =>
+                    candidate.slug ===
+                    subsection.slug
+                );
+
+
+              const screenNumber =
+                Math.max(
+                  0,
+                  categoryIndex
+                ) + 2;
+
+
+              const categoryRecords =
+                worldRecords.filter(
+                  (entity) =>
+                    entityMatchesGeography(
+                      entity,
+                      context
+                    ) &&
+                    entityMatchesSubsection(
+                      entity,
+                      sectionKey,
+                      subsection.slug
+                    )
+                );
+
+
+              const categoryShowcaseContext =
+                createShowcaseContext(
+                  sectionKey as ExploreSectionKey,
+                  subsection.slug,
+                  context
+                );
+
+
+              const categoryFeaturedRecord =
+                getAssignedShowcaseItems(
+                  "featured",
+                  categoryShowcaseContext
+                )
+                  .map((assignment) =>
+                    categoryRecords.find(
+                      (entity) =>
+                        entity.type ===
+                          assignment.entity_ref.type &&
+                        entity.slug ===
+                          assignment.entity_ref.slug
+                    )
+                  )
+                  .find(
+                    (
+                      entity
+                    ): entity is EntityRecord =>
+                      Boolean(entity)
+                  );
+
+
+              const additionalRecords =
+                categoryRecords
+                  .filter(
+                    (entity) =>
+                      !categoryFeaturedRecord ||
+                      entity.type !==
+                        categoryFeaturedRecord.type ||
+                      entity.slug !==
+                        categoryFeaturedRecord.slug
+                  )
+                  .slice(0, 6);
+
+
+              const categoryHref =
+                buildArknozSectionHref(
+                  sectionKey,
+                  {
+                    subsection:
+                      subsection.slug,
+
+                    geo:
+                      context &&
+                      context.type !==
+                        "global"
+                        ? context.slug
+                        : undefined,
+                  }
+                );
+
+
+              return (
+
+                <CoreWorldCategoryShowcaseScreen
+                  key={`${sectionKey}-${subsection.slug}`}
+                  world={sectionKey}
+                  screenNumber={
+                    screenNumber
+                  }
+                  category={{
+                    slug:
+                      subsection.slug,
+                    label:
+                      subsection.label,
+                  }}
+                  categoryHref={
+                    categoryHref
+                  }
+                  featuredRecord={
+                    categoryFeaturedRecord
+                  }
+                  records={
+                    additionalRecords
+                  }
+                  totalCount={
+                    categoryRecords.length
+                  }
+                />
+
+              );
+
+            })}
+
+        </div>
+
+      ) : null}
+      {(
+        sectionKey === "projects" ||
+        sectionKey === "products" ||
+        sectionKey === "knowledge" ||
+        sectionKey === "learning" ||
+        sectionKey === "opportunities" ||
+        sectionKey === "community"
+      ) ? null : (
+        <>
+
+          <ShowcaseChapter
+            type="featured"
+            items={featuredShowcaseRecords}
+            contextLabel={
+              locationLabel
+                ? `${displayTitle} · ${locationLabel}`
+                : activeSubsectionConfig
+                  ? displayTitle
+                  : undefined
+            }
+            viewAllHref={config.path}
+          />
+
+          <ShowcaseChapter
+            type="editors-choice"
+            items={editorsChoiceRecords}
+            contextLabel={
+              locationLabel
+                ? `${displayTitle} · ${locationLabel}`
+                : activeSubsectionConfig
+                  ? displayTitle
+                  : undefined
+            }
+            viewAllHref={config.path}
+          />
+
+          <ShowcaseChapter
+            type="member-choice"
+            items={memberChoiceRecords}
+            contextLabel={
+              locationLabel
+                ? `${displayTitle} · ${locationLabel}`
+                : activeSubsectionConfig
+                  ? displayTitle
+                  : undefined
+            }
+            viewAllHref={config.path}
+          />
+
+        </>
+      )}
+
+      {(
+        sectionKey === "projects" ||
+        sectionKey === "products" ||
+        sectionKey === "knowledge" ||
+        sectionKey === "learning" ||
+        sectionKey === "opportunities" ||
+        sectionKey === "community"
+      ) ? null : (
+      <ArknozChapter
+        id="connected-world"
+        tone="dark"
+        className="border-t border-white/10"
       >
-        <div className="mx-auto max-w-[1600px] px-6 lg:px-10">
-          <div className="flex flex-wrap items-end justify-between gap-5">
+        <div className="grid h-full min-h-0 gap-3 lg:grid-cols-[0.82fr_1.18fr]">
+
+          <ArknozPanel
+            tone="dark"
+            accent
+            className="relative flex min-h-[300px] flex-col overflow-hidden lg:min-h-0"
+          >
+            <div
+              className="absolute inset-0"
+              style={{
+                background:
+                  "linear-gradient(135deg,#0b3154 0%,#123d68 100%)",
+              }}
+            />
+
+            <div
+              className="pointer-events-none absolute inset-0 opacity-[0.05]"
+              style={{
+                backgroundImage:
+                  "linear-gradient(rgba(255,255,255,.28) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.28) 1px,transparent 1px)",
+                backgroundSize: "54px 54px",
+              }}
+            />
+
             <div>
-              <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-700">
-                ARKNOZ RECORDS
+              <p className="text-[8px] font-bold uppercase tracking-[0.16em] text-blue-200">
+                Connected Built World
               </p>
 
-              <h2 className="mt-2 text-3xl font-bold tracking-tight text-slate-950 md:text-4xl">
+              <h2 className="mt-3 max-w-lg text-[31px] font-semibold leading-[1.02] tracking-[-0.04em] xl:text-[38px]">
                 {locationLabel
-                  ? `Explore ${title.toLowerCase()} connected to ${locationLabel}.`
-                  : `Explore genuine ${title.toLowerCase()} records.`}
+                  ? `Explore ${locationLabel} across Arknoz`
+                  : "Continue across the Built World"}
               </h2>
 
-              <p className="mt-2 max-w-3xl text-slate-600">
-                Only genuine canonical Arknoz records are shown. Geography changes context and relevance without creating duplicate records.
+              <p className="mt-4 max-w-md text-[10px] leading-5 text-slate-400">
+                Projects, products, knowledge, education, opportunities and
+                the Arknoz community remain connected through one canonical
+                platform structure.
               </p>
             </div>
 
-            {locationLabel && (
-              <Link
-                href={config.path}
-                className="text-sm font-bold text-blue-700"
-              >
-                View global {title} →
-              </Link>
-            )}
-          </div>
+            <ArknozPlacementSlot
+              slotKey={`${sectionKey ?? "world"}.index.connected.left-middle`}
+              tone="dark"
+              fallback={{
+                placementType: "related",
+                eyebrow: "Explore further",
+                label: "Global",
+                title:
+                  "Explore the Built World through place and geography",
+                description:
+                  "Move from connected content into continent, country, region and city context.",
+                href: "/global",
+                cta: "Explore Global",
+              }}
+              className="relative mt-6 max-w-[450px]"
+            />
 
-          {visibleRecords.length > 0 ? (
-            <div className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-              {visibleRecords.map(
-                (entity) => (
-                  <WorldRecordCard
-                    key={`${entity.type}-${entity.slug}`}
-                    entity={entity}
-                  />
-                )
-              )}
-            </div>
-          ) : (
-            <div className="mt-7 rounded-[24px] border border-slate-200 bg-[#f8fafc] p-7">
-              <p className="font-bold text-slate-950">
-                {locationLabel
-                  ? `No genuine ${title.toLowerCase()} records are connected to ${locationLabel} yet.`
-                  : `Published ${title.toLowerCase()} records will appear here as genuine Arknoz data becomes available.`}
+            <div className="mt-auto border-t border-white/10 pt-4">
+              <p className="text-[7px] font-bold uppercase tracking-[0.15em] text-slate-500">
+                Arknoz connection
               </p>
 
-              <p className="mt-2 max-w-3xl text-sm leading-6 text-slate-600">
-                Arknoz does not create placeholder records simply to fill the interface.
+              <p className="mt-2 text-[11px] font-semibold text-slate-200">
+                One context. Multiple worlds.
+              </p>
+
+              <p className="mt-2 max-w-sm text-[8px] leading-4 text-slate-500">
+                Move between related parts of the Built World without losing
+                the active Arknoz context.
               </p>
             </div>
-          )}
-        </div>
-      </section>
+          </ArknozPanel>
 
-      <section
-        id="connected-world"
-        className="bg-[#f6f8fb] py-12"
-      >
-        <div className="mx-auto max-w-[1600px] px-6 lg:px-10">
-          <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-700">
-            CONNECTED BUILT WORLD
-          </p>
 
-          <h2 className="mt-2 text-3xl font-bold tracking-tight text-slate-950 md:text-4xl">
-            {locationLabel
-              ? `Explore ${locationLabel} across Arknoz.`
-              : "Continue across the Built World."}
-          </h2>
+          <div className="grid h-full min-h-0 gap-3 sm:grid-cols-2 xl:grid-cols-3 xl:grid-rows-2">
 
-          <p className="mt-2 max-w-3xl text-slate-600">
-            Projects, products, knowledge, people, organisations, universities, opportunities and places remain connected through one canonical Arknoz system.
-          </p>
-
-          <div className="mt-7 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
             {connectedWorlds
-              .filter(
-                ([label]) =>
-                  label !== title
-              )
-              .map(
-                (
-                  [label, href],
-                  index
-                ) => (
-                  <Link
-                    key={href}
-                    href={
-                      locationLabel
-                        ? buildConnectedWorldHref(href, context?.slug)
-                        : href
-                    }
-                    className={`rounded-[20px] p-5 transition hover:-translate-y-1 hover:shadow-md ${
-                      index === 0
-                        ? "bg-[#0b2949] text-white"
-                        : "bg-white text-slate-950 ring-1 ring-slate-200"
-                    }`}
-                  >
-                    <p
-                      className={`text-[9px] font-bold uppercase tracking-[0.16em] ${
-                        index === 0
-                          ? "text-blue-200"
-                          : "text-blue-700"
-                      }`}
-                    >
-                      {label}
-                    </p>
+              .filter(([label]) => label !== title)
+              .map(([label, href]) => (
+                <ArknozTile
+                  key={href}
+                  eyebrow="Connected world"
+                  title={label}
+                  description={
+                    locationLabel
+                      ? `Continue into ${label.toLowerCase()} in ${locationLabel}.`
+                      : `Continue into the Arknoz ${label.toLowerCase()} world.`
+                  }
+                  href={
+                    locationLabel
+                      ? buildConnectedWorldHref(
+                          href,
+                          context?.slug
+                        )
+                      : href
+                  }
+                  tone="dark"
+                  className="h-full min-h-[150px] border-t-[3px] border-t-blue-300/60"
+                />
+              ))}
 
-                    <p className="mt-7 font-bold">
-                      {locationLabel
-                        ? `Explore in ${locationLabel}`
-                        : "Explore world"}
-                    </p>
+            <ArknozTile
+              eyebrow="Discover"
+              title="Search Arknoz"
+              description="Search across the connected Built World."
+              href="/search"
+              tone="dark"
+              className="h-full min-h-[150px] border-t-[3px] border-t-blue-300/60"
+            />
 
-                    <p
-                      className={`mt-4 text-sm font-bold ${
-                        index === 0
-                          ? "text-blue-200"
-                          : "text-blue-700"
-                      }`}
-                    >
-                      Explore →
-                    </p>
-                  </Link>
-                )
-              )}
           </div>
-        </div>
-      </section>
 
-      <UniversalFooterStrip />
-      <GlobalFooter />
-    </main>
+        </div>
+      </ArknozChapter>
+      )}
+      <UniversalPublicLastScreen />
+    </ArknozPageShell>
   );
 }

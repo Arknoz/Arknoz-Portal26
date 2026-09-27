@@ -15,6 +15,14 @@ const routeByType = {
 export function getEntityHref(
   entity: EntityRecord
 ) {
+  // ARKNOZ_DEV_CANDIDATE_HREF_V5
+  if (
+    process.env.NODE_ENV === "development" &&
+    entity.type === "project" &&
+    entity.trust === "Candidate · Unverified"
+  ) {
+    return `/preview/projects/${entity.slug}`;
+  }
   if (
     entity.type === "opportunity"
   ) {

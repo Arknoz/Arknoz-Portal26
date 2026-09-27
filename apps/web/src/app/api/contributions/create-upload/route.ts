@@ -1,24 +1,34 @@
 import { NextResponse } from "next/server";
 
-import { createClient } from "@/lib/supabase/server";
-import { createContributionUpload } from "@/lib/contributions/r2-upload";
+import {
+  createContributionUpload,
+} from "@/lib/contributions/r2-upload";
+
+import {
+  createClient,
+} from "@/lib/supabase/server";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-export async function POST(request: Request) {
+export async function POST(
+  request: Request
+) {
   try {
-    const supabase = await createClient();
+    const supabase =
+      await createClient();
 
     const {
       data: { user },
-    } = await supabase.auth.getUser();
+    } =
+      await supabase.auth.getUser();
 
     if (!user) {
       return NextResponse.json(
         {
           ok: false,
-          error: "Authentication required.",
+          error:
+            "Authentication required.",
         },
         {
           status: 401,
@@ -26,19 +36,47 @@ export async function POST(request: Request) {
       );
     }
 
-    const body = await request.json();
+    const isPro =
+      String(
+        user.app_metadata
+          ?.membership ??
+          ""
+      ).toUpperCase() ===
+      "PRO";
 
-    const upload = await createContributionUpload({
-      originalFilename: String(
-        body?.filename || ""
-      ),
+    if (!isPro) {
+      return NextResponse.json(
+        {
+          ok: false,
+          error:
+            "Arknoz Pro membership is required for contributions.",
+        },
+        {
+          status: 403,
+        }
+      );
+    }
 
-      declaredSizeBytes: Number(
-        body?.sizeBytes || 0
-      ),
+    const body =
+      await request.json();
 
-      contributorUserId: user.id,
-    });
+    const upload =
+      await createContributionUpload({
+        originalFilename:
+          String(
+            body?.filename ||
+              ""
+          ),
+
+        declaredSizeBytes:
+          Number(
+            body?.sizeBytes ||
+              0
+          ),
+
+        contributorUserId:
+          user.id,
+      });
 
     return NextResponse.json(
       {

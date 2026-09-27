@@ -6,11 +6,9 @@ import {
 } from "@/lib/arknoz-sections";
 import Link from "next/link";
 
-import GlobalHeader from "@/components/GlobalHeader";
-import GlobalFooter from "@/components/GlobalFooter";
-import UniversalFooterStrip from "@/components/UniversalFooterStrip";
-import UniversalTopicHero from "@/components/UniversalTopicHero";
-import GeographyContextBar from "@/components/GeographyContextBar";
+import { getGeographyContextNav } from "@/components/GeographyContextBar";
+import UniversalPublicFirstScreen from "@/components/UniversalPublicFirstScreen";
+import UniversalPublicLastScreen from "@/components/UniversalPublicLastScreen";
 
 import {
   type GeographyItem,
@@ -147,13 +145,7 @@ export default function RegionGeographyPage({
   return (
     <main className="min-h-screen bg-white">
 
-      <GlobalHeader />
-
-      <GeographyContextBar
-        context={context}
-      />
-
-      <UniversalTopicHero
+      <UniversalPublicFirstScreen
         eyebrow={
           context.name.toUpperCase()
         }
@@ -169,6 +161,7 @@ export default function RegionGeographyPage({
         popular={
           presentation.popular
         }
+        contextNav={getGeographyContextNav(context)}
         featured={
           presentation.featured
         }
@@ -390,8 +383,7 @@ export default function RegionGeographyPage({
 
       </section>
 
-      <UniversalFooterStrip />
-      <GlobalFooter />
+      <UniversalPublicLastScreen />
 
     </main>
   );

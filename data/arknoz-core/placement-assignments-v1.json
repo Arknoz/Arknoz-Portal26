@@ -1,0 +1,106 @@
+{
+    "registry":  "ARKNOZ_PLACEMENT_ASSIGNMENTS",
+    "version":  "1.0",
+    "status":  "DRAFT_V1",
+    "public":  false,
+    "slot_registry":  "placement-slot-registry-v1.json",
+    "purpose":  "Assign canonical Arknoz entities to permanent internal placement slots without duplicating entity records.",
+    "rules":  {
+                  "one_active_assignment_per_slot_context":  true,
+                  "assignment_does_not_publish_entity":  true,
+                  "entity_must_be_independently_publishable":  true,
+                  "canonical_entity_reference_only":  true,
+                  "inactive_or_invalid_assignment_renders_nothing":  true,
+                  "slot_identity_survives_entity_reassignment":  true,
+                  "editorial_assignments_are_replaceable":  true,
+                  "paid_placement_must_be_explicit":  true,
+                  "paid_placement_is_slot_specific":  true,
+                  "organic_visibility_is_independent":  true
+              },
+    "assignments":  [
+                        {
+                            "assignment_id":  "HOME-P01::global",
+                            "slot_id":  "HOME-P01",
+                            "context_key":  "global",
+                            "entity_ref":  {
+                                               "type":  "project",
+                                               "slug":  "sydney-opera-house"
+                                           },
+                            "mode":  "curated",
+                            "status":  "draft",
+                            "placement_type":  "editorial",
+                            "replaceable":  true,
+                            "paid_lock":  false
+                        },
+                        {
+                            "assignment_id":  "CONTINENT-P01::oceania",
+                            "slot_id":  "CONTINENT-P01",
+                            "context_key":  "oceania",
+                            "entity_ref":  {
+                                               "type":  "project",
+                                               "slug":  "sydney-opera-house"
+                                           },
+                            "mode":  "curated",
+                            "status":  "draft",
+                            "placement_type":  "editorial",
+                            "replaceable":  true,
+                            "paid_lock":  false
+                        },
+                        {
+                            "assignment_id":  "COUNTRY-P01::australia",
+                            "slot_id":  "COUNTRY-P01",
+                            "context_key":  "australia",
+                            "entity_ref":  {
+                                               "type":  "project",
+                                               "slug":  "sydney-opera-house"
+                                           },
+                            "mode":  "curated",
+                            "status":  "draft",
+                            "placement_type":  "editorial",
+                            "replaceable":  true,
+                            "paid_lock":  false
+                        },
+                        {
+                            "assignment_id":  "CITY-P01::sydney",
+                            "slot_id":  "CITY-P01",
+                            "context_key":  "sydney",
+                            "entity_ref":  {
+                                               "type":  "project",
+                                               "slug":  "sydney-opera-house"
+                                           },
+                            "mode":  "curated",
+                            "status":  "draft",
+                            "placement_type":  "editorial",
+                            "replaceable":  true,
+                            "paid_lock":  false
+                        },
+                        {
+                            "assignment_id":  "FEATURED-P01::global",
+                            "slot_id":  "FEATURED-P01",
+                            "context_key":  "global",
+                            "entity_ref":  {
+                                               "type":  "project",
+                                               "slug":  "sydney-opera-house"
+                                           },
+                            "mode":  "curated",
+                            "status":  "draft",
+                            "placement_type":  "editorial",
+                            "replaceable":  true,
+                            "paid_lock":  false
+                        },
+                        {
+                            "assignment_id":  "GLOBAL-P01::global",
+                            "slot_id":  "GLOBAL-P01",
+                            "context_key":  "global",
+                            "entity_ref":  {
+                                               "type":  "project",
+                                               "slug":  "sydney-opera-house"
+                                           },
+                            "mode":  "curated",
+                            "status":  "draft",
+                            "placement_type":  "editorial",
+                            "replaceable":  true,
+                            "paid_lock":  false
+                        }
+                    ]
+}

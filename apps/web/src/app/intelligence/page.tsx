@@ -1,28 +1,12 @@
-﻿import WorldIndexRoute from "@/components/WorldIndexRoute";
-import { resolveArknozSubsectionFromQuery } from "@/lib/arknoz-route-context";
+import type { Metadata } from "next";
 
-export default async function Page({
-  searchParams,
-}: {
-  searchParams: Promise<{
-    geo?: string;
-    type?: string;
-    view?: string;
-  }>;
-}) {
-  const params = await searchParams;
+export const metadata: Metadata = {
+  title: "Arknoz Pro",
+  description:
+    "Explore Arknoz Pro, the professional operating layer for workspaces, collaboration, messaging, tools, analytics and deeper Built World intelligence.",
+};
+import IntelligencePortal from "@/components/IntelligencePortal";
 
-  const activeSubsection =
-    resolveArknozSubsectionFromQuery(
-      "intelligence",
-      params
-    );
-
-  return (
-    <WorldIndexRoute
-      sectionKey="intelligence"
-      geoSlug={params.geo}
-      activeSubsection={activeSubsection}
-    />
-  );
+export default function Page() {
+  return <IntelligencePortal />;
 }

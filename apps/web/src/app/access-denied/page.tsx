@@ -1,4 +1,13 @@
-﻿import GlobalHeader from "@/components/GlobalHeader";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Access Denied",
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
+import GlobalHeader from "@/components/GlobalHeader";
 import GlobalFooter from "@/components/GlobalFooter";
 import SystemState from "@/components/SystemState";
 

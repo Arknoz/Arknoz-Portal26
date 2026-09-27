@@ -28,12 +28,15 @@ export const geography: GeographyItem[] = [
   { name: "Kenya", slug: "kenya", type: "country", parent: "africa", subtitle: "People, potential and progress" },
   { name: "Japan", slug: "japan", type: "country", parent: "asia", subtitle: "Technology, craft and resilience" },
   { name: "United Kingdom", slug: "united-kingdom", type: "country", parent: "europe", subtitle: "Architecture, infrastructure and engineering heritage" },
+  { name: "Australia", slug: "australia", type: "country", parent: "oceania", subtitle: "Architecture, infrastructure, cities and climate response" },
   { name: "Scotland", slug: "scotland", type: "region", parent: "united-kingdom", subtitle: "Projects, infrastructure, heritage and places" },
 
+  { name: "Gujarat", slug: "gujarat", type: "region", parent: "india", subtitle: "Regional Built World context" },
   { name: "Maharashtra", slug: "maharashtra", type: "region", parent: "india", subtitle: "Regional Built World context" },
   { name: "Mumbai", slug: "mumbai", type: "city", parent: "maharashtra", subtitle: "Projects, people, products and knowledge" },
 
   { name: "Nairobi", slug: "nairobi", type: "city", parent: "kenya", subtitle: "Projects, people and opportunities" },
+  { name: "Sydney", slug: "sydney", type: "city", parent: "australia", subtitle: "Projects, architecture, infrastructure and Built World knowledge" },
 ];
 
 export function findGeography(slug: string) {

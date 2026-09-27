@@ -1,5 +1,7 @@
-﻿import Link from "next/link";
+import HomeNowOnArknozLoop from "@/components/HomeNowOnArknozLoop";
+import Link from "next/link";
 import GlobalHeader from "@/components/GlobalHeader";
+import UniversalPublicLastScreen from "@/components/UniversalPublicLastScreen";
 import MemberActions from "@/components/MemberActions";
 import type { EntityRecord } from "@/lib/entities";
 
@@ -84,6 +86,15 @@ export default function EntityDetailPage({
           </aside>
         </div>
       </section>
+
+      {/* ==================================================
+          02 — ARKNOZ NOW · UNIVERSAL
+      ================================================== */}
+
+      <HomeNowOnArknozLoop />
+
+
+      <UniversalPublicLastScreen />
     </main>
   );
 }

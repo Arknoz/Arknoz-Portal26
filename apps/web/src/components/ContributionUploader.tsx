@@ -1,6 +1,26 @@
 "use client";
 
-import { useRef, useState } from "react";
+import {
+  useEffect,
+  useRef,
+  useState,
+} from "react";
+
+type ContributionType =
+  | "projects"
+  | "products"
+  | "knowledge"
+  | "organisations"
+  | "education"
+  | "opportunities";
+
+type FieldDefinition = {
+  key: string;
+  label: string;
+  placeholder?: string;
+  multiline?: boolean;
+  required?: boolean;
+};
 
 type UploadSession = {
   importId: string;
@@ -10,39 +30,36 @@ type UploadSession = {
   mimeType: string;
   declaredSizeBytes: number;
   uploadUrl: string;
-  uploadHeaders: Record<string, string>;
+  uploadHeaders: Record<
+    string,
+    string
+  >;
   expiresInSeconds: number;
 };
 
-type FinalizedContribution = {
+type FinalizedEvidence = {
   importId: string;
   manifestKey: string;
   filename: string;
   sizeBytes: number;
   sha256: string;
   status: string;
-  rights: string;
-  publicationAllowed: boolean;
 };
 
 type SubmittedContribution = {
-  importId: string | null;
+  importId: string;
   manifestKey: string;
   contributionType: string | null;
+  title: string | null;
   reviewStatus: string | null;
-  publicationAllowed: boolean;
+  submittedAt: string | null;
+  evidenceCount: number;
 };
-
-type Stage =
-  | "idle"
-  | "preparing"
-  | "uploading"
-  | "finalizing"
-  | "complete"
-  | "error";
 
 const MAX_FILE_BYTES =
   50 * 1024 * 1024;
+
+const MAX_FILES = 10;
 
 const ACCEPTED_EXTENSIONS = [
   ".pdf",
@@ -54,87 +71,387 @@ const ACCEPTED_EXTENSIONS = [
   ".webp",
 ];
 
-const CONTRIBUTION_TYPES = [
+const COMMON_FIELDS:
+  FieldDefinition[] = [
+    {
+      key: "title",
+      label: "Record title",
+      placeholder:
+        "Name of the project, product, research, organisation, programme or opportunity",
+      required: true,
+    },
+    {
+      key: "location",
+      label: "Location / geography",
+      placeholder:
+        "City, country or Global",
+    },
+    {
+      key: "summary",
+      label: "What should Arknoz know?",
+      placeholder:
+        "Describe the record and why it is useful to the Built World.",
+      multiline: true,
+      required: true,
+    },
+    {
+      key: "relationship",
+      label:
+        "Your relationship to this record",
+      placeholder:
+        "Architect, researcher, manufacturer, author, organiser, participant, institution representative, etc.",
+      required: true,
+    },
+    {
+      key: "sourceUrls",
+      label:
+        "Official / supporting source links",
+      placeholder:
+        "One URL per line",
+      multiline: true,
+    },
+    {
+      key: "notes",
+      label:
+        "Notes for Arknoz review",
+      placeholder:
+        "Anything the Arknoz reviewer should understand.",
+      multiline: true,
+    },
+  ];
+
+const TYPES: Array<{
+  value: ContributionType;
+  title: string;
+  description: string;
+  mapping: string;
+  fields: FieldDefinition[];
+}> = [
   {
     value: "projects",
-    title: "Projects",
+    title: "Project",
     description:
-      "Buildings, infrastructure, transport, cities, industrial, energy, landscape and public realm.",
+      "Buildings, infrastructure, interiors, landscapes and other real Built World projects.",
+    mapping:
+      "Sydney-style canonical framework: identity, place, project facts, people, timeline, evidence, sources, rights and connections.",
+    fields: [
+      {
+        key: "projectCategory",
+        label: "Project type / category",
+        placeholder:
+          "Residential, hospital, infrastructure, workplace...",
+      },
+      {
+        key: "projectStatus",
+        label: "Project status",
+        placeholder:
+          "Concept, design, under construction, completed...",
+      },
+      {
+        key: "year",
+        label: "Year / period",
+        placeholder:
+          "2026 or 2022–2026",
+      },
+      {
+        key: "role",
+        label: "Your project role",
+        placeholder:
+          "Lead architect, consultant, client, contractor...",
+      },
+      {
+        key: "organisation",
+        label:
+          "Organisation / practice",
+        placeholder:
+          "Practice, company or institution",
+      },
+      {
+        key: "participants",
+        label:
+          "People & organisations involved",
+        placeholder:
+          "One participant or organisation per line",
+        multiline: true,
+      },
+      {
+        key: "projectFacts",
+        label: "Key project facts",
+        placeholder:
+          "Area, height, programme, structural system, materials, capacity, etc.",
+        multiline: true,
+      },
+      {
+        key: "timeline",
+        label: "Timeline / milestones",
+        placeholder:
+          "Competition, design, construction, completion...",
+        multiline: true,
+      },
+      {
+        key: "topics",
+        label:
+          "Topics / disciplines / themes",
+        placeholder:
+          "Architecture, sustainability, timber, healthcare...",
+      },
+    ],
   },
   {
-    value: "products_materials",
-    title: "Products & Materials",
+    value: "products",
+    title:
+      "Product / Material / System",
     description:
-      "Products, materials, components, systems, equipment and technical solutions.",
+      "Materials, components, technologies, systems and equipment.",
+    mapping:
+      "Maps into the Arknoz Product record with manufacturer, technical context, evidence and real applications.",
+    fields: [
+      {
+        key: "manufacturer",
+        label: "Manufacturer / maker",
+        placeholder:
+          "Organisation",
+      },
+      {
+        key: "productCategory",
+        label: "Product category",
+        placeholder:
+          "Material, component, system, equipment...",
+      },
+      {
+        key: "model",
+        label: "Product / model / system name",
+      },
+      {
+        key: "applications",
+        label:
+          "Applications / use cases",
+        multiline: true,
+      },
+      {
+        key: "performance",
+        label:
+          "Technical / performance information",
+        multiline: true,
+      },
+      {
+        key: "certifications",
+        label:
+          "Certifications / standards",
+        multiline: true,
+      },
+      {
+        key: "topics",
+        label: "Topics",
+      },
+    ],
   },
   {
-    value: "knowledge_publications",
-    title: "Knowledge & Publications",
+    value: "knowledge",
+    title:
+      "Knowledge & Research",
     description:
-      "Books, research, publications, reports, case studies, methods and professional knowledge.",
-  },
-  {
-    value: "education_learning",
-    title: "Education & Learning",
-    description:
-      "Courses, programmes, workshops, qualifications and learning resources.",
-  },
-  {
-    value: "jobs_opportunities",
-    title: "Jobs & Opportunities",
-    description:
-      "Jobs, competitions, grants, calls, fellowships and professional opportunities.",
-  },
-  {
-    value: "people_professionals",
-    title: "People & Professionals",
-    description:
-      "Architects, engineers, designers, researchers, specialists and Built World professionals.",
+      "Research, publications, case studies, standards, methods and technical knowledge.",
+    mapping:
+      "Maps into Arknoz Knowledge with authorship, publication context, sources, topics and evidence.",
+    fields: [
+      {
+        key: "knowledgeType",
+        label:
+          "Knowledge / publication type",
+        placeholder:
+          "Research paper, case study, book, standard, method...",
+      },
+      {
+        key: "authors",
+        label: "Author(s)",
+      },
+      {
+        key: "publisher",
+        label:
+          "Publisher / institution",
+      },
+      {
+        key: "year",
+        label:
+          "Publication year",
+      },
+      {
+        key: "identifier",
+        label:
+          "DOI / ISBN / reference",
+      },
+      {
+        key: "topics",
+        label:
+          "Research topics",
+      },
+      {
+        key: "findings",
+        label:
+          "Key findings / relevance",
+        multiline: true,
+      },
+    ],
   },
   {
     value: "organisations",
-    title: "Organisations",
+    title:
+      "Organisation / Practice",
     description:
-      "Companies, practices, institutions, NGOs, associations and public bodies.",
+      "Built World practices, companies, NGOs, public bodies and institutions.",
+    mapping:
+      "Maps into a canonical Organisation record and its genuine relationships.",
+    fields: [
+      {
+        key: "organisationType",
+        label:
+          "Organisation type",
+        placeholder:
+          "Architecture practice, engineering consultant, developer...",
+      },
+      {
+        key: "headquarters",
+        label:
+          "Headquarters / primary location",
+      },
+      {
+        key: "website",
+        label:
+          "Official website",
+      },
+      {
+        key: "disciplines",
+        label:
+          "Disciplines / capabilities",
+        multiline: true,
+      },
+      {
+        key: "founded",
+        label:
+          "Founded / established",
+      },
+    ],
   },
   {
-    value: "universities_schools",
-    title: "Universities & Schools",
+    value: "education",
+    title:
+      "Education / University",
     description:
-      "Universities, schools, faculties, departments and research centres.",
+      "Universities, programmes, courses, workshops and professional learning.",
+    mapping:
+      "Maps into Arknoz Education / institution records with programme and learning context.",
+    fields: [
+      {
+        key: "institution",
+        label:
+          "Institution",
+      },
+      {
+        key: "programmeType",
+        label:
+          "Programme / learning type",
+        placeholder:
+          "Degree, course, studio, workshop, CPD...",
+      },
+      {
+        key: "qualification",
+        label:
+          "Qualification / outcome",
+      },
+      {
+        key: "delivery",
+        label:
+          "Delivery",
+        placeholder:
+          "Campus, online, hybrid...",
+      },
+      {
+        key: "duration",
+        label:
+          "Duration",
+      },
+      {
+        key: "website",
+        label:
+          "Official programme URL",
+      },
+      {
+        key: "topics",
+        label:
+          "Subjects / skills",
+      },
+    ],
   },
   {
-    value: "places_geography",
-    title: "Places & Geography",
+    value: "opportunities",
+    title: "Opportunity",
     description:
-      "Cities, regions, districts, locations and geographically connected information.",
-  },
-  {
-    value: "community_collaboration",
-    title: "Community & Collaboration",
-    description:
-      "Collaborations, chapters, initiatives, contributions, development and relevant news.",
-  },
-  {
-    value: "standards_references_data",
-    title: "Standards, References & Data",
-    description:
-      "Standards, datasets, classifications, guidance and technical references.",
-  },
-  {
-    value: "other_built_world",
-    title: "Other Built World",
-    description:
-      "Relevant Built World information that does not clearly fit another category.",
+      "Jobs, competitions, fellowships, grants, calls and professional collaborations.",
+    mapping:
+      "Maps into Arknoz Opportunities with organiser, dates, eligibility and official source.",
+    fields: [
+      {
+        key: "opportunityType",
+        label:
+          "Opportunity type",
+        placeholder:
+          "Job, competition, fellowship, grant, research call...",
+      },
+      {
+        key: "organiser",
+        label:
+          "Organisation / organiser",
+      },
+      {
+        key: "deadline",
+        label:
+          "Deadline / important date",
+      },
+      {
+        key: "eligibility",
+        label: "Eligibility",
+        multiline: true,
+      },
+      {
+        key: "website",
+        label:
+          "Official opportunity URL",
+      },
+      {
+        key: "topics",
+        label:
+          "Discipline / topic",
+      },
+    ],
   },
 ];
 
-function formatBytes(bytes: number) {
+function extensionAllowed(
+  filename: string
+) {
+  const lower =
+    filename.toLowerCase();
+
+  return ACCEPTED_EXTENSIONS.some(
+    (extension) =>
+      lower.endsWith(
+        extension
+      )
+  );
+}
+
+function formatBytes(
+  bytes: number
+) {
   if (bytes < 1024) {
     return `${bytes} B`;
   }
 
-  if (bytes < 1024 * 1024) {
+  if (
+    bytes <
+    1024 * 1024
+  ) {
     return `${(
       bytes / 1024
     ).toFixed(1)} KB`;
@@ -146,27 +463,15 @@ function formatBytes(bytes: number) {
   ).toFixed(1)} MB`;
 }
 
-function extensionAllowed(
-  filename: string
-) {
-  const lower =
-    filename.toLowerCase();
-
-  return ACCEPTED_EXTENSIONS.some(
-    (extension) =>
-      lower.endsWith(extension)
-  );
-}
-
 function uploadDirectlyToR2(
   file: File,
-  session: UploadSession,
-  onProgress: (
-    percent: number
-  ) => void
+  session: UploadSession
 ) {
   return new Promise<void>(
-    (resolve, reject) => {
+    (
+      resolve,
+      reject
+    ) => {
       const xhr =
         new XMLHttpRequest();
 
@@ -189,47 +494,18 @@ function uploadDirectlyToR2(
         );
       }
 
-      xhr.upload.onprogress = (
-        event
-      ) => {
-        if (
-          !event.lengthComputable
-        ) {
-          return;
-        }
-
-        const percent =
-          Math.round(
-            (
-              event.loaded /
-              event.total
-            ) * 100
-          );
-
-        onProgress(
-          Math.min(
-            100,
-            Math.max(
-              0,
-              percent
-            )
-          )
-        );
-      };
-
       xhr.onload = () => {
         if (
           xhr.status >= 200 &&
           xhr.status < 300
         ) {
-          onProgress(100);
           resolve();
           return;
         }
 
         reject(
           new Error(
-            `Private source upload failed with status ${xhr.status}.`
+            `Private upload failed with status ${xhr.status}.`
           )
         );
       };
@@ -238,14 +514,6 @@ function uploadDirectlyToR2(
         reject(
           new Error(
             "The browser could not reach private Arknoz storage."
-          )
-        );
-      };
-
-      xhr.onabort = () => {
-        reject(
-          new Error(
-            "Upload was cancelled."
           )
         );
       };
@@ -265,27 +533,35 @@ export default function ContributionUploader() {
     contributionType,
     setContributionType,
   ] =
+    useState<
+      ContributionType | ""
+    >("");
+
+  const [
+    values,
+    setValues,
+  ] =
+    useState<
+      Record<string, string>
+    >({});
+
+  const [
+    files,
+    setFiles,
+  ] =
+    useState<File[]>([]);
+
+  const [
+    busy,
+    setBusy,
+  ] =
+    useState(false);
+
+  const [
+    progress,
+    setProgress,
+  ] =
     useState("");
-
-  const [
-    selectedFile,
-    setSelectedFile,
-  ] =
-    useState<File | null>(
-      null
-    );
-
-  const [
-    stage,
-    setStage,
-  ] =
-    useState<Stage>("idle");
-
-  const [
-    uploadProgress,
-    setUploadProgress,
-  ] =
-    useState(0);
 
   const [
     errorMessage,
@@ -294,28 +570,8 @@ export default function ContributionUploader() {
     useState("");
 
   const [
-    completed,
-    setCompleted,
-  ] =
-    useState<
-      FinalizedContribution | null
-    >(null);
-
-  const [
-    declarationAccepted,
-    setDeclarationAccepted,
-  ] =
-    useState(false);
-
-  const [
-    submitting,
-    setSubmitting,
-  ] =
-    useState(false);
-
-  const [
-    submitError,
-    setSubmitError,
+    draftMessage,
+    setDraftMessage,
   ] =
     useState("");
 
@@ -327,223 +583,402 @@ export default function ContributionUploader() {
       SubmittedContribution | null
     >(null);
 
-  const busy =
-    stage === "preparing" ||
-    stage === "uploading" ||
-    stage === "finalizing";
+  useEffect(() => {
+    try {
+      const raw =
+        window.localStorage.getItem(
+          "arknoz-contribution-draft-v2"
+        );
 
-  function chooseFile() {
-    if (
-      busy ||
-      submitted
-    ) {
-      return;
+      if (!raw) {
+        return;
+      }
+
+      const draft =
+        JSON.parse(raw);
+
+      queueMicrotask(() => {
+        if (
+          TYPES.some(
+            (item) =>
+              item.value ===
+              draft?.contributionType
+          )
+        ) {
+          setContributionType(
+            draft.contributionType
+          );
+        }
+
+        if (
+          draft?.values &&
+          typeof draft.values ===
+            "object"
+        ) {
+          setValues(
+            draft.values
+          );
+        }
+      });
+    } catch {
+      // Fail closed: a broken local draft is ignored.
     }
+  }, []);
 
-    inputRef.current?.click();
-  }
+  const selectedType =
+    TYPES.find(
+      (item) =>
+        item.value ===
+        contributionType
+    );
 
-  function handleFile(
-    file: File | null
+  function updateValue(
+    key: string,
+    value: string
   ) {
-    setErrorMessage("");
-    setCompleted(null);
-    setDeclarationAccepted(false);
-    setSubmitError("");
-    setSubmitted(null);
-    setUploadProgress(0);
+    setValues(
+      (current) => ({
+        ...current,
+        [key]: value,
+      })
+    );
 
-    if (!file) {
-      setSelectedFile(null);
-      setStage("idle");
-      return;
-    }
-
-    if (
-      !extensionAllowed(
-        file.name
-      )
-    ) {
-      setSelectedFile(null);
-      setStage("error");
-      setErrorMessage(
-        "Unsupported file type. Use PDF, JSON, CSV, JPG, PNG or WebP."
-      );
-      return;
-    }
-
-    if (
-      file.size <= 0
-    ) {
-      setSelectedFile(null);
-      setStage("error");
-      setErrorMessage(
-        "The selected file is empty."
-      );
-      return;
-    }
-
-    if (
-      file.size >
-      MAX_FILE_BYTES
-    ) {
-      setSelectedFile(null);
-      setStage("error");
-      setErrorMessage(
-        "The selected file exceeds the current 50 MB upload limit."
-      );
-      return;
-    }
-
-    setSelectedFile(file);
-    setStage("idle");
+    setDraftMessage("");
   }
 
-  async function startUpload() {
+  function saveDraft() {
     if (
       !contributionType
     ) {
-      setStage("error");
-      setErrorMessage(
-        "Select a contribution type before uploading."
+      setDraftMessage(
+        "Choose a contribution area before saving."
       );
       return;
     }
 
-    if (
-      !selectedFile ||
-      busy
-    ) {
-      return;
-    }
+    window.localStorage.setItem(
+      "arknoz-contribution-draft-v2",
+      JSON.stringify({
+        contributionType,
+        values,
+        savedAt:
+          new Date().toISOString(),
+      })
+    );
 
-    try {
-      setErrorMessage("");
-      setCompleted(null);
-      setDeclarationAccepted(false);
-      setSubmitError("");
-      setSubmitted(null);
-      setUploadProgress(0);
-      setStage("preparing");
+    setDraftMessage(
+      "Draft details saved on this device. Evidence files must be selected again when you return."
+    );
+  }
 
-      const createResponse =
-        await fetch(
-          "/api/contributions/create-upload",
-          {
-            method: "POST",
+  function clearDraft() {
+    window.localStorage.removeItem(
+      "arknoz-contribution-draft-v2"
+    );
 
-            headers: {
-              "Content-Type":
-                "application/json",
-            },
+    setContributionType("");
+    setValues({});
+    setFiles([]);
+    setSubmitted(null);
+    setErrorMessage("");
+    setDraftMessage(
+      "Draft cleared."
+    );
 
-            body:
-              JSON.stringify({
-                filename:
-                  selectedFile.name,
-
-                sizeBytes:
-                  selectedFile.size,
-              }),
-          }
-        );
-
-      const createData =
-        await createResponse.json();
-
-      if (
-        !createResponse.ok ||
-        !createData?.ok ||
-        !createData?.upload
-      ) {
-        throw new Error(
-          createData?.error ||
-            "Arknoz could not create a private upload session."
-        );
-      }
-
-      const session =
-        createData.upload as UploadSession;
-
-      setStage("uploading");
-
-      await uploadDirectlyToR2(
-        selectedFile,
-        session,
-        setUploadProgress
-      );
-
-      setStage("finalizing");
-
-      const finalizeResponse =
-        await fetch(
-          "/api/contributions/finalize-upload",
-          {
-            method: "POST",
-
-            headers: {
-              "Content-Type":
-                "application/json",
-            },
-
-            body:
-              JSON.stringify({
-                manifestKey:
-                  session.manifestKey,
-              }),
-          }
-        );
-
-      const finalizeData =
-        await finalizeResponse.json();
-
-      if (
-        !finalizeResponse.ok ||
-        !finalizeData?.ok ||
-        !finalizeData
-          ?.contribution
-      ) {
-        throw new Error(
-          finalizeData?.error ||
-            "Arknoz could not finalize the private source."
-        );
-      }
-
-      setCompleted(
-        finalizeData.contribution
-      );
-
-      setStage("complete");
-    } catch (error) {
-      setStage("error");
-
-      setErrorMessage(
-        error instanceof Error
-          ? error.message
-          : "The upload could not be completed."
-      );
+    if (inputRef.current) {
+      inputRef.current.value =
+        "";
     }
   }
 
-  async function submitForReview() {
+  function chooseFiles() {
+    if (!busy) {
+      inputRef.current?.click();
+    }
+  }
+
+  function handleFiles(
+    selected: FileList | null
+  ) {
+    setErrorMessage("");
+
+    if (!selected) {
+      return;
+    }
+
+    const incoming =
+      Array.from(selected);
+
+    const combined = [
+      ...files,
+      ...incoming,
+    ];
+
     if (
-      !completed ||
-      !contributionType ||
-      !declarationAccepted ||
-      submitting
+      combined.length >
+      MAX_FILES
+    ) {
+      setErrorMessage(
+        `Maximum ${MAX_FILES} evidence files per contribution.`
+      );
+      return;
+    }
+
+    for (
+      const file
+      of combined
+    ) {
+      if (
+        !extensionAllowed(
+          file.name
+        )
+      ) {
+        setErrorMessage(
+          `${file.name}: unsupported file type.`
+        );
+        return;
+      }
+
+      if (
+        file.size <= 0
+      ) {
+        setErrorMessage(
+          `${file.name}: file is empty.`
+        );
+        return;
+      }
+
+      if (
+        file.size >
+        MAX_FILE_BYTES
+      ) {
+        setErrorMessage(
+          `${file.name}: exceeds the 50 MB per-file limit.`
+        );
+        return;
+      }
+    }
+
+    setFiles(
+      combined
+    );
+
+    if (inputRef.current) {
+      inputRef.current.value =
+        "";
+    }
+  }
+
+  function removeFile(
+    index: number
+  ) {
+    if (busy) {
+      return;
+    }
+
+    setFiles(
+      (current) =>
+        current.filter(
+          (
+            _,
+            itemIndex
+          ) =>
+            itemIndex !==
+            index
+        )
+    );
+  }
+
+  async function uploadEvidence(
+    file: File
+  ): Promise<
+    FinalizedEvidence
+  > {
+    const createResponse =
+      await fetch(
+        "/api/contributions/create-upload",
+        {
+          method:
+            "POST",
+
+          headers: {
+            "Content-Type":
+              "application/json",
+          },
+
+          body:
+            JSON.stringify({
+              filename:
+                file.name,
+
+              sizeBytes:
+                file.size,
+            }),
+        }
+      );
+
+    const createData =
+      await createResponse.json();
+
+    if (
+      !createResponse.ok ||
+      !createData?.ok ||
+      !createData?.upload
+    ) {
+      throw new Error(
+        createData?.error ||
+          "Arknoz could not prepare the evidence upload."
+      );
+    }
+
+    const session =
+      createData.upload as UploadSession;
+
+    await uploadDirectlyToR2(
+      file,
+      session
+    );
+
+    const finalizeResponse =
+      await fetch(
+        "/api/contributions/finalize-upload",
+        {
+          method:
+            "POST",
+
+          headers: {
+            "Content-Type":
+              "application/json",
+          },
+
+          body:
+            JSON.stringify({
+              manifestKey:
+                session.manifestKey,
+            }),
+        }
+      );
+
+    const finalizeData =
+      await finalizeResponse.json();
+
+    if (
+      !finalizeResponse.ok ||
+      !finalizeData?.ok ||
+      !finalizeData
+        ?.contribution
+    ) {
+      throw new Error(
+        finalizeData?.error ||
+          "Arknoz could not verify the uploaded evidence."
+      );
+    }
+
+    return finalizeData
+      .contribution as FinalizedEvidence;
+  }
+
+  async function submitContribution() {
+    if (
+      busy ||
+      !contributionType
     ) {
       return;
     }
 
-    try {
-      setSubmitting(true);
-      setSubmitError("");
+    setErrorMessage("");
+    setSubmitted(null);
 
-      const response =
+    const title =
+      String(
+        values.title || ""
+      ).trim();
+
+    const summary =
+      String(
+        values.summary ||
+          ""
+      ).trim();
+
+    const relationship =
+      String(
+        values.relationship ||
+          ""
+      ).trim();
+
+    if (!title) {
+      setErrorMessage(
+        "Record title is required."
+      );
+      return;
+    }
+
+    if (!summary) {
+      setErrorMessage(
+        "Contribution summary is required."
+      );
+      return;
+    }
+
+    if (!relationship) {
+      setErrorMessage(
+        "Tell Arknoz your genuine relationship to the record."
+      );
+      return;
+    }
+
+    if (
+      files.length === 0
+    ) {
+      setErrorMessage(
+        "Add at least one evidence file before submission."
+      );
+      return;
+    }
+
+    try {
+      setBusy(true);
+
+      const uploaded:
+        FinalizedEvidence[] =
+        [];
+
+      for (
+        let index = 0;
+        index <
+        files.length;
+        index += 1
+      ) {
+        setProgress(
+          `Uploading evidence ${index + 1} of ${files.length}`
+        );
+
+        uploaded.push(
+          await uploadEvidence(
+            files[index]
+          )
+        );
+      }
+
+      const primary =
+        uploaded[0];
+
+      if (!primary) {
+        throw new Error(
+          "No verified evidence was available for submission."
+        );
+      }
+
+      setProgress(
+        "Submitting to Arknoz review"
+      );
+
+      const submitResponse =
         await fetch(
           "/api/contributions/submit",
           {
-            method: "POST",
+            method:
+              "POST",
 
             headers: {
               "Content-Type":
@@ -553,21 +988,45 @@ export default function ContributionUploader() {
             body:
               JSON.stringify({
                 manifestKey:
-                  completed.manifestKey,
+                  primary.manifestKey,
+
+                supportingManifestKeys:
+                  uploaded
+                    .slice(1)
+                    .map(
+                      (item) =>
+                        item.manifestKey
+                    ),
 
                 contributionType,
 
                 declarationAccepted:
                   true,
+
+                details: {
+                  ...values,
+
+                  contributionFramework:
+                    contributionType ===
+                    "projects"
+                      ? "arknoz-sydney-project-framework"
+                      : `arknoz-${contributionType}-canonical-framework`,
+
+                  evidenceFileNames:
+                    files.map(
+                      (file) =>
+                        file.name
+                    ),
+                },
               }),
           }
         );
 
       const data =
-        await response.json();
+        await submitResponse.json();
 
       if (
-        !response.ok ||
+        !submitResponse.ok ||
         !data?.ok ||
         !data?.contribution
       ) {
@@ -580,525 +1039,415 @@ export default function ContributionUploader() {
       setSubmitted(
         data.contribution
       );
+
+      window.localStorage.removeItem(
+        "arknoz-contribution-draft-v2"
+      );
+
+      setProgress("");
     } catch (error) {
-      setSubmitError(
+      setErrorMessage(
         error instanceof Error
           ? error.message
           : "Contribution could not be submitted."
       );
     } finally {
-      setSubmitting(false);
+      setBusy(false);
     }
   }
 
-  function resetAll() {
-    if (
-      busy ||
-      submitting
-    ) {
-      return;
-    }
-
-    setContributionType("");
-    setSelectedFile(null);
-    setCompleted(null);
-    setDeclarationAccepted(false);
-    setSubmitError("");
-    setSubmitted(null);
-    setErrorMessage("");
-    setUploadProgress(0);
-    setStage("idle");
-
-    if (inputRef.current) {
-      inputRef.current.value =
-        "";
-    }
-  }
-
-  const selectedType =
-    CONTRIBUTION_TYPES.find(
-      (item) =>
-        item.value ===
-        contributionType
-    );
-
-  return (
-    <div className="space-y-6">
-      <section className="rounded-[24px] border border-slate-200 bg-white p-7 shadow-sm">
-        <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">
-          STEP 01
+  if (submitted) {
+    return (
+      <div className="rounded-[26px] border border-emerald-200 bg-emerald-50 p-7">
+        <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-emerald-700">
+          CONTRIBUTION SUBMITTED
         </p>
 
-        <h2 className="mt-2 text-2xl font-bold">
-          What are you contributing?
+        <h2 className="mt-2 text-2xl font-bold text-slate-950">
+          Sent to Arknoz review.
         </h2>
 
         <p className="mt-3 max-w-3xl text-sm leading-6 text-slate-600">
-          Choose the area that best
-          represents the information
-          you want to add, update or
-          support with source material.
+          Nothing has been published automatically.
+          Arknoz will review identity, duplicate or
+          canonical matches, evidence, relationships,
+          provenance and rights before any public record
+          is created or enriched.
         </p>
 
-        <div className="mt-7 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
-          {CONTRIBUTION_TYPES.map(
-            (item, index) => {
+        <div className="mt-6 grid gap-3 sm:grid-cols-3">
+          <div className="rounded-[18px] bg-white p-4">
+            <p className="text-[9px] font-bold uppercase tracking-[0.15em] text-slate-400">
+              Contribution ID
+            </p>
+
+            <p className="mt-2 break-all text-sm font-bold text-[#17315c]">
+              {submitted.importId}
+            </p>
+          </div>
+
+          <div className="rounded-[18px] bg-white p-4">
+            <p className="text-[9px] font-bold uppercase tracking-[0.15em] text-slate-400">
+              Status
+            </p>
+
+            <p className="mt-2 text-sm font-bold text-[#17315c]">
+              Submitted for review
+            </p>
+          </div>
+
+          <div className="rounded-[18px] bg-white p-4">
+            <p className="text-[9px] font-bold uppercase tracking-[0.15em] text-slate-400">
+              Evidence
+            </p>
+
+            <p className="mt-2 text-sm font-bold text-[#17315c]">
+              {submitted.evidenceCount} file
+              {submitted.evidenceCount === 1
+                ? ""
+                : "s"}
+            </p>
+          </div>
+        </div>
+
+        <div className="mt-6 flex flex-wrap gap-3">
+          <a
+            href="/dashboard/contributions"
+            className="rounded-full bg-[#17315c] px-5 py-3 text-[11px] font-bold text-white"
+          >
+            View My Contributions
+          </a>
+
+          <button
+            type="button"
+            onClick={() => {
+              setSubmitted(null);
+              setContributionType("");
+              setValues({});
+              setFiles([]);
+            }}
+            className="rounded-full border border-slate-300 bg-white px-5 py-3 text-[11px] font-bold text-[#17315c]"
+          >
+            Start another contribution
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="space-y-5">
+      <section className="rounded-[26px] border border-slate-200 bg-white p-6">
+        <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-blue-700">
+          01 · CONTRIBUTION AREA
+        </p>
+
+        <h2 className="mt-2 text-2xl font-bold text-[#17315c]">
+          What are you contributing?
+        </h2>
+
+        <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+          {TYPES.map(
+            (item) => {
               const active =
                 contributionType ===
                 item.value;
 
               return (
                 <button
-                  key={item.value}
                   type="button"
-                  disabled={
-                    busy ||
-                    Boolean(submitted)
-                  }
-                  onClick={() =>
+                  key={item.value}
+                  disabled={busy}
+                  onClick={() => {
                     setContributionType(
                       item.value
-                    )
-                  }
-                  className={`rounded-[18px] border p-5 text-left transition ${
+                    );
+                    setErrorMessage("");
+                  }}
+                  className={`rounded-[20px] border p-5 text-left transition ${
                     active
-                      ? "border-[#17315c] bg-blue-50 ring-1 ring-[#17315c]"
-                      : "border-slate-200 bg-slate-50/60 hover:border-slate-400"
-                  } disabled:cursor-not-allowed disabled:opacity-60`}
+                      ? "border-[#17315c] bg-[#17315c] text-white"
+                      : "border-slate-200 bg-[#f7f9fc] text-slate-950 hover:border-blue-300"
+                  }`}
                 >
-                  <div className="flex items-center gap-3">
-                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-white text-[11px] font-bold text-slate-500 ring-1 ring-slate-200">
-                      {String(
-                        index + 1
-                      ).padStart(
-                        2,
-                        "0"
-                      )}
-                    </span>
+                  <p className="text-sm font-bold">
+                    {item.title}
+                  </p>
 
-                    <span className="text-sm font-bold text-[#17315c]">
-                      {item.title}
-                    </span>
-                  </div>
-
-                  <p className="mt-3 text-xs leading-5 text-slate-600">
-                    {
-                      item.description
-                    }
+                  <p
+                    className={`mt-2 text-[11px] leading-5 ${
+                      active
+                        ? "text-slate-200"
+                        : "text-slate-500"
+                    }`}
+                  >
+                    {item.description}
                   </p>
                 </button>
               );
             }
           )}
         </div>
-
-        {selectedType && (
-          <div className="mt-5 rounded-xl border border-blue-100 bg-blue-50/60 px-4 py-3 text-sm text-[#17315c]">
-            Selected:{" "}
-            <strong>
-              {
-                selectedType.title
-              }
-            </strong>
-          </div>
-        )}
       </section>
 
-      <section className="rounded-[24px] border border-slate-200 bg-white p-7 shadow-sm">
-        <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">
-          STEP 02
-        </p>
+      {selectedType ? (
+        <>
+          <section className="rounded-[26px] border border-slate-200 bg-white p-6">
+            <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-blue-700">
+              02 · STRUCTURED RECORD
+            </p>
 
-        <h2 className="mt-2 text-2xl font-bold">
-          Upload supporting source material
-        </h2>
+            <h2 className="mt-2 text-2xl font-bold text-[#17315c]">
+              {selectedType.title} information
+            </h2>
 
-        <p className="mt-3 max-w-3xl text-sm leading-6 text-slate-600">
-          Add a genuine document,
-          drawing, image, publication,
-          dataset, reference or other
-          source that supports your
-          contribution. The source
-          remains private during intake
-          and editorial review.
-        </p>
+            <p className="mt-2 max-w-4xl text-sm leading-6 text-slate-600">
+              {selectedType.mapping}
+            </p>
 
-        <input
-          ref={inputRef}
-          type="file"
-          className="hidden"
-          accept=".pdf,.json,.csv,.jpg,.jpeg,.png,.webp"
-          disabled={
-            busy ||
-            Boolean(submitted)
-          }
-          onChange={(event) =>
-            handleFile(
-              event.target.files?.[0] ??
-                null
-            )
-          }
-        />
-
-        {!completed && (
-          <div className="mt-7 rounded-[20px] border border-dashed border-slate-300 bg-slate-50 p-8">
-            <div className="max-w-2xl">
-              <h3 className="text-lg font-bold">
-                Private source upload
-              </h3>
-
-              <p className="mt-2 text-sm leading-6 text-slate-600">
-                Uploading a source does
-                not verify it, grant
-                publication rights or
-                make it public.
-              </p>
-
-              {!selectedFile ? (
-                <button
-                  type="button"
-                  onClick={chooseFile}
-                  disabled={
-                    busy ||
-                    !contributionType
-                  }
-                  className="mt-6 rounded-xl bg-[#17315c] px-5 py-3 text-sm font-semibold text-white hover:bg-[#102541] disabled:cursor-not-allowed disabled:opacity-50"
-                >
-                  {contributionType
-                    ? "Choose source file"
-                    : "Select contribution type first"}
-                </button>
-              ) : (
-                <div className="mt-6 rounded-2xl border border-slate-200 bg-white p-5">
-                  <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-                    <div className="min-w-0">
-                      <p className="truncate font-semibold text-slate-950">
-                        {
-                          selectedFile.name
-                        }
-                      </p>
-
-                      <p className="mt-1 text-xs text-slate-500">
-                        {formatBytes(
-                          selectedFile.size
-                        )}
-                      </p>
-                    </div>
-
-                    {!busy && (
-                      <button
-                        type="button"
-                        onClick={
-                          chooseFile
-                        }
-                        className="text-sm font-semibold text-[#17315c]"
-                      >
-                        Change file
-                      </button>
-                    )}
-                  </div>
-
-                  {stage ===
-                    "uploading" && (
-                    <div className="mt-5">
-                      <div className="flex items-center justify-between text-xs font-semibold text-slate-600">
-                        <span>
-                          Uploading privately
-                        </span>
-
-                        <span>
-                          {
-                            uploadProgress
-                          }
-                          %
-                        </span>
-                      </div>
-
-                      <div className="mt-2 h-2 overflow-hidden rounded-full bg-slate-100">
-                        <div
-                          className="h-full rounded-full bg-[#17315c] transition-all"
-                          style={{
-                            width:
-                              `${uploadProgress}%`,
-                          }}
-                        />
-                      </div>
-                    </div>
-                  )}
-
-                  <button
-                    type="button"
-                    onClick={
-                      startUpload
+            <div className="mt-6 grid gap-4 md:grid-cols-2">
+              {[
+                ...COMMON_FIELDS,
+                ...selectedType.fields,
+              ].map(
+                (field) => (
+                  <label
+                    key={field.key}
+                    className={
+                      field.multiline
+                        ? "md:col-span-2"
+                        : ""
                     }
-                    disabled={busy}
-                    className="mt-5 rounded-xl bg-[#17315c] px-5 py-3 text-sm font-semibold text-white hover:bg-[#102541] disabled:cursor-not-allowed disabled:opacity-50"
                   >
-                    {stage ===
-                    "preparing"
-                      ? "Preparing secure upload..."
-                      : stage ===
-                          "uploading"
-                        ? `Uploading ${uploadProgress}%`
-                        : stage ===
-                            "finalizing"
-                          ? "Verifying source..."
-                          : "Upload privately"}
-                  </button>
-                </div>
+                    <span className="text-[10px] font-bold uppercase tracking-[0.13em] text-slate-500">
+                      {field.label}
+                      {field.required
+                        ? " *"
+                        : ""}
+                    </span>
+
+                    {field.multiline ? (
+                      <textarea
+                        rows={4}
+                        disabled={busy}
+                        value={
+                          values[
+                            field.key
+                          ] ?? ""
+                        }
+                        placeholder={
+                          field.placeholder
+                        }
+                        onChange={(
+                          event
+                        ) =>
+                          updateValue(
+                            field.key,
+                            event.target
+                              .value
+                          )
+                        }
+                        className="mt-2 w-full rounded-[16px] border border-slate-200 bg-[#fbfcfe] px-4 py-3 text-sm outline-none focus:border-blue-400"
+                      />
+                    ) : (
+                      <input
+                        type="text"
+                        disabled={busy}
+                        value={
+                          values[
+                            field.key
+                          ] ?? ""
+                        }
+                        placeholder={
+                          field.placeholder
+                        }
+                        onChange={(
+                          event
+                        ) =>
+                          updateValue(
+                            field.key,
+                            event.target
+                              .value
+                          )
+                        }
+                        className="mt-2 w-full rounded-[16px] border border-slate-200 bg-[#fbfcfe] px-4 py-3 text-sm outline-none focus:border-blue-400"
+                      />
+                    )}
+                  </label>
+                )
               )}
-
-              <p className="mt-4 text-xs leading-5 text-slate-500">
-                Supported: PDF, JSON,
-                CSV, JPG, PNG and WebP.
-                Current maximum file
-                size: 50 MB. Arknoz may
-                revise contribution
-                limits before public
-                launch.
-              </p>
             </div>
-          </div>
-        )}
 
-        {stage === "error" &&
-          errorMessage && (
-            <div className="mt-5 rounded-2xl border border-red-200 bg-red-50 p-5">
-              <p className="font-semibold text-red-800">
-                Upload not completed
-              </p>
+            <div className="mt-5 flex flex-wrap items-center gap-3">
+              <button
+                type="button"
+                disabled={busy}
+                onClick={saveDraft}
+                className="rounded-full border border-slate-300 bg-white px-5 py-2.5 text-[11px] font-bold text-[#17315c]"
+              >
+                Save Draft
+              </button>
 
-              <p className="mt-2 text-sm leading-6 text-red-700">
-                {errorMessage}
-              </p>
+              <button
+                type="button"
+                disabled={busy}
+                onClick={clearDraft}
+                className="text-[11px] font-bold text-slate-500"
+              >
+                Clear Draft
+              </button>
             </div>
-          )}
 
-        {completed && (
-          <div className="mt-7 rounded-[20px] border border-emerald-200 bg-emerald-50/60 p-7">
-            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-emerald-700">
-              PRIVATE SOURCE STORED
+            {draftMessage ? (
+              <p className="mt-3 text-xs leading-5 text-slate-500">
+                {draftMessage}
+              </p>
+            ) : null}
+          </section>
+
+          <section className="rounded-[26px] border border-slate-200 bg-white p-6">
+            <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-blue-700">
+              03 · EVIDENCE & SOURCES
             </p>
 
-            <h3 className="mt-2 text-xl font-bold text-slate-950">
-              Source upload complete
-            </h3>
+            <h2 className="mt-2 text-2xl font-bold text-[#17315c]">
+              Add supporting evidence
+            </h2>
 
-            <p className="mt-3 text-sm leading-6 text-slate-600">
-              The source is stored
-              privately. It has not yet
-              been submitted for
-              editorial review or
-              published.
+            <p className="mt-2 max-w-3xl text-sm leading-6 text-slate-600">
+              Add up to {MAX_FILES} PDFs, images,
+              JSON or CSV evidence files. Each file
+              remains private during review. Maximum
+              size is 50 MB per file.
             </p>
 
-            <dl className="mt-6 grid gap-4 text-sm sm:grid-cols-2">
-              <div>
-                <dt className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                  File
-                </dt>
-
-                <dd className="mt-1 break-words font-medium text-slate-900">
-                  {
-                    completed.filename
-                  }
-                </dd>
-              </div>
-
-              <div>
-                <dt className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                  Size
-                </dt>
-
-                <dd className="mt-1 font-medium text-slate-900">
-                  {formatBytes(
-                    completed.sizeBytes
-                  )}
-                </dd>
-              </div>
-
-              <div>
-                <dt className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                  Source status
-                </dt>
-
-                <dd className="mt-1 font-medium text-slate-900">
-                  {
-                    completed.status
-                  }
-                </dd>
-              </div>
-
-              <div>
-                <dt className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                  Publication
-                </dt>
-
-                <dd className="mt-1 font-medium text-slate-900">
-                  Blocked
-                </dd>
-              </div>
-            </dl>
-          </div>
-        )}
-      </section>
-
-      {completed && !submitted && (
-        <section className="rounded-[24px] border border-slate-200 bg-white p-7 shadow-sm">
-          <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">
-            STEP 03
-          </p>
-
-          <h2 className="mt-2 text-2xl font-bold">
-            Contributor declaration
-          </h2>
-
-          <p className="mt-3 max-w-4xl text-sm leading-7 text-slate-600">
-            Before submitting this
-            contribution to Arknoz,
-            confirm your responsibility
-            for the information and
-            source material you provide.
-          </p>
-
-          <label className="mt-6 flex cursor-pointer items-start gap-4 rounded-[18px] border border-slate-200 bg-slate-50 p-5">
             <input
-              type="checkbox"
-              checked={
-                declarationAccepted
-              }
-              onChange={(event) =>
-                setDeclarationAccepted(
-                  event.target.checked
+              ref={inputRef}
+              type="file"
+              multiple
+              disabled={busy}
+              accept=".pdf,.json,.csv,.jpg,.jpeg,.png,.webp"
+              className="hidden"
+              onChange={(
+                event
+              ) =>
+                handleFiles(
+                  event.target.files
                 )
               }
-              className="mt-1 h-5 w-5 shrink-0"
             />
 
-            <span className="text-sm leading-7 text-slate-700">
-              I confirm that the
-              information and source
-              material I am submitting
-              are genuine to the best of
-              my knowledge. I accept
-              responsibility for this
-              contribution and confirm
-              that I created, own,
-              control, or otherwise have
-              sufficient authority or
-              permission to provide the
-              submitted information and
-              source material to Arknoz.
-            </span>
-          </label>
+            <button
+              type="button"
+              disabled={busy}
+              onClick={chooseFiles}
+              className="mt-5 rounded-full bg-[#17315c] px-5 py-3 text-[11px] font-bold text-white disabled:opacity-50"
+            >
+              Add Evidence Files
+            </button>
 
-          <div className="mt-5 rounded-xl border border-slate-200 bg-white p-4 text-xs leading-6 text-slate-500">
-            This declaration does not
-            establish independent
-            verification or automatically
-            grant publication rights.
-            Arknoz retains separate
-            authority, rights, editorial
-            and publication review.
-          </div>
+            {files.length ? (
+              <div className="mt-5 space-y-2">
+                {files.map(
+                  (
+                    file,
+                    index
+                  ) => (
+                    <div
+                      key={`${file.name}-${index}`}
+                      className="flex items-center justify-between gap-4 rounded-[16px] bg-[#f5f7fa] px-4 py-3"
+                    >
+                      <div className="min-w-0">
+                        <p className="truncate text-sm font-bold">
+                          {file.name}
+                        </p>
 
-          {submitError && (
-            <div className="mt-5 rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-700">
-              {submitError}
-            </div>
-          )}
+                        <p className="mt-1 text-[10px] text-slate-500">
+                          {formatBytes(
+                            file.size
+                          )}
+                        </p>
+                      </div>
 
-          <button
-            type="button"
-            onClick={
-              submitForReview
-            }
-            disabled={
-              !declarationAccepted ||
-              !contributionType ||
-              submitting
-            }
-            className="mt-6 rounded-xl bg-[#17315c] px-6 py-3 text-sm font-semibold text-white hover:bg-[#102541] disabled:cursor-not-allowed disabled:opacity-50"
-          >
-            {submitting
-              ? "Submitting to Arknoz..."
-              : "Submit to Arknoz Admin"}
-          </button>
-        </section>
-      )}
+                      <button
+                        type="button"
+                        disabled={busy}
+                        onClick={() =>
+                          removeFile(
+                            index
+                          )
+                        }
+                        className="text-[10px] font-bold text-slate-500"
+                      >
+                        Remove
+                      </button>
+                    </div>
+                  )
+                )}
+              </div>
+            ) : (
+              <div className="mt-5 rounded-[18px] border border-dashed border-slate-300 bg-slate-50 p-5 text-sm text-slate-500">
+                No evidence files selected yet.
+              </div>
+            )}
+          </section>
 
-      {submitted && (
-        <section className="rounded-[24px] border border-emerald-200 bg-emerald-50/60 p-7">
-          <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-emerald-700">
-            CONTRIBUTION SUBMITTED
-          </p>
+          <section className="rounded-[26px] border border-slate-200 bg-white p-6">
+            <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-blue-700">
+              04 · REVIEW & SUBMIT
+            </p>
 
-          <h2 className="mt-2 text-2xl font-bold">
-            Submitted to Arknoz Admin
-          </h2>
+            <h2 className="mt-2 text-2xl font-bold text-[#17315c]">
+              Submit to Arknoz
+            </h2>
 
-          <p className="mt-3 max-w-3xl text-sm leading-7 text-slate-600">
-            Your contribution is now in
-            the private Arknoz editorial
-            intake workflow. An Admin
-            can review it and assign it
-            to the appropriate Editor.
-            Nothing has been published.
-          </p>
-
-          <dl className="mt-6 grid gap-4 text-sm sm:grid-cols-2">
-            <div>
-              <dt className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                Contribution
-              </dt>
-
-              <dd className="mt-1 font-medium text-slate-900">
-                {
-                  selectedType?.title
-                }
-              </dd>
+            <div className="mt-4 rounded-[18px] bg-[#f5f7fa] p-5 text-xs leading-6 text-slate-600">
+              By submitting, you confirm that the
+              information is provided responsibly,
+              that you have authority or permission
+              to provide the uploaded material, and
+              that Arknoz must independently review
+              identity, sources, rights, relationships
+              and duplicate/canonical matching before
+              anything becomes public.
             </div>
 
-            <div>
-              <dt className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                Review status
-              </dt>
+            {progress ? (
+              <p className="mt-4 text-sm font-bold text-blue-700">
+                {progress}...
+              </p>
+            ) : null}
 
-              <dd className="mt-1 font-medium text-slate-900">
-                Submitted for Admin
-                review
-              </dd>
-            </div>
+            {errorMessage ? (
+              <div className="mt-4 rounded-[16px] border border-red-200 bg-red-50 p-4 text-sm text-red-700">
+                {errorMessage}
+              </div>
+            ) : null}
 
-            <div>
-              <dt className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                Publication
-              </dt>
+            <button
+              type="button"
+              disabled={busy}
+              onClick={
+                submitContribution
+              }
+              className="mt-5 rounded-full bg-[#17315c] px-6 py-3 text-[11px] font-bold text-white disabled:cursor-not-allowed disabled:opacity-50"
+            >
+              {busy
+                ? "Submitting Contribution..."
+                : "Submit for Arknoz Review"}
+            </button>
 
-              <dd className="mt-1 font-medium text-slate-900">
-                Blocked
-              </dd>
-            </div>
-
-            <div>
-              <dt className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                Editorial status
-              </dt>
-
-              <dd className="mt-1 font-medium text-slate-900">
-                Awaiting Admin
-              </dd>
-            </div>
-          </dl>
-
-          <button
-            type="button"
-            onClick={resetAll}
-            className="mt-6 text-sm font-semibold text-[#17315c]"
-          >
-            Start another contribution
-          </button>
-        </section>
+            <p className="mt-3 text-[10px] leading-5 text-slate-500">
+              Submission does not create a public
+              record automatically.
+            </p>
+          </section>
+        </>
+      ) : (
+        <div className="rounded-[24px] border border-dashed border-slate-300 bg-white p-7 text-sm text-slate-500">
+          Choose one of the six contribution areas
+          above to open the structured form.
+        </div>
       )}
     </div>
   );

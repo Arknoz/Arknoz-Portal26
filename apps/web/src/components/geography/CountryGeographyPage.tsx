@@ -6,17 +6,24 @@ import {
 } from "@/lib/arknoz-sections";
 import Link from "next/link";
 
-import GlobalHeader from "@/components/GlobalHeader";
-import GlobalFooter from "@/components/GlobalFooter";
-import UniversalFooterStrip from "@/components/UniversalFooterStrip";
-import UniversalTopicHero from "@/components/UniversalTopicHero";
-import GeographyContextBar from "@/components/GeographyContextBar";
+import { getProductionEntities } from "@/lib/data/production-entities";
+import { getActivePlacementEntityRef } from "@/lib/placement-data";
+import { getDevelopmentPlacementEntity } from "@/lib/development-placement-preview";
+import { entityMatchesGeography } from "@/lib/entity-geography";
+import { getGeographyContextNav } from "@/components/GeographyContextBar";
+import UniversalPublicFirstScreen from "@/components/UniversalPublicFirstScreen";
+import UniversalPublicLastScreen from "@/components/UniversalPublicLastScreen";
+import { getAllFeaturedResolverSlots } from "@/lib/featured-slots";
 
 import {
   type GeographyItem,
   getChildren,
 } from "@/lib/geography";
 
+const countryPlacementSlots =
+  getAllFeaturedResolverSlots().map(
+    (item) => item.resolverSlotId
+  );
 const regionImages: Record<string, string> = {
   maharashtra:
     "/visuals/arknoz-neutral.svg",
@@ -134,7 +141,7 @@ function getPresentation(
   };
 }
 
-export default function CountryGeographyPage({
+export default async function CountryGeographyPage({
   context,
 }: {
   context: GeographyItem;
@@ -147,17 +154,157 @@ export default function CountryGeographyPage({
       context,
       children
     );
+  // ARKNOZ_COUNTRY_PLACEMENT_WIRING_V1
+  //
+  // Same permanent slots are reused for every country.
+  // The geography slug identifies the actual placement context.
+  // Draft/disabled assignments resolve to nothing.
+  const countryPlacementRefs =
+    countryPlacementSlots.map(
+      (slotId) =>
+        getActivePlacementEntityRef(
+          slotId,
+          context.slug
+        )
+    );
+
+  const needsProductionProjects =
+    countryPlacementRefs.some(
+      (ref) =>
+        ref?.type === "project"
+    );
+
+  const productionRecords =
+    needsProductionProjects
+      ? await getProductionEntities()
+      : [];
+
+  const countryFeatured =
+    countryPlacementRefs.flatMap(
+      (ref, index) => {
+        const fallback =
+          presentation.featured[
+            index
+          ];
+
+        if (
+          !ref ||
+          ref.type !== "project"
+        ) {
+          return fallback
+            ? [fallback]
+            : [];
+        }
+
+        const entity =
+          productionRecords.find(
+            (candidate) =>
+              candidate.type ===
+                "project" &&
+              candidate.slug ===
+                ref.slug
+          );
+
+        if (
+          !entity ||
+          entity.type !== "project" ||
+          !entityMatchesGeography(
+            entity,
+            context
+          )
+        ) {
+          return fallback
+            ? [fallback]
+            : [];
+        }
+
+        return [
+          {
+            type: "PROJECT",
+            title: entity.title,
+            meta:
+              entity.geography ||
+              entity.subtitle ||
+              context.name,
+            href:
+              `/projects/${entity.slug}`,
+            image:
+              entity.project
+                ?.media?.[0]
+                ?.src ||
+              "/visuals/arknoz-neutral.svg",
+          },
+        ];
+      }
+    );
+
+  // ARKNOZ_DEV_DISCOVERY_OVERLAY_V5
+  const countryDisplayFeatured =
+    process.env.NODE_ENV === "development"
+      ? countryPlacementSlots.flatMap(
+          (slotId, index) => {
+            const entity =
+              getDevelopmentPlacementEntity(
+                slotId,
+                context.slug
+              );
+
+            if (
+              entity &&
+              entityMatchesGeography(
+                entity,
+                context
+              )
+            ) {
+              return [
+                {
+                  type: "PROJECT",
+                  title: entity.title,
+                  meta:
+                    entity.geography ||
+                    entity.subtitle ||
+                    context.name,
+                  href:
+                    `/preview/projects/${entity.slug}`,
+                  image:
+                    entity.project?.media?.[0]?.src ||
+                    "/visuals/arknoz-neutral.svg",
+                },
+              ];
+            }
+
+            const fallback =
+              presentation.featured[
+                index
+              ];
+
+            return fallback
+              ? [fallback]
+              : [];
+          }
+        )
+      : countryFeatured;
+
+  // ARKNOZ_GEOGRAPHY_HOME_AGGREGATOR_V1
+  //
+  // Geography Home owns NO additional placement identities.
+  // It displays up to three unique cards resolved from the
+  // geography's existing 12 sections x 3 slots = 36 slots.
+  const countryHomeFeatured =
+    countryDisplayFeatured
+      .filter(
+        (item, index, items) =>
+          items.findIndex(
+            (candidate) =>
+              candidate.href === item.href
+          ) === index
+      )
+      .slice(0, 3);
 
   return (
     <main className="min-h-screen bg-white">
 
-      <GlobalHeader />
-
-      <GeographyContextBar
-        context={context}
-      />
-
-      <UniversalTopicHero
+      <UniversalPublicFirstScreen
         eyebrow={
           context.name.toUpperCase()
         }
@@ -173,9 +320,8 @@ export default function CountryGeographyPage({
         popular={
           presentation.popular
         }
-        featured={
-          presentation.featured
-        }
+        contextNav={getGeographyContextNav(context)}
+        featured={countryHomeFeatured}
         ticker={
           presentation.ticker
         }
@@ -392,8 +538,7 @@ export default function CountryGeographyPage({
 
       </section>
 
-      <UniversalFooterStrip />
-      <GlobalFooter />
+      <UniversalPublicLastScreen />
 
     </main>
   );

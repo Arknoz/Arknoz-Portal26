@@ -1,3 +1,10 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Standards & References",
+  description:
+    "Explore standards, technical references, guidance and source-backed resources for Built World practice and research.",
+};
 import WorldIndexRoute from "@/components/WorldIndexRoute";
 
 export default async function Page({

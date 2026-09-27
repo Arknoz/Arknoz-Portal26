@@ -1,15 +1,194 @@
-import { buildGeographyHref } from "@/lib/geography";
 import Link from "next/link";
 
 import {
-  arknozSections,
+  buildGeographyHref,
+  getGeographyAncestors,
+  type GeographyItem,
+} from "@/lib/geography";
+
+import {
+  arknozExploreSections,
   buildArknozSectionHref,
   isPaidArknozSection,
 } from "@/lib/arknoz-sections";
 
-import type {
-  GeographyItem,
-} from "@/lib/geography";
+export type GeographyContextNavItem = {
+  label: string;
+  href: string;
+  locked?: boolean;
+};
+
+function getHierarchyNav(
+  context: GeographyItem
+): GeographyContextNavItem[] {
+  const ancestors =
+    getGeographyAncestors(
+      context.slug
+    ).reverse();
+
+  const continent =
+    ancestors.find(
+      (item) =>
+        item.type === "continent"
+    );
+
+  const country =
+    ancestors.find(
+      (item) =>
+        item.type === "country"
+    );
+
+  const region =
+    ancestors.find(
+      (item) =>
+        item.type === "region"
+    );
+
+  const city =
+    ancestors.find(
+      (item) =>
+        item.type === "city"
+    );
+
+  const items: GeographyContextNavItem[] = [
+    {
+      label: "Global Home",
+      href: "/global",
+    },
+  ];
+
+  if (
+    context.type === "continent" ||
+    continent
+  ) {
+    items.push({
+      label: "Continents",
+      href: "/global/continents",
+    });
+  }
+
+  if (
+    continent &&
+    continent.slug !== context.slug
+  ) {
+    items.push({
+      label: continent.name,
+      href: buildGeographyHref(
+        continent.slug
+      ),
+    });
+  }
+
+  if (
+    context.type === "country" ||
+    country
+  ) {
+    items.push({
+      label: "Countries",
+      href: "/global/countries",
+    });
+  }
+
+  if (
+    country &&
+    country.slug !== context.slug
+  ) {
+    items.push({
+      label: country.name,
+      href: buildGeographyHref(
+        country.slug
+      ),
+    });
+  }
+
+  if (
+    context.type === "region" ||
+    region
+  ) {
+    items.push({
+      label: "Regions & States",
+      href: "/global/regions",
+    });
+  }
+
+  if (
+    region &&
+    region.slug !== context.slug
+  ) {
+    items.push({
+      label: region.name,
+      href: buildGeographyHref(
+        region.slug
+      ),
+    });
+  }
+
+  if (
+    context.type === "city" ||
+    city
+  ) {
+    items.push({
+      label: "Cities",
+      href: "/global/cities",
+    });
+  }
+
+  if (
+    city &&
+    city.slug !== context.slug
+  ) {
+    items.push({
+      label: city.name,
+      href: buildGeographyHref(
+        city.slug
+      ),
+    });
+  }
+
+  if (context.type === "place") {
+    items.push({
+      label: "Places",
+      href: "/global/places",
+    });
+  }
+
+  items.push({
+    label: `${context.name} Home`,
+    href: buildGeographyHref(
+      context.slug
+    ),
+  });
+
+  return items;
+}
+
+export function getGeographyContextNav(
+  context: GeographyItem
+): GeographyContextNavItem[] {
+  if (context.type === "global") {
+    return [];
+  }
+
+  return [
+    ...getHierarchyNav(context),
+
+    ...arknozExploreSections.map(
+      (section) => ({
+        label: section.title,
+        href: buildArknozSectionHref(
+          section.key,
+          {
+            geo: context.slug,
+          }
+        ),
+        locked:
+          isPaidArknozSection(
+            section.key
+          ),
+      })
+    ),
+  ];
+}
 
 function LockIcon() {
   return (
@@ -42,52 +221,45 @@ export default function GeographyContextBar({
     return null;
   }
 
+  const navItems =
+    getGeographyContextNav(
+      context
+    );
+
   return (
     <nav className="border-b border-slate-200 bg-white">
       <div className="mx-auto flex max-w-[1600px] items-center gap-1 overflow-x-auto px-6 [scrollbar-width:none] lg:px-10 [&::-webkit-scrollbar]:hidden">
-        <Link
-          href={buildGeographyHref(context.slug)}
-          className="shrink-0 px-3 py-4 text-sm font-bold text-[#12315d]"
-        >
-          {context.name} Home
-        </Link>
-
-        {arknozSections.map((section) => {
-          const paid =
-            isPaidArknozSection(
-              section.key
-            );
-
-          return (
+        {navItems.map(
+          (item, index) => (
             <Link
-              key={section.key}
-              href={buildArknozSectionHref(
-                section.key,
-                {
-                  geo: context.slug,
-                }
-              )}
+              key={`${item.href}-${index}`}
+              href={item.href}
               title={
-                paid
-                  ? `${section.title} · Arknoz Pro`
-                  : section.title
+                item.locked
+                  ? `${item.label} · Arknoz Pro`
+                  : item.label
               }
               className={`flex shrink-0 items-center gap-1.5 px-3 py-4 text-sm transition ${
-                paid
+                item.locked
                   ? "font-semibold text-slate-500"
-                  : "font-medium text-slate-600 hover:text-[#12315d]"
+                  : index ===
+                      navItems.length -
+                        arknozExploreSections.length -
+                        1
+                    ? "font-bold text-[#12315d]"
+                    : "font-medium text-slate-600 hover:text-[#12315d]"
               }`}
             >
               <span>
-                {section.title}
+                {item.label}
               </span>
 
-              {paid && (
+              {item.locked && (
                 <LockIcon />
               )}
             </Link>
-          );
-        })}
+          )
+        )}
       </div>
     </nav>
   );
