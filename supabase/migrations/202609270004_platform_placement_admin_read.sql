@@ -113,7 +113,7 @@ returns table (
   surface_id text,
   component_name text,
   slot_role text,
-  position integer,
+  "position" integer,
   scope_mode text,
   context_type text,
   route_pattern text,
