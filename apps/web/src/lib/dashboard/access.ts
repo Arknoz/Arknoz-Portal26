@@ -1,4 +1,4 @@
-﻿import { redirect } from "next/navigation";
+import { redirect } from "next/navigation";
 
 import { hasPersonalArknozPro } from "@/lib/entitlements/arknoz-pro";
 import { createClient } from "@/lib/supabase/server";
@@ -14,6 +14,16 @@ export async function requireDashboardUser(returnTo: string) {
     redirect(
       `/sign-in?returnTo=${encodeURIComponent(returnTo)}`
     );
+  }
+
+  const {
+    data: accessStatus,
+  } = await supabase.rpc(
+    "get_my_platform_member_access_status"
+  );
+
+  if (accessStatus === "suspended") {
+    redirect("/access-denied");
   }
 
   return user;

@@ -36,6 +36,38 @@ export async function POST(
       );
     }
 
+    const {
+      data: accessStatus,
+      error: accessError,
+    } = await supabase.rpc(
+      "get_my_platform_member_access_status"
+    );
+
+    if (accessError) {
+      return NextResponse.json(
+        {
+          ok: false,
+          error:
+            "Member access status could not be verified.",
+        },
+        {
+          status: 503,
+        }
+      );
+    }
+
+    if (accessStatus === "suspended") {
+      return NextResponse.json(
+        {
+          ok: false,
+          error:
+            "Arknoz member access is suspended.",
+        },
+        {
+          status: 403,
+        }
+      );
+    }
     const isPro =
       String(
         user.app_metadata
