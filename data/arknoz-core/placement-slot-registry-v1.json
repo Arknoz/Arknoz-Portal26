@@ -1,0 +1,234 @@
+{
+  "registry": "ARKNOZ_PLACEMENT_SLOT_REGISTRY",
+  "version": "1.0",
+  "status": "FROZEN_V1",
+  "public": false,
+  "purpose": "Permanent internal placement identities for canonical Arknoz records.",
+  "rules": {
+    "slot_ids_are_internal": true,
+    "slot_ids_are_permanent": true,
+    "slot_ids_are_not_public_labels": true,
+    "canonical_entities_are_never_duplicated": true,
+    "assignment_uses_canonical_entity_reference": true,
+    "empty_slot_behavior": "hide",
+    "project_compatible": true,
+    "dynamic_search_and_index_results_are_not_fixed_slots": true,
+    "context_templates_reuse_the_same_slot_numbers_for_each_geography": true
+  },
+  "surfaces": [
+    {
+      "surface_id": "HOME",
+      "route": "/",
+      "scope_mode": "global",
+      "description": "Main Arknoz homepage canonical-record panels.",
+      "slots": [
+        {
+          "slot_id": "HOME-P01",
+          "component": "GlobalHero",
+          "role": "lead",
+          "position": 1
+        },
+        {
+          "slot_id": "HOME-P02",
+          "component": "GlobalHero",
+          "role": "secondary",
+          "position": 2
+        },
+        {
+          "slot_id": "HOME-P03",
+          "component": "M01WorldFeatureSplit",
+          "role": "featured",
+          "position": 1
+        },
+        {
+          "slot_id": "HOME-P04",
+          "component": "M01WorldFeatureSplit",
+          "role": "featured",
+          "position": 2
+        },
+        {
+          "slot_id": "HOME-P05",
+          "component": "M01WorldFeatureSplit",
+          "role": "featured",
+          "position": 3
+        },
+        {
+          "slot_id": "HOME-P06",
+          "component": "EditorsChoice",
+          "role": "lead",
+          "position": 1
+        },
+        {
+          "slot_id": "HOME-P07",
+          "component": "EditorsChoice",
+          "role": "secondary",
+          "position": 2
+        },
+        {
+          "slot_id": "HOME-P08",
+          "component": "EditorsChoice",
+          "role": "secondary",
+          "position": 3
+        },
+        {
+          "slot_id": "HOME-P09",
+          "component": "EditorsChoice",
+          "role": "secondary",
+          "position": 4
+        },
+        {
+          "slot_id": "HOME-P10",
+          "component": "BuiltWorldPulse",
+          "role": "pulse",
+          "position": 1
+        },
+        {
+          "slot_id": "HOME-P11",
+          "component": "BuiltWorldPulse",
+          "role": "pulse",
+          "position": 2
+        },
+        {
+          "slot_id": "HOME-P12",
+          "component": "BuiltWorldPulse",
+          "role": "pulse",
+          "position": 3
+        }
+      ]
+    },
+    {
+      "surface_id": "GLOBAL",
+      "route": "/global",
+      "scope_mode": "global",
+      "description": "Global geography homepage featured positions.",
+      "slots": [
+        {
+          "slot_id": "GLOBAL-P01",
+          "component": "UniversalTopicHero",
+          "role": "featured",
+          "position": 1
+        },
+        {
+          "slot_id": "GLOBAL-P02",
+          "component": "UniversalTopicHero",
+          "role": "featured",
+          "position": 2
+        },
+        {
+          "slot_id": "GLOBAL-P03",
+          "component": "UniversalTopicHero",
+          "role": "featured",
+          "position": 3
+        }
+      ]
+    },
+    {
+      "surface_id": "CONTINENT",
+      "route_template": "/global/{continent}",
+      "scope_mode": "geography_context",
+      "context_type": "continent",
+      "description": "Reusable featured positions for every continent homepage.",
+      "slots": [
+        {
+          "slot_id": "CONTINENT-P01",
+          "component": "UniversalTopicHero",
+          "role": "featured",
+          "position": 1
+        },
+        {
+          "slot_id": "CONTINENT-P02",
+          "component": "UniversalTopicHero",
+          "role": "featured",
+          "position": 2
+        },
+        {
+          "slot_id": "CONTINENT-P03",
+          "component": "UniversalTopicHero",
+          "role": "featured",
+          "position": 3
+        }
+      ]
+    },
+    {
+      "surface_id": "COUNTRY",
+      "route_template": "/global/{country}",
+      "scope_mode": "geography_context",
+      "context_type": "country",
+      "description": "Reusable featured positions for every country homepage.",
+      "slots": [
+        {
+          "slot_id": "COUNTRY-P01",
+          "component": "UniversalTopicHero",
+          "role": "featured",
+          "position": 1
+        },
+        {
+          "slot_id": "COUNTRY-P02",
+          "component": "UniversalTopicHero",
+          "role": "featured",
+          "position": 2
+        },
+        {
+          "slot_id": "COUNTRY-P03",
+          "component": "UniversalTopicHero",
+          "role": "featured",
+          "position": 3
+        }
+      ]
+    },
+    {
+      "surface_id": "CITY",
+      "route_template": "/global/{city}",
+      "scope_mode": "geography_context",
+      "context_type": "city",
+      "description": "Reusable featured positions for every city homepage.",
+      "slots": [
+        {
+          "slot_id": "CITY-P01",
+          "component": "UniversalTopicHero",
+          "role": "featured",
+          "position": 1
+        },
+        {
+          "slot_id": "CITY-P02",
+          "component": "UniversalTopicHero",
+          "role": "featured",
+          "position": 2
+        },
+        {
+          "slot_id": "CITY-P03",
+          "component": "UniversalTopicHero",
+          "role": "featured",
+          "position": 3
+        }
+      ]
+    },
+    {
+      "surface_id": "FEATURED",
+      "route": "/featured",
+      "scope_mode": "query_context",
+      "description": "Curated first row of Featured; automatic genuine matching records continue afterward.",
+      "slots": [
+        {
+          "slot_id": "FEATURED-P01",
+          "component": "FeaturedPage",
+          "role": "curated_first_row",
+          "position": 1
+        },
+        {
+          "slot_id": "FEATURED-P02",
+          "component": "FeaturedPage",
+          "role": "curated_first_row",
+          "position": 2
+        },
+        {
+          "slot_id": "FEATURED-P03",
+          "component": "FeaturedPage",
+          "role": "curated_first_row",
+          "position": 3
+        }
+      ],
+      "after_fixed_slots": "automatic_matching_canonical_records"
+    }
+  ]
+}

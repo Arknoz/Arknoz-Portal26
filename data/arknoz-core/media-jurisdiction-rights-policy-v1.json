@@ -1,0 +1,147 @@
+{
+  "standard": "ARKNOZ_MEDIA_JURISDICTION_RIGHTS_POLICY_V1",
+  "version": "1.0",
+  "reviewed_on": "2026-09-19",
+
+  "purpose": "Machine-readable Arknoz policy for routing project media through jurisdiction, subject-rights and licence-compliance gates before storage or publication.",
+
+  "principles": [
+    "External media presence does not itself authorize Arknoz publication.",
+    "A free licence on the photograph and copyright treatment of the depicted work are separate checks.",
+    "Unknown jurisdiction rules fail closed to RIGHTS_REVIEW.",
+    "Architectural photographs and architectural drawings are different rights cases.",
+    "Automated passage through this policy means storage/publication eligibility only when all other Arknoz gates also pass.",
+    "Human review remains available for ambiguous identity, subject type, licence, provenance or jurisdiction."
+  ],
+
+  "default_policy": {
+    "configured": false,
+    "jurisdiction_gate": "RIGHTS_REVIEW",
+    "storage_authorized": false,
+    "publication_authorized": false,
+    "reason": "Jurisdiction has not yet been configured in the Arknoz media-rights policy registry."
+  },
+
+  "license_policy": {
+    "CC0": {
+      "commercial_reuse": true,
+      "attribution_required": false,
+      "share_alike_required": false,
+      "license_gate": "PASS"
+    },
+
+    "PUBLIC_DOMAIN": {
+      "commercial_reuse": true,
+      "attribution_required": false,
+      "share_alike_required": false,
+      "license_gate": "PASS"
+    },
+
+    "CC_BY": {
+      "commercial_reuse": true,
+      "attribution_required": true,
+      "license_link_required": true,
+      "change_notice_required_when_applicable": true,
+      "share_alike_required": false,
+      "license_gate": "PASS_WITH_COMPLIANCE"
+    },
+
+    "CC_BY_SA": {
+      "commercial_reuse": true,
+      "attribution_required": true,
+      "license_link_required": true,
+      "change_notice_required_when_applicable": true,
+      "share_alike_required_for_adaptations": true,
+      "license_gate": "PASS_WITH_COMPLIANCE"
+    },
+
+    "UNKNOWN": {
+      "commercial_reuse": false,
+      "license_gate": "RIGHTS_REVIEW"
+    }
+  },
+
+  "jurisdictions": {
+    "AU": {
+      "country": "Australia",
+      "configured": true,
+
+      "primary_authority": {
+        "title": "Copyright Act 1968",
+        "compilation": "Compilation No. 65",
+        "compilation_date": "2026-04-02",
+        "url": "https://www.legislation.gov.au/C1968A00063/2026-04-02/2026-04-02/text/original/pdf"
+      },
+
+      "supporting_reference": {
+        "title": "Wikimedia Commons — Copyright rules by territory/Australia",
+        "url": "https://commons.wikimedia.org/wiki/Commons:Copyright_rules_by_territory/Australia"
+      },
+
+      "rules": {
+        "building_photograph": {
+          "jurisdiction_gate": "PASS",
+          "basis": [
+            {
+              "section": "66",
+              "rule": "Copyright in a building or model of a building is not infringed by making a photograph of the building or model."
+            },
+            {
+              "section": "68",
+              "rule": "Publication of a photograph is not an infringement where its making did not infringe by virtue of section 65, 66 or 67."
+            }
+          ],
+
+          "conditions": [
+            "The media asset must genuinely be a photograph of the Project building or model.",
+            "The photographer/file copyright must separately pass Arknoz licence policy.",
+            "Required attribution and licence metadata must be preserved.",
+            "Any material restriction or conflicting rights metadata returns the asset to RIGHTS_REVIEW."
+          ]
+        },
+
+        "building_drawing_or_plan": {
+          "jurisdiction_gate": "RIGHTS_REVIEW",
+          "reason": "Do not treat an architectural drawing or plan as equivalent to a photograph of the constructed building."
+        },
+
+        "interior_artwork": {
+          "jurisdiction_gate": "RIGHTS_REVIEW",
+          "reason": "Separate depicted artworks or other protected material may require their own analysis."
+        },
+
+        "sculpture_or_artistic_craftsmanship": {
+          "jurisdiction_gate": "CONDITIONAL_REVIEW",
+          "basis": [
+            {
+              "section": "65",
+              "rule": "Certain sculptures and works of artistic craftsmanship situated otherwise than temporarily in a public place or premises open to the public may be photographed."
+            }
+          ],
+          "reason": "Subject classification and permanence/public-place conditions must first be established."
+        }
+      }
+    }
+  },
+
+  "production_requirements": {
+    "minimum_project_match": true,
+    "technical_gate_pass": true,
+    "provenance_gate_pass": true,
+    "restrictions_gate_pass": true,
+    "accepted_license_required": true,
+    "jurisdiction_gate_required": true,
+    "attribution_record_required_when_license_requires_it": true,
+    "source_page_required": true,
+    "license_url_required_when_applicable": true,
+
+    "r2_storage_before_all_gates": false,
+    "entity_media_publishable_before_all_gates": false
+  },
+
+  "output_states": [
+    "RIGHTS_READY",
+    "RIGHTS_REVIEW",
+    "HOLD"
+  ]
+}

@@ -1,0 +1,110 @@
+{
+    "standard":  "ARKNOZ_PLACE_HIERARCHY_PROJECT_ROLLUP_STANDARD_V1",
+    "scope":  "PLATFORM_WIDE",
+    "purpose":  "Defines how one canonical Arknoz Project appears through City, Country, Continent and Global geography without duplicating the Project record.",
+    "hierarchy":  [
+                      "GLOBAL",
+                      "CONTINENT",
+                      "COUNTRY",
+                      "CITY"
+                  ],
+    "primary_rule":  "CITY_IS_DEFAULT_LOWEST_PUBLIC_GEOGRAPHIC_ANCHOR",
+    "canonical_principle":  "A Project has one canonical Arknoz identity. Geographic pages reference that same Project identity and never create copies.",
+    "project_relationship":  {
+                                 "predicate":  "LOCATED_IN",
+                                 "default_target":  "CITY",
+                                 "city_required_when_meaningful":  true,
+                                 "upward_rollup":  "DERIVED_FROM_PLACE_HIERARCHY",
+                                 "duplicate_project_records":  false
+                             },
+    "place_relationship":  {
+                               "predicate":  "PART_OF",
+                               "normal_chain":  "CITY → COUNTRY → CONTINENT → GLOBAL",
+                               "rollup_direction":  "UPWARD",
+                               "downward_inference":  false
+                           },
+    "organic_visibility":  {
+                               "automatic_rollup":  true,
+                               "example":  "Lotus Temple → Delhi → India → Asia → Global",
+                               "project_collection_parallel_visibility":  true,
+                               "rule":  "A publishable Project appears organically on every valid parent geography derived from its verified Place relationships.",
+                               "commercial_influence":  "NONE"
+                           },
+    "project_collection":  {
+                               "canonical_source":  "ARKNOZ_PROJECT_ENTITY",
+                               "family_structure":  [
+                                                        "BUILDINGS",
+                                                        "INFRASTRUCTURE_TRANSPORT",
+                                                        "LANDSCAPE_PUBLIC_REALM",
+                                                        "ENERGY_UTILITIES_ENVIRONMENTAL_INFRASTRUCTURE",
+                                                        "HERITAGE_ADAPTIVE_REUSE",
+                                                        "URBAN_TERRITORIAL_SYSTEMS"
+                                                    ],
+                               "default_directory_order":  "ALPHABETICAL",
+                               "normal_order_paid_influence":  false
+                           },
+    "geographic_page_behavior":  {
+                                     "city":  "Shows Projects genuinely located in or anchored to that City.",
+                                     "country":  "Aggregates publishable Projects from valid Places within that Country.",
+                                     "continent":  "Aggregates publishable Projects from valid Countries within that Continent.",
+                                     "global":  "Aggregates all publishable Projects eligible for Global discovery.",
+                                     "project_family_filtering":  true,
+                                     "alphabetical_directory_supported":  true
+                                 },
+    "page_examples":  {
+                          "city":  "Delhi → Projects → Buildings → Lotus Temple",
+                          "country":  "India → Projects → Buildings → Lotus Temple",
+                          "continent":  "Asia → Projects → Buildings → Lotus Temple",
+                          "global":  "Global → Projects → Buildings → Lotus Temple",
+                          "project_section":  "Projects → Buildings → Lotus Temple",
+                          "same_project_record":  true
+                      },
+    "multi_location_rules":  {
+                                 "supported":  true,
+                                 "rule":  "Projects spanning multiple Cities, Countries or territories may connect to multiple genuine Place entities.",
+                                 "examples":  [
+                                                  "cross-border infrastructure",
+                                                  "regional transport systems",
+                                                  "linear infrastructure",
+                                                  "territorial systems"
+                                              ],
+                                 "force_single_city":  false,
+                                 "duplicate_project_for_each_place":  false,
+                                 "lowest_valid_anchor":  "Use the lowest evidence-supported Place relationship that accurately represents the Project."
+                             },
+    "publication_rules":  {
+                              "candidate_record_can_rollup_publicly":  false,
+                              "publication_gate_required":  true,
+                              "verified_geography_required":  true,
+                              "unsupported_city_assignment_allowed":  false,
+                              "missing_city_can_be_held":  true,
+                              "missing_city_blocks_false_assignment":  true
+                          },
+    "commercial_separation":  {
+                                  "organic_rollup":  "AUTOMATIC",
+                                  "paid_featured_rollup":  "NEVER_AUTOMATIC",
+                                  "rule":  "Commercial Featured Positioning is separate from geographic eligibility. A paid placement applies only to explicitly selected pages and slots.",
+                                  "example":  "Paid Featured on Delhi + India + Asia does not create Featured placement on Global, Mumbai or Japan."
+                              },
+    "integrity_rules":  [
+                            "One Project identity only.",
+                            "No geographic copies.",
+                            "No invented City relationship.",
+                            "Organic rollup follows verified geography.",
+                            "Normal directories remain non-commercial.",
+                            "Commercial Featured Positioning never changes canonical geography.",
+                            "Multi-location Projects remain one Project entity.",
+                            "Publication eligibility and geography eligibility are separate checks."
+                        ],
+    "current_batch_target":  {
+                                 "package":  "data/project-360/batch-01-final-18-package-v1.json",
+                                 "projects":  18,
+                                 "next_action":  "READ_ONLY_GEOGRAPHIC_ANCHOR_AUDIT",
+                                 "canonical_authorization_changed":  false,
+                                 "publication_authorization_changed":  false
+                             },
+    "implementation_status":  "STANDARD_ONLY_NOT_YET_IMPLEMENTED",
+    "canonical_changed":  false,
+    "public_ui_changed":  false,
+    "supabase_changed":  false
+}

@@ -1,0 +1,265 @@
+{
+    "standard":  "ARKNOZ_CANONICAL_ENTITY_STANDARD_V1",
+    "scope":  "PLATFORM_WIDE",
+    "purpose":  "Defines the shared canonical identity, evidence, provenance, relationship and publication structure inherited by every Arknoz entity type.",
+    "architectural_rule":  "Project is the first reference implementation. Arknoz Core is the shared base. Every section extends this base with its own specialist schema.",
+    "entity_types":  [
+                         "PROJECT",
+                         "PRODUCT",
+                         "MATERIAL",
+                         "KNOWLEDGE",
+                         "LEARNING",
+                         "PERSON",
+                         "ORGANISATION",
+                         "PLACE",
+                         "OPPORTUNITY",
+                         "COMMUNITY"
+                     ],
+    "canonical_entity":  {
+                             "identity":  [
+                                              "arknoz_id",
+                                              "entity_type",
+                                              "canonical_name",
+                                              "slug",
+                                              "aliases"
+                                          ],
+                             "descriptive":  [
+                                                 "short_description",
+                                                 "status",
+                                                 "primary_place_id"
+                                             ],
+                             "external_identity":  [
+                                                       "external_ids",
+                                                       "official_urls"
+                                                   ],
+                             "evidence_control":  [
+                                                      "source_provenance",
+                                                      "review_state",
+                                                      "evidence_state",
+                                                      "conflict_state"
+                                                  ],
+                             "publication_control":  [
+                                                         "publication_state",
+                                                         "publication_authorized",
+                                                         "published_at"
+                                                     ],
+                             "relationships":  [
+                                                   "relationship_ids"
+                                               ],
+                             "lifecycle":  [
+                                               "created_at",
+                                               "updated_at"
+                                           ]
+                         },
+    "identity_rules":  [
+                           "Every canonical entity receives one persistent Arknoz ID.",
+                           "External IDs are aliases and provenance anchors; they never replace the Arknoz ID.",
+                           "Multiple source records representing the same real-world entity resolve to one Arknoz entity.",
+                           "Aliases may include historic names, translations, abbreviations and alternative spellings.",
+                           "An entity is not duplicated merely because another section references it.",
+                           "Entity identity and evidence about that entity are separate concerns."
+                       ],
+    "claim_standard":  {
+                           "required_fields":  [
+                                                   "claim_id",
+                                                   "entity_id",
+                                                   "field_key",
+                                                   "value",
+                                                   "verification_state",
+                                                   "source_refs"
+                                               ],
+                           "optional_fields":  [
+                                                   "value_normalized",
+                                                   "unit",
+                                                   "language",
+                                                   "valid_from",
+                                                   "valid_to",
+                                                   "qualifiers",
+                                                   "review_note"
+                                               ],
+                           "verification_states":  [
+                                                       "CANDIDATE",
+                                                       "SOURCE_BACKED",
+                                                       "REVIEWED",
+                                                       "CANONICAL",
+                                                       "REJECTED"
+                                                   ],
+                           "rules":  [
+                                         "One fact may have multiple supporting sources.",
+                                         "Repeated identical evidence does not create duplicate claims.",
+                                         "Different values for the same claim remain a conflict until resolved.",
+                                         "Source-backed does not automatically mean canonical.",
+                                         "Claims are normalized into Arknoz field keys before publication."
+                                     ]
+                       },
+    "provenance_standard":  {
+                                "required_fields":  [
+                                                        "source_ref",
+                                                        "source_type",
+                                                        "source_identity",
+                                                        "retrieved_at"
+                                                    ],
+                                "optional_fields":  [
+                                                        "source_url",
+                                                        "external_id",
+                                                        "original_field",
+                                                        "original_value",
+                                                        "document_page",
+                                                        "document_section",
+                                                        "license",
+                                                        "attribution",
+                                                        "content_hash"
+                                                    ],
+                                "rules":  [
+                                              "Original source identity must remain traceable after Arknoz normalization.",
+                                              "Original wording may be retained for audit even when public wording is normalized.",
+                                              "Deleting or changing an external source must not silently delete accepted Arknoz data.",
+                                              "Provenance accompanies claims, media and relationships."
+                                          ]
+                            },
+    "relationship_standard":  {
+                                  "required_fields":  [
+                                                          "relationship_id",
+                                                          "source_entity_id",
+                                                          "predicate",
+                                                          "target_entity_id",
+                                                          "review_state",
+                                                          "source_refs"
+                                                      ],
+                                  "examples":  [
+                                                   "PROJECT --LOCATED_IN--\u003e PLACE",
+                                                   "PROJECT --DESIGNED_BY--\u003e PERSON",
+                                                   "PROJECT --DELIVERED_BY--\u003e ORGANISATION",
+                                                   "PROJECT --USES_MATERIAL--\u003e MATERIAL",
+                                                   "PROJECT --USES_PRODUCT--\u003e PRODUCT",
+                                                   "KNOWLEDGE --ABOUT--\u003e PROJECT",
+                                                   "PRODUCT --MADE_BY--\u003e ORGANISATION",
+                                                   "MATERIAL --USED_IN--\u003e PROJECT",
+                                                   "PERSON --MEMBER_OF--\u003e ORGANISATION"
+                                               ],
+                                  "rules":  [
+                                                "Relationships connect canonical Arknoz IDs, not copied text labels.",
+                                                "The same entity may participate in many sections without duplication.",
+                                                "Relationships require provenance or reviewed first-party input.",
+                                                "Connected World is generated from approved relationships."
+                                            ]
+                              },
+    "duplicate_standard":  {
+                               "entity_match_signals":  [
+                                                            "arknoz_id",
+                                                            "external_ids",
+                                                            "official_url",
+                                                            "normalized_name",
+                                                            "aliases",
+                                                            "location",
+                                                            "date_context",
+                                                            "organisation_context"
+                                                        ],
+                               "exact_content_signals":  [
+                                                             "doi",
+                                                             "document_hash",
+                                                             "media_hash",
+                                                             "normalized_source_url"
+                                                         ],
+                               "rules":  [
+                                             "Duplicate entity and conflicting claim are different conditions.",
+                                             "Duplicate evidence is merged under one claim where appropriate.",
+                                             "Potential entity merges require identity resolution before canonical publication.",
+                                             "No automated deduplication may destroy unresolved evidence."
+                                         ]
+                           },
+    "review_states":  [
+                          "RAW",
+                          "CANDIDATE",
+                          "NORMALIZED",
+                          "IDENTITY_RESOLVED",
+                          "SOURCE_BACKED",
+                          "REVIEWED",
+                          "CANONICAL"
+                      ],
+    "evidence_states":  [
+                            "UNVERIFIED",
+                            "DISCOVERY_ONLY",
+                            "PARTIALLY_SOURCE_BACKED",
+                            "SOURCE_BACKED",
+                            "REVIEWED"
+                        ],
+    "conflict_states":  [
+                            "NONE",
+                            "POTENTIAL_CONFLICT",
+                            "UNRESOLVED_CONFLICT",
+                            "RESOLVED"
+                        ],
+    "publication_states":  [
+                               "PRIVATE",
+                               "REVIEW_REQUIRED",
+                               "PUBLISHABLE_CANDIDATE",
+                               "PUBLISHED",
+                               "RETIRED"
+                           ],
+    "extension_contract":  {
+                               "rule":  "Every Arknoz section inherits the canonical entity base and adds only entity-specific specialist fields.",
+                               "examples":  {
+                                                "PROJECT":  [
+                                                                "project_type",
+                                                                "timeline",
+                                                                "participants",
+                                                                "technical_facts",
+                                                                "media",
+                                                                "drawings"
+                                                            ],
+                                                "PRODUCT":  [
+                                                                "manufacturer",
+                                                                "product_family",
+                                                                "technical_specifications",
+                                                                "applications",
+                                                                "certifications"
+                                                            ],
+                                                "MATERIAL":  [
+                                                                 "material_class",
+                                                                 "properties",
+                                                                 "standards",
+                                                                 "applications"
+                                                             ],
+                                                "KNOWLEDGE":  [
+                                                                  "knowledge_type",
+                                                                  "authors",
+                                                                  "publisher",
+                                                                  "publication_date",
+                                                                  "abstract",
+                                                                  "doi"
+                                                              ],
+                                                "PERSON":  [
+                                                               "professional_roles",
+                                                               "expertise",
+                                                               "organisation_relationships"
+                                                           ],
+                                                "ORGANISATION":  [
+                                                                     "organisation_type",
+                                                                     "locations",
+                                                                     "people_relationships"
+                                                                 ],
+                                                "PLACE":  [
+                                                              "geography_type",
+                                                              "coordinates",
+                                                              "parent_place_id"
+                                                          ],
+                                                "OPPORTUNITY":  [
+                                                                    "opportunity_type",
+                                                                    "opening_date",
+                                                                    "closing_date",
+                                                                    "eligibility"
+                                                                ]
+                                            }
+                           },
+    "platform_rules":  [
+                           "Arknoz owns canonical IDs and normalized schemas.",
+                           "External APIs and websites remain discovery or evidence sources.",
+                           "Public pages must not depend on an external API being online.",
+                           "Missing information is acceptable; unsupported information is not.",
+                           "No source result enters canonical data automatically.",
+                           "No source may silently overwrite reviewed evidence.",
+                           "All sections use the same identity, provenance, conflict and publication architecture.",
+                           "Section-specific schemas extend Arknoz Core rather than creating independent data systems."
+                       ]
+}

@@ -1,0 +1,1654 @@
+{
+  "schema_version": "arknoz-india-master-records-v1",
+  "created_date": "2026-09-22",
+  "country": "India",
+  "phase": "Phase 1 master pilot",
+  "record_count": 30,
+  "content_model": {
+    "main_sections": 5,
+    "subsections_per_section": 6,
+    "records_per_subsection": 1,
+    "stable_records": 24,
+    "dynamic_opportunity_slots": 6,
+    "record_journey": [
+      "Home / Landing",
+      "Overview",
+      "Media",
+      "Details",
+      "Sources",
+      "Arknoz Lens (Pro)",
+      "Connections (Pro)",
+      "Arknoz Partner Network",
+      "Universal Last Screen"
+    ]
+  },
+  "editorial_standard": {
+    "prime_data_first": true,
+    "original_arknoz_overview": true,
+    "no_filler": true,
+    "no_source_prose_rewrite": true,
+    "sources_visible": true,
+    "media_optional_until_rights_cleared": true
+  },
+  "placement_policy": {
+    "all_phase1_panels_free": true,
+    "fixed_record_positions": false,
+    "organic_selection_now": true,
+    "future_admin_assignment": true,
+    "admin_trigger": "Build placement admin after eligible data pool reaches at least 3x visible panel capacity; 4x preferred.",
+    "fallback_order": [
+      "admin_assignment",
+      "editorial_assignment",
+      "organic_selection",
+      "clean_empty_state"
+    ]
+  },
+  "publication_gate": {
+    "required": [
+      "RIGHTS_PASS",
+      "SOURCE_PASS",
+      "IDENTITY_PASS",
+      "GEOGRAPHY_PASS",
+      "QUALITY_PASS"
+    ],
+    "rule": "No Rights Passport = cannot publish."
+  },
+  "records": [
+    {
+      "record_id": "IND-PROJ-001",
+      "record_kind": "canonical",
+      "section": "Projects",
+      "subsection": "Buildings",
+      "slug": "new-parliament-building-new-delhi",
+      "title": "New Parliament Building",
+      "geography": {
+        "continent": "Asia",
+        "country": "India",
+        "state_or_region": "Delhi",
+        "city": "New Delhi"
+      },
+      "prime_facts": [
+        "National parliamentary building",
+        "New Delhi",
+        "Institutional/public building",
+        "Official Central Vista verification required"
+      ],
+      "arknoz_overview": "India's New Parliament Building is a major institutional project in New Delhi created for parliamentary functions within the Central Vista precinct. Arknoz should treat it as a working public-building precedent: programme, movement, security, ceremonial requirements, spatial organisation and project delivery should be made legible through verified facts. The record should avoid political commentary and promotional language and instead help students and professionals understand the building as a complex piece of civic architecture.",
+      "why_it_matters": "Useful for institutional planning, public-building design and large-project delivery.",
+      "sources": [
+        {
+          "name": "Central Vista",
+          "url": "https://www.centralvista.gov.in/",
+          "role": "primary_official"
+        }
+      ],
+      "rights_passport": {
+        "status": "REVIEW",
+        "content_strategy": "verified facts -> structured data -> original Arknoz synthesis",
+        "copy_source_prose": false,
+        "media_status": "NO_MEDIA_YET",
+        "rights_checked_at": null,
+        "note": null
+      },
+      "editorial_qc": {
+        "benefit_groups": [
+          "students",
+          "architects",
+          "planners",
+          "project professionals"
+        ],
+        "prime_data_required": true,
+        "original_overview_required": true,
+        "no_marketing_filler": true,
+        "publish_ready": false
+      },
+      "placement": {
+        "organic_eligible": true,
+        "fixed_position": false,
+        "admin_assignable_later": true
+      }
+    },
+    {
+      "record_id": "IND-PROJ-002",
+      "record_kind": "canonical",
+      "section": "Projects",
+      "subsection": "Infrastructure",
+      "slug": "sardar-sarovar-project",
+      "title": "Sardar Sarovar Project",
+      "geography": {
+        "continent": "Asia",
+        "country": "India",
+        "state_or_region": "Gujarat",
+        "city": null
+      },
+      "prime_facts": [
+        "Major water-resource infrastructure",
+        "Narmada River system",
+        "Dam/irrigation/power context",
+        "Official Gujarat source required"
+      ],
+      "arknoz_overview": "The Sardar Sarovar Project is a major water-resource system centred on the Narmada River in Gujarat. Its Arknoz value is in making a complex infrastructure system understandable: dam, conveyance, irrigation, power and regional distribution should be separated into clear components and tied to authoritative sources. The page should function as an infrastructure map for students and practitioners rather than as a descriptive article.",
+      "why_it_matters": "Useful for understanding how hydraulic engineering, regional planning and infrastructure networks interact.",
+      "sources": [
+        {
+          "name": "Gujarat Water Resources Department",
+          "url": "https://guj-nwrws.gujarat.gov.in/",
+          "role": "primary_official"
+        }
+      ],
+      "rights_passport": {
+        "status": "REVIEW",
+        "content_strategy": "verified facts -> structured data -> original Arknoz synthesis",
+        "copy_source_prose": false,
+        "media_status": "NO_MEDIA_YET",
+        "rights_checked_at": null,
+        "note": "Lock project-specific source before publication."
+      },
+      "editorial_qc": {
+        "benefit_groups": [
+          "students",
+          "civil engineers",
+          "planners",
+          "infrastructure professionals"
+        ],
+        "prime_data_required": true,
+        "original_overview_required": true,
+        "no_marketing_filler": true,
+        "publish_ready": false
+      },
+      "placement": {
+        "organic_eligible": true,
+        "fixed_position": false,
+        "admin_assignable_later": true
+      }
+    },
+    {
+      "record_id": "IND-PROJ-003",
+      "record_kind": "canonical",
+      "section": "Projects",
+      "subsection": "Transport",
+      "slug": "atal-setu-mumbai-trans-harbour-link",
+      "title": "Atal Setu / Mumbai Trans Harbour Link",
+      "geography": {
+        "continent": "Asia",
+        "country": "India",
+        "state_or_region": "Maharashtra",
+        "city": "Mumbai Metropolitan Region"
+      },
+      "prime_facts": [
+        "Sea-crossing road link",
+        "Approx. 21.8 km project length stated by MMRDA",
+        "Mumbai metropolitan region",
+        "Transport infrastructure"
+      ],
+      "arknoz_overview": "Atal Setu, also known as the Mumbai Trans Harbour Link, is a major road connection across Mumbai Harbour. Arknoz should present the alignment, crossing scale, structural approach and metropolitan connections first, allowing users to understand it as a transport system rather than only a landmark. The record can later connect engineering, mobility, regional development and related infrastructure records.",
+      "why_it_matters": "Useful as a contemporary reference for long-span transport infrastructure and metropolitan connectivity.",
+      "sources": [
+        {
+          "name": "MMRDA",
+          "url": "https://www.mmrda.maharashtra.gov.in/en/projects/transport/mumbai-trans-harbour-link/overview?page=3",
+          "role": "primary_official"
+        }
+      ],
+      "rights_passport": {
+        "status": "REVIEW",
+        "content_strategy": "verified facts -> structured data -> original Arknoz synthesis",
+        "copy_source_prose": false,
+        "media_status": "NO_MEDIA_YET",
+        "rights_checked_at": null,
+        "note": null
+      },
+      "editorial_qc": {
+        "benefit_groups": [
+          "students",
+          "transport planners",
+          "civil engineers",
+          "infrastructure professionals"
+        ],
+        "prime_data_required": true,
+        "original_overview_required": true,
+        "no_marketing_filler": true,
+        "publish_ready": true
+      },
+      "placement": {
+        "organic_eligible": true,
+        "fixed_position": false,
+        "admin_assignable_later": true
+      }
+    },
+    {
+      "record_id": "IND-PROJ-004",
+      "record_kind": "canonical",
+      "section": "Projects",
+      "subsection": "Urban & Cities",
+      "slug": "gift-city-gujarat",
+      "title": "GIFT City",
+      "geography": {
+        "continent": "Asia",
+        "country": "India",
+        "state_or_region": "Gujarat",
+        "city": "Gandhinagar district"
+      },
+      "prime_facts": [
+        "Greenfield smart-city development",
+        "886 acres stated by official source",
+        "International Financial Services Centre",
+        "Integrated urban infrastructure"
+      ],
+      "arknoz_overview": "GIFT City is a planned finance and technology district in Gujarat where business space, utilities and urban infrastructure are conceived as an integrated system. Arknoz should focus on the city-scale layers that distinguish it from an individual project: land use, district cooling, utility tunnels, automated waste systems, mobility and public realm. This makes the record useful for understanding how infrastructure and development strategy operate together.",
+      "why_it_matters": "Useful for urban designers, planners, developers and infrastructure professionals studying greenfield city development.",
+      "sources": [
+        {
+          "name": "GIFT City",
+          "url": "https://www.giftgujarat.in/about-us",
+          "role": "primary_official"
+        }
+      ],
+      "rights_passport": {
+        "status": "REVIEW",
+        "content_strategy": "verified facts -> structured data -> original Arknoz synthesis",
+        "copy_source_prose": false,
+        "media_status": "NO_MEDIA_YET",
+        "rights_checked_at": null,
+        "note": null
+      },
+      "editorial_qc": {
+        "benefit_groups": [
+          "students",
+          "urban designers",
+          "planners",
+          "developers",
+          "infrastructure professionals"
+        ],
+        "prime_data_required": true,
+        "original_overview_required": true,
+        "no_marketing_filler": true,
+        "publish_ready": true
+      },
+      "placement": {
+        "organic_eligible": true,
+        "fixed_position": false,
+        "admin_assignable_later": true
+      }
+    },
+    {
+      "record_id": "IND-PROJ-005",
+      "record_kind": "canonical",
+      "section": "Projects",
+      "subsection": "Industrial & Energy",
+      "slug": "bhadla-solar-park",
+      "title": "Bhadla Solar Park",
+      "geography": {
+        "continent": "Asia",
+        "country": "India",
+        "state_or_region": "Rajasthan",
+        "city": "Bhadla"
+      },
+      "prime_facts": [
+        "Utility-scale solar development",
+        "Rajasthan",
+        "Renewable-energy infrastructure",
+        "MNRE programme source"
+      ],
+      "arknoz_overview": "Bhadla Solar Park is a utility-scale renewable-energy development in Rajasthan. Arknoz should frame it as built-environment infrastructure: site scale, solar-generation layout, land conditions, grid relationship, access and climate all matter. The record gives architecture and engineering users a way to understand energy landscapes as planned physical systems rather than abstract generation statistics.",
+      "why_it_matters": "Useful for renewable-energy, infrastructure and climate-responsive territorial planning.",
+      "sources": [
+        {
+          "name": "Ministry of New and Renewable Energy",
+          "url": "https://mnre.gov.in/en/development-of-solar-parks-and-ultra-mega-solar-power-projects/",
+          "role": "primary_official"
+        }
+      ],
+      "rights_passport": {
+        "status": "REVIEW",
+        "content_strategy": "verified facts -> structured data -> original Arknoz synthesis",
+        "copy_source_prose": false,
+        "media_status": "NO_MEDIA_YET",
+        "rights_checked_at": null,
+        "note": "Lock park-specific technical facts before publication."
+      },
+      "editorial_qc": {
+        "benefit_groups": [
+          "students",
+          "energy professionals",
+          "engineers",
+          "planners"
+        ],
+        "prime_data_required": true,
+        "original_overview_required": true,
+        "no_marketing_filler": true,
+        "publish_ready": false
+      },
+      "placement": {
+        "organic_eligible": true,
+        "fixed_position": false,
+        "admin_assignable_later": true
+      }
+    },
+    {
+      "record_id": "IND-PROJ-006",
+      "record_kind": "canonical",
+      "section": "Projects",
+      "subsection": "Landscape & Public Realm",
+      "slug": "sabarmati-riverfront-ahmedabad",
+      "title": "Sabarmati Riverfront",
+      "geography": {
+        "continent": "Asia",
+        "country": "India",
+        "state_or_region": "Gujarat",
+        "city": "Ahmedabad"
+      },
+      "prime_facts": [
+        "Riverfront public-realm project",
+        "Two-level continuous promenade",
+        "Approx. 11.5 km walkway stated by Ahmedabad District",
+        "Urban landscape/public space"
+      ],
+      "arknoz_overview": "Sabarmati Riverfront is an urban landscape and public-realm project along the Sabarmati River in Ahmedabad. The official district description highlights a two-level promenade, with lower-level pedestrian and cycle access near the water and upper-level city-scale public functions. Arknoz should use the record to explain river-edge design, continuous public access and landscape infrastructure without reducing the project to scenic imagery.",
+      "why_it_matters": "Useful for landscape architecture, urban design and waterfront planning.",
+      "sources": [
+        {
+          "name": "Ahmedabad District, Government of Gujarat",
+          "url": "https://ahmedabad.nic.in/tourist-place/river-front-sabarmati/",
+          "role": "primary_official"
+        }
+      ],
+      "rights_passport": {
+        "status": "REVIEW",
+        "content_strategy": "verified facts -> structured data -> original Arknoz synthesis",
+        "copy_source_prose": false,
+        "media_status": "NO_MEDIA_YET",
+        "rights_checked_at": null,
+        "note": null
+      },
+      "editorial_qc": {
+        "benefit_groups": [
+          "students",
+          "landscape architects",
+          "urban designers",
+          "planners"
+        ],
+        "prime_data_required": true,
+        "original_overview_required": true,
+        "no_marketing_filler": true,
+        "publish_ready": true
+      },
+      "placement": {
+        "organic_eligible": true,
+        "fixed_position": false,
+        "admin_assignable_later": true
+      }
+    },
+    {
+      "record_id": "IND-PROD-001",
+      "record_kind": "canonical",
+      "section": "Products",
+      "subsection": "Building Envelope",
+      "slug": "saint-gobain-cool-lite-skn-154",
+      "title": "Saint-Gobain COOL-LITE SKN 154 / 154 II",
+      "geography": {
+        "continent": "Asia",
+        "country": "India",
+        "state_or_region": null,
+        "city": null
+      },
+      "prime_facts": [
+        "Solar-control coated glass",
+        "4–10 mm stated range; to-be-tempered up to 12 mm",
+        "Jumbo size 3.21 × 6.00 m stated by manufacturer",
+        "Verified EPD stated by manufacturer"
+      ],
+      "arknoz_overview": "COOL-LITE SKN 154 / 154 II is a solar-control glazing product for high-performance façade applications. Arknoz should present it as a specification record: substrate, thickness, available sizes, coating/performance documentation and environmental declarations should be separated from marketing claims. Its long-term value increases when connected to façade systems, technical guidance and real projects.",
+      "why_it_matters": "Useful for façade design, product comparison and specification learning.",
+      "sources": [
+        {
+          "name": "Saint-Gobain Glass",
+          "url": "https://www.saint-gobain-glass.com/COOL-LITE-SKN-154-154-II",
+          "role": "primary_manufacturer"
+        }
+      ],
+      "rights_passport": {
+        "status": "REVIEW",
+        "content_strategy": "verified facts -> structured data -> original Arknoz synthesis",
+        "copy_source_prose": false,
+        "media_status": "NO_MEDIA_YET",
+        "rights_checked_at": null,
+        "note": null
+      },
+      "editorial_qc": {
+        "benefit_groups": [
+          "students",
+          "architects",
+          "facade consultants",
+          "specifiers"
+        ],
+        "prime_data_required": true,
+        "original_overview_required": true,
+        "no_marketing_filler": true,
+        "publish_ready": true
+      },
+      "placement": {
+        "organic_eligible": true,
+        "fixed_position": false,
+        "admin_assignable_later": true
+      }
+    },
+    {
+      "record_id": "IND-PROD-002",
+      "record_kind": "canonical",
+      "section": "Products",
+      "subsection": "Materials",
+      "slug": "ultratech-ordinary-portland-cement",
+      "title": "UltraTech Ordinary Portland Cement",
+      "geography": {
+        "continent": "Asia",
+        "country": "India",
+        "state_or_region": null,
+        "city": null
+      },
+      "prime_facts": [
+        "Cement product",
+        "Construction material",
+        "Exact grade/standards to be verified",
+        "Manufacturer source required"
+      ],
+      "arknoz_overview": "UltraTech Ordinary Portland Cement is included as a core material reference rather than a brand showcase. Arknoz should capture only useful specification data: current grade or standard references, intended applications, technical documentation and supply information where relevant. Any performance statement must be tied to a current technical source, allowing users to move quickly from a generic material class to a verifiable commercial reference.",
+      "why_it_matters": "Useful as a baseline material record for students, contractors and specifiers.",
+      "sources": [
+        {
+          "name": "UltraTech Cement",
+          "url": "https://www.ultratechcement.com/",
+          "role": "primary_manufacturer"
+        }
+      ],
+      "rights_passport": {
+        "status": "REVIEW",
+        "content_strategy": "verified facts -> structured data -> original Arknoz synthesis",
+        "copy_source_prose": false,
+        "media_status": "NO_MEDIA_YET",
+        "rights_checked_at": null,
+        "note": "Exact OPC product page and grade must be verified before publication."
+      },
+      "editorial_qc": {
+        "benefit_groups": [
+          "students",
+          "architects",
+          "civil engineers",
+          "contractors",
+          "specifiers"
+        ],
+        "prime_data_required": true,
+        "original_overview_required": true,
+        "no_marketing_filler": true,
+        "publish_ready": false
+      },
+      "placement": {
+        "organic_eligible": true,
+        "fixed_position": false,
+        "admin_assignable_later": true
+      }
+    },
+    {
+      "record_id": "IND-PROD-003",
+      "record_kind": "canonical",
+      "section": "Products",
+      "subsection": "Smart Building & Systems",
+      "slug": "schneider-ecostruxure-building-operation",
+      "title": "Schneider Electric EcoStruxure Building Operation",
+      "geography": {
+        "continent": "Asia",
+        "country": "India",
+        "state_or_region": null,
+        "city": null
+      },
+      "prime_facts": [
+        "Building management system",
+        "Integrated control environment",
+        "HVAC/lighting/energy integration",
+        "Data-centric platform"
+      ],
+      "arknoz_overview": "EcoStruxure Building Operation is a building-management platform used to monitor, manage and optimise multiple building systems from an integrated control environment. Arknoz should expose its practical role first: what it connects, which building functions it coordinates and where it sits in a BMS architecture. This is more useful to users than a generic 'smart building' label.",
+      "why_it_matters": "Useful to architects, MEP professionals, facility teams and students learning smart-building operations.",
+      "sources": [
+        {
+          "name": "Schneider Electric India",
+          "url": "https://www.se.com/in/en/work/products/product-launch/building-management-system/",
+          "role": "primary_manufacturer"
+        }
+      ],
+      "rights_passport": {
+        "status": "REVIEW",
+        "content_strategy": "verified facts -> structured data -> original Arknoz synthesis",
+        "copy_source_prose": false,
+        "media_status": "NO_MEDIA_YET",
+        "rights_checked_at": null,
+        "note": null
+      },
+      "editorial_qc": {
+        "benefit_groups": [
+          "students",
+          "architects",
+          "MEP engineers",
+          "facility managers",
+          "developers"
+        ],
+        "prime_data_required": true,
+        "original_overview_required": true,
+        "no_marketing_filler": true,
+        "publish_ready": true
+      },
+      "placement": {
+        "organic_eligible": true,
+        "fixed_position": false,
+        "admin_assignable_later": true
+      }
+    },
+    {
+      "record_id": "IND-PROD-004",
+      "record_kind": "canonical",
+      "section": "Products",
+      "subsection": "Structure & Construction",
+      "slug": "tata-tiscon-550sd",
+      "title": "Tata Tiscon 550SD",
+      "geography": {
+        "continent": "Asia",
+        "country": "India",
+        "state_or_region": null,
+        "city": null
+      },
+      "prime_facts": [
+        "Reinforcement-steel product",
+        "Structural/construction use",
+        "Mechanical properties require manufacturer verification"
+      ],
+      "arknoz_overview": "Tata Tiscon 550SD can serve as a structural-material reference once its current grade, standards, mechanical properties and manufacturer documentation are locked. Arknoz should avoid unsupported strength or durability claims and instead connect the product to structural use, standards and later real-project applications.",
+      "why_it_matters": "Useful to structural-engineering students, contractors and specifiers.",
+      "sources": [
+        {
+          "name": "Tata Tiscon",
+          "url": "https://www.tatatiscon.co.in/",
+          "role": "primary_manufacturer"
+        }
+      ],
+      "rights_passport": {
+        "status": "REVIEW",
+        "content_strategy": "verified facts -> structured data -> original Arknoz synthesis",
+        "copy_source_prose": false,
+        "media_status": "NO_MEDIA_YET",
+        "rights_checked_at": null,
+        "note": "Lock specific 550SD technical document before publication."
+      },
+      "editorial_qc": {
+        "benefit_groups": [
+          "students",
+          "structural engineers",
+          "contractors",
+          "specifiers"
+        ],
+        "prime_data_required": true,
+        "original_overview_required": true,
+        "no_marketing_filler": true,
+        "publish_ready": false
+      },
+      "placement": {
+        "organic_eligible": true,
+        "fixed_position": false,
+        "admin_assignable_later": true
+      }
+    },
+    {
+      "record_id": "IND-PROD-005",
+      "record_kind": "canonical",
+      "section": "Products",
+      "subsection": "Interiors & Finishes",
+      "slug": "asian-paints-royale-luxury-emulsion",
+      "title": "Asian Paints Royale Luxury Emulsion",
+      "geography": {
+        "continent": "Asia",
+        "country": "India",
+        "state_or_region": null,
+        "city": null
+      },
+      "prime_facts": [
+        "Interior wall finish",
+        "Manufacturer states low VOC and lead-free",
+        "Manufacturer states 8-year performance warranty",
+        "Published coverage/drying data"
+      ],
+      "arknoz_overview": "Royale Luxury Emulsion is an interior wall-coating product with manufacturer-published information on finish, stain resistance, VOC-related characteristics, coverage, drying time and warranty. Arknoz should convert those data points into a concise specification card and clearly distinguish manufacturer claims from independent evidence. This gives users practical comparison data without reproducing sales copy.",
+      "why_it_matters": "Useful for interior designers, architects, students and contractors comparing finish products.",
+      "sources": [
+        {
+          "name": "Asian Paints",
+          "url": "https://www.asianpaints.com/paint-products/interior-wall-paints/plain-finishes/royale-luxury-emulsion.html",
+          "role": "primary_manufacturer"
+        }
+      ],
+      "rights_passport": {
+        "status": "REVIEW",
+        "content_strategy": "verified facts -> structured data -> original Arknoz synthesis",
+        "copy_source_prose": false,
+        "media_status": "NO_MEDIA_YET",
+        "rights_checked_at": null,
+        "note": null
+      },
+      "editorial_qc": {
+        "benefit_groups": [
+          "students",
+          "architects",
+          "interior designers",
+          "contractors",
+          "specifiers"
+        ],
+        "prime_data_required": true,
+        "original_overview_required": true,
+        "no_marketing_filler": true,
+        "publish_ready": true
+      },
+      "placement": {
+        "organic_eligible": true,
+        "fixed_position": false,
+        "admin_assignable_later": true
+      }
+    },
+    {
+      "record_id": "IND-PROD-006",
+      "record_kind": "canonical",
+      "section": "Products",
+      "subsection": "Building Services",
+      "slug": "daikin-vrv-x",
+      "title": "Daikin VRV X",
+      "geography": {
+        "continent": "Asia",
+        "country": "India",
+        "state_or_region": null,
+        "city": null
+      },
+      "prime_facts": [
+        "Variable-refrigerant-volume HVAC system",
+        "Manufacturer catalogue states range up to 60 HP",
+        "Heat-pump and cooling-only line-up",
+        "Building-services product"
+      ],
+      "arknoz_overview": "Daikin VRV X is a variable-refrigerant-volume HVAC system for multi-zone building applications. Arknoz should prioritise system capacity range, configuration options, outdoor-unit arrangement, controls and design considerations that matter to building-services users. Product claims remain tied to the current Daikin technical catalogue, with later connections to climate, project type and MEP guidance.",
+      "why_it_matters": "Useful to MEP engineers, architects and students as an entry point into VRV system selection.",
+      "sources": [
+        {
+          "name": "Daikin India",
+          "url": "https://www.daikinindia.com/sites/default/files/Download%20Brochure/VRV-X-Catalogue-India-01102020.pdf",
+          "role": "primary_manufacturer"
+        }
+      ],
+      "rights_passport": {
+        "status": "REVIEW",
+        "content_strategy": "verified facts -> structured data -> original Arknoz synthesis",
+        "copy_source_prose": false,
+        "media_status": "NO_MEDIA_YET",
+        "rights_checked_at": null,
+        "note": null
+      },
+      "editorial_qc": {
+        "benefit_groups": [
+          "students",
+          "architects",
+          "MEP engineers",
+          "facility professionals",
+          "specifiers"
+        ],
+        "prime_data_required": true,
+        "original_overview_required": true,
+        "no_marketing_filler": true,
+        "publish_ready": true
+      },
+      "placement": {
+        "organic_eligible": true,
+        "fixed_position": false,
+        "admin_assignable_later": true
+      }
+    },
+    {
+      "record_id": "IND-KNOW-001",
+      "record_kind": "canonical",
+      "section": "Knowledge",
+      "subsection": "Books & Publications",
+      "slug": "reforms-urban-planning-capacity-india",
+      "title": "Reforms in Urban Planning Capacity in India",
+      "geography": {
+        "continent": "Asia",
+        "country": "India",
+        "state_or_region": "Delhi",
+        "city": "New Delhi"
+      },
+      "prime_facts": [
+        "NITI Aayog publication",
+        "September 2021",
+        "Urban-planning capacity and reform",
+        "Government of India"
+      ],
+      "arknoz_overview": "Reforms in Urban Planning Capacity in India is a NITI Aayog report examining the institutional, educational and professional capacity needed to support India's urbanisation. Arknoz should provide a concise guide to its scope—planning workforce, governance, education, development controls, local capacity and reform directions—then send users to the official source for the complete document.",
+      "why_it_matters": "Useful to students, educators, planners and public-sector professionals needing a fast orientation to a major Indian planning reference.",
+      "sources": [
+        {
+          "name": "NITI Aayog",
+          "url": "https://www.niti.gov.in/node/345",
+          "role": "primary_official"
+        }
+      ],
+      "rights_passport": {
+        "status": "LINK_OUT",
+        "content_strategy": "verified facts -> structured data -> original Arknoz synthesis",
+        "copy_source_prose": false,
+        "media_status": "NO_MEDIA_YET",
+        "rights_checked_at": null,
+        "note": "Source states NITI Aayog copyright; do not reproduce report prose."
+      },
+      "editorial_qc": {
+        "benefit_groups": [
+          "students",
+          "educators",
+          "researchers",
+          "planners",
+          "public-sector professionals"
+        ],
+        "prime_data_required": true,
+        "original_overview_required": true,
+        "no_marketing_filler": true,
+        "publish_ready": true
+      },
+      "placement": {
+        "organic_eligible": true,
+        "fixed_position": false,
+        "admin_assignable_later": true
+      }
+    },
+    {
+      "record_id": "IND-KNOW-002",
+      "record_kind": "canonical",
+      "section": "Knowledge",
+      "subsection": "Research & Innovation",
+      "slug": "future-proofing-indias-cooling",
+      "title": "Future-Proofing India's Cooling",
+      "geography": {
+        "continent": "Asia",
+        "country": "India",
+        "state_or_region": null,
+        "city": null
+      },
+      "prime_facts": [
+        "Cooling-sector research/report",
+        "Listed by Bureau of Energy Efficiency",
+        "Buildings/energy/climate relevance"
+      ],
+      "arknoz_overview": "Future-Proofing India's Cooling is relevant because cooling demand sits at the intersection of architecture, energy systems, comfort, equipment and climate. Arknoz should extract only verified high-value themes and metadata, explain in original language why cooling is a built-environment issue, and direct users to the complete source for detailed findings.",
+      "why_it_matters": "Useful across architecture, MEP, sustainability, research and policy audiences.",
+      "sources": [
+        {
+          "name": "Bureau of Energy Efficiency",
+          "url": "https://beeindia.gov.in/show_content.php?lang=1&level=1&lid=229&ls_id=797",
+          "role": "primary_official_index"
+        }
+      ],
+      "rights_passport": {
+        "status": "LINK_OUT",
+        "content_strategy": "verified facts -> structured data -> original Arknoz synthesis",
+        "copy_source_prose": false,
+        "media_status": "NO_MEDIA_YET",
+        "rights_checked_at": null,
+        "note": "Lock exact report file and metadata before publication."
+      },
+      "editorial_qc": {
+        "benefit_groups": [
+          "students",
+          "researchers",
+          "architects",
+          "MEP engineers",
+          "sustainability professionals"
+        ],
+        "prime_data_required": true,
+        "original_overview_required": true,
+        "no_marketing_filler": true,
+        "publish_ready": false
+      },
+      "placement": {
+        "organic_eligible": true,
+        "fixed_position": false,
+        "admin_assignable_later": true
+      }
+    },
+    {
+      "record_id": "IND-KNOW-003",
+      "record_kind": "canonical",
+      "section": "Knowledge",
+      "subsection": "Case Studies & Solutions",
+      "slug": "replicable-energy-efficient-residential-designs",
+      "title": "Handbook of Replicable Designs for Energy Efficient Residential Buildings",
+      "geography": {
+        "continent": "Asia",
+        "country": "India",
+        "state_or_region": null,
+        "city": null
+      },
+      "prime_facts": [
+        "Residential energy-efficiency resource",
+        "Listed by BEE",
+        "Replicable design focus"
+      ],
+      "arknoz_overview": "This BEE-listed handbook moves energy efficiency from policy toward repeatable residential-design approaches. Arknoz should summarise the design questions it helps users address—envelope, climate response, energy demand and replicability—while linking to the authoritative document. The Arknoz page acts as a fast navigation layer, not a substitute for the source.",
+      "why_it_matters": "Useful to architecture students, residential designers and sustainability professionals seeking practical energy-efficiency guidance.",
+      "sources": [
+        {
+          "name": "Bureau of Energy Efficiency",
+          "url": "https://www.beeindia.gov.in/show_content.php?lang=1&level=2&lid=328&ls_id=202",
+          "role": "primary_official"
+        }
+      ],
+      "rights_passport": {
+        "status": "LINK_OUT",
+        "content_strategy": "verified facts -> structured data -> original Arknoz synthesis",
+        "copy_source_prose": false,
+        "media_status": "NO_MEDIA_YET",
+        "rights_checked_at": null,
+        "note": "Capture exact handbook file metadata before publication."
+      },
+      "editorial_qc": {
+        "benefit_groups": [
+          "students",
+          "architects",
+          "energy consultants",
+          "educators"
+        ],
+        "prime_data_required": true,
+        "original_overview_required": true,
+        "no_marketing_filler": true,
+        "publish_ready": false
+      },
+      "placement": {
+        "organic_eligible": true,
+        "fixed_position": false,
+        "admin_assignable_later": true
+      }
+    },
+    {
+      "record_id": "IND-KNOW-004",
+      "record_kind": "canonical",
+      "section": "Knowledge",
+      "subsection": "Standards & References",
+      "slug": "eco-niwas-samhita-2024",
+      "title": "Eco Niwas Samhita / ENS 2024",
+      "geography": {
+        "continent": "Asia",
+        "country": "India",
+        "state_or_region": null,
+        "city": null
+      },
+      "prime_facts": [
+        "Residential building energy code/reference",
+        "Ministry of Power/BEE",
+        "Energy-efficient residential design",
+        "2024 version listed by BEE"
+      ],
+      "arknoz_overview": "Eco Niwas Samhita is a residential building energy-code framework intended to improve energy efficiency in housing design and construction. Arknoz should function as a fast professional reference: scope, intended users, major compliance themes, related tools and the official source. It should not reproduce protected code text.",
+      "why_it_matters": "Useful as a standards gateway for architects, engineers, students, developers and public agencies.",
+      "sources": [
+        {
+          "name": "Bureau of Energy Efficiency",
+          "url": "https://www.beeindia.gov.in/show_content.php?lang=1&level=2&lid=328&ls_id=202",
+          "role": "primary_official"
+        },
+        {
+          "name": "Urja Dakshata Information Tool",
+          "url": "https://udit.beeindia.gov.in/eco-niwas-samhita/",
+          "role": "official_explanatory"
+        }
+      ],
+      "rights_passport": {
+        "status": "LINK_OUT",
+        "content_strategy": "verified facts -> structured data -> original Arknoz synthesis",
+        "copy_source_prose": false,
+        "media_status": "NO_MEDIA_YET",
+        "rights_checked_at": null,
+        "note": null
+      },
+      "editorial_qc": {
+        "benefit_groups": [
+          "students",
+          "architects",
+          "engineers",
+          "developers",
+          "public-sector professionals"
+        ],
+        "prime_data_required": true,
+        "original_overview_required": true,
+        "no_marketing_filler": true,
+        "publish_ready": true
+      },
+      "placement": {
+        "organic_eligible": true,
+        "fixed_position": false,
+        "admin_assignable_later": true
+      }
+    },
+    {
+      "record_id": "IND-KNOW-005",
+      "record_kind": "canonical",
+      "section": "Knowledge",
+      "subsection": "Methods & Practice",
+      "slug": "cpwd-works-manual-2024",
+      "title": "CPWD Works Manual 2024",
+      "geography": {
+        "continent": "Asia",
+        "country": "India",
+        "state_or_region": "Delhi",
+        "city": "New Delhi"
+      },
+      "prime_facts": [
+        "Central Public Works Department",
+        "Public-works procedure",
+        "Active amendment stream",
+        "Government of India"
+      ],
+      "arknoz_overview": "The CPWD Works Manual 2024 is a practical reference for procedures used in public-works delivery. Arknoz should present its role, amendment status, subject areas and official access point instead of restating the manual. Because CPWD continues to issue modifications, the record should carry a freshness indicator so users are not directed to an outdated procedural position.",
+      "why_it_matters": "Useful to project managers, contractors, engineers, architects and students working with Indian public works.",
+      "sources": [
+        {
+          "name": "Central Public Works Department",
+          "url": "https://cpwd.gov.in/AllCirculars.aspx?Type=25",
+          "role": "primary_official_amendments"
+        }
+      ],
+      "rights_passport": {
+        "status": "LINK_OUT",
+        "content_strategy": "verified facts -> structured data -> original Arknoz synthesis",
+        "copy_source_prose": false,
+        "media_status": "NO_MEDIA_YET",
+        "rights_checked_at": null,
+        "note": null
+      },
+      "editorial_qc": {
+        "benefit_groups": [
+          "students",
+          "architects",
+          "engineers",
+          "contractors",
+          "project managers"
+        ],
+        "prime_data_required": true,
+        "original_overview_required": true,
+        "no_marketing_filler": true,
+        "publish_ready": true
+      },
+      "placement": {
+        "organic_eligible": true,
+        "fixed_position": false,
+        "admin_assignable_later": true
+      }
+    },
+    {
+      "record_id": "IND-KNOW-006",
+      "record_kind": "canonical",
+      "section": "Knowledge",
+      "subsection": "Ideas & Insights",
+      "slug": "district-cooling-roadmap-india",
+      "title": "District Cooling Roadmap for India",
+      "geography": {
+        "continent": "Asia",
+        "country": "India",
+        "state_or_region": null,
+        "city": null
+      },
+      "prime_facts": [
+        "District-cooling reference",
+        "Listed by BEE",
+        "Precinct/campus energy systems",
+        "Urban-scale building services"
+      ],
+      "arknoz_overview": "District cooling changes the scale at which cooling is planned: instead of treating each building as an isolated system, cooling generation and distribution can be organised across a district or campus. Arknoz should explain the concept, likely use cases and built-environment relevance in original language while directing users to the official roadmap for technical depth.",
+      "why_it_matters": "Useful to planners, developers, MEP engineers, sustainability teams and students exploring district-scale energy systems.",
+      "sources": [
+        {
+          "name": "Bureau of Energy Efficiency",
+          "url": "https://beeindia.gov.in/show_content.php?lang=1&level=1&lid=229&ls_id=797",
+          "role": "primary_official_index"
+        }
+      ],
+      "rights_passport": {
+        "status": "LINK_OUT",
+        "content_strategy": "verified facts -> structured data -> original Arknoz synthesis",
+        "copy_source_prose": false,
+        "media_status": "NO_MEDIA_YET",
+        "rights_checked_at": null,
+        "note": "Lock exact report file and metadata before publication."
+      },
+      "editorial_qc": {
+        "benefit_groups": [
+          "students",
+          "planners",
+          "developers",
+          "MEP engineers",
+          "sustainability professionals"
+        ],
+        "prime_data_required": true,
+        "original_overview_required": true,
+        "no_marketing_filler": true,
+        "publish_ready": false
+      },
+      "placement": {
+        "organic_eligible": true,
+        "fixed_position": false,
+        "admin_assignable_later": true
+      }
+    },
+    {
+      "record_id": "IND-EDU-001",
+      "record_kind": "canonical",
+      "section": "Education",
+      "subsection": "Institutions",
+      "slug": "school-planning-architecture-new-delhi",
+      "title": "School of Planning and Architecture, New Delhi",
+      "geography": {
+        "continent": "Asia",
+        "country": "India",
+        "state_or_region": "Delhi",
+        "city": "New Delhi"
+      },
+      "prime_facts": [
+        "Institution of National Importance",
+        "Planning/architecture/design education",
+        "Bachelor's, Master's and Doctoral programmes",
+        "1100+ students and scholars stated by institution"
+      ],
+      "arknoz_overview": "The School of Planning and Architecture, New Delhi is a specialist institution focused on planning, architecture, design and the human habitat. Arknoz should present it as an education pathway rather than a promotional profile: disciplines, programme levels, institutional status, location and direct links to current academic information should be immediately visible.",
+      "why_it_matters": "Useful to students, educators and professionals mapping architecture and planning education in India.",
+      "sources": [
+        {
+          "name": "SPA New Delhi",
+          "url": "https://www.spa.ac.in/",
+          "role": "primary_institution"
+        }
+      ],
+      "rights_passport": {
+        "status": "REVIEW",
+        "content_strategy": "verified facts -> structured data -> original Arknoz synthesis",
+        "copy_source_prose": false,
+        "media_status": "NO_MEDIA_YET",
+        "rights_checked_at": null,
+        "note": null
+      },
+      "editorial_qc": {
+        "benefit_groups": [
+          "students",
+          "educators",
+          "researchers",
+          "professionals"
+        ],
+        "prime_data_required": true,
+        "original_overview_required": true,
+        "no_marketing_filler": true,
+        "publish_ready": true
+      },
+      "placement": {
+        "organic_eligible": true,
+        "fixed_position": false,
+        "admin_assignable_later": true
+      }
+    },
+    {
+      "record_id": "IND-EDU-002",
+      "record_kind": "canonical",
+      "section": "Education",
+      "subsection": "Courses & Programs",
+      "slug": "cept-bachelor-urban-design",
+      "title": "CEPT University — Bachelor of Urban Design",
+      "geography": {
+        "continent": "Asia",
+        "country": "India",
+        "state_or_region": "Gujarat",
+        "city": "Ahmedabad"
+      },
+      "prime_facts": [
+        "Bachelor of Urban Design",
+        "Five years/ten semesters",
+        "200 credits",
+        "Studio-based curriculum"
+      ],
+      "arknoz_overview": "CEPT University's Bachelor of Urban Design is a five-year programme focused on streets, public spaces, neighbourhoods and urban systems across multiple scales. Arknoz should show degree, duration, credits, curriculum orientation and official programme link first, allowing users to decide quickly whether the programme matches their interests.",
+      "why_it_matters": "Useful to students comparing built-environment education pathways and educators mapping urban-design training.",
+      "sources": [
+        {
+          "name": "CEPT University",
+          "url": "https://cept.ac.in/programs/bachelors-in-urban-design",
+          "role": "primary_institution"
+        }
+      ],
+      "rights_passport": {
+        "status": "REVIEW",
+        "content_strategy": "verified facts -> structured data -> original Arknoz synthesis",
+        "copy_source_prose": false,
+        "media_status": "NO_MEDIA_YET",
+        "rights_checked_at": null,
+        "note": null
+      },
+      "editorial_qc": {
+        "benefit_groups": [
+          "students",
+          "educators",
+          "urban-design professionals"
+        ],
+        "prime_data_required": true,
+        "original_overview_required": true,
+        "no_marketing_filler": true,
+        "publish_ready": true
+      },
+      "placement": {
+        "organic_eligible": true,
+        "fixed_position": false,
+        "admin_assignable_later": true
+      }
+    },
+    {
+      "record_id": "IND-EDU-003",
+      "record_kind": "canonical",
+      "section": "Education",
+      "subsection": "Software & Tools",
+      "slug": "autodesk-forma-site-design",
+      "title": "Autodesk Forma Site Design",
+      "geography": {
+        "continent": "Asia",
+        "country": "India",
+        "state_or_region": null,
+        "city": null
+      },
+      "prime_facts": [
+        "Cloud site-planning/analysis software",
+        "Contextual data and 3D modelling",
+        "AI-powered analysis/automation",
+        "Connects with Revit and Autodesk Construction Cloud"
+      ],
+      "arknoz_overview": "Autodesk Forma Site Design is a cloud-based planning and early-design tool for site setup, massing, contextual analysis and option evaluation. Arknoz should answer practical questions first: what design stage it serves, what it can analyse, which workflows it connects to and whether education access exists.",
+      "why_it_matters": "Useful to students, architects and planners evaluating early-stage digital design tools.",
+      "sources": [
+        {
+          "name": "Autodesk",
+          "url": "https://www.autodesk.com/in/products/forma/overview",
+          "role": "primary_provider"
+        }
+      ],
+      "rights_passport": {
+        "status": "REVIEW",
+        "content_strategy": "verified facts -> structured data -> original Arknoz synthesis",
+        "copy_source_prose": false,
+        "media_status": "NO_MEDIA_YET",
+        "rights_checked_at": null,
+        "note": null
+      },
+      "editorial_qc": {
+        "benefit_groups": [
+          "students",
+          "architects",
+          "urban designers",
+          "planners",
+          "digital-design teams"
+        ],
+        "prime_data_required": true,
+        "original_overview_required": true,
+        "no_marketing_filler": true,
+        "publish_ready": true
+      },
+      "placement": {
+        "organic_eligible": true,
+        "fixed_position": false,
+        "admin_assignable_later": true
+      }
+    },
+    {
+      "record_id": "IND-EDU-004",
+      "record_kind": "canonical",
+      "section": "Education",
+      "subsection": "Skills & Training",
+      "slug": "autodesk-introduction-bim-architectural-design",
+      "title": "Autodesk — Introduction to BIM for Architectural Design",
+      "geography": {
+        "continent": "Asia",
+        "country": "India",
+        "state_or_region": null,
+        "city": null
+      },
+      "prime_facts": [
+        "Self-paced BIM learning",
+        "Architectural-design focus",
+        "Revit/Construction Cloud/Forma context",
+        "Autodesk education resource"
+      ],
+      "arknoz_overview": "Autodesk's introductory BIM learning content gives Arknoz a practical skills record. The page should identify the skill being taught, learner level, principal tools and the official learning destination so a student or early-career professional can decide within seconds whether it is relevant.",
+      "why_it_matters": "Useful to students and early-career professionals entering BIM-oriented architectural workflows.",
+      "sources": [
+        {
+          "name": "Autodesk Education",
+          "url": "https://www.autodesk.com/in/education/edu-software/forma.html",
+          "role": "primary_provider"
+        }
+      ],
+      "rights_passport": {
+        "status": "REVIEW",
+        "content_strategy": "verified facts -> structured data -> original Arknoz synthesis",
+        "copy_source_prose": false,
+        "media_status": "NO_MEDIA_YET",
+        "rights_checked_at": null,
+        "note": null
+      },
+      "editorial_qc": {
+        "benefit_groups": [
+          "students",
+          "early-career professionals",
+          "educators",
+          "architects"
+        ],
+        "prime_data_required": true,
+        "original_overview_required": true,
+        "no_marketing_filler": true,
+        "publish_ready": true
+      },
+      "placement": {
+        "organic_eligible": true,
+        "fixed_position": false,
+        "admin_assignable_later": true
+      }
+    },
+    {
+      "record_id": "IND-EDU-005",
+      "record_kind": "canonical",
+      "section": "Education",
+      "subsection": "Certifications",
+      "slug": "griha-certified-professional",
+      "title": "GRIHA Certified Professional",
+      "geography": {
+        "continent": "Asia",
+        "country": "India",
+        "state_or_region": null,
+        "city": null
+      },
+      "prime_facts": [
+        "Professional credential",
+        "GRIHA framework",
+        "Requires GRIHA CP examination",
+        "GRIHA states students are not eligible"
+      ],
+      "arknoz_overview": "GRIHA Certified Professional is a credential for people who demonstrate knowledge of the GRIHA green-building framework and can support GRIHA-related project activities. Arknoz should show eligibility, purpose, examination route, professional relevance and the current official application source. Certification rules should be freshness-checked regularly.",
+      "why_it_matters": "Useful to graduates and professionals evaluating a green-building credential in India.",
+      "sources": [
+        {
+          "name": "GRIHA Council",
+          "url": "https://grihaindia.org/griha_certified_professional",
+          "role": "primary_provider"
+        }
+      ],
+      "rights_passport": {
+        "status": "REVIEW",
+        "content_strategy": "verified facts -> structured data -> original Arknoz synthesis",
+        "copy_source_prose": false,
+        "media_status": "NO_MEDIA_YET",
+        "rights_checked_at": null,
+        "note": null
+      },
+      "editorial_qc": {
+        "benefit_groups": [
+          "graduates",
+          "architects",
+          "engineers",
+          "sustainability professionals"
+        ],
+        "prime_data_required": true,
+        "original_overview_required": true,
+        "no_marketing_filler": true,
+        "publish_ready": true
+      },
+      "placement": {
+        "organic_eligible": true,
+        "fixed_position": false,
+        "admin_assignable_later": true
+      }
+    },
+    {
+      "record_id": "IND-EDU-006",
+      "record_kind": "canonical",
+      "section": "Education",
+      "subsection": "Learning Resources",
+      "slug": "nptel-built-environment-learning",
+      "title": "NPTEL Built-Environment Learning",
+      "geography": {
+        "continent": "Asia",
+        "country": "India",
+        "state_or_region": null,
+        "city": null
+      },
+      "prime_facts": [
+        "Online learning resource",
+        "Indian higher-education platform",
+        "Specific built-environment course still to be selected"
+      ],
+      "arknoz_overview": "NPTEL can provide a high-value learning resource because it offers structured higher-education learning rather than short-form promotional content. This controlled draft must be replaced by one specific current built-environment course with a verified syllabus, duration and provider institution before publication.",
+      "why_it_matters": "Useful to students and professionals seeking structured technical learning from Indian academic institutions.",
+      "sources": [
+        {
+          "name": "NPTEL",
+          "url": "https://nptel.ac.in/",
+          "role": "primary_provider"
+        }
+      ],
+      "rights_passport": {
+        "status": "REVIEW",
+        "content_strategy": "verified facts -> structured data -> original Arknoz synthesis",
+        "copy_source_prose": false,
+        "media_status": "NO_MEDIA_YET",
+        "rights_checked_at": null,
+        "note": "Select one specific current course before publication."
+      },
+      "editorial_qc": {
+        "benefit_groups": [
+          "students",
+          "educators",
+          "engineers",
+          "architects",
+          "professionals"
+        ],
+        "prime_data_required": true,
+        "original_overview_required": true,
+        "no_marketing_filler": true,
+        "publish_ready": false
+      },
+      "placement": {
+        "organic_eligible": true,
+        "fixed_position": false,
+        "admin_assignable_later": true
+      }
+    },
+    {
+      "record_id": "IND-OPP-001",
+      "record_kind": "dynamic_slot",
+      "section": "Opportunities",
+      "subsection": "Jobs",
+      "slug": "india-live-built-environment-job",
+      "title": "India Built-Environment Job — Live Slot",
+      "geography": {
+        "continent": "Asia",
+        "country": "India",
+        "state_or_region": null,
+        "city": null
+      },
+      "purpose": "A current verified built-environment job from an official employer source.",
+      "prime_facts": [],
+      "arknoz_overview": null,
+      "why_it_matters": "Opportunity records are useful only while active; expired calls must not appear as current.",
+      "generation_rule": {
+        "official_source_required": true,
+        "open_at_publish_time_required": true,
+        "deadline_required": true,
+        "issuer_required": true,
+        "rights_passport_required": true,
+        "expiry_action": "archive_and_replace"
+      },
+      "sources": [],
+      "rights_passport": {
+        "status": "DYNAMIC_REVIEW_REQUIRED",
+        "copy_source_prose": false,
+        "media_status": "NO_MEDIA_YET"
+      },
+      "editorial_qc": {
+        "benefit_groups": [
+          "students",
+          "professionals",
+          "organisations"
+        ],
+        "prime_data_required": true,
+        "original_overview_required": true,
+        "no_marketing_filler": true,
+        "publish_ready": false
+      },
+      "placement": {
+        "organic_eligible": true,
+        "fixed_position": false,
+        "admin_assignable_later": true
+      }
+    },
+    {
+      "record_id": "IND-OPP-002",
+      "record_kind": "dynamic_slot",
+      "section": "Opportunities",
+      "subsection": "Competitions",
+      "slug": "india-live-built-environment-competition",
+      "title": "India Built-Environment Competition — Live Slot",
+      "geography": {
+        "continent": "Asia",
+        "country": "India",
+        "state_or_region": null,
+        "city": null
+      },
+      "purpose": "A current verified architecture/planning/engineering competition with an open deadline.",
+      "prime_facts": [],
+      "arknoz_overview": null,
+      "why_it_matters": "Opportunity records are useful only while active; expired calls must not appear as current.",
+      "generation_rule": {
+        "official_source_required": true,
+        "open_at_publish_time_required": true,
+        "deadline_required": true,
+        "issuer_required": true,
+        "rights_passport_required": true,
+        "expiry_action": "archive_and_replace"
+      },
+      "sources": [],
+      "rights_passport": {
+        "status": "DYNAMIC_REVIEW_REQUIRED",
+        "copy_source_prose": false,
+        "media_status": "NO_MEDIA_YET"
+      },
+      "editorial_qc": {
+        "benefit_groups": [
+          "students",
+          "professionals",
+          "organisations"
+        ],
+        "prime_data_required": true,
+        "original_overview_required": true,
+        "no_marketing_filler": true,
+        "publish_ready": false
+      },
+      "placement": {
+        "organic_eligible": true,
+        "fixed_position": false,
+        "admin_assignable_later": true
+      }
+    },
+    {
+      "record_id": "IND-OPP-003",
+      "record_kind": "dynamic_slot",
+      "section": "Opportunities",
+      "subsection": "Collaborations",
+      "slug": "india-live-built-environment-collaboration",
+      "title": "India Built-Environment Collaboration — Live Slot",
+      "geography": {
+        "continent": "Asia",
+        "country": "India",
+        "state_or_region": null,
+        "city": null
+      },
+      "purpose": "A current verified EOI, research or professional collaboration.",
+      "prime_facts": [],
+      "arknoz_overview": null,
+      "why_it_matters": "Opportunity records are useful only while active; expired calls must not appear as current.",
+      "generation_rule": {
+        "official_source_required": true,
+        "open_at_publish_time_required": true,
+        "deadline_required": true,
+        "issuer_required": true,
+        "rights_passport_required": true,
+        "expiry_action": "archive_and_replace"
+      },
+      "sources": [],
+      "rights_passport": {
+        "status": "DYNAMIC_REVIEW_REQUIRED",
+        "copy_source_prose": false,
+        "media_status": "NO_MEDIA_YET"
+      },
+      "editorial_qc": {
+        "benefit_groups": [
+          "students",
+          "professionals",
+          "organisations"
+        ],
+        "prime_data_required": true,
+        "original_overview_required": true,
+        "no_marketing_filler": true,
+        "publish_ready": false
+      },
+      "placement": {
+        "organic_eligible": true,
+        "fixed_position": false,
+        "admin_assignable_later": true
+      }
+    },
+    {
+      "record_id": "IND-OPP-004",
+      "record_kind": "dynamic_slot",
+      "section": "Opportunities",
+      "subsection": "Tenders & Procurement",
+      "slug": "india-live-built-environment-tender",
+      "title": "India Built-Environment Tender — Live Slot",
+      "geography": {
+        "continent": "Asia",
+        "country": "India",
+        "state_or_region": null,
+        "city": null
+      },
+      "purpose": "A current verified tender or procurement call from an official issuer.",
+      "prime_facts": [],
+      "arknoz_overview": null,
+      "why_it_matters": "Opportunity records are useful only while active; expired calls must not appear as current.",
+      "generation_rule": {
+        "official_source_required": true,
+        "open_at_publish_time_required": true,
+        "deadline_required": true,
+        "issuer_required": true,
+        "rights_passport_required": true,
+        "expiry_action": "archive_and_replace"
+      },
+      "sources": [],
+      "rights_passport": {
+        "status": "DYNAMIC_REVIEW_REQUIRED",
+        "copy_source_prose": false,
+        "media_status": "NO_MEDIA_YET"
+      },
+      "editorial_qc": {
+        "benefit_groups": [
+          "students",
+          "professionals",
+          "organisations"
+        ],
+        "prime_data_required": true,
+        "original_overview_required": true,
+        "no_marketing_filler": true,
+        "publish_ready": false
+      },
+      "placement": {
+        "organic_eligible": true,
+        "fixed_position": false,
+        "admin_assignable_later": true
+      }
+    },
+    {
+      "record_id": "IND-OPP-005",
+      "record_kind": "dynamic_slot",
+      "section": "Opportunities",
+      "subsection": "Grants & Funding",
+      "slug": "india-live-built-environment-grant",
+      "title": "India Built-Environment Grant — Live Slot",
+      "geography": {
+        "continent": "Asia",
+        "country": "India",
+        "state_or_region": null,
+        "city": null
+      },
+      "purpose": "A current verified grant or funding call relevant to the built environment.",
+      "prime_facts": [],
+      "arknoz_overview": null,
+      "why_it_matters": "Opportunity records are useful only while active; expired calls must not appear as current.",
+      "generation_rule": {
+        "official_source_required": true,
+        "open_at_publish_time_required": true,
+        "deadline_required": true,
+        "issuer_required": true,
+        "rights_passport_required": true,
+        "expiry_action": "archive_and_replace"
+      },
+      "sources": [],
+      "rights_passport": {
+        "status": "DYNAMIC_REVIEW_REQUIRED",
+        "copy_source_prose": false,
+        "media_status": "NO_MEDIA_YET"
+      },
+      "editorial_qc": {
+        "benefit_groups": [
+          "students",
+          "professionals",
+          "organisations"
+        ],
+        "prime_data_required": true,
+        "original_overview_required": true,
+        "no_marketing_filler": true,
+        "publish_ready": false
+      },
+      "placement": {
+        "organic_eligible": true,
+        "fixed_position": false,
+        "admin_assignable_later": true
+      }
+    },
+    {
+      "record_id": "IND-OPP-006",
+      "record_kind": "dynamic_slot",
+      "section": "Opportunities",
+      "subsection": "Fellowships & Programs",
+      "slug": "india-live-built-environment-fellowship",
+      "title": "India Built-Environment Fellowship / Program — Live Slot",
+      "geography": {
+        "continent": "Asia",
+        "country": "India",
+        "state_or_region": null,
+        "city": null
+      },
+      "purpose": "A current verified fellowship, residency, accelerator or professional programme.",
+      "prime_facts": [],
+      "arknoz_overview": null,
+      "why_it_matters": "Opportunity records are useful only while active; expired calls must not appear as current.",
+      "generation_rule": {
+        "official_source_required": true,
+        "open_at_publish_time_required": true,
+        "deadline_required": true,
+        "issuer_required": true,
+        "rights_passport_required": true,
+        "expiry_action": "archive_and_replace"
+      },
+      "sources": [],
+      "rights_passport": {
+        "status": "DYNAMIC_REVIEW_REQUIRED",
+        "copy_source_prose": false,
+        "media_status": "NO_MEDIA_YET"
+      },
+      "editorial_qc": {
+        "benefit_groups": [
+          "students",
+          "professionals",
+          "organisations"
+        ],
+        "prime_data_required": true,
+        "original_overview_required": true,
+        "no_marketing_filler": true,
+        "publish_ready": false
+      },
+      "placement": {
+        "organic_eligible": true,
+        "fixed_position": false,
+        "admin_assignable_later": true
+      }
+    }
+  ]
+}

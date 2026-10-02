@@ -1,0 +1,174 @@
+{
+    "standard":  "ARKNOZ_PROJECT_PLACE_RELATIONSHIP_STANDARD_V1",
+    "scope":  "PLATFORM_WIDE",
+    "purpose":  "Defines factual Project-to-Place relationships so Arknoz can support City, Country, Continent and Global discovery without forcing every Project into one City.",
+    "core_principles":  [
+                            "One canonical Project may relate to one or many canonical Place entities.",
+                            "Geographic truth and public discovery are related but not identical concepts.",
+                            "Do not use LOCATED_IN unless evidence supports physical location within that Place.",
+                            "Do not duplicate Projects for multiple Places.",
+                            "City is the default lowest public geographic anchor when appropriate.",
+                            "Linear, regional and cross-boundary Projects may have multiple valid Place relationships.",
+                            "Place-to-Place hierarchy uses PART_OF and is separate from Project-to-Place relationships."
+                        ],
+    "project_place_predicates":  [
+                                     {
+                                         "predicate":  "LOCATED_IN",
+                                         "meaning":  "The Project is physically located within the geographic boundary of the Place.",
+                                         "typical_use":  [
+                                                             "building",
+                                                             "park",
+                                                             "single-site infrastructure",
+                                                             "single-site energy project"
+                                                         ],
+                                         "automatic_parent_rollup":  true,
+                                         "may_have_multiple_targets":  true,
+                                         "example":  "Tate Modern LOCATED_IN London"
+                                     },
+                                     {
+                                         "predicate":  "SPANS",
+                                         "meaning":  "The Project physically extends across multiple Places or geographic areas.",
+                                         "typical_use":  [
+                                                             "rail corridor",
+                                                             "road",
+                                                             "linear infrastructure",
+                                                             "regional development",
+                                                             "river project"
+                                                         ],
+                                         "automatic_parent_rollup":  true,
+                                         "may_have_multiple_targets":  true,
+                                         "example":  "A railway line may SPAN multiple Cities."
+                                     },
+                                     {
+                                         "predicate":  "CONNECTS",
+                                         "meaning":  "The Project directly connects two or more Places.",
+                                         "typical_use":  [
+                                                             "bridge",
+                                                             "fixed link",
+                                                             "transport connection",
+                                                             "cross-border infrastructure"
+                                                         ],
+                                         "automatic_parent_rollup":  true,
+                                         "may_have_multiple_targets":  true,
+                                         "example":  "Øresund Fixed Link CONNECTS Copenhagen and Malmö."
+                                     },
+                                     {
+                                         "predicate":  "NEAR",
+                                         "meaning":  "The Project is geographically near a Place but evidence does not support physical inclusion within that Place boundary.",
+                                         "typical_use":  [
+                                                             "peri-urban infrastructure",
+                                                             "energy complex outside city boundary",
+                                                             "remote facility associated with a nearby city"
+                                                         ],
+                                         "automatic_parent_rollup":  false,
+                                         "public_discovery_allowed":  "POLICY_CONTROLLED",
+                                         "may_have_multiple_targets":  true,
+                                         "example":  "Noor Ouarzazate Solar Complex may be NEAR Ouarzazate if boundary evidence does not support LOCATED_IN."
+                                     },
+                                     {
+                                         "predicate":  "SERVES",
+                                         "meaning":  "The Project materially serves a Place but is not necessarily physically located within it.",
+                                         "typical_use":  [
+                                                             "transport network",
+                                                             "utility",
+                                                             "regional infrastructure"
+                                                         ],
+                                         "automatic_parent_rollup":  false,
+                                         "public_discovery_allowed":  "POLICY_CONTROLLED",
+                                         "may_have_multiple_targets":  true,
+                                         "example":  "A transport line may SERVE multiple Cities."
+                                     }
+                                 ],
+    "place_place_predicates":  [
+                                   {
+                                       "predicate":  "PART_OF",
+                                       "meaning":  "One Place belongs within another Place in the Arknoz geographic hierarchy.",
+                                       "normal_chain":  "CITY → COUNTRY → CONTINENT → GLOBAL",
+                                       "project_relationship":  false
+                                   }
+                               ],
+    "public_rollup_rules":  {
+                                "direct_rollup_predicates":  [
+                                                                 "LOCATED_IN",
+                                                                 "SPANS",
+                                                                 "CONNECTS"
+                                                             ],
+                                "conditional_discovery_predicates":  [
+                                                                         "NEAR",
+                                                                         "SERVES"
+                                                                     ],
+                                "parent_rollup_source":  "PLACE_PART_OF_HIERARCHY",
+                                "paid_featured_inheritance":  "NEVER",
+                                "project_duplication":  false
+                            },
+    "primary_anchor_rules":  {
+                                 "ordinary_single_site_project":  "Use the lowest verified LOCATED_IN Place.",
+                                 "multi_location_project":  "Do not force one City. Preserve all valid SPANS or CONNECTS relationships.",
+                                 "locality_or_neighbourhood":  "Resolve the locality Place and its parent hierarchy before choosing the public City anchor.",
+                                 "near_city_project":  "Use NEAR unless physical boundary evidence supports LOCATED_IN.",
+                                 "primary_public_anchor":  "May be selected for presentation convenience but must not replace or falsify factual Project-to-Place relationships."
+                             },
+    "final_18_application_examples":  [
+                                          {
+                                              "project":  "Sydney Opera House",
+                                              "candidate_relationship":  "LOCATED_IN",
+                                              "candidate_place":  "Sydney"
+                                          },
+                                          {
+                                              "project":  "Salk Institute",
+                                              "candidate_relationship":  "LOCATED_IN",
+                                              "candidate_place":  "La Jolla",
+                                              "review":  "Resolve La Jolla parent Place hierarchy before selecting public City anchor."
+                                          },
+                                          {
+                                              "project":  "Elizabeth Line",
+                                              "candidate_relationship":  "SPANS",
+                                              "candidate_places":  [
+                                                                       "London",
+                                                                       "Reading",
+                                                                       "Heathrow",
+                                                                       "Shenfield",
+                                                                       "Abbey Wood"
+                                                                   ]
+                                          },
+                                          {
+                                              "project":  "Hong Kong–Zhuhai–Macao Bridge",
+                                              "candidate_relationship":  "CONNECTS",
+                                              "candidate_places":  [
+                                                                       "Hong Kong",
+                                                                       "Zhuhai",
+                                                                       "Macao"
+                                                                   ]
+                                          },
+                                          {
+                                              "project":  "Medellín Metrocable Line K",
+                                              "candidate_relationship":  "LOCATED_IN",
+                                              "candidate_place":  "Medellín"
+                                          },
+                                          {
+                                              "project":  "High Line",
+                                              "candidate_relationship":  "LOCATED_IN",
+                                              "candidate_place":  "New York City"
+                                          },
+                                          {
+                                              "project":  "Noor Ouarzazate Solar Complex",
+                                              "candidate_relationship":  "NEAR",
+                                              "candidate_place":  "Ouarzazate",
+                                              "review":  "Upgrade to LOCATED_IN only if boundary evidence supports it."
+                                          }
+                                      ],
+    "integrity_rules":  [
+                            "Relationship predicates describe factual geography, not paid positioning.",
+                            "Commercial Featured placement never changes Project-to-Place relationships.",
+                            "A Project may appear organically in multiple valid geographic surfaces.",
+                            "A Project may have multiple Place relationships without creating duplicate Project records.",
+                            "Place hierarchy must be resolved independently of legacy source-region labels.",
+                            "No relationship becomes canonical without evidence and review."
+                        ],
+    "implementation_status":  "STANDARD_ONLY_NOT_YET_IMPLEMENTED",
+    "canonical_changed":  false,
+    "geography_authorized":  false,
+    "publication_authorized":  false,
+    "public_ui_changed":  false,
+    "supabase_changed":  false
+}

@@ -1,0 +1,2679 @@
+{
+  "standard": "ARKNOZ_PROJECT_FIELD_DOMAIN_REGISTRY_V1",
+  "scope": "PROJECT",
+  "inherits": "ARKNOZ_PROJECT_ENTITY_EXTENSION_V1",
+  "purpose": "Reusable Project claim-field classification registry combining deterministic mappings, reviewed field-level resolutions, claim-level semantic overrides and explicit taxonomy gaps.",
+  "rules": [
+    "A field-level domain is used only when the field is semantically stable.",
+    "CLAIM_LEVEL_ONLY fields must be resolved from claim context or an explicit reviewed override.",
+    "TAXONOMY_GAP fields are never force-mapped.",
+    "This registry classifies claims; it does not change claim values or verification states.",
+    "No canonical or publication authorization is granted by this registry."
+  ],
+  "summary": {
+    "allowed_project_domains": 16,
+    "field_keys": 117,
+    "auto_high": 27,
+    "auto_medium": 62,
+    "human_reviewed": 25,
+    "claim_level_only_fields": 2,
+    "taxonomy_gap_fields": 1,
+    "claims_examined": 191,
+    "claims_resolved": 190,
+    "taxonomy_gap_claims": 1,
+    "unaccounted_claims": 0,
+    "canonical_authorized": 0,
+    "publication_authorized": 0
+  },
+  "fields": [
+    {
+      "field_key": "adaptive_reuse_architect",
+      "observed_count": 1,
+      "domain": "TEAM",
+      "registry_state": "AUTO_HIGH",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "exact deterministic mapping"
+    },
+    {
+      "field_key": "adaptive_reuse_client",
+      "observed_count": 1,
+      "domain": "TEAM",
+      "registry_state": "AUTO_HIGH",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "exact deterministic mapping"
+    },
+    {
+      "field_key": "architect",
+      "observed_count": 1,
+      "domain": "TEAM",
+      "registry_state": "AUTO_HIGH",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "exact deterministic mapping"
+    },
+    {
+      "field_key": "area_acres",
+      "observed_count": 1,
+      "domain": "DIMENSIONS",
+      "registry_state": "AUTO_MEDIUM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "size / quantity / geometry terminology"
+    },
+    {
+      "field_key": "artificial_island",
+      "observed_count": 1,
+      "domain": "ENGINEERING",
+      "registry_state": "AUTO_MEDIUM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "engineering / structural terminology"
+    },
+    {
+      "field_key": "artificial_islands",
+      "observed_count": 1,
+      "domain": "ENGINEERING",
+      "registry_state": "AUTO_MEDIUM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "engineering / structural terminology"
+    },
+    {
+      "field_key": "battery_energy_capacity",
+      "observed_count": 1,
+      "domain": "OPERATION",
+      "registry_state": "AUTO_MEDIUM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "operational / capacity terminology"
+    },
+    {
+      "field_key": "battery_power_capacity",
+      "observed_count": 1,
+      "domain": "OPERATION",
+      "registry_state": "AUTO_MEDIUM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "operational / capacity terminology"
+    },
+    {
+      "field_key": "battery_technology",
+      "observed_count": 1,
+      "domain": "SYSTEMS",
+      "registry_state": "AUTO_MEDIUM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "technical systems terminology"
+    },
+    {
+      "field_key": "bridge_length",
+      "observed_count": 1,
+      "domain": "DIMENSIONS",
+      "registry_state": "AUTO_MEDIUM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "size / quantity / geometry terminology"
+    },
+    {
+      "field_key": "bridge_sections",
+      "observed_count": 1,
+      "domain": "ENGINEERING",
+      "registry_state": "AUTO_MEDIUM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "engineering / structural terminology"
+    },
+    {
+      "field_key": "bridge_type",
+      "observed_count": 1,
+      "domain": "TYPOLOGY",
+      "registry_state": "AUTO_MEDIUM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "project typology terminology"
+    },
+    {
+      "field_key": "cabin_ropeway_system",
+      "observed_count": 1,
+      "domain": "SYSTEMS",
+      "registry_state": "AUTO_MEDIUM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "technical systems terminology"
+    },
+    {
+      "field_key": "capacity",
+      "observed_count": 1,
+      "domain": "OPERATION",
+      "registry_state": "HUMAN_REVIEWED",
+      "resolution_method": "FIELD_LEVEL_HUMAN_REVIEW",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "Reviewed from actual claim context."
+    },
+    {
+      "field_key": "carved_atrium",
+      "observed_count": 1,
+      "domain": "CONSTRUCTION",
+      "registry_state": "HUMAN_REVIEWED",
+      "resolution_method": "FIELD_LEVEL_HUMAN_REVIEW",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "Reviewed from actual claim context."
+    },
+    {
+      "field_key": "central_london_rail_capacity_increase",
+      "observed_count": 1,
+      "domain": "IMPACT",
+      "registry_state": "HUMAN_REVIEWED",
+      "resolution_method": "FIELD_LEVEL_HUMAN_REVIEW",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "Reviewed from actual claim context."
+    },
+    {
+      "field_key": "client_owner",
+      "observed_count": 9,
+      "domain": "TEAM",
+      "registry_state": "AUTO_HIGH",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "exact deterministic mapping"
+    },
+    {
+      "field_key": "climate_responsive_design",
+      "observed_count": 1,
+      "domain": "SUSTAINABILITY",
+      "registry_state": "HUMAN_REVIEWED",
+      "resolution_method": "FIELD_LEVEL_HUMAN_REVIEW",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "Reviewed from actual claim context."
+    },
+    {
+      "field_key": "climate_strategy",
+      "observed_count": 1,
+      "domain": "SUSTAINABILITY",
+      "registry_state": "AUTO_MEDIUM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "environmental / sustainability terminology"
+    },
+    {
+      "field_key": "community_construction_model",
+      "observed_count": 1,
+      "domain": "CONSTRUCTION",
+      "registry_state": "AUTO_MEDIUM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "construction terminology"
+    },
+    {
+      "field_key": "community_participation",
+      "observed_count": 1,
+      "domain": "IMPACT",
+      "registry_state": "AUTO_MEDIUM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "social / urban impact terminology"
+    },
+    {
+      "field_key": "concrete_canal_transformation",
+      "observed_count": 1,
+      "domain": "HISTORY",
+      "registry_state": "HUMAN_REVIEWED",
+      "resolution_method": "FIELD_LEVEL_HUMAN_REVIEW",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "Reviewed from actual claim context."
+    },
+    {
+      "field_key": "concrete_silo_geometry",
+      "observed_count": 1,
+      "domain": "DIMENSIONS",
+      "registry_state": "AUTO_MEDIUM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "size / quantity / geometry terminology"
+    },
+    {
+      "field_key": "construction_chronology",
+      "observed_count": 1,
+      "domain": "DATES",
+      "registry_state": "HUMAN_REVIEWED",
+      "resolution_method": "FIELD_LEVEL_HUMAN_REVIEW",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "Reviewed from actual claim context."
+    },
+    {
+      "field_key": "construction_methodology",
+      "observed_count": 1,
+      "domain": "CONSTRUCTION",
+      "registry_state": "AUTO_MEDIUM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "construction terminology"
+    },
+    {
+      "field_key": "construction_started",
+      "observed_count": 1,
+      "domain": "DATES",
+      "registry_state": "AUTO_HIGH",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "exact deterministic mapping"
+    },
+    {
+      "field_key": "conversion_architect",
+      "observed_count": 1,
+      "domain": "TEAM",
+      "registry_state": "AUTO_HIGH",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "exact deterministic mapping"
+    },
+    {
+      "field_key": "csp_complex_operational_since",
+      "observed_count": 1,
+      "domain": "DATES",
+      "registry_state": "AUTO_HIGH",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "exact deterministic mapping"
+    },
+    {
+      "field_key": "dam_dimensions",
+      "observed_count": 1,
+      "domain": "DIMENSIONS",
+      "registry_state": "AUTO_MEDIUM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "size / quantity / geometry terminology"
+    },
+    {
+      "field_key": "design_collaborators",
+      "observed_count": 1,
+      "domain": "TEAM",
+      "registry_state": "AUTO_HIGH",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "exact deterministic mapping"
+    },
+    {
+      "field_key": "design_life",
+      "observed_count": 1,
+      "domain": "DESIGN",
+      "registry_state": "AUTO_MEDIUM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "design / programme terminology"
+    },
+    {
+      "field_key": "design_team",
+      "observed_count": 1,
+      "domain": "TEAM",
+      "registry_state": "AUTO_HIGH",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "exact deterministic mapping"
+    },
+    {
+      "field_key": "development_phases",
+      "observed_count": 1,
+      "domain": "DATES",
+      "registry_state": "HUMAN_REVIEWED",
+      "resolution_method": "FIELD_LEVEL_HUMAN_REVIEW",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "Reviewed from actual claim context."
+    },
+    {
+      "field_key": "district_area",
+      "observed_count": 1,
+      "domain": "DIMENSIONS",
+      "registry_state": "AUTO_MEDIUM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "size / quantity / geometry terminology"
+    },
+    {
+      "field_key": "dome_geometry",
+      "observed_count": 2,
+      "domain": "DIMENSIONS",
+      "registry_state": "AUTO_MEDIUM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "size / quantity / geometry terminology"
+    },
+    {
+      "field_key": "eastern_connections",
+      "observed_count": 1,
+      "domain": "OPERATION",
+      "registry_state": "AUTO_MEDIUM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "operational / capacity terminology"
+    },
+    {
+      "field_key": "ecology_planting",
+      "observed_count": 1,
+      "domain": "SUSTAINABILITY",
+      "registry_state": "AUTO_MEDIUM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "environmental / sustainability terminology"
+    },
+    {
+      "field_key": "environmental_microclimate",
+      "observed_count": 1,
+      "domain": "SUSTAINABILITY",
+      "registry_state": "AUTO_MEDIUM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "environmental / sustainability terminology"
+    },
+    {
+      "field_key": "existing_structure_reuse",
+      "observed_count": 1,
+      "domain": "HISTORY",
+      "registry_state": "HUMAN_REVIEWED",
+      "resolution_method": "FIELD_LEVEL_HUMAN_REVIEW",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "Reviewed from actual claim context."
+    },
+    {
+      "field_key": "expansion",
+      "observed_count": 1,
+      "domain": "HISTORY",
+      "registry_state": "HUMAN_REVIEWED",
+      "resolution_method": "FIELD_LEVEL_HUMAN_REVIEW",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "Reviewed from actual claim context."
+    },
+    {
+      "field_key": "facade_system",
+      "observed_count": 1,
+      "domain": "SYSTEMS",
+      "registry_state": "AUTO_MEDIUM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "technical systems terminology"
+    },
+    {
+      "field_key": "first_section_opened",
+      "observed_count": 1,
+      "domain": "DATES",
+      "registry_state": "AUTO_HIGH",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "exact deterministic mapping"
+    },
+    {
+      "field_key": "flood_management_strategy",
+      "observed_count": 1,
+      "domain": "SUSTAINABILITY",
+      "registry_state": "AUTO_MEDIUM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "environmental / sustainability terminology"
+    },
+    {
+      "field_key": "generating_units",
+      "observed_count": 1,
+      "domain": "OPERATION",
+      "registry_state": "HUMAN_REVIEWED",
+      "resolution_method": "FIELD_LEVEL_HUMAN_REVIEW",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "Reviewed from actual claim context."
+    },
+    {
+      "field_key": "generation_capacity",
+      "observed_count": 1,
+      "domain": "OPERATION",
+      "registry_state": "AUTO_MEDIUM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "operational / capacity terminology"
+    },
+    {
+      "field_key": "generation_chronology",
+      "observed_count": 1,
+      "domain": "DATES",
+      "registry_state": "AUTO_MEDIUM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "date / chronology terminology"
+    },
+    {
+      "field_key": "grid_services",
+      "observed_count": 1,
+      "domain": "SYSTEMS",
+      "registry_state": "AUTO_MEDIUM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "technical systems terminology"
+    },
+    {
+      "field_key": "housing_programme",
+      "observed_count": 1,
+      "domain": "DESIGN",
+      "registry_state": "AUTO_MEDIUM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "design / programme terminology"
+    },
+    {
+      "field_key": "identity",
+      "observed_count": 1,
+      "domain": "IDENTITY",
+      "registry_state": "AUTO_HIGH",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "exact deterministic mapping"
+    },
+    {
+      "field_key": "laboratory_research_programme",
+      "observed_count": 1,
+      "domain": "DESIGN",
+      "registry_state": "AUTO_MEDIUM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "design / programme terminology"
+    },
+    {
+      "field_key": "landscape_water_relationship",
+      "observed_count": 1,
+      "domain": "DESIGN",
+      "registry_state": "HUMAN_REVIEWED",
+      "resolution_method": "FIELD_LEVEL_HUMAN_REVIEW",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "Reviewed from actual claim context."
+    },
+    {
+      "field_key": "lead_designer",
+      "observed_count": 5,
+      "domain": "TEAM",
+      "registry_state": "AUTO_HIGH",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "exact deterministic mapping"
+    },
+    {
+      "field_key": "length_miles",
+      "observed_count": 1,
+      "domain": "DIMENSIONS",
+      "registry_state": "AUTO_MEDIUM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "size / quantity / geometry terminology"
+    },
+    {
+      "field_key": "local_material_strategy",
+      "observed_count": 1,
+      "domain": "MATERIALS",
+      "registry_state": "AUTO_MEDIUM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "material terminology"
+    },
+    {
+      "field_key": "location",
+      "observed_count": 12,
+      "domain": "LOCATION",
+      "registry_state": "AUTO_HIGH",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "exact deterministic mapping"
+    },
+    {
+      "field_key": "main_span",
+      "observed_count": 1,
+      "domain": "DIMENSIONS",
+      "registry_state": "AUTO_MEDIUM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "size / quantity / geometry terminology"
+    },
+    {
+      "field_key": "material_strategy",
+      "observed_count": 1,
+      "domain": "MATERIALS",
+      "registry_state": "AUTO_MEDIUM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "material terminology"
+    },
+    {
+      "field_key": "material_systems",
+      "observed_count": 1,
+      "domain": "MATERIALS",
+      "registry_state": "HUMAN_REVIEWED",
+      "resolution_method": "FIELD_LEVEL_HUMAN_REVIEW",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "Reviewed from actual claim context."
+    },
+    {
+      "field_key": "mechanical_service_strategy",
+      "observed_count": 1,
+      "domain": "SYSTEMS",
+      "registry_state": "AUTO_MEDIUM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "technical systems terminology"
+    },
+    {
+      "field_key": "mobility_strategy",
+      "observed_count": 1,
+      "domain": "DESIGN",
+      "registry_state": "HUMAN_REVIEWED",
+      "resolution_method": "FIELD_LEVEL_HUMAN_REVIEW",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "Reviewed from actual claim context."
+    },
+    {
+      "field_key": "museum_area",
+      "observed_count": 1,
+      "domain": "DIMENSIONS",
+      "registry_state": "AUTO_MEDIUM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "size / quantity / geometry terminology"
+    },
+    {
+      "field_key": "museum_opening",
+      "observed_count": 1,
+      "domain": "DATES",
+      "registry_state": "AUTO_HIGH",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "exact deterministic mapping"
+    },
+    {
+      "field_key": "museum_programme",
+      "observed_count": 2,
+      "domain": "DESIGN",
+      "registry_state": "AUTO_MEDIUM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "design / programme terminology"
+    },
+    {
+      "field_key": "new_tunnel_length_km",
+      "observed_count": 1,
+      "domain": "DIMENSIONS",
+      "registry_state": "AUTO_MEDIUM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "size / quantity / geometry terminology"
+    },
+    {
+      "field_key": "noor_i_capacity_mw",
+      "observed_count": 1,
+      "domain": "OPERATION",
+      "registry_state": "HUMAN_REVIEWED",
+      "resolution_method": "FIELD_LEVEL_HUMAN_REVIEW",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "Reviewed from actual claim context."
+    },
+    {
+      "field_key": "noor_i_opened",
+      "observed_count": 1,
+      "domain": "DATES",
+      "registry_state": "AUTO_MEDIUM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "date / chronology terminology"
+    },
+    {
+      "field_key": "object_strategy",
+      "observed_count": 1,
+      "domain": "DESIGN",
+      "registry_state": "AUTO_MEDIUM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "design / programme terminology"
+    },
+    {
+      "field_key": "opened_year",
+      "observed_count": 1,
+      "domain": "DATES",
+      "registry_state": "AUTO_HIGH",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "exact deterministic mapping"
+    },
+    {
+      "field_key": "opening",
+      "observed_count": 3,
+      "domain": "DATES",
+      "registry_state": "AUTO_HIGH",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "exact deterministic mapping"
+    },
+    {
+      "field_key": "opening_date",
+      "observed_count": 1,
+      "domain": "DATES",
+      "registry_state": "AUTO_HIGH",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "exact deterministic mapping"
+    },
+    {
+      "field_key": "original_architect",
+      "observed_count": 1,
+      "domain": "TEAM",
+      "registry_state": "AUTO_HIGH",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "exact deterministic mapping"
+    },
+    {
+      "field_key": "original_commissioning",
+      "observed_count": 1,
+      "domain": "DATES",
+      "registry_state": "AUTO_HIGH",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "exact deterministic mapping"
+    },
+    {
+      "field_key": "original_completion",
+      "observed_count": 1,
+      "domain": "DATES",
+      "registry_state": "AUTO_HIGH",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "exact deterministic mapping"
+    },
+    {
+      "field_key": "original_history",
+      "observed_count": 2,
+      "domain": "HISTORY",
+      "registry_state": "AUTO_MEDIUM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "historical terminology"
+    },
+    {
+      "field_key": "overall_capacity_mw",
+      "observed_count": 1,
+      "domain": "OPERATION",
+      "registry_state": "HUMAN_REVIEWED",
+      "resolution_method": "FIELD_LEVEL_HUMAN_REVIEW",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "Reviewed from actual claim context."
+    },
+    {
+      "field_key": "owner_operator",
+      "observed_count": 1,
+      "domain": "TEAM",
+      "registry_state": "AUTO_HIGH",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "exact deterministic mapping"
+    },
+    {
+      "field_key": "passenger_capacity",
+      "observed_count": 1,
+      "domain": "OPERATION",
+      "registry_state": "AUTO_MEDIUM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "operational / capacity terminology"
+    },
+    {
+      "field_key": "professional_team",
+      "observed_count": 7,
+      "domain": "TEAM",
+      "registry_state": "AUTO_HIGH",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "exact deterministic mapping"
+    },
+    {
+      "field_key": "project_cost",
+      "observed_count": 1,
+      "domain": null,
+      "registry_state": "TAXONOMY_GAP",
+      "resolution_method": "TAXONOMY_REVIEW_REQUIRED",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [
+        "P360-B01-020-C07"
+      ],
+      "reason": "Project cost does not fit cleanly into the current 16 Project claim domains. Do not force-map it."
+    },
+    {
+      "field_key": "project_dates",
+      "observed_count": 12,
+      "domain": "DATES",
+      "registry_state": "AUTO_MEDIUM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "date / chronology terminology"
+    },
+    {
+      "field_key": "project_lead",
+      "observed_count": 1,
+      "domain": "TEAM",
+      "registry_state": "AUTO_HIGH",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "exact deterministic mapping"
+    },
+    {
+      "field_key": "project_scale",
+      "observed_count": 1,
+      "domain": "DIMENSIONS",
+      "registry_state": "AUTO_MEDIUM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "size / quantity / geometry terminology"
+    },
+    {
+      "field_key": "project_story",
+      "observed_count": 2,
+      "domain": "DESIGN",
+      "registry_state": "HUMAN_REVIEWED",
+      "resolution_method": "FIELD_LEVEL_HUMAN_REVIEW",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "Reviewed from actual claim context."
+    },
+    {
+      "field_key": "project_type",
+      "observed_count": 17,
+      "domain": "TYPOLOGY",
+      "registry_state": "AUTO_HIGH",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "exact deterministic mapping"
+    },
+    {
+      "field_key": "public_realm",
+      "observed_count": 1,
+      "domain": "DESIGN",
+      "registry_state": "AUTO_MEDIUM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "design / programme terminology"
+    },
+    {
+      "field_key": "public_space_zones",
+      "observed_count": 1,
+      "domain": "DESIGN",
+      "registry_state": "HUMAN_REVIEWED",
+      "resolution_method": "FIELD_LEVEL_HUMAN_REVIEW",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "Reviewed from actual claim context."
+    },
+    {
+      "field_key": "research_testing",
+      "observed_count": 1,
+      "domain": "ENGINEERING",
+      "registry_state": "HUMAN_REVIEWED",
+      "resolution_method": "FIELD_LEVEL_HUMAN_REVIEW",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "Reviewed from actual claim context."
+    },
+    {
+      "field_key": "reservoir_scale",
+      "observed_count": 1,
+      "domain": "DIMENSIONS",
+      "registry_state": "AUTO_MEDIUM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "size / quantity / geometry terminology"
+    },
+    {
+      "field_key": "restored_stream_length",
+      "observed_count": 1,
+      "domain": "DIMENSIONS",
+      "registry_state": "AUTO_MEDIUM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "size / quantity / geometry terminology"
+    },
+    {
+      "field_key": "revenue_service_opened",
+      "observed_count": 1,
+      "domain": "DATES",
+      "registry_state": "AUTO_HIGH",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "exact deterministic mapping"
+    },
+    {
+      "field_key": "river_geometry",
+      "observed_count": 1,
+      "domain": "DIMENSIONS",
+      "registry_state": "AUTO_MEDIUM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "size / quantity / geometry terminology"
+    },
+    {
+      "field_key": "road_configuration",
+      "observed_count": 1,
+      "domain": "ENGINEERING",
+      "registry_state": "HUMAN_REVIEWED",
+      "resolution_method": "FIELD_LEVEL_HUMAN_REVIEW",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "Reviewed from actual claim context."
+    },
+    {
+      "field_key": "road_removal",
+      "observed_count": 1,
+      "domain": "CONSTRUCTION",
+      "registry_state": "HUMAN_REVIEWED",
+      "resolution_method": "FIELD_LEVEL_HUMAN_REVIEW",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "Reviewed from actual claim context."
+    },
+    {
+      "field_key": "roof_ventilation_system",
+      "observed_count": 1,
+      "domain": "SYSTEMS",
+      "registry_state": "AUTO_MEDIUM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "technical systems terminology"
+    },
+    {
+      "field_key": "route",
+      "observed_count": 1,
+      "domain": "OPERATION",
+      "registry_state": "AUTO_MEDIUM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "operational / capacity terminology"
+    },
+    {
+      "field_key": "route_length",
+      "observed_count": 1,
+      "domain": "DIMENSIONS",
+      "registry_state": "HUMAN_REVIEWED",
+      "resolution_method": "FIELD_LEVEL_HUMAN_REVIEW",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "Reviewed from actual claim context."
+    },
+    {
+      "field_key": "scale",
+      "observed_count": 5,
+      "domain": "DIMENSIONS",
+      "registry_state": "AUTO_MEDIUM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "size / quantity / geometry terminology"
+    },
+    {
+      "field_key": "station_count",
+      "observed_count": 1,
+      "domain": "DIMENSIONS",
+      "registry_state": "AUTO_MEDIUM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "size / quantity / geometry terminology"
+    },
+    {
+      "field_key": "structural_bridge_types",
+      "observed_count": 1,
+      "domain": "ENGINEERING",
+      "registry_state": "HUMAN_REVIEWED",
+      "resolution_method": "FIELD_LEVEL_HUMAN_REVIEW",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "Reviewed from actual claim context."
+    },
+    {
+      "field_key": "structural_engineering",
+      "observed_count": 2,
+      "domain": "ENGINEERING",
+      "registry_state": "AUTO_MEDIUM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "engineering / structural terminology"
+    },
+    {
+      "field_key": "structural_materials",
+      "observed_count": 2,
+      "domain": "MATERIALS",
+      "registry_state": "HUMAN_REVIEWED",
+      "resolution_method": "FIELD_LEVEL_HUMAN_REVIEW",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "Reviewed from actual claim context."
+    },
+    {
+      "field_key": "structural_system",
+      "observed_count": 3,
+      "domain": null,
+      "registry_state": "CLAIM_LEVEL_ONLY",
+      "resolution_method": "CLAIM_LEVEL_OVERRIDE_REQUIRED",
+      "claim_override_ids": [
+        "P360-B01-003-C07",
+        "P360-B01-006-C09",
+        "P360-B01-008-C10"
+      ],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "Legacy field contains heterogeneous semantics; no single field-level domain is safe."
+    },
+    {
+      "field_key": "sustainability_strategy",
+      "observed_count": 1,
+      "domain": "SUSTAINABILITY",
+      "registry_state": "AUTO_MEDIUM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "environmental / sustainability terminology"
+    },
+    {
+      "field_key": "system_material",
+      "observed_count": 3,
+      "domain": null,
+      "registry_state": "CLAIM_LEVEL_ONLY",
+      "resolution_method": "CLAIM_LEVEL_OVERRIDE_REQUIRED",
+      "claim_override_ids": [
+        "P360-B01-002-C05",
+        "P360-B01-003-C05",
+        "P360-B01-006-C10"
+      ],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "Legacy field contains heterogeneous semantics; no single field-level domain is safe."
+    },
+    {
+      "field_key": "system_performance",
+      "observed_count": 2,
+      "domain": "SYSTEMS",
+      "registry_state": "AUTO_MEDIUM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "technical systems terminology"
+    },
+    {
+      "field_key": "total_capacity",
+      "observed_count": 1,
+      "domain": "OPERATION",
+      "registry_state": "AUTO_MEDIUM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "operational / capacity terminology"
+    },
+    {
+      "field_key": "transport_configuration",
+      "observed_count": 1,
+      "domain": "OPERATION",
+      "registry_state": "AUTO_MEDIUM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "operational / capacity terminology"
+    },
+    {
+      "field_key": "transport_impacts",
+      "observed_count": 1,
+      "domain": "IMPACT",
+      "registry_state": "AUTO_MEDIUM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "social / urban impact terminology"
+    },
+    {
+      "field_key": "transport_transformation",
+      "observed_count": 1,
+      "domain": "IMPACT",
+      "registry_state": "HUMAN_REVIEWED",
+      "resolution_method": "FIELD_LEVEL_HUMAN_REVIEW",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "Reviewed from actual claim context."
+    },
+    {
+      "field_key": "tunnel_length",
+      "observed_count": 2,
+      "domain": "DIMENSIONS",
+      "registry_state": "AUTO_MEDIUM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "size / quantity / geometry terminology"
+    },
+    {
+      "field_key": "turbine_hall_transformation",
+      "observed_count": 1,
+      "domain": "DESIGN",
+      "registry_state": "HUMAN_REVIEWED",
+      "resolution_method": "FIELD_LEVEL_HUMAN_REVIEW",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "Reviewed from actual claim context."
+    },
+    {
+      "field_key": "urban_social_role",
+      "observed_count": 1,
+      "domain": "IMPACT",
+      "registry_state": "AUTO_MEDIUM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "social / urban impact terminology"
+    },
+    {
+      "field_key": "urban_strategy",
+      "observed_count": 1,
+      "domain": "DESIGN",
+      "registry_state": "AUTO_MEDIUM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "design / programme terminology"
+    },
+    {
+      "field_key": "western_connections",
+      "observed_count": 1,
+      "domain": "OPERATION",
+      "registry_state": "AUTO_MEDIUM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "operational / capacity terminology"
+    },
+    {
+      "field_key": "workplace_programme",
+      "observed_count": 1,
+      "domain": "DESIGN",
+      "registry_state": "AUTO_MEDIUM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "design / programme terminology"
+    },
+    {
+      "field_key": "world_heritage_criterion",
+      "observed_count": 1,
+      "domain": "HERITAGE",
+      "registry_state": "AUTO_HIGH",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "exact deterministic mapping"
+    },
+    {
+      "field_key": "world_heritage_inscription_year",
+      "observed_count": 1,
+      "domain": "HERITAGE",
+      "registry_state": "AUTO_HIGH",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "claim_override_ids": [],
+      "taxonomy_gap_claim_ids": [],
+      "reason": "exact deterministic mapping"
+    }
+  ],
+  "claim_level_overrides": [
+    {
+      "claim_id": "P360-B01-003-C07",
+      "field_key": "structural_system",
+      "domain": "ENGINEERING",
+      "reason": "Salk Vierendeel truss structural system."
+    },
+    {
+      "claim_id": "P360-B01-006-C09",
+      "field_key": "structural_system",
+      "domain": "ENGINEERING",
+      "reason": "Sendai steel tubes and floor slabs describe the primary structural concept."
+    },
+    {
+      "claim_id": "P360-B01-008-C10",
+      "field_key": "structural_system",
+      "domain": "DIMENSIONS",
+      "reason": "Claim value is pylon height, not a structural-system description."
+    },
+    {
+      "claim_id": "P360-B01-002-C05",
+      "field_key": "system_material",
+      "domain": "MATERIALS",
+      "reason": "Claim identifies reinforced concrete as the primary structural material."
+    },
+    {
+      "claim_id": "P360-B01-003-C05",
+      "field_key": "system_material",
+      "domain": "DESIGN",
+      "reason": "Claim describes the two-building spatial configuration."
+    },
+    {
+      "claim_id": "P360-B01-006-C10",
+      "field_key": "system_material",
+      "domain": "SYSTEMS",
+      "reason": "Claim describes circulation and building-services functions within the tubes."
+    }
+  ],
+  "taxonomy_gaps": [
+    {
+      "field_key": "project_cost",
+      "claim_id": "P360-B01-020-C07",
+      "current_label": "Reported project cost",
+      "reason": "Project cost does not fit cleanly into the current 16 Project claim domains. Do not force-map it.",
+      "proposed_future_concept": "DELIVERY / COST / ECONOMICS",
+      "status": "TAXONOMY_REVIEW_REQUIRED"
+    }
+  ],
+  "domain_summary": [
+    {
+      "domain": "IDENTITY",
+      "resolved_claims": 1,
+      "distinct_field_keys": 1
+    },
+    {
+      "domain": "LOCATION",
+      "resolved_claims": 12,
+      "distinct_field_keys": 1
+    },
+    {
+      "domain": "TYPOLOGY",
+      "resolved_claims": 18,
+      "distinct_field_keys": 2
+    },
+    {
+      "domain": "DATES",
+      "resolved_claims": 28,
+      "distinct_field_keys": 15
+    },
+    {
+      "domain": "DIMENSIONS",
+      "resolved_claims": 25,
+      "distinct_field_keys": 19
+    },
+    {
+      "domain": "TEAM",
+      "resolved_claims": 30,
+      "distinct_field_keys": 12
+    },
+    {
+      "domain": "DESIGN",
+      "resolved_claims": 16,
+      "distinct_field_keys": 14
+    },
+    {
+      "domain": "ENGINEERING",
+      "resolved_claims": 10,
+      "distinct_field_keys": 8
+    },
+    {
+      "domain": "MATERIALS",
+      "resolved_claims": 6,
+      "distinct_field_keys": 5
+    },
+    {
+      "domain": "SYSTEMS",
+      "resolved_claims": 9,
+      "distinct_field_keys": 8
+    },
+    {
+      "domain": "CONSTRUCTION",
+      "resolved_claims": 4,
+      "distinct_field_keys": 4
+    },
+    {
+      "domain": "OPERATION",
+      "resolved_claims": 13,
+      "distinct_field_keys": 13
+    },
+    {
+      "domain": "SUSTAINABILITY",
+      "resolved_claims": 6,
+      "distinct_field_keys": 6
+    },
+    {
+      "domain": "HERITAGE",
+      "resolved_claims": 2,
+      "distinct_field_keys": 2
+    },
+    {
+      "domain": "IMPACT",
+      "resolved_claims": 5,
+      "distinct_field_keys": 5
+    },
+    {
+      "domain": "HISTORY",
+      "resolved_claims": 5,
+      "distinct_field_keys": 4
+    }
+  ],
+  "claim_resolution_audit": [
+    {
+      "claim_id": "P360-B01-002-C01",
+      "field_key": "identity",
+      "domain": "IDENTITY",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-002-C02",
+      "field_key": "location",
+      "domain": "LOCATION",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-002-C03",
+      "field_key": "lead_designer",
+      "domain": "TEAM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-002-C04",
+      "field_key": "project_dates",
+      "domain": "DATES",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-002-C05",
+      "field_key": "system_material",
+      "domain": "MATERIALS",
+      "resolution_method": "CLAIM_LEVEL_OVERRIDE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-002-C06",
+      "field_key": "project_story",
+      "domain": "DESIGN",
+      "resolution_method": "FIELD_LEVEL_HUMAN_REVIEW",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-002-C07",
+      "field_key": "landscape_water_relationship",
+      "domain": "DESIGN",
+      "resolution_method": "FIELD_LEVEL_HUMAN_REVIEW",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-003-C01",
+      "field_key": "project_type",
+      "domain": "TYPOLOGY",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-003-C02",
+      "field_key": "lead_designer",
+      "domain": "TEAM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-003-C03",
+      "field_key": "client_owner",
+      "domain": "TEAM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-003-C04",
+      "field_key": "project_dates",
+      "domain": "DATES",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-003-C05",
+      "field_key": "system_material",
+      "domain": "DESIGN",
+      "resolution_method": "CLAIM_LEVEL_OVERRIDE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-003-C06",
+      "field_key": "laboratory_research_programme",
+      "domain": "DESIGN",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-003-C07",
+      "field_key": "structural_system",
+      "domain": "ENGINEERING",
+      "resolution_method": "CLAIM_LEVEL_OVERRIDE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-003-C08",
+      "field_key": "material_strategy",
+      "domain": "MATERIALS",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-003-C09",
+      "field_key": "mechanical_service_strategy",
+      "domain": "SYSTEMS",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-003-C10",
+      "field_key": "project_story",
+      "domain": "DESIGN",
+      "resolution_method": "FIELD_LEVEL_HUMAN_REVIEW",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-004-C01",
+      "field_key": "project_type",
+      "domain": "TYPOLOGY",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-004-C02",
+      "field_key": "location",
+      "domain": "LOCATION",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-004-C03",
+      "field_key": "project_dates",
+      "domain": "DATES",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-004-C04",
+      "field_key": "lead_designer",
+      "domain": "TEAM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-004-C05",
+      "field_key": "client_owner",
+      "domain": "TEAM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-004-C06",
+      "field_key": "local_material_strategy",
+      "domain": "MATERIALS",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-004-C07",
+      "field_key": "roof_ventilation_system",
+      "domain": "SYSTEMS",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-004-C08",
+      "field_key": "climate_responsive_design",
+      "domain": "SUSTAINABILITY",
+      "resolution_method": "FIELD_LEVEL_HUMAN_REVIEW",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-004-C09",
+      "field_key": "community_construction_model",
+      "domain": "CONSTRUCTION",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-005-C01",
+      "field_key": "project_type",
+      "domain": "TYPOLOGY",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-005-C02",
+      "field_key": "location",
+      "domain": "LOCATION",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-005-C03",
+      "field_key": "lead_designer",
+      "domain": "TEAM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-005-C04",
+      "field_key": "project_dates",
+      "domain": "DATES",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-005-C05",
+      "field_key": "museum_programme",
+      "domain": "DESIGN",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-005-C06",
+      "field_key": "dome_geometry",
+      "domain": "DIMENSIONS",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-005-C07",
+      "field_key": "structural_engineering",
+      "domain": "ENGINEERING",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-005-C08",
+      "field_key": "material_systems",
+      "domain": "MATERIALS",
+      "resolution_method": "FIELD_LEVEL_HUMAN_REVIEW",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-005-C09",
+      "field_key": "dome_geometry",
+      "domain": "DIMENSIONS",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-005-C10",
+      "field_key": "structural_engineering",
+      "domain": "ENGINEERING",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-005-C11",
+      "field_key": "environmental_microclimate",
+      "domain": "SUSTAINABILITY",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-006-C01",
+      "field_key": "project_type",
+      "domain": "TYPOLOGY",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-006-C02",
+      "field_key": "location",
+      "domain": "LOCATION",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-006-C03",
+      "field_key": "client_owner",
+      "domain": "TEAM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-006-C04",
+      "field_key": "lead_designer",
+      "domain": "TEAM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-006-C05",
+      "field_key": "professional_team",
+      "domain": "TEAM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-006-C06",
+      "field_key": "project_dates",
+      "domain": "DATES",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-006-C07",
+      "field_key": "scale",
+      "domain": "DIMENSIONS",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-006-C08",
+      "field_key": "scale",
+      "domain": "DIMENSIONS",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-006-C09",
+      "field_key": "structural_system",
+      "domain": "ENGINEERING",
+      "resolution_method": "CLAIM_LEVEL_OVERRIDE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-006-C10",
+      "field_key": "system_material",
+      "domain": "SYSTEMS",
+      "resolution_method": "CLAIM_LEVEL_OVERRIDE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-006-C11",
+      "field_key": "facade_system",
+      "domain": "SYSTEMS",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-006-C12",
+      "field_key": "professional_team",
+      "domain": "TEAM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-008-C01",
+      "field_key": "project_type",
+      "domain": "TYPOLOGY",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-008-C02",
+      "field_key": "location",
+      "domain": "LOCATION",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-008-C03",
+      "field_key": "scale",
+      "domain": "DIMENSIONS",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-008-C04",
+      "field_key": "bridge_length",
+      "domain": "DIMENSIONS",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-008-C05",
+      "field_key": "tunnel_length",
+      "domain": "DIMENSIONS",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-008-C06",
+      "field_key": "artificial_island",
+      "domain": "ENGINEERING",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-008-C07",
+      "field_key": "project_dates",
+      "domain": "DATES",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-008-C08",
+      "field_key": "bridge_type",
+      "domain": "TYPOLOGY",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-008-C09",
+      "field_key": "main_span",
+      "domain": "DIMENSIONS",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-008-C10",
+      "field_key": "structural_system",
+      "domain": "DIMENSIONS",
+      "resolution_method": "CLAIM_LEVEL_OVERRIDE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-008-C11",
+      "field_key": "transport_configuration",
+      "domain": "OPERATION",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-008-C12",
+      "field_key": "structural_materials",
+      "domain": "MATERIALS",
+      "resolution_method": "FIELD_LEVEL_HUMAN_REVIEW",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-008-C13",
+      "field_key": "professional_team",
+      "domain": "TEAM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-009-C01",
+      "field_key": "project_type",
+      "domain": "TYPOLOGY",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-009-C02",
+      "field_key": "scale",
+      "domain": "DIMENSIONS",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-009-C03",
+      "field_key": "scale",
+      "domain": "DIMENSIONS",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-009-C04",
+      "field_key": "bridge_sections",
+      "domain": "ENGINEERING",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-009-C05",
+      "field_key": "road_configuration",
+      "domain": "ENGINEERING",
+      "resolution_method": "FIELD_LEVEL_HUMAN_REVIEW",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-009-C06",
+      "field_key": "design_life",
+      "domain": "DESIGN",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-009-C07",
+      "field_key": "structural_bridge_types",
+      "domain": "ENGINEERING",
+      "resolution_method": "FIELD_LEVEL_HUMAN_REVIEW",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-009-C08",
+      "field_key": "structural_materials",
+      "domain": "MATERIALS",
+      "resolution_method": "FIELD_LEVEL_HUMAN_REVIEW",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-009-C09",
+      "field_key": "tunnel_length",
+      "domain": "DIMENSIONS",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-009-C10",
+      "field_key": "construction_methodology",
+      "domain": "CONSTRUCTION",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-009-C11",
+      "field_key": "artificial_islands",
+      "domain": "ENGINEERING",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-010-C01",
+      "field_key": "project_type",
+      "domain": "TYPOLOGY",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-010-C02",
+      "field_key": "route",
+      "domain": "OPERATION",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-010-C03",
+      "field_key": "route_length",
+      "domain": "DIMENSIONS",
+      "resolution_method": "FIELD_LEVEL_HUMAN_REVIEW",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-010-C04",
+      "field_key": "station_count",
+      "domain": "DIMENSIONS",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-010-C05",
+      "field_key": "cabin_ropeway_system",
+      "domain": "SYSTEMS",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-010-C06",
+      "field_key": "capacity",
+      "domain": "OPERATION",
+      "resolution_method": "FIELD_LEVEL_HUMAN_REVIEW",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-010-C07",
+      "field_key": "passenger_capacity",
+      "domain": "OPERATION",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-010-C08",
+      "field_key": "system_performance",
+      "domain": "SYSTEMS",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-010-C09",
+      "field_key": "opening_date",
+      "domain": "DATES",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-010-C10",
+      "field_key": "urban_social_role",
+      "domain": "IMPACT",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-012-C01",
+      "field_key": "project_type",
+      "domain": "TYPOLOGY",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-012-C02",
+      "field_key": "client_owner",
+      "domain": "TEAM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-012-C03",
+      "field_key": "project_scale",
+      "domain": "DIMENSIONS",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-012-C04",
+      "field_key": "project_dates",
+      "domain": "DATES",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-012-C05",
+      "field_key": "concrete_canal_transformation",
+      "domain": "HISTORY",
+      "resolution_method": "FIELD_LEVEL_HUMAN_REVIEW",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-012-C06",
+      "field_key": "flood_management_strategy",
+      "domain": "SUSTAINABILITY",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-012-C07",
+      "field_key": "river_geometry",
+      "domain": "DIMENSIONS",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-012-C08",
+      "field_key": "ecology_planting",
+      "domain": "SUSTAINABILITY",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-012-C09",
+      "field_key": "research_testing",
+      "domain": "ENGINEERING",
+      "resolution_method": "FIELD_LEVEL_HUMAN_REVIEW",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-012-C10",
+      "field_key": "professional_team",
+      "domain": "TEAM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-012-C11",
+      "field_key": "professional_team",
+      "domain": "TEAM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-013-C01",
+      "field_key": "project_type",
+      "domain": "TYPOLOGY",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-013-C02",
+      "field_key": "location",
+      "domain": "LOCATION",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-013-C03",
+      "field_key": "client_owner",
+      "domain": "TEAM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-013-C04",
+      "field_key": "design_team",
+      "domain": "TEAM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-013-C05",
+      "field_key": "project_dates",
+      "domain": "DATES",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-013-C06",
+      "field_key": "public_space_zones",
+      "domain": "DESIGN",
+      "resolution_method": "FIELD_LEVEL_HUMAN_REVIEW",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-013-C07",
+      "field_key": "community_participation",
+      "domain": "IMPACT",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-013-C08",
+      "field_key": "object_strategy",
+      "domain": "DESIGN",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-013-C09",
+      "field_key": "opening",
+      "domain": "DATES",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-015-C01",
+      "field_key": "project_type",
+      "domain": "TYPOLOGY",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-015-C02",
+      "field_key": "location",
+      "domain": "LOCATION",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-015-C03",
+      "field_key": "client_owner",
+      "domain": "TEAM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-015-C04",
+      "field_key": "project_dates",
+      "domain": "DATES",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-015-C05",
+      "field_key": "project_dates",
+      "domain": "DATES",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-015-C06",
+      "field_key": "construction_chronology",
+      "domain": "DATES",
+      "resolution_method": "FIELD_LEVEL_HUMAN_REVIEW",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-015-C07",
+      "field_key": "generation_chronology",
+      "domain": "DATES",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-015-C08",
+      "field_key": "generation_capacity",
+      "domain": "OPERATION",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-015-C09",
+      "field_key": "generating_units",
+      "domain": "OPERATION",
+      "resolution_method": "FIELD_LEVEL_HUMAN_REVIEW",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-015-C10",
+      "field_key": "reservoir_scale",
+      "domain": "DIMENSIONS",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-015-C11",
+      "field_key": "dam_dimensions",
+      "domain": "DIMENSIONS",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-016-C01",
+      "field_key": "project_type",
+      "domain": "TYPOLOGY",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-016-C02",
+      "field_key": "location",
+      "domain": "LOCATION",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-016-C03",
+      "field_key": "owner_operator",
+      "domain": "TEAM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-016-C04",
+      "field_key": "battery_power_capacity",
+      "domain": "OPERATION",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-016-C05",
+      "field_key": "battery_energy_capacity",
+      "domain": "OPERATION",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-016-C06",
+      "field_key": "original_commissioning",
+      "domain": "DATES",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-016-C07",
+      "field_key": "expansion",
+      "domain": "HISTORY",
+      "resolution_method": "FIELD_LEVEL_HUMAN_REVIEW",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-016-C08",
+      "field_key": "total_capacity",
+      "domain": "OPERATION",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-016-C09",
+      "field_key": "battery_technology",
+      "domain": "SYSTEMS",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-016-C10",
+      "field_key": "grid_services",
+      "domain": "SYSTEMS",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-016-C11",
+      "field_key": "system_performance",
+      "domain": "SYSTEMS",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-017-C01",
+      "field_key": "project_type",
+      "domain": "TYPOLOGY",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-017-C02",
+      "field_key": "location",
+      "domain": "LOCATION",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-017-C03",
+      "field_key": "original_architect",
+      "domain": "TEAM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-017-C04",
+      "field_key": "original_completion",
+      "domain": "DATES",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-017-C05",
+      "field_key": "adaptive_reuse_client",
+      "domain": "TEAM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-017-C06",
+      "field_key": "conversion_architect",
+      "domain": "TEAM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-017-C07",
+      "field_key": "professional_team",
+      "domain": "TEAM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-017-C08",
+      "field_key": "project_dates",
+      "domain": "DATES",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-017-C09",
+      "field_key": "museum_opening",
+      "domain": "DATES",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-017-C10",
+      "field_key": "existing_structure_reuse",
+      "domain": "HISTORY",
+      "resolution_method": "FIELD_LEVEL_HUMAN_REVIEW",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-017-C11",
+      "field_key": "turbine_hall_transformation",
+      "domain": "DESIGN",
+      "resolution_method": "FIELD_LEVEL_HUMAN_REVIEW",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-018-C01",
+      "field_key": "project_type",
+      "domain": "TYPOLOGY",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-018-C02",
+      "field_key": "location",
+      "domain": "LOCATION",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-018-C03",
+      "field_key": "original_history",
+      "domain": "HISTORY",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-018-C04",
+      "field_key": "original_history",
+      "domain": "HISTORY",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-018-C05",
+      "field_key": "client_owner",
+      "domain": "TEAM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-018-C06",
+      "field_key": "adaptive_reuse_architect",
+      "domain": "TEAM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-018-C07",
+      "field_key": "museum_area",
+      "domain": "DIMENSIONS",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-018-C08",
+      "field_key": "museum_programme",
+      "domain": "DESIGN",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-018-C09",
+      "field_key": "concrete_silo_geometry",
+      "domain": "DIMENSIONS",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-018-C10",
+      "field_key": "carved_atrium",
+      "domain": "CONSTRUCTION",
+      "resolution_method": "FIELD_LEVEL_HUMAN_REVIEW",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-018-C11",
+      "field_key": "opening",
+      "domain": "DATES",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-018-C12",
+      "field_key": "professional_team",
+      "domain": "TEAM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-019-C01",
+      "field_key": "project_type",
+      "domain": "TYPOLOGY",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-019-C02",
+      "field_key": "location",
+      "domain": "LOCATION",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-019-C03",
+      "field_key": "client_owner",
+      "domain": "TEAM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-019-C04",
+      "field_key": "district_area",
+      "domain": "DIMENSIONS",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-019-C05",
+      "field_key": "housing_programme",
+      "domain": "DESIGN",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-019-C06",
+      "field_key": "workplace_programme",
+      "domain": "DESIGN",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-019-C07",
+      "field_key": "development_phases",
+      "domain": "DATES",
+      "resolution_method": "FIELD_LEVEL_HUMAN_REVIEW",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-019-C08",
+      "field_key": "climate_strategy",
+      "domain": "SUSTAINABILITY",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-019-C09",
+      "field_key": "mobility_strategy",
+      "domain": "DESIGN",
+      "resolution_method": "FIELD_LEVEL_HUMAN_REVIEW",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-019-C10",
+      "field_key": "urban_strategy",
+      "domain": "DESIGN",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-019-C11",
+      "field_key": "sustainability_strategy",
+      "domain": "SUSTAINABILITY",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-020-C01",
+      "field_key": "project_type",
+      "domain": "TYPOLOGY",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-020-C02",
+      "field_key": "location",
+      "domain": "LOCATION",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-020-C03",
+      "field_key": "client_owner",
+      "domain": "TEAM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-020-C04",
+      "field_key": "project_dates",
+      "domain": "DATES",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-020-C05",
+      "field_key": "opening",
+      "domain": "DATES",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-020-C06",
+      "field_key": "restored_stream_length",
+      "domain": "DIMENSIONS",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-020-C07",
+      "field_key": "project_cost",
+      "domain": null,
+      "resolution_method": "TAXONOMY_GAP",
+      "resolution_status": "TAXONOMY_REVIEW_REQUIRED"
+    },
+    {
+      "claim_id": "P360-B01-020-C08",
+      "field_key": "road_removal",
+      "domain": "CONSTRUCTION",
+      "resolution_method": "FIELD_LEVEL_HUMAN_REVIEW",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-020-C09",
+      "field_key": "transport_transformation",
+      "domain": "IMPACT",
+      "resolution_method": "FIELD_LEVEL_HUMAN_REVIEW",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-020-C10",
+      "field_key": "public_realm",
+      "domain": "DESIGN",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-020-C11",
+      "field_key": "transport_impacts",
+      "domain": "IMPACT",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-001-GM-C01",
+      "field_key": "architect",
+      "domain": "TEAM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-001-GM-C02",
+      "field_key": "construction_started",
+      "domain": "DATES",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-001-GM-C03",
+      "field_key": "opened_year",
+      "domain": "DATES",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-001-GM-C04",
+      "field_key": "world_heritage_inscription_year",
+      "domain": "HERITAGE",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-001-GM-C05",
+      "field_key": "world_heritage_criterion",
+      "domain": "HERITAGE",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-007-GM-C01",
+      "field_key": "revenue_service_opened",
+      "domain": "DATES",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-007-GM-C02",
+      "field_key": "new_tunnel_length_km",
+      "domain": "DIMENSIONS",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-007-GM-C03",
+      "field_key": "western_connections",
+      "domain": "OPERATION",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-007-GM-C04",
+      "field_key": "eastern_connections",
+      "domain": "OPERATION",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-007-GM-C05",
+      "field_key": "central_london_rail_capacity_increase",
+      "domain": "IMPACT",
+      "resolution_method": "FIELD_LEVEL_HUMAN_REVIEW",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-011-GM-C01",
+      "field_key": "project_type",
+      "domain": "TYPOLOGY",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-011-GM-C02",
+      "field_key": "length_miles",
+      "domain": "DIMENSIONS",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-011-GM-C03",
+      "field_key": "area_acres",
+      "domain": "DIMENSIONS",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-011-GM-C04",
+      "field_key": "project_lead",
+      "domain": "TEAM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-011-GM-C05",
+      "field_key": "design_collaborators",
+      "domain": "TEAM",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-011-GM-C06",
+      "field_key": "first_section_opened",
+      "domain": "DATES",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-014-GM-C01",
+      "field_key": "project_type",
+      "domain": "TYPOLOGY",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-014-GM-C02",
+      "field_key": "overall_capacity_mw",
+      "domain": "OPERATION",
+      "resolution_method": "FIELD_LEVEL_HUMAN_REVIEW",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-014-GM-C03",
+      "field_key": "noor_i_capacity_mw",
+      "domain": "OPERATION",
+      "resolution_method": "FIELD_LEVEL_HUMAN_REVIEW",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-014-GM-C04",
+      "field_key": "noor_i_opened",
+      "domain": "DATES",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    },
+    {
+      "claim_id": "P360-B01-014-GM-C05",
+      "field_key": "csp_complex_operational_since",
+      "domain": "DATES",
+      "resolution_method": "DETERMINISTIC_FIELD_RULE",
+      "resolution_status": "RESOLVED"
+    }
+  ]
+}

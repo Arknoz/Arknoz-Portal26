@@ -1,0 +1,228 @@
+{
+    "standard":  "ARKNOZ_SOURCE_CONNECTOR_REGISTRY_V1",
+    "scope":  "PLATFORM_WIDE",
+    "purpose":  "Defines how external APIs, websites and submitted sources may contribute discovery and evidence to Arknoz without becoming the canonical data layer.",
+    "core_principle":  "External systems supply evidence and discovery. Arknoz owns canonical IDs, normalized schemas, relationships, review state and presentation.",
+    "ingestion_pipeline":  [
+                               "RAW_SOURCE",
+                               "DISCOVERY",
+                               "NORMALIZATION",
+                               "IDENTITY_RESOLUTION",
+                               "DUPLICATE_CHECK",
+                               "EVIDENCE_REVIEW",
+                               "CONFLICT_CHECK",
+                               "HUMAN_OR_SYSTEM_REVIEW",
+                               "CANONICAL_CANDIDATE",
+                               "PUBLICATION_GATE"
+                           ],
+    "universal_rules":  [
+                            "No external API is a live dependency for an already approved Arknoz record.",
+                            "External source field names are normalized into Arknoz schemas.",
+                            "Original source wording and identifiers are preserved for provenance.",
+                            "External IDs never replace Arknoz canonical IDs.",
+                            "Duplicate evidence strengthens one claim; it does not create duplicate entities.",
+                            "Conflicting values remain conflicts until reviewed.",
+                            "Discovery scores are not Arknoz verification scores.",
+                            "No discovery result becomes canonical automatically.",
+                            "No source may overwrite stronger reviewed evidence automatically.",
+                            "Public pages read from Arknoz-approved data rather than directly from external APIs.",
+                            "Failure of one connector must not remove previously approved Arknoz content."
+                        ],
+    "connectors":  [
+                       {
+                           "connector_id":  "SRC-WIKIDATA",
+                           "name":  "Wikidata",
+                           "source_class":  "STRUCTURED_KNOWLEDGE",
+                           "primary_roles":  [
+                                                 "ENTITY_DISCOVERY",
+                                                 "IDENTITY_MATCHING",
+                                                 "EXTERNAL_IDS",
+                                                 "LOCATION_DISCOVERY",
+                                                 "RELATED_ENTITY_DISCOVERY",
+                                                 "MEDIA_DISCOVERY_ANCHOR"
+                                             ],
+                           "canonical_truth_source":  false,
+                           "direct_public_dependency":  false,
+                           "current_arknoz_use":  "ACTIVE",
+                           "candidate_only_by_default":  true,
+                           "normalized_into_arknoz":  true
+                       },
+                       {
+                           "connector_id":  "SRC-WIKIMEDIA-COMMONS",
+                           "name":  "Wikimedia Commons",
+                           "source_class":  "MEDIA_AND_RIGHTS_METADATA",
+                           "primary_roles":  [
+                                                 "MEDIA_DISCOVERY",
+                                                 "IMAGE_METADATA",
+                                                 "LICENSE_METADATA",
+                                                 "ATTRIBUTION_METADATA",
+                                                 "SOURCE_PROVENANCE"
+                                             ],
+                           "canonical_truth_source":  false,
+                           "direct_public_dependency":  false,
+                           "current_arknoz_use":  "ACTIVE",
+                           "candidate_only_by_default":  true,
+                           "additional_gates":  [
+                                                    "PROJECT_MATCH_REVIEW",
+                                                    "RIGHTS_REVIEW",
+                                                    "ATTRIBUTION_REVIEW",
+                                                    "ARCHITECTURE_RIGHTS_REVIEW",
+                                                    "PUBLICATION_REVIEW"
+                                                ],
+                           "normalized_into_arknoz":  true
+                       },
+                       {
+                           "connector_id":  "SRC-CROSSREF",
+                           "name":  "Crossref",
+                           "source_class":  "SCHOLARLY_METADATA",
+                           "primary_roles":  [
+                                                 "PUBLICATION_DISCOVERY",
+                                                 "DOI_DISCOVERY",
+                                                 "PUBLISHER_METADATA",
+                                                 "RESEARCH_SOURCE_DISCOVERY"
+                                             ],
+                           "canonical_truth_source":  false,
+                           "direct_public_dependency":  false,
+                           "current_arknoz_use":  "ACTIVE_DISCOVERY",
+                           "candidate_only_by_default":  true,
+                           "additional_gates":  [
+                                                    "PROJECT_RELEVANCE_REVIEW",
+                                                    "DUPLICATE_DOI_CHECK",
+                                                    "EVIDENCE_REVIEW"
+                                                ],
+                           "normalized_into_arknoz":  true
+                       },
+                       {
+                           "connector_id":  "SRC-OPENALEX",
+                           "name":  "OpenAlex",
+                           "source_class":  "SCHOLARLY_KNOWLEDGE_GRAPH",
+                           "primary_roles":  [
+                                                 "PUBLICATION_ENRICHMENT",
+                                                 "AUTHOR_DISCOVERY",
+                                                 "INSTITUTION_DISCOVERY",
+                                                 "CITATION_CONNECTIONS",
+                                                 "RESEARCH_RELATIONSHIPS"
+                                             ],
+                           "canonical_truth_source":  false,
+                           "direct_public_dependency":  false,
+                           "current_arknoz_use":  "OPTIONAL_NOT_CONFIGURED",
+                           "candidate_only_by_default":  true,
+                           "additional_gates":  [
+                                                    "LOCAL_CONFIGURATION",
+                                                    "PROJECT_RELEVANCE_REVIEW",
+                                                    "DUPLICATE_PUBLICATION_CHECK",
+                                                    "EVIDENCE_REVIEW"
+                                                ],
+                           "normalized_into_arknoz":  true
+                       },
+                       {
+                           "connector_id":  "SRC-OFFICIAL",
+                           "name":  "Official Project / Government / Institution Source",
+                           "source_class":  "PRIMARY_OR_AUTHORITATIVE_SOURCE",
+                           "primary_roles":  [
+                                                 "PROJECT_FACT_VERIFICATION",
+                                                 "DATES",
+                                                 "DIMENSIONS",
+                                                 "OWNERSHIP",
+                                                 "OPERATION",
+                                                 "TECHNICAL_INFORMATION",
+                                                 "OFFICIAL_DOCUMENTATION"
+                                             ],
+                           "canonical_truth_source":  false,
+                           "source_priority":  "HIGH",
+                           "direct_public_dependency":  false,
+                           "candidate_only_by_default":  true,
+                           "normalized_into_arknoz":  true
+                       },
+                       {
+                           "connector_id":  "SRC-PROFESSIONAL",
+                           "name":  "Architect / Engineer / Operator / Specialist Source",
+                           "source_class":  "PROFESSIONAL_PRIMARY_SOURCE",
+                           "primary_roles":  [
+                                                 "DESIGN_INTENT",
+                                                 "ENGINEERING_SYSTEMS",
+                                                 "MATERIALS",
+                                                 "CONSTRUCTION_INFORMATION",
+                                                 "TEAM_ROLES",
+                                                 "TECHNICAL_EXPLANATION"
+                                             ],
+                           "canonical_truth_source":  false,
+                           "source_priority":  "HIGH_WHEN_WITHIN_SOURCE_AUTHORITY",
+                           "direct_public_dependency":  false,
+                           "candidate_only_by_default":  true,
+                           "normalized_into_arknoz":  true
+                       },
+                       {
+                           "connector_id":  "SRC-INDEPENDENT",
+                           "name":  "Independent Trusted Source",
+                           "source_class":  "SECONDARY_VERIFICATION_SOURCE",
+                           "primary_roles":  [
+                                                 "CROSS_CHECK",
+                                                 "CONTEXT",
+                                                 "CRITICISM",
+                                                 "IMPACT",
+                                                 "CONFLICT_DETECTION"
+                                             ],
+                           "canonical_truth_source":  false,
+                           "source_priority":  "CONTEXT_DEPENDENT",
+                           "direct_public_dependency":  false,
+                           "candidate_only_by_default":  true,
+                           "normalized_into_arknoz":  true
+                       },
+                       {
+                           "connector_id":  "SRC-OWNER-SUBMISSION",
+                           "name":  "Verified Owner / Project Team Submission",
+                           "source_class":  "FIRST_PARTY_SUBMISSION",
+                           "primary_roles":  [
+                                                 "ORIGINAL_PROJECT_INFORMATION",
+                                                 "OFFICIAL_MEDIA",
+                                                 "DRAWINGS",
+                                                 "TECHNICAL_DOCUMENTS",
+                                                 "TEAM_INFORMATION",
+                                                 "PRODUCT_INFORMATION",
+                                                 "MATERIAL_INFORMATION"
+                                             ],
+                           "canonical_truth_source":  false,
+                           "source_priority":  "HIGH_FOR_FIRST_PARTY_INFORMATION",
+                           "direct_public_dependency":  false,
+                           "candidate_only_by_default":  true,
+                           "additional_gates":  [
+                                                    "IDENTITY_VERIFICATION",
+                                                    "ENTITY_LINKING",
+                                                    "DUPLICATE_CHECK",
+                                                    "RIGHTS_CONFIRMATION",
+                                                    "ADMIN_REVIEW"
+                                                ],
+                           "normalized_into_arknoz":  true
+                       }
+                   ],
+    "arknoz_entity_scope":  [
+                                "PROJECT",
+                                "PRODUCT",
+                                "MATERIAL",
+                                "KNOWLEDGE",
+                                "LEARNING",
+                                "PERSON",
+                                "ORGANISATION",
+                                "PLACE",
+                                "OPPORTUNITY",
+                                "COMMUNITY"
+                            ],
+    "canonical_layer":  {
+                            "owner":  "ARKNOZ",
+                            "required_shared_fields":  [
+                                                           "arknoz_id",
+                                                           "entity_type",
+                                                           "canonical_name",
+                                                           "aliases",
+                                                           "external_ids",
+                                                           "source_provenance",
+                                                           "review_state",
+                                                           "evidence_state",
+                                                           "conflict_state",
+                                                           "publication_state",
+                                                           "created_at",
+                                                           "updated_at"
+                                                       ]
+                        }
+}

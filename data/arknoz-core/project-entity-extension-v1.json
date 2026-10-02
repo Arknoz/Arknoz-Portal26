@@ -1,0 +1,236 @@
+{
+    "standard":  "ARKNOZ_PROJECT_ENTITY_EXTENSION_V1",
+    "entity_type":  "PROJECT",
+    "inherits":  "ARKNOZ_CANONICAL_ENTITY_STANDARD_V1",
+    "purpose":  "Defines the Project-specific schema that extends Arknoz Core while preserving the frozen six-section Project Master.",
+    "architectural_rule":  "Project is the first reference implementation of Arknoz Core. Project-specific fields extend, but do not replace, shared Arknoz identity, evidence, provenance and relationship structures.",
+    "public_sections":  [
+                            {
+                                "order":  1,
+                                "key":  "OVERVIEW",
+                                "label":  "Overview"
+                            },
+                            {
+                                "order":  2,
+                                "key":  "MEDIA",
+                                "label":  "Media"
+                            },
+                            {
+                                "order":  3,
+                                "key":  "DRAWINGS",
+                                "label":  "Drawings"
+                            },
+                            {
+                                "order":  4,
+                                "key":  "PROJECT_DETAIL",
+                                "label":  "Project Detail"
+                            },
+                            {
+                                "order":  5,
+                                "key":  "CONNECTED_WORLD",
+                                "label":  "Connected World"
+                            },
+                            {
+                                "order":  6,
+                                "key":  "EVIDENCE_ANALYSIS",
+                                "label":  "Evidence \u0026 Analysis"
+                            }
+                        ],
+    "frozen_rules":  [
+                         "The six Project Master sections remain visible on every Project page.",
+                         "Missing information is shown honestly rather than replaced with invented content.",
+                         "Media and Drawings may display explicit evidence-safe empty states.",
+                         "The visual Project Master structure is not changed by this schema.",
+                         "Project-specific content is schema-driven and may vary by project type."
+                     ],
+    "specialist_schema":  {
+                              "classification":  [
+                                                     "project_type",
+                                                     "project_family",
+                                                     "project_subtype",
+                                                     "project_status"
+                                                 ],
+                              "overview":  [
+                                               "visual_statement",
+                                               "understanding",
+                                               "signature",
+                                               "topics"
+                                           ],
+                              "project_detail":  [
+                                                     "technical_facts",
+                                                     "project_anatomy",
+                                                     "timeline"
+                                                 ],
+                              "participants":  [
+                                                   "people",
+                                                   "organisations"
+                                               ],
+                              "media":  [
+                                            "primary_media",
+                                            "secondary_media",
+                                            "historical_media",
+                                            "technical_media"
+                                        ],
+                              "drawings":  [
+                                               "plans",
+                                               "sections",
+                                               "elevations",
+                                               "diagrams",
+                                               "technical_drawings"
+                                           ],
+                              "evidence_analysis":  [
+                                                        "sources",
+                                                        "claim_refs",
+                                                        "conflict_refs",
+                                                        "research_refs",
+                                                        "analysis"
+                                                    ],
+                              "connections":  [
+                                                  "relationship_ids"
+                                              ]
+                          },
+    "section_mapping":  {
+                            "OVERVIEW":  [
+                                             "canonical_name",
+                                             "short_description",
+                                             "project_type",
+                                             "primary_place_id",
+                                             "visual_statement",
+                                             "understanding",
+                                             "signature",
+                                             "topics"
+                                         ],
+                            "MEDIA":  [
+                                          "primary_media",
+                                          "secondary_media",
+                                          "historical_media",
+                                          "technical_media"
+                                      ],
+                            "DRAWINGS":  [
+                                             "plans",
+                                             "sections",
+                                             "elevations",
+                                             "diagrams",
+                                             "technical_drawings"
+                                         ],
+                            "PROJECT_DETAIL":  [
+                                                   "technical_facts",
+                                                   "project_anatomy",
+                                                   "timeline",
+                                                   "people",
+                                                   "organisations"
+                                               ],
+                            "CONNECTED_WORLD":  [
+                                                    "relationship_ids"
+                                                ],
+                            "EVIDENCE_ANALYSIS":  [
+                                                      "sources",
+                                                      "claim_refs",
+                                                      "conflict_refs",
+                                                      "research_refs",
+                                                      "analysis",
+                                                      "source_provenance"
+                                                  ]
+                        },
+    "relationship_predicates":  [
+                                    "LOCATED_IN",
+                                    "DESIGNED_BY",
+                                    "ENGINEERED_BY",
+                                    "DEVELOPED_BY",
+                                    "OWNED_BY",
+                                    "OPERATED_BY",
+                                    "DELIVERED_BY",
+                                    "USES_MATERIAL",
+                                    "USES_PRODUCT",
+                                    "DOCUMENTED_BY",
+                                    "DISCUSSED_IN",
+                                    "RELATED_TO"
+                                ],
+    "relationship_rule":  "Connected World references canonical Arknoz entity IDs rather than duplicated project-local text records.",
+    "claim_domains":  [
+                          "IDENTITY",
+                          "LOCATION",
+                          "TYPOLOGY",
+                          "DATES",
+                          "DIMENSIONS",
+                          "TEAM",
+                          "DESIGN",
+                          "ENGINEERING",
+                          "MATERIALS",
+                          "SYSTEMS",
+                          "CONSTRUCTION",
+                          "OPERATION",
+                          "SUSTAINABILITY",
+                          "HERITAGE",
+                          "IMPACT",
+                          "HISTORY"
+                      ],
+    "claim_rule":  "Every publishable Project fact must map to an Arknoz claim with provenance rather than exist only as display text.",
+    "media_required_metadata":  [
+                                    "media_id",
+                                    "project_id",
+                                    "role",
+                                    "source_ref",
+                                    "provenance_status",
+                                    "rights_status",
+                                    "publication_authorized"
+                                ],
+    "media_optional_metadata":  [
+                                    "source_url",
+                                    "creator",
+                                    "credit",
+                                    "license",
+                                    "license_url",
+                                    "width",
+                                    "height",
+                                    "content_hash",
+                                    "caption"
+                                ],
+    "media_rules":  [
+                        "Media discovery does not equal publication approval.",
+                        "Primary media is a role assigned to an approved media entity.",
+                        "A later verified owner submission may replace a temporary primary role without creating a duplicate Project.",
+                        "Historic or secondary media remains independently traceable where useful.",
+                        "No Project requires fabricated media."
+                    ],
+    "drawing_types":  [
+                          "PLAN",
+                          "SECTION",
+                          "ELEVATION",
+                          "DETAIL",
+                          "DIAGRAM",
+                          "SITE_PLAN",
+                          "MASTERPLAN",
+                          "TECHNICAL_DRAWING",
+                          "OTHER"
+                      ],
+    "drawing_rules":  [
+                          "Drawings require source provenance.",
+                          "Rights and publication status are independent from technical relevance.",
+                          "Missing drawings are acceptable.",
+                          "Drawings are never fabricated to fill the Project Master."
+                      ],
+    "publication_gates":  [
+                              "PROJECT_IDENTITY_RESOLVED",
+                              "REQUIRED_PUBLIC_FACTS_SOURCE_BACKED",
+                              "CRITICAL_CONFLICTS_RESOLVED_OR_DISCLOSED",
+                              "RELATIONSHIPS_REVIEWED",
+                              "MEDIA_RIGHTS_APPROVED_WHERE_MEDIA_IS_PUBLISHED",
+                              "DRAWING_RIGHTS_APPROVED_WHERE_DRAWINGS_ARE_PUBLISHED",
+                              "PUBLICATION_REVIEW_COMPLETE"
+                          ],
+    "project_360":  {
+                        "role":  "REFERENCE_IMPLEMENTATION",
+                        "existing_research_status":  "UNCHANGED",
+                        "existing_gold_master_status":  "UNCHANGED",
+                        "migration_rule":  "Existing Project 360 research remains evidence/candidate data. It must be mapped into this schema through a separate controlled compatibility process.",
+                        "automatic_promotion":  false
+                    },
+    "platform_rules":  [
+                           "Project data inherits Arknoz Core identity and provenance.",
+                           "Project-local copies of canonical People, Organisations, Materials, Products and Places should progressively resolve to shared Arknoz entity IDs.",
+                           "Project display data may be compact while underlying evidence remains claim-level and source-traceable.",
+                           "No existing Project 360 record becomes canonical merely because this extension standard exists.",
+                           "The frozen six-section Project Master remains the presentation contract."
+                       ]
+}
