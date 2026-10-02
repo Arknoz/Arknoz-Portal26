@@ -15,6 +15,8 @@ export default async function Page({
     geo?: string;
     type?: string;
     view?: string;
+    page?: string;
+    sort?: string;
   }>;
 }) {
   const params = await searchParams;
@@ -25,11 +27,30 @@ export default async function Page({
       params
     );
 
+  const parsedPage =
+    Number.parseInt(
+      params.page ?? "1",
+      10
+    );
+
+  const page =
+    Number.isFinite(parsedPage) &&
+    parsedPage > 0
+      ? parsedPage
+      : 1;
+
+  const sort =
+    params.sort === "za"
+      ? "za"
+      : "az";
+
   return (
     <WorldIndexRoute
       sectionKey="projects"
       geoSlug={params.geo}
       activeSubsection={activeSubsection}
+      page={page}
+      sort={sort}
     />
   );
 }

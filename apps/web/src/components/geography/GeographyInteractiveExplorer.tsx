@@ -57,7 +57,7 @@ function Card({
       <img
         src={
           item.image ||
-          "/visuals/arknoz-neutral.svg"
+          "/visuals/portal/place.png"
         }
         alt=""
         className="

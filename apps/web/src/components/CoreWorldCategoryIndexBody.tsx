@@ -39,31 +39,65 @@ const sectionPresentation:
   },
 
   products: {
-    accent: "#a64c32",
-    soft: "#f8f4f1",
+    accent: "#a61f46",
+    soft: "#f5f7fb",
   },
 
   knowledge: {
-    accent: "#5355a4",
-    soft: "#f4f5fb",
+    accent: "#a61f46",
+    soft: "#f5f7fb",
   },
 
   learning: {
-    accent: "#247f7a",
-    soft: "#f2f8f7",
+    accent: "#a61f46",
+    soft: "#f5f7fb",
   },
 
   opportunities: {
-    accent: "#a66a32",
-    soft: "#faf6ef",
+    accent: "#a61f46",
+    soft: "#f5f7fb",
   },
 
+  people: {
+    accent: "#a61f46",
+    soft: "#f5f7fb",
+  },
+
+  organisations: {
+    accent: "#a61f46",
+    soft: "#f5f7fb",
+  },
+
+  universities: {
+    accent: "#a61f46",
+    soft: "#f5f7fb",
+  },
+
+  places: {
+    accent: "#a61f46",
+    soft: "#f5f7fb",
+  },
   community: {
-    accent: "#7556a5",
-    soft: "#f7f4fb",
+    accent: "#a61f46",
+    soft: "#f5f7fb",
   },
 
 };
+
+
+const fallbackImageBySection:
+  Partial<
+    Record<ArknozSectionKey, string>
+  > = {
+    products: "/visuals/portal/product.png",
+    knowledge: "/visuals/portal/knowledge.png",
+    learning: "/visuals/portal/education.png",
+    opportunities: "/visuals/portal/opportunity.png",
+    people: "/visuals/portal/people.png",
+    organisations: "/visuals/portal/organisation.png",
+    universities: "/visuals/portal/education.png",
+    places: "/visuals/portal/place.png",    community: "/visuals/portal/people.png",
+  };
 
 
 function getEntityImage(
@@ -112,21 +146,30 @@ function getEntityImage(
 function RecordCard({
   entity,
   accent,
+  sectionKey,
 }: {
   entity: EntityRecord;
   accent: string;
+  sectionKey: ArknozSectionKey;
 }) {
 
   const image =
     getEntityImage(
       entity
-    );
+    ) ??
+    fallbackImageBySection[
+      sectionKey
+    ];
 
 
   return (
     <Link
       href={getEntityHref(entity)}
-      className="group flex min-h-[330px] flex-col overflow-hidden rounded-[20px] border border-slate-200 bg-white transition hover:-translate-y-0.5 hover:shadow-md"
+      className={`group flex min-h-[330px] flex-col overflow-hidden border border-slate-200 bg-white transition hover:-translate-y-0.5 hover:shadow-md ${
+        sectionKey === "projects"
+          ? "rounded-[20px]"
+          : "rounded-[8px]"
+      }`}
     >
 
       <div className="relative aspect-[1.6/1] overflow-hidden bg-slate-100">
@@ -206,6 +249,13 @@ export default function CoreWorldCategoryIndexBody({
   records,
   siblingCategories,
   locationLabel,
+  paginationEnabled = false,
+  totalRecords,
+  currentPage = 1,
+  totalPages = 1,
+  sort = "az",
+  categorySlug,
+  geoSlug,
 }: {
   sectionKey: ArknozSectionKey;
   sectionTitle: string;
@@ -215,6 +265,13 @@ export default function CoreWorldCategoryIndexBody({
   records: EntityRecord[];
   siblingCategories: CategoryLink[];
   locationLabel?: string;
+  paginationEnabled?: boolean;
+  totalRecords?: number;
+  currentPage?: number;
+  totalPages?: number;
+  sort?: "az" | "za";
+  categorySlug?: string;
+  geoSlug?: string;
 }) {
 
   const presentation =
@@ -225,6 +282,104 @@ export default function CoreWorldCategoryIndexBody({
       soft: "#f4f7fa",
     };
 
+
+  const publishedCount =
+    totalRecords ?? records.length;
+
+  const resolvedSort =
+    sort === "za"
+      ? "za"
+      : "az";
+
+  const buildResultsHref = (
+    nextPage: number,
+    nextSort: "az" | "za" =
+      resolvedSort
+  ) => {
+    const params =
+      new URLSearchParams();
+
+    if (categorySlug) {
+      params.set(
+        "type",
+        categorySlug
+      );
+    }
+
+    if (geoSlug) {
+      params.set(
+        "geo",
+        geoSlug
+      );
+    }
+
+    params.set(
+      "sort",
+      nextSort
+    );
+
+    if (nextPage > 1) {
+      params.set(
+        "page",
+        String(nextPage)
+      );
+    }
+
+    const query =
+      params.toString();
+
+    return `${sectionHref}${
+      query
+        ? `?${query}`
+        : ""
+    }#category-records`;
+  };
+
+  const paginationPages =
+    Array.from(
+      new Set(
+        [
+          1,
+          2,
+          currentPage - 1,
+          currentPage,
+          currentPage + 1,
+          totalPages - 1,
+          totalPages,
+        ].filter(
+          (value) =>
+            value >= 1 &&
+            value <= totalPages
+        )
+      )
+    ).sort(
+      (a, b) => a - b
+    );
+
+  const paginationTokens:
+    Array<number | string> = [];
+
+  paginationPages.forEach(
+    (pageNumber, index) => {
+      const previous =
+        paginationPages[
+          index - 1
+        ];
+
+      if (
+        index > 0 &&
+        pageNumber - previous > 1
+      ) {
+        paginationTokens.push(
+          `ellipsis-${pageNumber}`
+        );
+      }
+
+      paginationTokens.push(
+        pageNumber
+      );
+    }
+  );
 
   return (
     <main
@@ -281,7 +436,7 @@ export default function CoreWorldCategoryIndexBody({
           <div className="shrink-0 lg:text-right">
 
             <p className="text-[42px] font-semibold leading-none tracking-[-0.04em] text-slate-950">
-              {records.length}
+              {publishedCount}
             </p>
 
             <p className="mt-2 text-[9px] font-semibold uppercase tracking-[0.12em] text-slate-400">
@@ -295,13 +450,51 @@ export default function CoreWorldCategoryIndexBody({
 
         {records.length > 0 ? (
 
-          <div className="mt-8 grid gap-5 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
+          <>
+            {paginationEnabled ? (
+              <div className="mt-6 flex flex-col gap-3 border-b border-slate-200 pb-5 sm:flex-row sm:items-center sm:justify-between">
+                <p className="text-[10px] font-medium uppercase tracking-[0.1em] text-slate-400">
+                  {publishedCount} projects · Page {currentPage} of {totalPages}
+                </p>
+
+                <div className="flex items-center gap-2">
+                  <span className="mr-1 text-[9px] font-semibold uppercase tracking-[0.12em] text-slate-400">
+                    Sort
+                  </span>
+
+                  <Link
+                    href={buildResultsHref(1, "az")}
+                    className={`border px-3 py-2 text-[10px] font-semibold transition ${
+                      resolvedSort === "az"
+                        ? "border-[#0a2230] bg-[#0a2230] text-white"
+                        : "border-slate-200 bg-white text-slate-600 hover:border-slate-400"
+                    }`}
+                  >
+                    A–Z
+                  </Link>
+
+                  <Link
+                    href={buildResultsHref(1, "za")}
+                    className={`border px-3 py-2 text-[10px] font-semibold transition ${
+                      resolvedSort === "za"
+                        ? "border-[#0a2230] bg-[#0a2230] text-white"
+                        : "border-slate-200 bg-white text-slate-600 hover:border-slate-400"
+                    }`}
+                  >
+                    Z–A
+                  </Link>
+                </div>
+              </div>
+            ) : null}
+
+            <div className="mt-8 grid gap-5 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
 
             {records.map(
               (entity) => (
                 <RecordCard
                   key={`${entity.type}:${entity.slug}`}
                   entity={entity}
+                  sectionKey={sectionKey}
                   accent={
                     presentation.accent
                   }
@@ -309,7 +502,81 @@ export default function CoreWorldCategoryIndexBody({
               )
             )}
 
-          </div>
+            </div>
+
+            {paginationEnabled &&
+            totalPages > 1 ? (
+              <nav
+                aria-label={`${sectionTitle} pagination`}
+                className="mt-8 flex flex-wrap items-center justify-center gap-2 border-t border-slate-200 pt-6"
+              >
+                {currentPage > 1 ? (
+                  <Link
+                    href={buildResultsHref(
+                      currentPage - 1
+                    )}
+                    className="border border-slate-200 bg-white px-4 py-2.5 text-[10px] font-semibold text-slate-600 transition hover:border-slate-400 hover:text-slate-950"
+                  >
+                    ← Previous
+                  </Link>
+                ) : (
+                  <span className="border border-slate-100 bg-slate-50 px-4 py-2.5 text-[10px] font-semibold text-slate-300">
+                    ← Previous
+                  </span>
+                )}
+
+                {paginationTokens.map(
+                  (token) =>
+                    typeof token ===
+                    "number" ? (
+                      token ===
+                      currentPage ? (
+                        <span
+                          key={token}
+                          aria-current="page"
+                          className="flex min-h-9 min-w-9 items-center justify-center bg-[#0a2230] px-3 text-[10px] font-semibold text-white"
+                        >
+                          {token}
+                        </span>
+                      ) : (
+                        <Link
+                          key={token}
+                          href={buildResultsHref(
+                            token
+                          )}
+                          className="flex min-h-9 min-w-9 items-center justify-center border border-slate-200 bg-white px-3 text-[10px] font-semibold text-slate-600 transition hover:border-slate-400 hover:text-slate-950"
+                        >
+                          {token}
+                        </Link>
+                      )
+                    ) : (
+                      <span
+                        key={token}
+                        className="flex min-h-9 min-w-7 items-center justify-center text-[11px] text-slate-400"
+                      >
+                        …
+                      </span>
+                    )
+                )}
+
+                {currentPage <
+                totalPages ? (
+                  <Link
+                    href={buildResultsHref(
+                      currentPage + 1
+                    )}
+                    className="border border-slate-200 bg-white px-4 py-2.5 text-[10px] font-semibold text-slate-600 transition hover:border-slate-400 hover:text-slate-950"
+                  >
+                    Next →
+                  </Link>
+                ) : (
+                  <span className="border border-slate-100 bg-slate-50 px-4 py-2.5 text-[10px] font-semibold text-slate-300">
+                    Next →
+                  </span>
+                )}
+              </nav>
+            ) : null}
+          </>
 
         ) : (
 

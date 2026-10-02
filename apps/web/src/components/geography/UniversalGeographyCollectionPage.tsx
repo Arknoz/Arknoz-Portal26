@@ -126,7 +126,7 @@ export default async function UniversalGeographyCollectionPage({
                 )
           )?.image ||
           data.featured[0]?.image ||
-          "/visuals/arknoz-neutral.svg";
+          "/visuals/portal/place.png";
 
 
         return {

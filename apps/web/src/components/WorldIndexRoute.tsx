@@ -9,10 +9,14 @@ export default function WorldIndexRoute({
   sectionKey,
   geoSlug,
   activeSubsection,
+  page,
+  sort,
 }: {
   sectionKey: ArknozSectionKey;
   geoSlug?: string;
   activeSubsection?: string;
+  page?: number;
+  sort?: "az" | "za";
 }) {
   const section =
     getArknozSection(sectionKey);
@@ -30,6 +34,8 @@ export default function WorldIndexRoute({
       description={section.description}
       geoSlug={geoSlug}
       activeSubsection={activeSubsection}
+      page={page}
+      sort={sort}
     />
   );
 }

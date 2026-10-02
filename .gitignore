@@ -1,3 +1,15 @@
 
 
 supabase/.temp/
+# ------------------------------------------------------------
+# Local Arknoz development backups / audits
+# ------------------------------------------------------------
+*.bak
+*.backup-*
+*.before-*
+*.failed-*
+*_audit*.txt
+*audit*.txt
+_backup/
+_audit_backup/
+portal.zip

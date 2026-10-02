@@ -262,7 +262,7 @@ export default async function ArknozGeographyExperience({
           entityImage(entity)
       )
       .find(Boolean) ||
-    "/visuals/arknoz-neutral.svg";
+    "/visuals/portal/place.png";
 
 
   const heroImage =

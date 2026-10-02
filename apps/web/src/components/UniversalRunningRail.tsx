@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { resolvePortalImage } from "@/lib/portal-image";
 
 export type UniversalRailItem = {
   eyebrow?: string;
@@ -117,10 +118,10 @@ export default function UniversalRunningRail({
                 >
 
                   <img
-                    src={
-                      item.image ||
-                      "/visuals/arknoz-neutral.svg"
-                    }
+                    src={resolvePortalImage({
+                      src: item.image,
+                      kind: item.eyebrow || eyebrow,
+                    })}
                     alt=""
                     className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-[1.04]"
                   />

@@ -27,19 +27,19 @@ const continentPlacementSlots =
   );
 const countryImages: Record<string, string> = {
   india:
-    "/visuals/arknoz-neutral.svg",
+    "/visuals/portal/place.png",
 
   singapore:
-    "/visuals/arknoz-neutral.svg",
+    "/visuals/portal/place.png",
 
   "united-arab-emirates":
-    "/visuals/arknoz-neutral.svg",
+    "/visuals/portal/place.png",
 
   japan:
-    "/visuals/arknoz-neutral.svg",
+    "/visuals/portal/place.png",
 
   kenya:
-    "/visuals/arknoz-neutral.svg",
+    "/visuals/portal/place.png",
 };
 
 
@@ -83,7 +83,7 @@ function getPresentation(
           meta: "Asia",
           href: "/global/india",
           image:
-            "/visuals/arknoz-neutral.svg",
+            "/visuals/portal/place.png",
         },
 
         {
@@ -92,7 +92,7 @@ function getPresentation(
           meta: "India",
           href: "/global/mumbai",
           image:
-            "/visuals/arknoz-neutral.svg",
+            "/visuals/portal/place.png",
         },
 
         {
@@ -101,7 +101,7 @@ function getPresentation(
           meta: "Asia",
           href: "/global/singapore",
           image:
-            "/visuals/arknoz-neutral.svg",
+            "/visuals/portal/place.png",
         },
       ],
 
@@ -261,7 +261,7 @@ export default async function ContinentGeographyPage({
               entity.project
                 ?.media?.[0]
                 ?.src ||
-              "/visuals/arknoz-neutral.svg",
+              "/visuals/portal/place.png",
           },
         ];
       }
@@ -298,7 +298,7 @@ export default async function ContinentGeographyPage({
                     `/preview/projects/${entity.slug}`,
                   image:
                     entity.project?.media?.[0]?.src ||
-                    "/visuals/arknoz-neutral.svg",
+                    "/visuals/portal/place.png",
                 },
               ];
             }

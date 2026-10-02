@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import ArknozDiscoveryRibbon from "@/components/ArknozDiscoveryRibbon";
 
@@ -17,6 +17,7 @@ import {
 const nav: ReadonlyArray<readonly [string, string]> = [
   ["Home", "/"],
   ["Explore", "/explore"],
+  ["Pulse", "/pulse"],
   ["Arknoz Pro", "/intelligence"],
 ];
 
@@ -96,7 +97,7 @@ function ChevronDown() {
   );
 }
 
-export default function GlobalHeader() {
+export default function GlobalHeader({ showDiscoveryRibbon = true }: { showDiscoveryRibbon?: boolean }) {
   const [open, setOpen] =
     useState(false);
 return (
@@ -253,7 +254,7 @@ return (
         </div>
       )}
 
-        <ArknozDiscoveryRibbon />
+        {showDiscoveryRibbon && <ArknozDiscoveryRibbon />}
 
 </header>
   );

@@ -128,7 +128,7 @@ function findFallbackImage() {
     }
   }
 
-  return "/visuals/arknoz-neutral.svg";
+  return "/visuals/portal/place.png";
 }
 
 

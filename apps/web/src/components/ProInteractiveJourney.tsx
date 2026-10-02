@@ -1536,9 +1536,9 @@ export default function ProInteractiveJourney() {
     <section
       id="pro-navigator"
       data-pro-workbench="true"
-      className="border-t border-slate-200 bg-[#edf1f5] text-slate-950"
+      className="border-t border-slate-200 bg-[#f5f7fb] text-slate-950"
     >
-      <div className="mx-auto max-w-[1760px] px-4 py-5 sm:px-6 lg:px-8 lg:py-7">
+      <div className="mx-auto max-w-[1600px] px-4 py-5 sm:px-6 lg:px-8 lg:py-7">
 
         {/* HEADER */}
 
@@ -1560,7 +1560,7 @@ export default function ProInteractiveJourney() {
 
           <form
             onSubmit={submitSearch}
-            className="flex items-center overflow-hidden rounded-[18px] border border-slate-200 bg-white p-1.5 shadow-sm"
+            className="flex items-center overflow-hidden rounded-[8px] border border-slate-200 bg-white p-1.5 shadow-sm"
           >
             <span
               aria-hidden="true"
@@ -1582,7 +1582,7 @@ export default function ProInteractiveJourney() {
 
             <button
               type="submit"
-              className="rounded-[13px] bg-[#071b31] px-5 py-3 text-xs font-semibold text-white transition hover:bg-[#123d68]"
+              className="rounded-[8px] bg-[#0a2230] px-5 py-3 text-xs font-semibold text-white transition hover:bg-[#153e57]"
             >
               Search
             </button>
@@ -1596,7 +1596,7 @@ export default function ProInteractiveJourney() {
 
           {/* LEFT NAVIGATOR */}
 
-          <aside className="rounded-[22px] border border-slate-200 bg-[#071b31] p-3 text-white shadow-sm lg:sticky lg:top-28 lg:self-start">
+          <aside className="rounded-[10px] border border-slate-200 bg-[#0a2230] p-3 text-white shadow-sm lg:sticky lg:top-28 lg:self-start">
             <p className="px-3 pt-2 text-[9px] font-bold uppercase tracking-[0.18em] text-blue-200">
               Pro navigator
             </p>
@@ -1612,7 +1612,7 @@ export default function ProInteractiveJourney() {
                         item.key
                       )
                     }
-                    className={`rounded-[16px] border p-4 text-left transition ${
+                    className={`rounded-[8px] border p-4 text-left transition ${
                       mode ===
                       item.key
                         ? "border-white bg-white text-slate-950"
@@ -1659,7 +1659,7 @@ export default function ProInteractiveJourney() {
                   <Link
                     key={href}
                     href={href}
-                    className="group flex items-center justify-between rounded-[12px] px-3 py-2.5 text-xs font-medium text-white/55 transition hover:bg-white/[0.06] hover:text-white"
+                    className="group flex items-center justify-between rounded-[6px] px-3 py-2.5 text-xs font-medium text-white/55 transition hover:bg-white/[0.06] hover:text-white"
                   >
                     {label}
                     <Arrow />
@@ -1672,7 +1672,7 @@ export default function ProInteractiveJourney() {
 
           {/* CENTRAL CANVAS */}
 
-          <div className="min-w-0 overflow-hidden rounded-[24px] border border-slate-200 bg-white shadow-sm">
+          <div className="min-w-0 overflow-hidden rounded-[10px] border border-slate-200 bg-white shadow-sm">
 
             {/* WORKSPACES */}
 
@@ -1730,10 +1730,10 @@ export default function ProInteractiveJourney() {
                                 0
                               );
                             }}
-                            className={`min-h-[94px] rounded-[15px] border px-4 py-3 text-left transition ${
+                            className={`min-h-[94px] rounded-[8px] border px-4 py-3 text-left transition ${
                               roleIndex ===
                               index
-                                ? "border-[#071b31] bg-[#071b31] text-white"
+                                ? "border-[#0a2230] bg-[#0a2230] text-white"
                                 : "border-slate-200 bg-slate-50 text-slate-700 hover:border-slate-300 hover:bg-white"
                             }`}
                           >
@@ -1777,7 +1777,7 @@ export default function ProInteractiveJourney() {
 
                   {/* ACTIVE WORKSPACE */}
 
-                  <div className="relative min-h-[380px] overflow-hidden bg-[#0a2b49] p-6 text-white sm:p-8">
+                  <div className="relative min-h-[380px] overflow-hidden bg-[#0a2230] p-6 text-white sm:p-8">
                     <div
                       aria-hidden="true"
                       className="pointer-events-none absolute inset-0 opacity-[0.06] [background-image:linear-gradient(rgba(255,255,255,.4)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.4)_1px,transparent_1px)] [background-size:46px_46px]"
@@ -1825,7 +1825,7 @@ export default function ProInteractiveJourney() {
                                       workspace.id
                                     )
                                   }
-                                  className={`rounded-[13px] border px-4 py-3 text-left transition ${
+                                  className={`rounded-[8px] border px-4 py-3 text-left transition ${
                                     activeOrganisation
                                       ?.id ===
                                     workspace.id
@@ -1904,7 +1904,7 @@ export default function ProInteractiveJourney() {
 
                   {/* REAL MODULES */}
 
-                  <div className="border-t border-slate-200 bg-[#f7f9fb] p-5 lg:border-l lg:border-t-0 sm:p-6">
+                  <div className="border-t border-slate-200 bg-[#f5f7fb] p-5 lg:border-l lg:border-t-0 sm:p-6">
                     <div className="flex items-end justify-between gap-4">
                       <div>
                         <p className="text-[9px] font-bold uppercase tracking-[0.17em] text-slate-400">
@@ -1938,7 +1938,7 @@ export default function ProInteractiveJourney() {
                                   key={
                                     module.id
                                   }
-                                  className="flex min-h-[58px] items-center justify-between rounded-[14px] border border-slate-200 bg-slate-100/70 px-4 py-3"
+                                  className="flex min-h-[58px] items-center justify-between rounded-[8px] border border-slate-200 bg-slate-100/70 px-4 py-3"
                                 >
                                   <div className="min-w-0">
                                     <p className="truncate text-xs font-semibold text-slate-500">
@@ -1976,7 +1976,7 @@ export default function ProInteractiveJourney() {
                                   href={
                                     module.href
                                   }
-                                  className="group flex min-h-[58px] items-center justify-between rounded-[14px] border border-slate-200 bg-white px-4 py-3 text-xs font-semibold text-slate-700 transition hover:border-slate-300 hover:shadow-sm"
+                                  className="group flex min-h-[58px] items-center justify-between rounded-[8px] border border-slate-200 bg-white px-4 py-3 text-xs font-semibold text-slate-700 transition hover:border-slate-300 hover:shadow-sm"
                                 >
                                   <span className="min-w-0">
                                     <span className="mr-3 text-[8px] text-slate-400">
@@ -2006,7 +2006,7 @@ export default function ProInteractiveJourney() {
                           )}
                       </div>
                     ) : (
-                      <div className="mt-4 rounded-[18px] border border-slate-200 bg-white p-6">
+                      <div className="mt-4 rounded-[8px] border border-slate-200 bg-white p-6">
                         <p className="text-sm font-semibold text-slate-700">
                           {
                             authState ===
@@ -2036,8 +2036,8 @@ export default function ProInteractiveJourney() {
 
             {mode ===
             "tasks" ? (
-              <div className="grid min-h-[690px] lg:grid-cols-[300px_1fr]">
-                <div className="border-b border-slate-200 bg-[#f7f9fb] p-5 lg:border-b-0 lg:border-r">
+              <div className="grid min-h-[560px] lg:grid-cols-[300px_1fr]">
+                <div className="border-b border-slate-200 bg-[#f5f7fb] p-5 lg:border-b-0 lg:border-r">
                   <p className="text-[9px] font-bold uppercase tracking-[0.17em] text-slate-400">
                     START FROM A TASK
                   </p>
@@ -2058,10 +2058,10 @@ export default function ProInteractiveJourney() {
                               index
                             )
                           }
-                          className={`rounded-[14px] border px-4 py-3 text-left transition ${
+                          className={`rounded-[8px] border px-4 py-3 text-left transition ${
                             taskIndex ===
                             index
-                              ? "border-[#071b31] bg-[#071b31] text-white"
+                              ? "border-[#0a2230] bg-[#0a2230] text-white"
                               : "border-slate-200 bg-white text-slate-700 hover:border-slate-300"
                           }`}
                         >
@@ -2082,7 +2082,7 @@ export default function ProInteractiveJourney() {
                   </div>
                 </div>
 
-                <div className="relative flex min-h-[580px] items-center overflow-hidden bg-white p-8 sm:p-12">
+                <div className="relative flex min-h-[500px] items-center overflow-hidden bg-white p-8 sm:p-12">
                   <div className="max-w-2xl">
                     <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-blue-700">
                       PRO TASK · {
@@ -2103,7 +2103,7 @@ export default function ProInteractiveJourney() {
                     </p>
 
                     {activeTask.target ? (
-                      <div className="mt-7 rounded-[18px] border border-slate-200 bg-slate-50 p-5">
+                      <div className="mt-7 rounded-[8px] border border-slate-200 bg-slate-50 p-5">
                         <p className="text-[9px] font-bold uppercase tracking-[0.15em] text-slate-400">
                           REAL ARKNOZ MODULE
                         </p>
@@ -2129,7 +2129,7 @@ export default function ProInteractiveJourney() {
                         href={
                           context.href
                         }
-                        className="group mt-7 inline-flex items-center gap-2 rounded-full bg-[#071b31] px-6 py-3 text-sm font-semibold text-white"
+                        className="group mt-7 inline-flex items-center gap-2 rounded-[8px] bg-[#0a2230] px-6 py-3 text-sm font-semibold text-white"
                       >
                         {
                           context.cta
@@ -2147,7 +2147,7 @@ export default function ProInteractiveJourney() {
 
             {mode ===
             "intelligence" ? (
-              <div className="min-h-[690px] bg-[#f5f8fa] p-5 sm:p-7">
+              <div className="min-h-[560px] bg-[#f5f7fb] p-5 sm:p-7">
                 <div className="flex flex-col gap-3 border-b border-slate-200 pb-5 sm:flex-row sm:items-end sm:justify-between">
                   <div>
                     <p className="text-[9px] font-bold uppercase tracking-[0.17em] text-slate-400">
@@ -2186,11 +2186,11 @@ export default function ProInteractiveJourney() {
                               index
                             )
                           }
-                          className={`min-h-[160px] rounded-[20px] border p-5 text-left transition ${
+                          className={`min-h-[125px] rounded-[8px] border p-5 text-left transition ${
                             activeIntelligence
                               ?.id ===
                             item.id
-                              ? "border-[#17315c] bg-[#17315c] text-white shadow-lg"
+                              ? "border-[#0a2230] bg-[#0a2230] text-white shadow-sm"
                               : "border-slate-200 bg-white text-slate-700 hover:border-slate-300 hover:shadow-sm"
                           }`}
                         >
@@ -2228,7 +2228,7 @@ export default function ProInteractiveJourney() {
                     )}
                   </div>
                 ) : (
-                  <div className="mt-5 rounded-[20px] border border-slate-200 bg-white p-7">
+                  <div className="mt-5 rounded-[8px] border border-slate-200 bg-white p-7">
                     <p className="text-sm font-semibold text-slate-700">
                       No dedicated intelligence module is currently available in this workspace.
                     </p>
@@ -2240,7 +2240,7 @@ export default function ProInteractiveJourney() {
                 )}
 
                 {activeIntelligence ? (
-                  <div className="mt-5 rounded-[22px] border border-slate-200 bg-white p-6">
+                  <div className="mt-5 rounded-[10px] border border-slate-200 bg-white p-6">
                     <p className="text-[9px] font-bold uppercase tracking-[0.17em] text-blue-700">
                       ACTIVE INTELLIGENCE
                     </p>
@@ -2262,7 +2262,7 @@ export default function ProInteractiveJourney() {
                         href={
                           context.href
                         }
-                        className="group mt-5 inline-flex items-center gap-2 rounded-full bg-[#071b31] px-5 py-3 text-sm font-semibold text-white"
+                        className="group mt-5 inline-flex items-center gap-2 rounded-[8px] bg-[#0a2230] px-5 py-3 text-sm font-semibold text-white"
                       >
                         {
                           context.cta
@@ -2280,8 +2280,8 @@ export default function ProInteractiveJourney() {
 
             {mode ===
             "connections" ? (
-              <div className="relative min-h-[690px] overflow-hidden bg-[#f7f5fb] p-5 sm:p-7">
-                <div className="mx-auto grid min-h-[630px] max-w-[900px] grid-cols-3 grid-rows-3 gap-3">
+              <div className="relative min-h-[560px] overflow-hidden bg-[#f5f7fb] p-5 sm:p-7">
+                <div className="mx-auto grid min-h-[500px] max-w-[900px] grid-cols-3 grid-rows-3 gap-3">
                   {connections.map(
                     (
                       item,
@@ -2308,11 +2308,11 @@ export default function ProInteractiveJourney() {
                               index
                             )
                           }
-                          className={`${positions[index]} flex min-h-[145px] flex-col justify-between rounded-[20px] border p-5 text-left transition ${
+                          className={`${positions[index]} flex min-h-[118px] flex-col justify-between rounded-[8px] border p-5 text-left transition ${
                             connectionIndex ===
                             index
-                              ? "border-[#30285f] bg-[#30285f] text-white shadow-lg"
-                              : "border-slate-200 bg-white text-slate-700 hover:border-violet-300 hover:shadow-sm"
+                              ? "border-[#0a2230] bg-[#0a2230] text-white shadow-sm"
+                              : "border-slate-200 bg-white text-slate-700 hover:border-slate-300 hover:shadow-sm"
                           }`}
                         >
                           <span className="text-[8px] font-bold tracking-[0.15em] opacity-40">
@@ -2335,8 +2335,8 @@ export default function ProInteractiveJourney() {
                     }
                   )}
 
-                  <div className="col-start-2 row-start-2 flex min-h-[145px] flex-col items-center justify-center rounded-[24px] border border-violet-200 bg-white p-5 text-center shadow-sm">
-                    <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-violet-700">
+                  <div className="col-start-2 row-start-2 flex min-h-[118px] flex-col items-center justify-center rounded-[10px] border border-slate-200 bg-white p-5 text-center shadow-sm">
+                    <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-red-500">
                       ARKNOZ PRO
                     </p>
 
@@ -2358,7 +2358,7 @@ export default function ProInteractiveJourney() {
 
           {/* CONTEXT DRAWER */}
 
-          <aside className="flex flex-col rounded-[22px] border border-slate-200 bg-white p-5 shadow-sm lg:sticky lg:top-28 lg:self-start">
+          <aside className="flex flex-col rounded-[10px] border border-slate-200 bg-white p-5 shadow-sm lg:sticky lg:top-28 lg:self-start">
             <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-blue-700">
               {
                 context.eyebrow
@@ -2377,7 +2377,7 @@ export default function ProInteractiveJourney() {
               }
             </p>
 
-            <div className="mt-5 rounded-[14px] border border-slate-200 bg-slate-50 p-4">
+            <div className="mt-5 rounded-[8px] border border-slate-200 bg-slate-50 p-4">
               <p className="text-[8px] font-bold uppercase tracking-[0.15em] text-slate-400">
                 ACTIVE ROLE
               </p>
@@ -2404,7 +2404,7 @@ export default function ProInteractiveJourney() {
                 href={
                   context.href
                 }
-                className="group mt-6 inline-flex items-center justify-between rounded-[14px] bg-[#071b31] px-4 py-3 text-xs font-semibold text-white"
+                className="group mt-6 inline-flex items-center justify-between rounded-[8px] bg-[#0a2230] px-4 py-3 text-xs font-semibold text-white"
               >
                 {
                   context.cta
@@ -2412,7 +2412,7 @@ export default function ProInteractiveJourney() {
                 <Arrow />
               </Link>
             ) : (
-              <div className="mt-6 rounded-[14px] border border-slate-200 bg-slate-50 px-4 py-3 text-xs font-semibold text-slate-400">
+              <div className="mt-6 rounded-[8px] border border-slate-200 bg-slate-50 px-4 py-3 text-xs font-semibold text-slate-400">
                 Checking access...
               </div>
             )}
@@ -2444,7 +2444,7 @@ export default function ProInteractiveJourney() {
                     <Link
                       key={href}
                       href={href}
-                      className="group flex items-center justify-between rounded-[12px] border border-slate-200 bg-slate-50 px-3 py-3 text-[11px] font-semibold text-slate-600 transition hover:bg-white"
+                      className="group flex items-center justify-between rounded-[6px] border border-slate-200 bg-slate-50 px-3 py-3 text-[11px] font-semibold text-slate-600 transition hover:bg-white"
                     >
                       {
                         label

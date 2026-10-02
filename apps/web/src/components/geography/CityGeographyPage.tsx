@@ -145,7 +145,7 @@ export default async function CityGeographyPage({
               entity.project
                 ?.media?.[0]
                 ?.src ||
-              "/visuals/arknoz-neutral.svg",
+              "/visuals/portal/place.png",
           },
         ];
       }
@@ -183,7 +183,7 @@ export default async function CityGeographyPage({
                   `/preview/projects/${entity.slug}`,
                 image:
                   entity.project?.media?.[0]?.src ||
-                  "/visuals/arknoz-neutral.svg",
+                  "/visuals/portal/place.png",
               },
             ];
           }

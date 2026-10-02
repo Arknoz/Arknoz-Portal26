@@ -26,7 +26,7 @@ const countryPlacementSlots =
   );
 const regionImages: Record<string, string> = {
   maharashtra:
-    "/visuals/arknoz-neutral.svg",
+    "/visuals/portal/place.png",
 };
 
 const worldLinks =
@@ -65,7 +65,7 @@ function getPresentation(
           meta: "India",
           href: "/global/maharashtra",
           image:
-            "/visuals/arknoz-neutral.svg",
+            "/visuals/portal/place.png",
         },
 
         {
@@ -74,7 +74,7 @@ function getPresentation(
           meta: "Maharashtra",
           href: "/global/mumbai",
           image:
-            "/visuals/arknoz-neutral.svg",
+            "/visuals/portal/place.png",
         },
       ],
 
@@ -232,7 +232,7 @@ export default async function CountryGeographyPage({
               entity.project
                 ?.media?.[0]
                 ?.src ||
-              "/visuals/arknoz-neutral.svg",
+              "/visuals/portal/place.png",
           },
         ];
       }
@@ -268,7 +268,7 @@ export default async function CountryGeographyPage({
                     `/preview/projects/${entity.slug}`,
                   image:
                     entity.project?.media?.[0]?.src ||
-                    "/visuals/arknoz-neutral.svg",
+                    "/visuals/portal/place.png",
                 },
               ];
             }

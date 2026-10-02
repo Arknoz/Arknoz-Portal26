@@ -12,7 +12,7 @@ import GlobalHeader from "@/components/GlobalHeader";
 import HomeContinuousExperience, {
   type HomeEditorialRecord,
 } from "@/components/HomeContinuousExperience";
-import UniversalArknozLastScreen from "@/components/UniversalArknozLastScreen";
+import UniversalPublicLastScreen from "@/components/UniversalPublicLastScreen";
 import { getProductionEntities } from "@/lib/data/production-entities";
 import { getActivePlacementEntityRef } from "@/lib/placement-data";
 import type { EntityRecord } from "@/lib/entities";
@@ -89,35 +89,78 @@ export default async function Home() {
       title: "Explore Projects",
       meta: "Built World projects",
       href: "/projects",
-      image: "/visuals/arknoz-neutral.svg",
+      image: "/visuals/portal/project.png",
     },
     {
       type: "KNOWLEDGE",
       title: "Explore Knowledge",
       meta: "Research · Cases · References",
       href: "/knowledge",
-      image: "/visuals/arknoz-neutral.svg",
+      image: "/visuals/portal/knowledge.png",
     },
     {
       type: "PRODUCTS",
       title: "Explore Products",
       meta: "Materials · Systems · Equipment",
       href: "/products",
-      image: "/visuals/arknoz-neutral.svg",
+      image: "/visuals/portal/product.png",
+    },
+    {
+      type: "OPPORTUNITIES",
+      title: "Explore Opportunities",
+      meta: "Jobs · Competitions · Events",
+      href: "/opportunities",
+      image: "/visuals/portal/opportunity.png",
     },
   ];
 
   const homeHeroFeatured =
-    [0, 1, 2].map(
+    [0, 1, 2, 3].map(
       (index) => {
         const entity =
-          index < 2
-            ? homeDisplayEntities[index]
-            : null;
+          homeDisplayEntities[index] ?? null;
 
         if (!entity) {
           return homeHeroFallback[index];
         }
+
+        const mediaItems =
+          entity.project?.media ??
+          entity.media ??
+          [];
+
+        const heroMedia =
+          mediaItems.find(
+            (item) =>
+              (item.role ?? "").toLowerCase() === "hero"
+          ) ??
+          mediaItems[0];
+
+        const galleryImages = [
+          heroMedia,
+          ...mediaItems.filter(
+            (item) =>
+              item !== heroMedia &&
+              Boolean(item.src) &&
+              ![
+                "diagram",
+                "drawing",
+                "document",
+              ].includes(
+                (item.role ?? "").toLowerCase()
+              )
+          ),
+        ]
+          .map((item) => item?.src)
+          .filter(
+            (src): src is string =>
+              typeof src === "string" &&
+              src.length > 0 &&
+              !src.includes(
+                "commons.wikimedia.org/wiki/Special:Redirect"
+              )
+          )
+          .slice(0, 7);
 
         return {
           type: entity.type.toUpperCase(),
@@ -133,9 +176,10 @@ export default async function Home() {
               ? `/preview/projects/${entity.slug}`
               : getEntityHref(entity),
           image:
-            entity.media?.[0]?.src ||
-            entity.project?.media?.[0]?.src ||
-            "/visuals/arknoz-neutral.svg",
+            galleryImages[0] ||
+            "/visuals/portal/project.png",
+          images:
+            galleryImages,
         };
       }
     );
@@ -200,7 +244,7 @@ export default async function Home() {
         featured={homeHeroFeatured}
       />
 
-      <UniversalArknozLastScreen />
+      <UniversalPublicLastScreen />
     </main>
   );
 }

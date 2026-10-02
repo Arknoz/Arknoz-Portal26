@@ -1,5 +1,6 @@
 "use client";
 
+import { resolvePortalImage } from "@/lib/portal-image";
 import Link from "next/link";
 
 export type HomeNowOnArknozItem = {
@@ -13,6 +14,11 @@ export type HomeNowOnArknozItem = {
 
 type HomeNowOnArknozLoopProps = {
   items?: HomeNowOnArknozItem[];
+  eyebrow?: string;
+  title?: string;
+  description?: string;
+  ctaLabel?: string;
+  ctaHref?: string;
 };
 
 const fallbackItems: HomeNowOnArknozItem[] = [
@@ -84,6 +90,11 @@ const fallbackItems: HomeNowOnArknozItem[] = [
 
 export default function HomeNowOnArknozLoop({
   items = [],
+  eyebrow = "Arknoz Now",
+  title = "Moving through the Built World.",
+  description = "Projects, products, knowledge, people, places and opportunities.",
+  ctaLabel = "Explore more",
+  ctaHref = "/explore",
 }: HomeNowOnArknozLoopProps) {
   const railItems =
     items.length > 0
@@ -171,7 +182,7 @@ export default function HomeNowOnArknozLoop({
                 text-teal-700
               "
             >
-              ARKNOZ NOW
+              {eyebrow}
             </p>
 
             <h2
@@ -184,7 +195,7 @@ export default function HomeNowOnArknozLoop({
                 sm:text-3xl
               "
             >
-              Moving through the Built World.
+              {title}
             </h2>
           </div>
 
@@ -199,7 +210,7 @@ export default function HomeNowOnArknozLoop({
               md:block
             "
           >
-            Projects, products, knowledge, people, places and opportunities.
+            {description}
           </p>
         </div>
 
@@ -297,10 +308,10 @@ export default function HomeNowOnArknozLoop({
                     "
                   >
                     <img
-                      src={
-                        item.image ||
-                        "/visuals/arknoz-built-world-watermark.jpg"
-                      }
+                      src={resolvePortalImage({
+                        src: item.image,
+                        kind: item.eyebrow,
+                      })}
                       alt=""
                       className="
                         absolute
@@ -396,7 +407,7 @@ export default function HomeNowOnArknozLoop({
           "
         >
           <Link
-            href="/explore"
+            href={ctaHref}
             className="
               inline-flex
               items-center
@@ -406,7 +417,7 @@ export default function HomeNowOnArknozLoop({
               text-teal-800
             "
           >
-            Explore more
+            {ctaLabel}
             <span aria-hidden="true">→</span>
           </Link>
         </div>

@@ -1,3 +1,4 @@
+import { resolvePortalImage } from "@/lib/portal-image";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -9,7 +10,7 @@ import Link from "next/link";
 
 import GlobalHeader from "@/components/GlobalHeader";
 import UniversalFooterStrip from "@/components/UniversalFooterStrip";
-import GlobalFooter from "@/components/GlobalFooter";
+import UniversalPublicLastScreen from "@/components/UniversalPublicLastScreen";
 import { getEntityHref } from "@/components/EntityCard";
 
 import { entities } from "@/lib/entities";
@@ -296,7 +297,7 @@ export default async function FeaturedPage({
           className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage:
-              "url(/visuals/arknoz-neutral.svg)",
+              "url(/visuals/portal/project.png)",
           }}
         />
 
@@ -354,9 +355,12 @@ export default async function FeaturedPage({
               {displayFeaturedRecords.map(
                 (entity) => {
                   const image =
-                      entity.project?.media?.[0]?.src ??
-                      imageBySlug[entity.slug] ??
-                      "/visuals/arknoz-neutral.svg";
+                    resolvePortalImage({
+                      src:
+                        entity.project?.media?.[0]?.src ??
+                        imageBySlug[entity.slug],
+                      kind: entity.type,
+                    });
 
                   return (
                     <Link
@@ -425,7 +429,7 @@ export default async function FeaturedPage({
       </section>
 
       <UniversalFooterStrip />
-      <GlobalFooter />
+      <UniversalPublicLastScreen />
     </main>
   );
 }

@@ -8,7 +8,8 @@
                     "start":  "next start",
                     "lint":  "eslint",
                     "check:media":  "node scripts/check-media-guard.mjs",
-                    "prebuild":  "npm run check:media"
+                    "check:ending":  "node scripts/check-public-ending.mjs",
+                    "prebuild":  "npm run check:media && npm run check:ending"
                 },
     "dependencies":  {
                          "@aws-sdk/client-s3":  "^3.1131.0",

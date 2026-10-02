@@ -1,4 +1,4 @@
-﻿import Image from "next/image";
+import Image from "next/image";
 import Link from "next/link";
 
 import ArknozLivePlatformPanel from "@/components/ArknozLivePlatformPanel";
@@ -40,7 +40,7 @@ const principles = [
 ] as const;
 
 function Arrow() {
-  return <span aria-hidden="true">â†’</span>;
+  return <span aria-hidden="true">→</span>;
 }
 
 export default function UniversalArknozLastScreen() {
@@ -313,7 +313,7 @@ export default function UniversalArknozLastScreen() {
                   </h4>
 
                   <p className="mt-1 text-[8px] text-slate-400">
-                    Continent â†’ Country â†’ Region â†’ City
+                    Continent → Country → Region → City
                   </p>
                 </div>
 

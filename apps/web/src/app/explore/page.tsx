@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 import GlobalHeader from "@/components/GlobalHeader";
 import UniversalPublicLastScreen from "@/components/UniversalPublicLastScreen";
 import UniversalTopicHero from "@/components/UniversalTopicHero";
-import HomeNowOnArknozLoop from "@/components/HomeNowOnArknozLoop";
+import ExploreNowHomePanel from "@/components/ExploreNowHomePanel";
 import ExploreInteractiveJourney from "@/components/ExploreInteractiveJourney";
 
 export default function ExplorePage() {
@@ -18,9 +18,9 @@ export default function ExplorePage() {
 
       <UniversalTopicHero
         eyebrow="EXPLORE"
-        title="Explore the Built World."
-        description="Search everything, enter a Built World section, or start with what you want to do."
-        searchPlaceholder="Search projects, products, knowledge, people, places..."
+        title="The Built World. Opened."
+        description="Move across projects, products, knowledge, learning, people, organisations, places and opportunities."
+        searchPlaceholder="Search project, product, topic, person, organisation or place..."
         popular={["sustainable buildings", "mass timber", "urban biodiversity", "universities", "jobs", "India"]}
         featured={[
           {
@@ -28,21 +28,21 @@ export default function ExplorePage() {
             title: "Explore Projects",
             meta: "Buildings · Infrastructure · Development",
             href: "/projects",
-            image: "/visuals/arknoz-built-world-watermark.jpg",
+            image: "/visuals/portal/project.png",
           },
           {
             type: "PRODUCTS",
             title: "Explore Products",
             meta: "Materials · Systems · Equipment",
             href: "/products",
-            image: "/visuals/arknoz-built-world-watermark.jpg",
+            image: "/visuals/portal/product.png",
           },
           {
             type: "KNOWLEDGE",
             title: "Explore Knowledge",
             meta: "Research · Cases · References",
             href: "/knowledge",
-            image: "/visuals/arknoz-built-world-watermark.jpg",
+            image: "/visuals/portal/knowledge.png",
           },
         ]}
         ticker={[
@@ -58,9 +58,7 @@ export default function ExplorePage() {
           02 — ARKNOZ NOW · SAME LARGE PANEL AS HOME
       ================================================== */}
 
-      <div data-explore-screen="arknoz-now">
-        <HomeNowOnArknozLoop />
-      </div>
+      <ExploreNowHomePanel />
 
 
       {/* ==================================================

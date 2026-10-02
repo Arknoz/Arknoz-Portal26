@@ -22,42 +22,42 @@ const categoryPresentation:
 
   "buildings-architecture": {
     background:
-      "linear-gradient(135deg,#071b31 0%,#123d68 100%)",
+      "linear-gradient(135deg,#0a2230 0%,#153e57 100%)",
     description:
       "Buildings and architectural works across scales, programmes, contexts and design approaches.",
   },
 
   "interiors-renovation-adaptive-reuse": {
     background:
-      "linear-gradient(135deg,#182a38 0%,#345066 100%)",
+      "linear-gradient(135deg,#0a2230 0%,#153e57 100%)",
     description:
       "Interiors, renovation, conservation and adaptive reuse projects transforming existing spaces and buildings.",
   },
 
   "landscape-public-realm": {
     background:
-      "linear-gradient(135deg,#173632 0%,#315a50 100%)",
+      "linear-gradient(135deg,#0a2230 0%,#153e57 100%)",
     description:
       "Landscape, open space and public-realm projects shaping environmental and civic experience.",
   },
 
   "urbanism-planning-development": {
     background:
-      "linear-gradient(135deg,#343022 0%,#625942 100%)",
+      "linear-gradient(135deg,#0a2230 0%,#153e57 100%)",
     description:
       "Urban planning, development and city-scale projects connecting buildings, infrastructure and place.",
   },
 
   "infrastructure-mobility": {
     background:
-      "linear-gradient(135deg,#172936 0%,#3e5667 100%)",
+      "linear-gradient(135deg,#0a2230 0%,#153e57 100%)",
     description:
       "Infrastructure and mobility projects supporting movement, connectivity and the operation of cities and regions.",
   },
 
   "industrial-energy-utilities": {
     background:
-      "linear-gradient(135deg,#282630 0%,#4b4654 100%)",
+      "linear-gradient(135deg,#0a2230 0%,#153e57 100%)",
     description:
       "Industrial, energy and utility projects supporting production, resources and essential Built World systems.",
   },
@@ -83,70 +83,158 @@ function getProjectImage(
 function MoreProjectCard({
   entity,
   index,
+  categoryLabel,
+  categoryHref,
 }: {
   entity?: EntityRecord;
   index: number;
+  categoryLabel: string;
+  categoryHref: string;
 }) {
 
   const number =
     String(index + 1).padStart(2, "0");
 
   if (!entity) {
-
     return (
-      <article className="relative flex min-h-0 flex-col overflow-hidden rounded-[20px] border border-slate-200 bg-white p-5">
+      <Link
+        href={categoryHref}
+        className="
+          group
+          relative
+          flex
+          min-h-0
+          flex-col
+          overflow-hidden
+          rounded-[8px]
+          border
+          border-slate-200
+          bg-[#0a2230]
+          transition
+          duration-300
+          hover:-translate-y-0.5
+          hover:border-slate-300
+          hover:shadow-sm
+        "
+      >
+        <img
+          src="/visuals/portal/project.png"
+          alt=""
+          className={`
+            absolute
+            inset-0
+            h-full
+            w-full
+            object-cover
+            transition
+            duration-700
+            group-hover:scale-[1.025]
+            ${
+              [
+                "object-left",
+                "object-center",
+                "object-right",
+                "object-[35%_center]",
+                "object-[65%_center]",
+                "object-[50%_65%]",
+              ][index] ?? "object-center"
+            }
+          `}
+        />
 
-        <div className="flex items-start justify-between">
+        <div
+          className="
+            absolute
+            inset-0
+            bg-gradient-to-t
+            from-[#03121c]/95
+            via-[#03121c]/35
+            to-[#03121c]/10
+          "
+        />
 
-          <span className="text-[10px] font-semibold text-blue-700">
-            {number}
-          </span>
+        <div
+          className="
+            relative
+            z-10
+            flex
+            h-full
+            min-h-[190px]
+            flex-col
+            justify-between
+            p-5
+            text-white
+          "
+        >
+          <div className="flex items-start justify-between">
+            <span
+              className="
+                text-[10px]
+                font-semibold
+                text-red-200
+              "
+            >
+              {number}
+            </span>
 
-          <span className="text-slate-300">
-            →
-          </span>
+            <span className="text-white/55">
+              →
+            </span>
+          </div>
 
+          <div>
+            <p
+              className="
+                text-[8px]
+                font-bold
+                uppercase
+                tracking-[0.16em]
+                text-white/60
+              "
+            >
+              Projects
+            </p>
+
+            <h3
+              className="
+                mt-2
+                text-[17px]
+                font-semibold
+                leading-[1.08]
+                tracking-[-0.025em]
+              "
+            >
+              {categoryLabel}
+            </h3>
+
+            <p
+              className="
+                mt-2
+                text-[9px]
+                leading-4
+                text-white/55
+              "
+            >
+              More verified projects will appear here as they are published.
+            </p>
+          </div>
         </div>
-
-
-        <div className="my-auto">
-
-          <p className="text-[9px] font-semibold uppercase tracking-[0.12em] text-slate-400">
-            Project
-          </p>
-
-
-          <p className="mt-3 max-w-[250px] text-[12px] leading-5 text-slate-400">
-            No additional published project available in this category yet.
-          </p>
-
-        </div>
-
-
-        <div className="border-t border-slate-100 pt-4">
-
-          <p className="text-[8px] font-semibold uppercase tracking-[0.12em] text-slate-300">
-            Awaiting genuine record
-          </p>
-
-        </div>
-
-      </article>
+      </Link>
     );
   }
 
-
   const image =
-    getProjectImage(entity);
+    getProjectImage(entity) ??
+    "/visuals/portal/project.png";
 
 
   return (
     <Link
       href={getEntityHref(entity)}
-      className="group flex min-h-0 flex-col overflow-hidden rounded-[20px] border border-slate-200 bg-white transition hover:-translate-y-0.5 hover:border-blue-300 hover:shadow-md"
+      className="group flex min-h-0 flex-col overflow-hidden rounded-[8px] border border-slate-200 bg-white transition duration-300 hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-sm"
     >
 
-      <div className="relative h-[43%] min-h-[105px] overflow-hidden bg-[#edf1f4]">
+      <div className="relative h-[48%] min-h-[120px] overflow-hidden bg-[#edf1f4]">
 
         {image ? (
           <img
@@ -173,11 +261,11 @@ function MoreProjectCard({
 
         <div className="flex items-start justify-between">
 
-          <span className="text-[10px] font-semibold text-blue-700">
+          <span className="text-[10px] font-semibold text-red-500">
             {number}
           </span>
 
-          <span className="text-blue-700">
+          <span className="text-red-500">
             →
           </span>
 
@@ -196,7 +284,7 @@ function MoreProjectCard({
         ) : null}
 
 
-        <p className="mt-auto border-t border-slate-100 pt-4 text-[9px] font-semibold text-blue-700">
+        <p className="mt-auto border-t border-slate-100 pt-4 text-[9px] font-semibold text-red-500">
           Open project →
         </p>
 
@@ -228,7 +316,7 @@ export default function ProjectCategoryShowcaseScreen({
       category.slug
     ] ?? {
       background:
-        "linear-gradient(135deg,#071b31 0%,#123d68 100%)",
+        "linear-gradient(135deg,#0a2230 0%,#153e57 100%)",
       description:
         `Explore ${category.label.toLowerCase()} projects across Arknoz.`,
     };
@@ -237,17 +325,18 @@ export default function ProjectCategoryShowcaseScreen({
   const featuredImage =
     getProjectImage(
       featuredProject
-    );
+    ) ??
+    "/visuals/portal/project.png";
 
 
   return (
     <section
       id={`project-category-${category.slug}`}
       data-project-category-screen={category.slug}
-      className="border-t border-slate-200 bg-white lg:h-[calc(100svh-88px)] lg:min-h-0"
+      className="border-t border-slate-200 bg-[#f5f7fb] px-5 py-5 sm:px-6 lg:px-8"
     >
 
-      <div className="grid min-h-[calc(100svh-88px)] lg:h-full lg:min-h-0 lg:grid-cols-[0.72fr_1.28fr]">
+      <div className="mx-auto grid max-w-[1600px] overflow-hidden rounded-[10px] border border-slate-200 bg-white shadow-[0_18px_50px_rgba(15,23,42,0.06)] lg:min-h-[calc(100svh-168px)] lg:grid-cols-[0.72fr_1.28fr]">
 
 
         {/* ==================================================
@@ -275,7 +364,7 @@ export default function ProjectCategoryShowcaseScreen({
 
 
           <div
-            className="absolute inset-0 opacity-[0.07]"
+            className="absolute inset-0 opacity-[0.04]"
             style={{
               backgroundImage:
                 "linear-gradient(rgba(255,255,255,.35) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.35) 1px,transparent 1px)",
@@ -287,7 +376,7 @@ export default function ProjectCategoryShowcaseScreen({
 
           <div className="relative">
 
-            <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-blue-100">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-red-200">
               {String(screenNumber).padStart(2, "0")} / Projects
             </p>
 
@@ -306,7 +395,7 @@ export default function ProjectCategoryShowcaseScreen({
 
           <div className="relative mt-auto">
 
-            <p className="text-[9px] font-semibold uppercase tracking-[0.15em] text-blue-100">
+            <p className="text-[9px] font-semibold uppercase tracking-[0.15em] text-red-200">
               Featured Project
             </p>
 
@@ -314,7 +403,7 @@ export default function ProjectCategoryShowcaseScreen({
             {featuredProject ? (
               <>
 
-                <h3 className="mt-4 max-w-xl text-[38px] font-semibold leading-[0.98] tracking-[-0.045em] lg:text-[46px]">
+                <h3 className="mt-4 max-w-xl text-[34px] font-semibold leading-[1] tracking-[-0.045em] lg:text-[40px]">
                   {featuredProject.title}
                 </h3>
 
@@ -347,13 +436,13 @@ export default function ProjectCategoryShowcaseScreen({
             ) : (
               <>
 
-                <h3 className="mt-4 max-w-lg text-[32px] font-semibold leading-[1.02] tracking-[-0.035em] text-white/90">
-                  Featured project slot
+                <h3 className="mt-4 max-w-lg text-[28px] font-semibold leading-[1.02] tracking-[-0.035em] text-white/90">
+                  Explore this project world
                 </h3>
 
 
                 <p className="mt-4 max-w-md text-[12px] leading-6 text-white/55">
-                  No eligible featured project has been assigned to this category yet.
+                  Browse published work and new project records as they enter this Arknoz project world.
                 </p>
 
               </>
@@ -364,13 +453,27 @@ export default function ProjectCategoryShowcaseScreen({
 
               <div>
 
-                <p className="text-[30px] font-semibold leading-none">
-                  {String(totalCount).padStart(2, "0")}
-                </p>
+                {totalCount > 0 ? (
+                  <>
+                    <p className="text-[30px] font-semibold leading-none">
+                      {String(totalCount).padStart(2, "0")}
+                    </p>
 
-                <p className="mt-2 text-[8px] font-semibold uppercase tracking-[0.12em] text-white/45">
-                  Published projects
-                </p>
+                    <p className="mt-2 text-[8px] font-semibold uppercase tracking-[0.12em] text-white/45">
+                      Published projects
+                    </p>
+                  </>
+                ) : (
+                  <>
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-red-200">
+                      Awaiting published projects
+                    </p>
+
+                    <p className="mt-2 max-w-[220px] text-[9px] leading-4 text-white/45">
+                      Verified project records will appear here as they are published.
+                    </p>
+                  </>
+                )}
 
               </div>
 
@@ -393,18 +496,18 @@ export default function ProjectCategoryShowcaseScreen({
             RIGHT — 6 MORE PROJECTS FROM SAME CATEGORY
         ================================================== */}
 
-        <div className="flex min-h-0 flex-col bg-[#f4f7fa] p-5 lg:p-8 xl:p-10">
+        <div className="flex min-h-0 flex-col bg-[#f5f7fb] p-5 lg:p-8 xl:p-10">
 
           <div className="mb-6 flex shrink-0 items-end justify-between gap-8">
 
             <div>
 
-              <p className="text-[10px] font-semibold uppercase tracking-[0.13em] text-blue-700">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.13em] text-red-500">
                 Projects
               </p>
 
 
-              <h3 className="mt-2 max-w-3xl text-[30px] font-semibold tracking-[-0.035em] text-slate-950">
+              <h3 className="mt-2 max-w-3xl text-[27px] font-semibold tracking-[-0.035em] text-[#0a2230]">
                 {category.label}
               </h3>
 
@@ -413,7 +516,7 @@ export default function ProjectCategoryShowcaseScreen({
 
             <Link
               href={categoryHref}
-              className="hidden shrink-0 text-[10px] font-semibold text-blue-700 lg:block"
+              className="hidden shrink-0 text-[10px] font-semibold text-red-500 lg:block"
             >
               View all category →
             </Link>
@@ -421,8 +524,7 @@ export default function ProjectCategoryShowcaseScreen({
           </div>
 
 
-          <div className="grid min-h-0 flex-1 gap-4 sm:grid-cols-2 xl:grid-cols-3 xl:grid-rows-2">
-
+          <div className="grid min-h-0 flex-1 gap-3 sm:grid-cols-2 xl:grid-cols-3 xl:grid-rows-2">
             {Array.from(
               {
                 length: 6,
@@ -436,10 +538,11 @@ export default function ProjectCategoryShowcaseScreen({
                   }
                   entity={projects[index]}
                   index={index}
+                  categoryLabel={category.label}
+                  categoryHref={categoryHref}
                 />
               )
             )}
-
           </div>
 
         </div>

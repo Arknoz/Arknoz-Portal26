@@ -107,7 +107,7 @@ export default function KnowledgeDetailPage({
       title: item.title,
       meta: `${item.geography}${item.trust ? ` · ${item.trust}` : ""}`,
       href: getEntityHref(item),
-      image: "/visuals/arknoz-neutral.svg",
+      image: "/visuals/portal/knowledge.png",
     }));
 
   return (

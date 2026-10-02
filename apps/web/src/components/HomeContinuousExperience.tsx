@@ -1,5 +1,9 @@
 "use client";
 
+import {
+  isGenericPortalImage,
+  resolvePortalImage,
+} from "@/lib/portal-image";
 import HomePlatformOverview from "@/components/HomePlatformOverview";
 
 import Link from "next/link";
@@ -30,6 +34,7 @@ type HeroFeature = {
   meta: string;
   href: string;
   image: string;
+  images?: string[];
 };
 
 
@@ -44,8 +49,7 @@ const hasImage = (
 ) =>
   Boolean(
     src &&
-    src !==
-      "/visuals/arknoz-neutral.svg"
+    !isGenericPortalImage(src)
   );
 
 
@@ -73,7 +77,7 @@ function Arrow() {
         group-hover:translate-x-1
       "
     >
-      â†’
+      →
     </span>
   );
 }
@@ -373,6 +377,14 @@ export default function HomeContinuousExperience({
   ] =
     useState("");
 
+  const [
+    quickViewItem,
+    setQuickViewItem,
+  ] =
+    useState<HeroFeature | null>(
+      null
+    );
+
   const featuredItems =
     useMemo(
       () =>
@@ -576,6 +588,27 @@ export default function HomeContinuousExperience({
     ]
   );
 
+  // ARKNOZ MAIN FEATURE AUTO ROTATION
+  useEffect(() => {
+    if (featuredItems.length <= 1) {
+      return;
+    }
+
+    const timer = window.setInterval(
+      () => {
+        chooseNextFeaturedForSlot(0);
+      },
+      15000
+    );
+
+    return () => {
+      window.clearInterval(timer);
+    };
+  }, [
+    chooseNextFeaturedForSlot,
+    featuredItems.length,
+  ]);
+
   const featuredCards =
     featuredSelection
       .map(
@@ -653,6 +686,15 @@ export default function HomeContinuousExperience({
     recordsWithImages[0] ??
     projects[0] ??
     records[0];
+
+  const quickViewRecord =
+    quickViewItem
+      ? records.find(
+          (record) =>
+            record.href ===
+            quickViewItem.href
+        )
+      : undefined;
 
 
   const liveRecords =
@@ -742,7 +784,7 @@ export default function HomeContinuousExperience({
         summary:
           "Materials, components, building systems, equipment and technology.",
         geography:
-          "Materials Â· Systems",
+          "Materials · Systems",
         href:
           "/products",
         type:
@@ -918,575 +960,985 @@ export default function HomeContinuousExperience({
           HERO â€” WHAT IS ARKNOZ
          ============================================== */}
 
-      <section
-        className="
-          relative
-          isolate
-          overflow-hidden
-          bg-[#081b27]
-          text-white
-        "
-      >
+      {/* ==============================================
+          HOME HERO — PULSE FAMILY
+         ============================================== */}
 
-        {/* FULL-BLEED BUILT WORLD ATMOSPHERE */}
+      <section className="relative overflow-hidden border-b border-slate-200 bg-[#f7f8f8] text-slate-950">
+        <style>{`
+          @keyframes arknozHeroAccent {
+            0%, 100% {
+              transform: scaleX(0.28);
+              opacity: 0.45;
+            }
+
+            50% {
+              transform: scaleX(1);
+              opacity: 1;
+            }
+          }
+
+          @keyframes arknozHeroFloat {
+            0%, 100% {
+              transform: translate3d(0, 0, 0);
+            }
+
+            50% {
+              transform: translate3d(0, -12px, 0);
+            }
+          }
+
+          .arknoz-hero-accent {
+            animation:
+              arknozHeroAccent
+              5s
+              ease-in-out
+              infinite;
+          }
+
+          .arknoz-hero-orb {
+            animation:
+              arknozHeroFloat
+              8s
+              ease-in-out
+              infinite;
+          }
+
+          @media (prefers-reduced-motion: reduce) {
+            .arknoz-hero-accent,
+            .arknoz-hero-orb {
+              animation: none;
+            }
+          }
+        `}</style>
+
         <div
           aria-hidden="true"
-          className="
-            absolute
-            inset-0
-            overflow-hidden
-          "
-        >
-          <div
-            className="
-              absolute
-              inset-0
-              bg-[url('/visuals/arknoz-built-world-watermark.jpg')]
-              bg-cover
-              bg-center
-              bg-no-repeat
-              opacity-[0.32]
-              grayscale-[20%]
-              saturate-[0.75]
-              contrast-90
-            "
-          />
+          className="arknoz-hero-orb pointer-events-none absolute -left-24 top-10 h-[320px] w-[320px] rounded-full opacity-60 blur-3xl"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(166,31,70,0.11) 0%, rgba(166,31,70,0) 68%)",
+          }}
+        />
 
-          <div
-            className="
-              absolute
-              inset-0
-              bg-gradient-to-r
-              from-[#061722]
-              via-[#071925]/88
-              to-[#071925]/28
-            "
-          />
-
-          <div
-            className="
-              absolute
-              inset-0
-              bg-gradient-to-t
-              from-[#071925]/55
-              via-transparent
-              to-[#071925]/15
-            "
-          />
-        </div>
         <div
-          className="
-            hidden
-          "
-        >
-          <Media
-            record={heroRecord}
-            label="THE BUILT WORLD"
-            overlay={false}
-          />
+          aria-hidden="true"
+          className="pointer-events-none absolute right-[18%] top-[-120px] h-[420px] w-[420px] rounded-full opacity-70 blur-3xl"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(23,43,77,0.10) 0%, rgba(23,43,77,0) 70%)",
+          }}
+        />
 
-          <div
-            className="
-              absolute
-              inset-0
-              bg-gradient-to-r
-              from-[#081b27]
-              via-[#081b27]/45
-              to-transparent
-            "
-          />
+        <div className="relative mx-auto max-w-[1600px] px-5 sm:px-8 lg:px-8">
 
-          <div
-            className="
-              absolute
-              inset-0
-              bg-gradient-to-t
-              from-[#081b27]/55
-              via-transparent
-              to-[#081b27]/10
-            "
-          />
-        </div>
+          <div className="grid gap-8 pb-0 pt-4 lg:grid-cols-[0.78fr_1.22fr] lg:gap-10 lg:pb-0 lg:pt-5 xl:min-h-[620px]">
+            {/* LEFT — ARKNOZ INTRODUCTION */}
+            <div className="relative flex flex-col lg:py-4">
 
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute -inset-x-5 -top-5 bottom-0 opacity-80"
+                style={{
+                  background:
+                    "radial-gradient(circle at 8% 14%, rgba(166,31,70,0.07), transparent 34%), radial-gradient(circle at 74% 42%, rgba(23,43,77,0.06), transparent 40%)",
+                }}
+              />
 
-        {featuredCards.length > 0 ? (
-          <aside
-            aria-label="Featured on Arknoz"
-            className="
-              absolute
-              right-[2.2%]
-              top-1/2
-              z-20
-              hidden
-              w-[650px]
-              -translate-y-1/2
-              xl:block
-              2xl:w-[720px]
-            "
-          >
-            <h2
-              className="
-                mb-4
-                text-[10px]
-                font-bold
-                uppercase
-                tracking-[0.22em]
-                text-white/90
-              "
-            >
-              FEATURED ON ARKNOZ
-            </h2>
+              <div className="relative z-10">
+                <div className="group">
+                  <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
+                    <h1 className="text-[52px] font-black leading-none tracking-[-0.055em] transition-transform duration-500 group-hover:-translate-y-[2px] sm:text-[60px] xl:text-[68px]">
+                      <span className="text-[#172b4d]">Ark</span><span className="text-[#a61f46]">noz</span>
+                    </h1>
 
+                    <div className="hidden h-12 w-px bg-slate-300 sm:block" />
 
-            <div
-              className="
-                grid
-                h-[455px]
-                grid-cols-[1.36fr_.64fr]
-                grid-rows-2
-                gap-3
-                2xl:h-[500px]
-              "
-            >
-              {featuredCards.map(
-                (
-                  item,
-                  index
-                ) => {
+                    <p className="text-[17px] font-normal leading-tight text-slate-500 transition-colors duration-300 group-hover:text-slate-700 sm:text-[19px]">
+                      The Built World. Connected.
+                    </p>
+                  </div>
+
+                  <div className="mt-3 h-[2px] w-32 overflow-hidden bg-slate-200">
+                    <div className="arknoz-hero-accent h-full origin-left bg-gradient-to-r from-[#172b4d] via-[#a61f46] to-red-400" />
+                  </div>
+                </div>
+
+                <p className="mt-5 max-w-[570px] text-[15px] leading-7 text-slate-700">
+                  Arknoz connects projects, products, knowledge, education,
+                  people, organisations, places and opportunities across the
+                  Built World.
+                </p>
+
+                <p className="mt-2 max-w-[550px] text-[12px] leading-5 text-slate-500">
+                  Discover what is being built, understand how it connects,
+                  learn from it and find where you can participate next.
+                </p>
+
+                <form
+                  onSubmit={submitSearch}
+                  className="arknoz-search-live group mt-6 flex max-w-[620px] items-center border border-slate-300 bg-white p-1 shadow-[0_8px_30px_rgba(15,23,42,0.05)] transition-all duration-300 hover:border-slate-400 hover:shadow-[0_14px_38px_rgba(15,23,42,0.09)] focus-within:-translate-y-[1px] focus-within:border-[#a61f46]/50 focus-within:shadow-[0_18px_45px_rgba(15,23,42,0.12)]"
+                >
+                  <input
+                    value={query}
+                    onChange={(event) =>
+                      setQuery(event.target.value)
+                    }
+                    placeholder="Search project, product, architect, city, topic..."
+                    className="min-w-0 flex-1 bg-transparent px-4 py-3 text-[13px] text-slate-950 outline-none placeholder:text-slate-400"
+                  />
+
+                  <button
+                    type="submit"
+                    className="bg-[#0a2230] px-6 py-3 text-[11px] font-semibold text-white transition-all duration-300 hover:-translate-y-[1px] hover:bg-[#153e57] hover:shadow-[0_7px_18px_rgba(10,34,48,0.22)] active:translate-y-0"
+                  >
+                    Search
+                  </button>
+                </form>
+
+                <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-2">
+                  <a
+                    href="#how-arknoz-works"
+                    className="group inline-flex items-center gap-2 text-[12px] font-semibold text-slate-950"
+                  >
+                    See how it works
+                    <Arrow />
+                  </a>
+
+                  <Link
+                    href="/explore"
+                    className="group inline-flex items-center gap-2 text-[12px] font-semibold text-slate-500 transition hover:text-slate-950"
+                  >
+                    Open Explore
+                    <Arrow />
+                  </Link>
+                </div>
+              </div>
+
+              <div className="mt-6 hidden border-t border-slate-200 pt-4 lg:block">
+                <div className="grid grid-cols-3 gap-2">
+
+                  <Link
+                    href="/explore"
+                    className="group border-l-2 border-transparent px-3 py-2 transition-all duration-300 hover:-translate-y-[2px] hover:border-[#a61f46] hover:bg-white hover:shadow-[0_8px_22px_rgba(15,23,42,0.07)]"
+                  >
+                    <p className="text-[9px] font-bold uppercase tracking-[0.16em] text-slate-400 transition group-hover:text-[#a61f46]">
+                      Discover
+                    </p>
+
+                    <p className="mt-1 text-[12px] leading-5 text-slate-600 transition group-hover:text-slate-950">
+                      Projects, products and places.
+                    </p>
+                  </Link>
+
+                  <Link
+                    href="/knowledge"
+                    className="group border-l-2 border-transparent px-3 py-2 transition-all duration-300 hover:-translate-y-[2px] hover:border-[#172b4d] hover:bg-white hover:shadow-[0_8px_22px_rgba(15,23,42,0.07)]"
+                  >
+                    <p className="text-[9px] font-bold uppercase tracking-[0.16em] text-slate-400 transition group-hover:text-[#172b4d]">
+                      Understand
+                    </p>
+
+                    <p className="mt-1 text-[12px] leading-5 text-slate-600 transition group-hover:text-slate-950">
+                      Knowledge and learning.
+                    </p>
+                  </Link>
+
+                  <Link
+                    href="/opportunities"
+                    className="group border-l-2 border-transparent px-3 py-2 transition-all duration-300 hover:-translate-y-[2px] hover:border-red-500 hover:bg-white hover:shadow-[0_8px_22px_rgba(15,23,42,0.07)]"
+                  >
+                    <p className="text-[9px] font-bold uppercase tracking-[0.16em] text-slate-400 transition group-hover:text-red-500">
+                      Participate
+                    </p>
+
+                    <p className="mt-1 text-[12px] leading-5 text-slate-600 transition group-hover:text-slate-950">
+                      People and opportunities.
+                    </p>
+                  </Link>
+
+                </div>
+              </div>
+
+              {/* ARKNOZ MEDIA CAROUSEL — 3 VISIBLE */}
+              <div className="arknoz-media-window relative mt-6 overflow-hidden border border-slate-200 bg-white shadow-[0_12px_34px_rgba(15,23,42,0.07)] transition-shadow duration-500 hover:shadow-[0_18px_42px_rgba(15,23,42,0.11)]">
+
+                <style>{`
+                  @keyframes arknozMediaRailLeft {
+                    from {
+                      transform: translateX(0);
+                    }
+
+                    to {
+                      transform: translateX(-100%);
+                    }
+                  }
+
+                  .arknoz-media-rail-track {
+                    display: flex;
+                    width: 100%;
+                    animation:
+                      arknozMediaRailLeft
+                      20s
+                      linear
+                      infinite;
+                  }
+
+                  .arknoz-media-rail-track:hover {
+                    animation-play-state: paused;
+                  }
+                  .arknoz-search-live {
+                    position: relative;
+                    overflow: hidden;
+                  }
+
+                  .arknoz-search-live::after {
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    width: 100%;
+                    height: 2px;
+                    background:
+                      linear-gradient(
+                        90deg,
+                        #172b4d 0%,
+                        #a61f46 55%,
+                        #ef4444 100%
+                      );
+                    transform: scaleX(0);
+                    transform-origin: left center;
+                    transition:
+                      transform 380ms ease;
+                  }
+
+                  .arknoz-search-live:hover::after {
+                    transform: scaleX(0.25);
+                  }
+
+                  .arknoz-search-live:focus-within::after {
+                    transform: scaleX(1);
+                  }
+
+                  .arknoz-media-window::before,
+                  .arknoz-media-window::after {
+                    content: "";
+                    position: absolute;
+                    z-index: 20;
+                    top: 0;
+                    bottom: 0;
+                    width: 42px;
+                    pointer-events: none;
+                  }
+
+                  .arknoz-media-window::before {
+                    left: 0;
+                    background:
+                      linear-gradient(
+                        90deg,
+                        rgba(247,248,248,0.96),
+                        rgba(247,248,248,0)
+                      );
+                  }
+
+                  .arknoz-media-window::after {
+                    right: 0;
+                    background:
+                      linear-gradient(
+                        270deg,
+                        rgba(247,248,248,0.96),
+                        rgba(247,248,248,0)
+                      );
+                  }
+
+                  .arknoz-media-rail-track img {
+                    transition:
+                      transform 700ms ease,
+                      filter 500ms ease;
+                  }
+
+                  .arknoz-media-rail-track article:hover img,
+                  .arknoz-media-rail-track a:hover img {
+                    transform: scale(1.045);
+                    filter:
+                      saturate(1.08)
+                      contrast(1.03);
+                  }
+
+                  @media (prefers-reduced-motion: reduce) {
+                    .arknoz-media-rail-track {
+                      animation: none;
+                    }
+                  }
+                `}</style>
+
+                <div className="arknoz-media-rail-track">
+
+                  {[0, 1].map((copyIndex) => (
+
+                    <div
+                      key={`arknoz-media-group-${copyIndex}`}
+                      className="grid w-full shrink-0 grid-cols-3 gap-2 p-2"
+                      aria-hidden={
+                        copyIndex === 1
+                          ? true
+                          : undefined
+                      }
+                    >
+
+                      {[
+                        {
+                          label: "PULSE",
+                          sublabel: "LATEST MAGAZINE",
+                          image: "/visuals/latest/magazine.png",
+                          href: "/pulse?section=magazine",
+                        },
+                        {
+                          label: "BOOKS",
+                          sublabel: "ARKNOZ BOOKS",
+                          image: "/visuals/latest/books.png",
+                          href: "/pulse?section=books",
+                        },
+                        {
+                          label: "VIDEO",
+                          sublabel: "WATCH",
+                          image: "/visuals/latest/video.png",
+                          href: "/pulse?section=video",
+                        },
+                        {
+                          label: "RESEARCH",
+                          sublabel: "PUBLICATIONS",
+                          image: "/visuals/latest/research.png",
+                          href: "/pulse?section=research",
+                        },
+                        {
+                          label: "LEARNING",
+                          sublabel: "EDUCATION",
+                          image: "/visuals/latest/education.png",
+                          href: "/pulse?section=education",
+                        },
+                        {
+                          label: "WORLD",
+                          sublabel: "WORLD PULSE",
+                          image: "/visuals/latest/world.png",
+                          href: "/pulse?section=world",
+                        },
+                      ].map((mediaItem, index) => (
+
+                        <Link
+                          key={`${copyIndex}-${index}-${mediaItem.label}`}
+                          href={mediaItem.href}
+                          tabIndex={
+                            copyIndex === 1
+                              ? -1
+                              : undefined
+                          }
+                          className="group relative h-[175px] min-w-0 overflow-hidden bg-[#071a2d]"
+                        >
+
+                          <img
+                            src={mediaItem.image}
+                            alt=""
+                            className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.05]"
+                          />
+
+                          <div className="absolute inset-0 bg-gradient-to-t from-[#04131d]/90 via-[#04131d]/10 to-transparent" />
+
+                          <div className="absolute inset-x-0 bottom-0 p-3 text-white">
+
+                            <p className="text-[8px] font-black uppercase tracking-[0.16em] text-white/60">
+                              {mediaItem.sublabel}
+                            </p>
+
+                            <p className="mt-1 text-[15px] font-black leading-none tracking-[-0.035em]">
+                              {mediaItem.label}
+                            </p>
+
+                          </div>
+
+                        </Link>
+
+                      ))}
+
+                    </div>
+
+                  ))}
+
+                </div>
+              </div>
+            </div>
+
+            {/* RIGHT — FEATURED ON ARKNOZ */}
+            <div className="min-w-0 border-t border-slate-200 pt-5 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
+
+              <style>{`
+                @keyframes arknozFeaturedSmallUp {
+                  from {
+                    transform: translateY(0);
+                  }
+
+                  to {
+                    transform: translateY(-50%);
+                  }
+                }
+
+                @keyframes arknozFeaturedGalleryFade {
+                  0% {
+                    opacity: 0;
+                  }
+
+                  4% {
+                    opacity: 1;
+                  }
+
+                  28% {
+                    opacity: 1;
+                  }
+
+                  32% {
+                    opacity: 0;
+                  }
+
+                  100% {
+                    opacity: 0;
+                  }
+                }
+
+                .arknoz-featured-small-track {
+                  animation:
+                    arknozFeaturedSmallUp
+                    18s
+                    linear
+                    infinite;
+                }
+
+                .arknoz-featured-small-track:hover {
+                  animation-play-state: paused;
+                }
+
+                @media (prefers-reduced-motion: reduce) {
+                  .arknoz-featured-small-track {
+                    animation: none;
+                  }
+                }
+              `}</style>
+
+              <div className="mb-4 flex items-end justify-between gap-4">
+                <div>
+                  <p className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.18em] text-red-500">
+                    <span className="relative flex h-2 w-2">
+                      <span className="absolute inline-flex h-full w-full motion-safe:animate-ping rounded-full bg-red-400 opacity-50" />
+                      <span className="relative inline-flex h-2 w-2 rounded-full bg-red-500" />
+                    </span>
+
+                    Featured
+                  </p>
+
+                  <h2 className="mt-1 text-xl font-semibold tracking-[-0.035em] text-[#0a2230]">
+                    On Arknoz
+                  </h2>
+                </div>
+
+                <Link
+                  href="/explore"
+                  className="text-[11px] font-semibold text-slate-500 transition hover:text-slate-950"
+                >
+                  Explore all →
+                </Link>
+              </div>
+
+              <div className="grid gap-3 md:grid-cols-[1.3fr_0.7fr] md:h-[570px] xl:h-[590px]">
+
+                {/* BIG PROJECT — SINGLE PANEL WITH AUTO-LOOPING PROJECT MEDIA */}
+                {featuredCards[0] ? (() => {
+                  const item = featuredCards[0];
+
                   const linkedRecord =
                     records.find(
                       (record) =>
-                        record.href ===
-                        item.href
+                        record.href === item.href
                     );
 
-                  const imageSrc =
-                    hasImage(
-                      item.image
-                    )
-                      ? item.image
-                      : "/visuals/arknoz-built-world-watermark.jpg";
+                  const fallbackImageSrc =
+                    resolvePortalImage({
+                      src: hasImage(item.image)
+                        ? item.image
+                        : heroRecord?.image,
+                      kind: item.type,
+                    });
 
-                  const panelClass =
-                    index === 0
-                      ? `
-                          group
-                          relative
-                          row-span-2
-                          overflow-hidden
-                          rounded-[26px]
-                          border
-                          border-white/20
-                          bg-[#102f3f]
-                          shadow-xl
-                        `
-                      : `
-                          group
-                          relative
-                          overflow-hidden
-                          rounded-[22px]
-                          border
-                          border-white/20
-                          bg-[#102f3f]
-                          shadow-xl
-                        `;
+                  const galleryImages =
+                    (item.images ?? [])
+                      .filter(
+                        (src) =>
+                          hasImage(src)
+                      )
+                      .slice(0, 6);
+
+                  if (galleryImages.length === 0) {
+                    galleryImages.push(
+                      fallbackImageSrc
+                    );
+                  }
+
+                  const loopImageCount =
+                    galleryImages.length;
+
+                  const loopDurationSeconds =
+                    Math.max(
+                      loopImageCount * 3.6,
+                      3.6
+                    );
 
                   return (
-                    <div
-                      key={
-                        `${item.href}-${index}`
-                      }
-                      className={
-                        panelClass
-                      }
-                    >
+                    <article className="group relative min-h-[390px] overflow-hidden bg-[#0a2230] shadow-[0_18px_50px_rgba(7,27,49,0.16)] ring-1 ring-slate-900/5 transition-all duration-500 hover:-translate-y-[2px] hover:shadow-[0_26px_60px_rgba(7,27,49,0.22)] md:h-full md:min-h-0">
+
                       <Link
-                        href={
-                          item.href
-                        }
-                        className="
-                          absolute
-                          inset-0
-                          z-10
-                          block
-                        "
+                        href={item.href}
+                        className="absolute inset-0 z-10 block"
                       >
-                        <img
-                          src={imageSrc}
-                          alt=""
-                          className="
-                            absolute
-                            inset-0
-                            h-full
-                            w-full
-                            object-cover
-                            transition-transform
-                            duration-700
-                            group-hover:scale-[1.025]
-                          "
-                        />
 
-                        <div
-                          className="
-                            absolute
-                            inset-0
-                            bg-gradient-to-t
-                            from-[#04131d]/95
-                            via-[#061722]/22
-                            to-black/10
-                          "
-                        />
+                        {galleryImages.map(
+                          (
+                            src,
+                            index
+                          ) => (
+                            <img
+                              key={`${item.href}-loop-${index}`}
+                              src={src}
+                              alt=""
+                              className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-[1.025]"
+                              style={
+                                loopImageCount > 1
+                                  ? {
+                                      opacity: 0,
+                                      animationName:
+                                        "arknozFeaturedGalleryFade",
+                                      animationDuration: `${loopDurationSeconds}s`,
+                                      animationTimingFunction: "linear",
+                                      animationIterationCount: "infinite",
+                                      animationDelay: `${index * 3.6}s`,
+                                    }
+                                  : {
+                                      opacity: 1,
+                                    }
+                              }
+                            />
+                          )
+                        )}
 
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#04131d]/95 via-[#061722]/20 to-black/5" />
 
-                        <div
-                          className="
-                            absolute
-                            left-5
-                            top-5
-                            z-10
-                          "
-                        >
-                          <p
-                            className="
-                              text-[8px]
-                              font-bold
-                              uppercase
-                              tracking-[0.18em]
-                              text-cyan-100/90
-                            "
-                          >
+                        <div className="absolute left-5 top-5 z-10">
+                          <p className="text-[8px] font-bold uppercase tracking-[0.18em] text-white/85">
                             {item.type}
                           </p>
                         </div>
 
+                        <div className="absolute right-5 top-5 z-20 flex flex-col items-end gap-2">
+                          <div className="rounded-full border border-white/25 bg-black/30 px-2.5 py-1 text-[8px] font-semibold tracking-[0.12em] text-white/80 backdrop-blur-md">
+                            {String(
+                              featuredSelection[0] + 1
+                            ).padStart(2, "0")}
+                            {" / "}
+                            {String(
+                              featuredItems.length
+                            ).padStart(2, "0")}
+                          </div>
 
-                        <div
-                          className={
-                            index === 0
-                              ? `
-                                  absolute
-                                  inset-x-0
-                                  bottom-0
-                                  z-10
-                                  p-7
-                                  pr-20
-                                  2xl:p-8
-                                  2xl:pr-24
-                                `
-                              : `
-                                  absolute
-                                  inset-x-0
-                                  bottom-0
-                                  z-10
-                                  p-5
-                                  pr-14
-                                `
-                          }
-                        >
+                          {loopImageCount > 1 ? (
+                            <div className="rounded-full border border-white/20 bg-black/25 px-2.5 py-1 text-[7px] font-bold uppercase tracking-[0.12em] text-white/70 backdrop-blur-md">
+                              Auto Loop · {loopImageCount} Media
+                            </div>
+                          ) : null}
+                        </div>
+
+                        <div className="absolute inset-x-0 bottom-12 z-10 p-6 pr-16 xl:p-7 xl:pr-20">
+
                           {item.meta ? (
-                            <p
-                              className="
-                                text-[8px]
-                                font-semibold
-                                uppercase
-                                tracking-[0.14em]
-                                text-white/65
-                              "
-                            >
+                            <p className="text-[8px] font-semibold uppercase tracking-[0.14em] text-white/60">
                               {item.meta}
                             </p>
                           ) : null}
 
-                          <h3
-                            className={
-                              index === 0
-                                ? `
-                                    mt-2
-                                    max-w-[14ch]
-                                    text-3xl
-                                    font-semibold
-                                    leading-[1]
-                                    tracking-[-0.045em]
-                                    text-white
-                                    2xl:text-4xl
-                                  `
-                                : `
-                                    mt-2
-                                    line-clamp-3
-                                    text-xl
-                                    font-semibold
-                                    leading-[1.05]
-                                    tracking-[-0.035em]
-                                    text-white
-                                  `
-                            }
-                          >
+                          <h3 className="mt-2 max-w-[16ch] text-3xl font-semibold leading-[1] tracking-[-0.045em] text-white xl:text-4xl">
                             {item.title}
                           </h3>
 
-                          {index === 0 &&
-                          linkedRecord?.summary ? (
-                            <p
-                              className="
-                                mt-4
-                                line-clamp-2
-                                max-w-[42ch]
-                                text-[11px]
-                                leading-5
-                                text-white/65
-                              "
-                            >
-                              {
-                                linkedRecord.summary
-                              }
+                          {linkedRecord?.summary ? (
+                            <p className="mt-4 line-clamp-2 max-w-[46ch] text-[11px] leading-5 text-white/65">
+                              {linkedRecord.summary}
                             </p>
                           ) : null}
+
                         </div>
                       </Link>
-
 
                       <button
                         type="button"
                         onClick={() =>
-                          chooseNextFeaturedForSlot(
-                            index
-                          )
+                          setQuickViewItem(item)
                         }
-                        aria-label={`Show next featured item for panel ${index + 1}`}
-                        className="
-                          absolute
-                          bottom-5
-                          right-5
-                          z-30
-                          inline-flex
-                          h-9
-                          w-9
-                          items-center
-                          justify-center
-                          rounded-full
-                          border
-                          border-white/30
-                          bg-black/30
-                          text-sm
-                          font-semibold
-                          text-white
-                          backdrop-blur-md
-                          transition
-                          hover:scale-105
-                          hover:bg-white
-                          hover:text-slate-950
-                        "
+                        className="absolute right-5 top-20 z-30 translate-y-1 border border-white/30 bg-black/40 px-3 py-2 text-[9px] font-bold uppercase tracking-[0.12em] text-white opacity-0 backdrop-blur-md transition duration-200 hover:bg-white hover:text-slate-950 group-hover:translate-y-0 group-hover:opacity-100"
                       >
-                        â†’
+                        Quick view
                       </button>
-                    </div>
+
+                      <button
+                        type="button"
+                        onClick={() =>
+                          chooseNextFeaturedForSlot(0)
+                        }
+                        aria-label="Show next featured project"
+                        className="absolute bottom-10 right-5 z-30 inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/30 bg-black/35 text-sm font-semibold text-white backdrop-blur-md transition hover:bg-white hover:text-slate-950"
+                      >
+                        →
+                      </button>
+
+                    </article>
                   );
-                }
-              )}
-            </div>
-          </aside>
-        ) : null}
-
-        <div
-          className="
-            relative
-            z-10
-            mx-auto
-            flex
-            min-h-[calc(100svh-80px)]
-            lg:min-h-[calc(88svh-80px)]
-            max-w-[1720px]
-            items-center
-            px-5
-            pt-5 pb-16
-            sm:px-8
-            lg:px-12
-          "
-        >
-          <div
-            className="
-              max-w-[760px]
-              lg:w-[52%]
-            "
-          >
-            <p
-              className="
-                text-[10px]
-                font-bold
-                uppercase
-                tracking-[0.23em]
-                text-cyan-200/70
-              "
-            >
-              ARKNOZ Â· BUILT WORLD PLATFORM
-            </p>
-
-            <h1
-              className="
-                mt-7
-                max-w-[9ch]
-                text-[54px]
-                font-semibold
-                leading-[0.9]
-                tracking-[-0.065em]
-                sm:text-[70px]
-                xl:text-[86px]
-              "
-            >
-              The Built World. Connected.
-            </h1>
-
-            <p
-              className="
-                mt-7
-                max-w-[680px]
-                text-[17px]
-                leading-8
-                text-white/72
-              "
-            >
-              Arknoz connects the projects,
-              products, knowledge,
-              education, people,
-              organisations, places and
-              opportunities that shape the
-              Built World.
-            </p>
-
-            <p
-              className="
-                mt-3
-                max-w-[660px]
-                text-[13px]
-                leading-6
-                text-white/45
-              "
-            >
-              Discover what is being built,
-              understand how it connects,
-              learn from it and find where
-              you can participate next.
-            </p>
+                })() : null}
 
 
-            <form
-              onSubmit={
-                submitSearch
-              }
-              className="
-                mt-9
-                flex
-                max-w-[660px]
-                items-center
-                rounded-[15px]
-                bg-white
-                p-1.5
-                shadow-2xl
-              "
-            >
-              <input
-                value={query}
-                onChange={
-                  (event) =>
-                    setQuery(
-                      event.target.value
-                    )
-                }
-                placeholder="Search project, product, architect, city, topic..."
-                className="
-                  min-w-0
-                  flex-1
-                  bg-transparent
-                  px-4
-                  py-3.5
-                  text-sm
-                  text-slate-950
-                  outline-none
-                  placeholder:text-slate-400
-                "
-              />
+{/* RIGHT — P02 / P03 / P04 MOVE BOTTOM TO TOP */}
+                <div className="relative min-h-[570px] overflow-hidden md:min-h-0">
 
-              <button
-                type="submit"
-                className="
-                  rounded-[11px]
-                  bg-[#153e57]
-                  px-6
-                  py-3.5
-                  text-xs
-                  font-semibold
-                  text-white
-                "
-              >
-                Search
-              </button>
-            </form>
+                  <div className="arknoz-featured-small-track">
 
+                    {[0, 1].map((copyIndex) => (
+                      <div
+                        key={`small-featured-copy-${copyIndex}`}
+                        className="flex h-[570px] flex-col gap-3 xl:h-[590px]"
+                        aria-hidden={
+                          copyIndex === 1
+                            ? true
+                            : undefined
+                        }
+                      >
 
-            <div
-              className="
-                mt-6
-                flex
-                flex-wrap
-                gap-3
-              "
-            >
-              <a
-                href="#how-arknoz-works"
+                        {featuredItems
+                          .slice(1, 4)
+                          .map((item, index) => {
+
+                            const imageSrc =
+                              resolvePortalImage({
+                                src: item.image,
+                                kind: item.type,
+                              });
+
+                            return (
+                              <article
+                                key={`${copyIndex}-${item.href}-${index}`}
+                                className="group relative min-h-0 flex-1 overflow-hidden bg-[#0a2230] shadow-[0_8px_24px_rgba(7,27,49,0.10)] transition-all duration-500 hover:-translate-y-[2px] hover:shadow-[0_14px_32px_rgba(7,27,49,0.18)]"
+                              >
+                                <Link
+                                  href={item.href}
+                                  tabIndex={
+                                    copyIndex === 1
+                                      ? -1
+                                      : undefined
+                                  }
+                                  className="absolute inset-0 block"
+                                >
+                                  <img
+                                    src={imageSrc}
+                                    alt=""
+                                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                                  />
+
+                                  <div className="absolute inset-0 bg-gradient-to-t from-[#04131d]/95 via-[#061722]/15 to-black/5" />
+
+                                  <div className="absolute left-4 top-4">
+                                    <p className="text-[8px] font-bold uppercase tracking-[0.17em] text-white/85">
+                                      {item.type}
+                                    </p>
+                                  </div>
+
+                                  <div className="absolute right-4 top-4 rounded-full border border-white/25 bg-black/30 px-2 py-1 text-[8px] font-semibold tracking-[0.1em] text-white/80 backdrop-blur-md">
+                                    {String(
+                                      index + 2
+                                    ).padStart(2, "0")}
+                                    {" / 04"}
+                                  </div>
+
+                                  <div className="absolute inset-x-0 bottom-0 p-4 pr-12">
+
+                                    {item.meta ? (
+                                      <p className="text-[8px] font-semibold uppercase tracking-[0.13em] text-white/60">
+                                        {item.meta}
+                                      </p>
+                                    ) : null}
+
+                                    <h3 className="mt-1.5 line-clamp-2 text-[18px] font-semibold leading-[1.02] tracking-[-0.035em] text-white">
+                                      {item.title}
+                                    </h3>
+
+                                  </div>
+
+                                  <span className="absolute bottom-4 right-4 inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/30 bg-black/30 text-sm text-white backdrop-blur-md transition group-hover:bg-white group-hover:text-[#0a2230]">
+                                    →
+                                  </span>
+
+                                </Link>
+                              </article>
+                            );
+                          })}
+
+                      </div>
+                    ))}
+
+                  </div>
+                </div>
+
+              </div>
+              {/* ARKNOZ BRANDING PANEL */}
+              <div
                 className="
                   group
-                  inline-flex
-                  items-center
-                  gap-2
-                  rounded-[11px]
-                  bg-white
-                  px-5
-                  py-3
-                  text-sm
-                  font-semibold
-                  text-slate-950
-                "
-              >
-                See how it works
-                <Arrow />
-              </a>
-
-              <Link
-                href="/explore"
-                className="
-                  group
-                  inline-flex
-                  items-center
-                  gap-2
-                  rounded-[11px]
+                  relative
+                  mt-6
+                  h-[220px]
+                  w-full
+                  overflow-hidden
                   border
-                  border-white/25
-                  px-5
-                  py-3
-                  text-sm
-                  font-semibold
+                  border-slate-200
+                  bg-[#071a2d]
+                  shadow-[0_18px_45px_rgba(15,23,42,0.10)]
+                  xl:h-[240px]
                 "
               >
-                Open Explore
-                <Arrow />
-              </Link>
+                <img
+                  src="/visuals/latest/world.png"
+                  alt=""
+                  className="
+                    absolute
+                    inset-0
+                    h-full
+                    w-full
+                    object-cover
+                    transition-transform
+                    duration-[1600ms]
+                    ease-out
+                    group-hover:scale-[1.035]
+                  "
+                />
+
+                <div
+                  className="
+                    absolute
+                    inset-0
+                    bg-gradient-to-r
+                    from-[#061827]/90
+                    via-[#071a2d]/50
+                    to-transparent
+                  "
+                />
+
+                <div
+                  className="
+                    absolute
+                    inset-x-0
+                    bottom-0
+                    h-24
+                    bg-gradient-to-t
+                    from-black/45
+                    to-transparent
+                  "
+                />
+
+                <div
+                  className="
+                    relative
+                    z-10
+                    flex
+                    h-full
+                    items-end
+                    justify-between
+                    p-7
+                    sm:p-8
+                  "
+                >
+                  <div>
+                    <p
+                      className="
+                        text-[9px]
+                        font-bold
+                        uppercase
+                        tracking-[0.24em]
+                        text-white/65
+                      "
+                    >
+                      Arknoz
+                    </p>
+
+                    <h3
+                      className="
+                        mt-2
+                        max-w-[500px]
+                        text-[28px]
+                        font-semibold
+                        leading-none
+                        tracking-[-0.045em]
+                        text-white
+                        sm:text-[32px]
+                      "
+                    >
+                      The Digital Built World
+                    </h3>
+                  </div>
+
+                  <span
+                    className="
+                      hidden
+                      border-l
+                      border-white/30
+                      pl-5
+                      text-[9px]
+                      font-semibold
+                      uppercase
+                      tracking-[0.2em]
+                      text-white/55
+                      md:block
+                    "
+                  >
+                    Arknoz
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
+      {quickViewItem ? (
+        <div
+          role="presentation"
+          className="fixed inset-0 z-[90] bg-slate-950/35 backdrop-blur-[2px]"
+          onClick={() =>
+            setQuickViewItem(null)
+          }
+        >
+          <aside
+            role="dialog"
+            aria-modal="true"
+            aria-label="Featured item quick view"
+            onClick={(event) =>
+              event.stopPropagation()
+            }
+            className="absolute right-0 top-0 flex h-full w-full max-w-[560px] flex-col overflow-y-auto bg-white shadow-[-20px_0_60px_rgba(15,23,42,0.20)]"
+          >
+            <div className="flex items-center justify-between border-b border-slate-200 px-6 py-4">
+              <div>
+                <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-red-500">
+                  Quick View
+                </p>
 
+                <p className="mt-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-slate-400">
+                  {quickViewItem.type}
+                </p>
+              </div>
+
+              <button
+                type="button"
+                onClick={() =>
+                  setQuickViewItem(
+                    null
+                  )
+                }
+                aria-label="Close quick view"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-300 text-lg text-slate-600 transition hover:border-slate-950 hover:text-slate-950"
+              >
+                ×
+              </button>
+            </div>
+
+            <div className="relative aspect-[16/10] overflow-hidden bg-slate-100">
+              <img
+                src={resolvePortalImage({
+                  src: quickViewItem.image,
+                  kind: quickViewItem.type,
+                })}
+                alt=""
+                className="h-full w-full object-cover"
+              />
+
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/55 via-transparent to-transparent" />
+            </div>
+
+            <div className="flex flex-1 flex-col px-7 py-7">
+              {quickViewItem.meta ? (
+                <p className="text-[9px] font-bold uppercase tracking-[0.16em] text-slate-400">
+                  {quickViewItem.meta}
+                </p>
+              ) : null}
+
+              <h2 className="mt-3 text-3xl font-semibold leading-[1.02] tracking-[-0.045em] text-[#0a2230]">
+                {quickViewItem.title}
+              </h2>
+
+              {quickViewRecord?.geography ? (
+                <p className="mt-4 text-[11px] font-semibold uppercase tracking-[0.12em] text-red-500">
+                  {
+                    quickViewRecord.geography
+                  }
+                </p>
+              ) : null}
+
+              {quickViewRecord?.summary ? (
+                <p className="mt-5 text-[14px] leading-7 text-slate-600">
+                  {
+                    quickViewRecord.summary
+                  }
+                </p>
+              ) : (
+                <p className="mt-5 text-[14px] leading-7 text-slate-500">
+                  Explore this record and its
+                  connections across Arknoz.
+                </p>
+              )}
+
+              <div className="mt-auto border-t border-slate-200 pt-6">
+                <div className="flex flex-wrap items-center gap-3">
+                  <Link
+                    href={
+                      quickViewItem.href
+                    }
+                    className="inline-flex items-center gap-3 bg-[#0a2230] px-5 py-3 text-[12px] font-semibold text-white transition hover:bg-[#153e57]"
+                  >
+                    Open full page
+                    <span aria-hidden="true">
+                      →
+                    </span>
+                  </Link>
+
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setQuickViewItem(
+                        null
+                      )
+                    }
+                    className="px-4 py-3 text-[12px] font-semibold text-slate-500 transition hover:text-slate-950"
+                  >
+                    Continue browsing
+                  </button>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      ) : null}
 
             {/* ARKNOZ_NOW_RENDER_V1 */}
 
       <section
         className="
-          relative
-          z-20
-          mt-2
-          px-3
-          sm:px-5
-          lg:-mt-8
-          lg:px-7
+          border-b
+          border-slate-200
+          bg-[#f5f7fb]
+          px-5
+          py-4
+          sm:px-8
+          lg:px-8
         "
       >
         <style>{`
@@ -1511,6 +1963,31 @@ export default function HomeContinuousExperience({
           .arknoz-now-track:hover {
             animation-play-state: paused;
           }
+          .arknoz-now-track article,
+          .arknoz-now-track a {
+            transition:
+              transform 400ms ease,
+              box-shadow 400ms ease;
+          }
+
+          .arknoz-now-track img {
+            transition:
+              transform 800ms ease,
+              filter 500ms ease;
+          }
+
+          .arknoz-now-track article:hover,
+          .arknoz-now-track a:hover {
+            transform: translateY(-3px);
+          }
+
+          .arknoz-now-track article:hover img,
+          .arknoz-now-track a:hover img {
+            transform: scale(1.035);
+            filter:
+              saturate(1.08)
+              contrast(1.04);
+          }
 
           @media (prefers-reduced-motion: reduce) {
             .arknoz-now-track {
@@ -1522,13 +1999,13 @@ export default function HomeContinuousExperience({
         <div
           className="
             mx-auto
-            max-w-[1780px]
+            max-w-[1600px]
             overflow-hidden
-            rounded-[30px]
+            rounded-[10px]
             border
             border-slate-200
             bg-white
-            shadow-[0_22px_70px_rgba(15,23,42,0.15)]
+            shadow-[0_18px_50px_rgba(15,23,42,0.06)]
           "
         >
 
@@ -1536,57 +2013,39 @@ export default function HomeContinuousExperience({
 
           <div
             className="
-              flex
-              items-end
-              justify-between
-              gap-8
+              border-b
+              border-slate-200
               px-7
-              pb-5
-              pt-7
+              pb-4
+              pt-5
               sm:px-9
               lg:px-10
             "
           >
             <div>
-              <p
-                className="
-                  text-[10px]
-                  font-bold
-                  uppercase
-                  tracking-[0.24em]
-                  text-teal-700
-                "
-              >
-                ARKNOZ NOW
-              </p>
+              <div className="flex items-center gap-3">
+                <p className="text-[10px] font-bold tracking-[0.08em] text-red-500">
+                  Arknoz Now
+                </p>
 
-              <h2
-                className="
-                  mt-2
-                  text-2xl
-                  font-semibold
-                  tracking-[-0.035em]
-                  text-slate-950
-                  sm:text-3xl
-                "
-              >
+                <span className="h-1 w-1 rounded-full bg-slate-300" />
+
+                <span className="inline-flex items-center gap-1.5 text-[10px] font-semibold text-slate-500">
+                  <span className="h-1.5 w-1.5 rounded-full bg-red-500" />
+                  Live
+                </span>
+              </div>
+
+              <h2 className="mt-2 text-[29px] font-semibold leading-[1.02] tracking-[-0.045em] text-[#0a2230] sm:text-[34px]">
                 Moving through the Built World.
               </h2>
+
+              <p className="mt-2 text-[13px] leading-5 text-slate-500">
+                Projects, products, knowledge, learning, people and opportunities across Arknoz.
+              </p>
             </div>
 
-            <p
-              className="
-                hidden
-                max-w-sm
-                text-right
-                text-xs
-                leading-5
-                text-slate-400
-                md:block
-              "
-            >
-              Projects, products, knowledge, people, places and opportunities.
-            </p>
+
           </div>
 
 
@@ -1598,6 +2057,7 @@ export default function HomeContinuousExperience({
               overflow-hidden
               border-y
               border-slate-200
+              bg-[#fbfcfe]
               py-5
             "
           >
@@ -1673,32 +2133,25 @@ export default function HomeContinuousExperience({
                       className="
                         group
                         relative
-                        h-[245px]
-                        w-[250px]
+                        h-[220px]
+                        w-[260px]
                         shrink-0
                         overflow-hidden
-                        rounded-[22px]
                         border
-                        border-white/20
-                        bg-[#17384a]
-                        shadow-sm
+                        border-slate-200
+                        bg-[#0a2230]
                         transition
                         duration-300
-                        hover:-translate-y-1
-                        hover:shadow-xl
-                        sm:w-[265px]
-                        2xl:h-[265px]
-                        2xl:w-[285px]
+                        sm:w-[280px]
+                        2xl:h-[230px]
+                        2xl:w-[300px]
                       "
                     >
                       <img
-                        src={
-                          hasImage(
-                            item.image
-                          )
-                            ? item.image
-                            : "/visuals/arknoz-built-world-watermark.jpg"
-                        }
+                        src={resolvePortalImage({
+                          src: item.image,
+                          kind: item.type,
+                        })}
                         alt=""
                         className="
                           absolute
@@ -1739,7 +2192,7 @@ export default function HomeContinuousExperience({
                             font-bold
                             uppercase
                             tracking-[0.18em]
-                            text-cyan-100/85
+                            text-white/75
                           "
                         >
                           {
@@ -1793,7 +2246,7 @@ export default function HomeContinuousExperience({
           <div
             className="
               flex
-              min-h-[70px]
+              min-h-[58px]
               items-center
               justify-end
               px-7
@@ -1804,12 +2257,14 @@ export default function HomeContinuousExperience({
             <Link
               href="/explore"
               className="
-                text-sm
-                font-semibold
-                text-teal-800
+                text-[11px]
+                font-bold
+                text-[#0a2230]
+                transition
+                hover:text-[#a61f46]
               "
             >
-              Explore more â†’
+              Explore more  →
             </Link>
           </div>
         </div>
@@ -1819,7 +2274,7 @@ export default function HomeContinuousExperience({
 
 
       {/* ======================================================
-          HOME Â· THE BUILT WORLD ON ARKNOZ
+          HOME · THE BUILT WORLD ON ARKNOZ
          ====================================================== */}
 
       <HomePlatformOverview />
@@ -2350,7 +2805,7 @@ export default function HomeContinuousExperience({
 
             <Link
               href="/explore"
-              className="group relative min-h-[330px] overflow-hidden rounded-[30px] bg-[#092b3b] p-8 text-white shadow-[0_24px_70px_rgba(15,23,42,0.14)] sm:p-9"
+              className="group relative min-h-[330px] overflow-hidden rounded-[10px] bg-[#092b3b] p-8 text-white shadow-[0_24px_70px_rgba(15,23,42,0.14)] sm:p-9"
             >
               <div
                 aria-hidden="true"
@@ -2389,7 +2844,7 @@ export default function HomeContinuousExperience({
                 </div>
 
                 <p className="mt-auto pt-10 text-sm font-semibold">
-                  Enter Explore â†’
+                  Enter Explore →
                 </p>
               </div>
             </Link>
@@ -2397,7 +2852,7 @@ export default function HomeContinuousExperience({
 
             <Link
               href="/community"
-              className="group min-h-[330px] rounded-[30px] border border-slate-200 bg-[#f4f7f8] p-8 transition hover:-translate-y-1 hover:shadow-xl"
+              className="group min-h-[330px] rounded-[10px] border border-slate-200 bg-[#f4f7f8] p-8 transition hover:-translate-y-1 hover:shadow-xl"
             >
               <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-teal-700">
                 NEXT LAYER
@@ -2413,14 +2868,14 @@ export default function HomeContinuousExperience({
               </p>
 
               <p className="mt-14 text-sm font-semibold text-teal-800">
-                Explore Community â†’
+                Explore Community →
               </p>
             </Link>
 
 
             <Link
               href="/intelligence"
-              className="group min-h-[330px] rounded-[30px] border border-slate-200 bg-[#f4f7f8] p-8 transition hover:-translate-y-1 hover:shadow-xl"
+              className="group min-h-[330px] rounded-[10px] border border-slate-200 bg-[#f4f7f8] p-8 transition hover:-translate-y-1 hover:shadow-xl"
             >
               <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-teal-700">
                 DEEPER LAYER
@@ -2436,7 +2891,7 @@ export default function HomeContinuousExperience({
               </p>
 
               <p className="mt-14 text-sm font-semibold text-teal-800">
-                Open Intelligence â†’
+                Open Intelligence →
               </p>
             </Link>
 
@@ -2448,12 +2903,14 @@ export default function HomeContinuousExperience({
         data-home-master="arknoz-curated"
         className="
           relative
-          z-20
-          mt-2
-          px-3
-          sm:px-5
-          lg:-mt-8
-          lg:px-7
+          z-30
+          border-b
+          border-slate-200
+          bg-[#f5f7fb]
+          px-5
+          py-4
+          sm:px-8
+          lg:px-8
         "
       >
         <style>{`
@@ -2489,13 +2946,13 @@ export default function HomeContinuousExperience({
         <div
           className="
             mx-auto
-            max-w-[1780px]
+            max-w-[1600px]
             overflow-hidden
-            rounded-[30px]
+            rounded-[10px]
             border
             border-slate-200
             bg-white
-            shadow-[0_22px_70px_rgba(15,23,42,0.15)]
+            shadow-[0_18px_50px_rgba(15,23,42,0.06)]
           "
         >
 
@@ -2503,57 +2960,36 @@ export default function HomeContinuousExperience({
 
           <div
             className="
-              flex
-              items-end
-              justify-between
-              gap-8
+              border-b
+              border-slate-200
               px-7
-              pb-5
-              pt-7
+              pb-4
+              pt-5
               sm:px-9
               lg:px-10
             "
           >
             <div>
-              <p
-                className="
-                  text-[10px]
-                  font-bold
-                  uppercase
-                  tracking-[0.24em]
-                  text-teal-700
-                "
-              >
-                ARKNOZ CURATED
-              </p>
+              <div className="flex items-center gap-3">
+                <p className="text-[10px] font-bold tracking-[0.08em] text-red-500">
+                  Arknoz Curated
+                </p>
 
-              <h2
-                className="
-                  mt-2
-                  text-2xl
-                  font-semibold
-                  tracking-[-0.035em]
-                  text-slate-950
-                  sm:text-3xl
-                "
-              >
+                <span className="h-1 w-1 rounded-full bg-slate-300" />
+
+                <span className="text-[10px] font-semibold text-slate-500">
+                  Selected
+                </span>
+              </div>
+
+              <h2 className="mt-2 text-[29px] font-semibold leading-[1.02] tracking-[-0.045em] text-[#0a2230] sm:text-[34px]">
                 Editor&apos;s Choice. Across the Built World.
               </h2>
-            </div>
 
-            <p
-              className="
-                hidden
-                max-w-sm
-                text-right
-                text-xs
-                leading-5
-                text-slate-400
-                md:block
-              "
-            >
-              Selected projects, products, knowledge, organisations, people, places and opportunities.
-            </p>
+              <p className="mt-2 text-[13px] leading-5 text-slate-500">
+                Selected projects, products, knowledge, people, organisations, places and opportunities.
+              </p>
+            </div>
           </div>
 
 
@@ -2565,6 +3001,7 @@ export default function HomeContinuousExperience({
               overflow-hidden
               border-y
               border-slate-200
+              bg-[#fbfcfe]
               py-5
             "
           >
@@ -2613,7 +3050,7 @@ export default function HomeContinuousExperience({
                   (item) => ({
                     ...item,
                     type:
-                      "EDITOR'S CHOICE Â· " +
+                      "EDITOR'S CHOICE · " +
                       item.type,
                   })
                 ),
@@ -2633,7 +3070,7 @@ export default function HomeContinuousExperience({
                     image:
                       item.image,
                     type:
-                      "FEATURED Â· " +
+                      "FEATURED · " +
                       item.type,
                   })
                 ),
@@ -2642,7 +3079,7 @@ export default function HomeContinuousExperience({
                   (item) => ({
                     ...item,
                     type:
-                      "EDITOR'S CHOICE Â· " +
+                      "EDITOR'S CHOICE · " +
                       item.type,
                   })
                 ),
@@ -2662,7 +3099,7 @@ export default function HomeContinuousExperience({
                     image:
                       item.image,
                     type:
-                      "FEATURED Â· " +
+                      "FEATURED · " +
                       item.type,
                   })
                 ),
@@ -2699,31 +3136,28 @@ export default function HomeContinuousExperience({
                         group
                         relative
                         h-[245px]
-                        w-[250px]
+                        w-[285px]
                         shrink-0
                         overflow-hidden
-                        rounded-[22px]
+                        rounded-[4px]
                         border
-                        border-white/20
+                        border-slate-200
                         bg-[#17384a]
-                        shadow-sm
+                        shadow-[0_8px_24px_rgba(15,23,42,0.08)]
                         transition
-                        duration-300
-                        hover:-translate-y-1
-                        hover:shadow-xl
-                        sm:w-[265px]
+                        duration-500
+                        hover:-translate-y-[3px]
+                        hover:shadow-[0_16px_34px_rgba(15,23,42,0.14)]
+                        sm:w-[300px]
                         2xl:h-[265px]
-                        2xl:w-[285px]
+                        2xl:w-[320px]
                       "
                     >
                       <img
-                        src={
-                          hasImage(
-                            item.image
-                          )
-                            ? item.image
-                            : "/visuals/arknoz-built-world-watermark.jpg"
-                        }
+                        src={resolvePortalImage({
+                          src: item.image,
+                          kind: item.type,
+                        })}
                         alt=""
                         className="
                           absolute
@@ -2764,7 +3198,7 @@ export default function HomeContinuousExperience({
                             font-bold
                             uppercase
                             tracking-[0.18em]
-                            text-cyan-100/85
+                            text-white/70
                           "
                         >
                           {
@@ -2834,7 +3268,7 @@ export default function HomeContinuousExperience({
                 text-teal-800
               "
             >
-              Explore more â†’
+              Explore more  →
             </Link>
           </div>
         </div>
@@ -2917,389 +3351,223 @@ export default function HomeContinuousExperience({
           ARKNOZ PARTNERS
           3 moving rows â€¢ all links route to /explore
           ========================================================= */}
-
-      <section
-        data-home-master="arknoz-partners"
+<section
+        data-home-master="outcomes"
         className="
-          bg-white
+          border-b
+          border-slate-200
+          bg-[#f5f7fb]
           px-5
           py-8
           sm:px-8
-          lg:px-12
+          lg:px-8
           lg:py-10
         "
       >
-        <style>{`
-          @keyframes arknozPartnerLeft {
-            from {
-              transform: translateX(0%);
-            }
+        <div className="mx-auto max-w-[1600px]">
 
-            to {
-              transform: translateX(-50%);
-            }
-          }
+          {/* HEADER */}
+          <div className="flex flex-col gap-3 border-b border-slate-200 pb-5 lg:flex-row lg:items-end lg:justify-between">
 
-          @keyframes arknozPartnerRight {
-            from {
-              transform: translateX(-50%);
-            }
-
-            to {
-              transform: translateX(0%);
-            }
-          }
-
-          .arknoz-partner-track-left {
-            animation:
-              arknozPartnerLeft
-              34s
-              linear
-              infinite;
-          }
-
-          .arknoz-partner-track-right {
-            animation:
-              arknozPartnerRight
-              36s
-              linear
-              infinite;
-          }
-
-          .arknoz-partner-track-left:hover,
-          .arknoz-partner-track-right:hover {
-            animation-play-state: paused;
-          }
-
-          @media (prefers-reduced-motion: reduce) {
-            .arknoz-partner-track-left,
-            .arknoz-partner-track-right {
-              animation: none;
-            }
-          }
-        `}</style>
-
-        <div
-          className="
-            mx-auto
-            max-w-[1780px]
-            overflow-hidden
-            rounded-[34px]
-            border
-            border-slate-200
-            bg-[#0b3446]
-            shadow-[0_24px_70px_rgba(15,23,42,0.16)]
-          "
-        >
-          <div
-            className="
-              flex
-              items-end
-              justify-between
-              gap-8
-              px-7
-              pb-5
-              pt-7
-              sm:px-9
-              lg:px-10
-            "
-          >
             <div>
-              <p
-                className="
-                  text-[10px]
-                  font-bold
-                  uppercase
-                  tracking-[0.24em]
-                  text-cyan-200/80
-                "
-              >
-                ARKNOZ PARTNERS
-              </p>
+              <div className="flex items-center gap-3">
+                <p className="text-[10px] font-bold tracking-[0.08em] text-red-500">
+                  What next?
+                </p>
 
-              <h2
-                className="
-                  mt-2
-                  text-2xl
-                  font-semibold
-                  tracking-[-0.035em]
-                  text-white
-                  sm:text-3xl
-                "
-              >
-                Partner ecosystem across the Built World.
+                <span className="h-1 w-1 rounded-full bg-slate-300" />
+
+                <p className="text-[10px] font-semibold text-slate-400">
+                  Learn · Collaborate · Act
+                </p>
+              </div>
+
+              <h2 className="mt-2 text-[30px] font-semibold leading-[1] tracking-[-0.045em] text-[#0a2230] sm:text-[36px]">
+                Move through the Built World.
               </h2>
             </div>
 
-            <p
-              className="
-                hidden
-                max-w-md
-                text-right
-                text-xs
-                leading-5
-                text-white/55
-                md:block
-              "
-            >
-              Partner categories shown here.
-              Verified partner identities will appear when approved.
+            <p className="max-w-[560px] text-[12px] leading-5 text-slate-500 lg:text-right">
+              Build knowledge, connect with people and organisations, and find
+              opportunities to participate.
             </p>
           </div>
 
-          <div
-            className="
-              border-y
-              border-white/10
-              py-5
-            "
-          >
-            {[
-              [
-                "Knowledge Partner",
-                "Learning Partner",
-                "Studio Partner",
-                "Organisation Partner",
-                "Research Partner",
-                "City Partner",
-              ],
-              [
-                "Innovation Partner",
-                "Product Partner",
-                "Project Partner",
-                "Network Partner",
-                "Community Partner",
-                "Technology Partner",
-              ],
-              [
-                "Regional Partner",
-                "University Partner",
-                "Institutional Partner",
-                "Industry Partner",
-                "Opportunity Partner",
-                "Media Partner",
-              ],
-            ].map((row, rowIndex) => (
-              <div
-                key={`arknoz-partner-row-${rowIndex}`}
-                className="
-                  relative
-                  overflow-hidden
-                  py-2
-                "
-              >
-                <div
-                  aria-hidden="true"
-                  className="
-                    pointer-events-none
-                    absolute
-                    inset-y-0
-                    left-0
-                    z-10
-                    w-16
-                    bg-gradient-to-r
-                    from-[#0b3446]
-                    to-transparent
-                    sm:w-24
-                  "
-                />
 
-                <div
-                  aria-hidden="true"
-                  className="
-                    pointer-events-none
-                    absolute
-                    inset-y-0
-                    right-0
-                    z-10
-                    w-16
-                    bg-gradient-to-l
-                    from-[#0b3446]
-                    to-transparent
-                    sm:w-24
-                  "
-                />
+          {/* THREE VISUAL PATHWAYS */}
+          <div className="mt-5 grid gap-3 lg:grid-cols-3">
 
-                <div
-                  className={
-                    rowIndex % 2 === 0
-                      ? "arknoz-partner-track-left flex w-max gap-3"
-                      : "arknoz-partner-track-right flex w-max gap-3"
-                  }
-                >
-                  {[...row, ...row].map((label, index) => (
-                    <div
-                      key={`arknoz-partner-${rowIndex}-${index}-${label}`}
+            {/* LEARN */}
+            <article className="group relative min-h-[270px] overflow-hidden rounded-[8px] border border-slate-200 bg-[#081f2d] shadow-[0_10px_30px_rgba(15,23,42,0.06)] transition-all duration-500 hover:-translate-y-[3px] hover:shadow-[0_18px_42px_rgba(15,23,42,0.12)]">
 
-                      aria-label="Arknoz partner category"
-                      className="
-                        group
-                        inline-flex cursor-default
-                        h-14
-                        min-w-[188px]
-                        shrink-0
-                        items-center
-                        justify-center
-                        rounded-full
-                        border
-                        border-white/14
-                        bg-white/[0.06]
-                        px-6
-                        text-center
-                        transition
-                        duration-300
+              <img
+                src="/visuals/portal/knowledge.png"
+                alt=""
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.04]"
+              />
 
+              <div className="absolute inset-0 bg-gradient-to-t from-[#03131d]/95 via-[#061722]/42 to-black/10" />
 
+              <div className="relative z-10 flex min-h-[270px] flex-col justify-between p-6">
 
+                <div className="flex items-center justify-between">
+                  <p className="text-[10px] font-bold tracking-[0.08em] text-white/75">
+                    Learn
+                  </p>
 
-
-
-
-
-                      "
-                    >
-                      <span
-                        className="
-                          text-[11px]
-                          font-semibold
-                          uppercase
-                          tracking-[0.16em]
-                          text-white/88
-                        "
-                      >
-                        {label}
-                      </span>
-                    </div>
-                  ))}
+                  <span className="text-[9px] font-semibold text-white/40">
+                    01
+                  </span>
                 </div>
+
+                <div>
+                  <h3 className="text-[26px] font-semibold leading-[1] tracking-[-0.04em] text-white">
+                    Build understanding.
+                  </h3>
+
+                  <p className="mt-2 max-w-[42ch] text-[11px] leading-5 text-white/60">
+                    Research, cases, references, learning and professional development.
+                  </p>
+
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    <Link
+                      href="/knowledge"
+                      className="border border-white/20 bg-black/20 px-3 py-2 text-[10px] font-semibold text-white transition hover:bg-white hover:text-[#0a2230]"
+                    >
+                      Knowledge →
+                    </Link>
+
+                    <Link
+                      href="/learning"
+                      className="border border-white/20 bg-black/20 px-3 py-2 text-[10px] font-semibold text-white transition hover:bg-white hover:text-[#0a2230]"
+                    >
+                      Learning →
+                    </Link>
+                  </div>
+                </div>
+
               </div>
-            ))}
-          </div>
-
-          <div
-            className="
-              flex
-              min-h-[76px]
-              items-center
-              justify-end
-              px-7
-              sm:px-9
-              lg:px-10
-            "
-          >
-            <div
-
-              className="
-                group
-                inline-flex cursor-default
-                items-center
-                gap-3
-                text-sm
-                font-semibold
-                text-cyan-100
-              "
-            >
-              Partner profiles will be added later
-
-            </div>
-          </div>
-        </div>
-      </section>
+            </article>
 
 
-<section
-        data-home-master="outcomes"
-        className="bg-[#eef3f6] px-5 py-20 sm:px-8 lg:px-12 lg:py-24"
-      >
-        <div className="mx-auto max-w-[1640px]">
+            {/* COLLABORATE */}
+            <article className="group relative min-h-[270px] overflow-hidden rounded-[8px] border border-slate-200 bg-[#081f2d] shadow-[0_10px_30px_rgba(15,23,42,0.06)] transition-all duration-500 hover:-translate-y-[3px] hover:shadow-[0_18px_42px_rgba(15,23,42,0.12)]">
 
-          <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-teal-700">
-            WHAT NEXT?
-          </p>
+              <img
+                src="/visuals/portal/people.png"
+                alt=""
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.04]"
+              />
 
-          <h2 className="mt-5 max-w-[13ch] text-5xl font-semibold leading-[0.96] tracking-[-0.05em] text-slate-950 sm:text-6xl">
-            Learn. Collaborate. Act.
-          </h2>
+              <div className="absolute inset-0 bg-gradient-to-t from-[#03131d]/95 via-[#061722]/42 to-black/10" />
 
+              <div className="relative z-10 flex min-h-[270px] flex-col justify-between p-6">
 
-          <div className="mt-12 grid gap-4 lg:grid-cols-3">
+                <div className="flex items-center justify-between">
+                  <p className="text-[10px] font-bold tracking-[0.08em] text-white/75">
+                    Collaborate
+                  </p>
 
-            <div className="rounded-[30px] border border-slate-200 bg-white p-8">
-              <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-teal-700">
-                LEARN
-              </p>
+                  <span className="text-[9px] font-semibold text-white/40">
+                    02
+                  </span>
+                </div>
 
-              <h3 className="mt-5 text-2xl font-semibold tracking-[-0.035em] text-slate-950">
-                Build understanding.
-              </h3>
+                <div>
+                  <h3 className="text-[26px] font-semibold leading-[1] tracking-[-0.04em] text-white">
+                    Work through connections.
+                  </h3>
 
-              <p className="mt-4 text-sm leading-7 text-slate-500">
-                Research, publications, standards, case studies,
-                methods, courses and professional development.
-              </p>
+                  <p className="mt-2 max-w-[42ch] text-[11px] leading-5 text-white/60">
+                    Find members, professionals, organisations and collaboration pathways.
+                  </p>
 
-              <div className="mt-8 flex flex-wrap gap-4">
-                <Link
-                  href="/knowledge"
-                  className="text-sm font-semibold text-teal-800"
-                >
-                  Knowledge â†’
-                </Link>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    <Link
+                      href="/community"
+                      className="border border-white/20 bg-black/20 px-3 py-2 text-[10px] font-semibold text-white transition hover:bg-white hover:text-[#0a2230]"
+                    >
+                      Community →
+                    </Link>
 
-                <Link
-                  href="/learning"
-                  className="text-sm font-semibold text-teal-800"
-                >
-                  Learning â†’
-                </Link>
+                    <Link
+                      href="/people"
+                      className="border border-white/20 bg-black/20 px-3 py-2 text-[10px] font-semibold text-white transition hover:bg-white hover:text-[#0a2230]"
+                    >
+                      People →
+                    </Link>
+
+                    <Link
+                      href="/organisations"
+                      className="border border-white/20 bg-black/20 px-3 py-2 text-[10px] font-semibold text-white transition hover:bg-white hover:text-[#0a2230]"
+                    >
+                      Organisations →
+                    </Link>
+                  </div>
+                </div>
+
               </div>
-            </div>
+            </article>
 
 
-            <div className="rounded-[30px] border border-slate-200 bg-white p-8">
-              <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-teal-700">
-                COLLABORATE
-              </p>
+            {/* ACT */}
+            <article className="group relative min-h-[270px] overflow-hidden rounded-[8px] border border-slate-200 bg-[#081f2d] shadow-[0_10px_30px_rgba(15,23,42,0.06)] transition-all duration-500 hover:-translate-y-[3px] hover:shadow-[0_18px_42px_rgba(15,23,42,0.12)]">
 
-              <h3 className="mt-5 text-2xl font-semibold tracking-[-0.035em] text-slate-950">
-                Work through connections.
-              </h3>
+              <img
+                src="/visuals/portal/opportunity.png"
+                alt=""
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.04]"
+              />
 
-              <p className="mt-4 text-sm leading-7 text-slate-500">
-                Find relevant members, organisations,
-                contributors and professional collaboration pathways.
-              </p>
+              <div className="absolute inset-0 bg-gradient-to-t from-[#03131d]/95 via-[#061722]/42 to-black/10" />
 
-              <Link
-                href="/community"
-                className="mt-8 inline-flex text-sm font-semibold text-teal-800"
-              >
-                Explore Community →
-              </Link>
-            </div>
+              <div className="relative z-10 flex min-h-[270px] flex-col justify-between p-6">
 
+                <div className="flex items-center justify-between">
+                  <p className="text-[10px] font-bold tracking-[0.08em] text-white/75">
+                    Act
+                  </p>
 
-            <div className="rounded-[30px] border border-slate-200 bg-white p-8">
-              <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-teal-700">
-                ACT
-              </p>
+                  <span className="text-[9px] font-semibold text-white/40">
+                    03
+                  </span>
+                </div>
 
-              <h3 className="mt-5 text-2xl font-semibold tracking-[-0.035em] text-slate-950">
-                Find what comes next.
-              </h3>
+                <div>
+                  <h3 className="text-[26px] font-semibold leading-[1] tracking-[-0.04em] text-white">
+                    Find what comes next.
+                  </h3>
 
-              <p className="mt-4 text-sm leading-7 text-slate-500">
-                Jobs, competitions, tenders, funding,
-                events, participation and other opportunities.
-              </p>
+                  <p className="mt-2 max-w-[42ch] text-[11px] leading-5 text-white/60">
+                    Jobs, competitions, funding, events and other opportunities.
+                  </p>
 
-              <Link
-                href="/opportunities"
-                className="mt-8 inline-flex text-sm font-semibold text-teal-800"
-              >
-                Find Opportunities â†’
-              </Link>
-            </div>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    <Link
+                      href="/opportunities"
+                      className="border border-white/20 bg-black/20 px-3 py-2 text-[10px] font-semibold text-white transition hover:bg-white hover:text-[#0a2230]"
+                    >
+                      Opportunities →
+                    </Link>
+
+                    <Link
+                      href="/opportunities?type=jobs-careers"
+                      className="border border-white/20 bg-black/20 px-3 py-2 text-[10px] font-semibold text-white transition hover:bg-white hover:text-[#0a2230]"
+                    >
+                      Jobs →
+                    </Link>
+
+                    <Link
+                      href="/opportunities?type=competitions-awards"
+                      className="border border-white/20 bg-black/20 px-3 py-2 text-[10px] font-semibold text-white transition hover:bg-white hover:text-[#0a2230]"
+                    >
+                      Competitions →
+                    </Link>
+                  </div>
+                </div>
+
+              </div>
+            </article>
 
           </div>
         </div>
@@ -3310,52 +3578,6 @@ export default function HomeContinuousExperience({
       {/* =========================================================
           11 â€” YOUR ARKNOZ
           ========================================================= */}
-
-      <section
-        data-home-master="your-arknoz"
-        className="bg-white px-5 py-20 sm:px-8 lg:px-12 lg:py-24"
-      >
-        <div className="mx-auto grid max-w-[1640px] gap-10 overflow-hidden rounded-[34px] bg-[#0a3041] p-8 text-white sm:p-10 lg:grid-cols-[1fr_auto] lg:items-center lg:p-14">
-
-          <div>
-            <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-cyan-200/65">
-              YOUR ARKNOZ
-            </p>
-
-            <h2 className="mt-5 max-w-[18ch] text-4xl font-semibold leading-[0.98] tracking-[-0.045em] sm:text-5xl">
-              Discover freely. Continue when it matters to you.
-            </h2>
-
-            <p className="mt-6 max-w-2xl text-base leading-8 text-white/65">
-              Save what matters, return to useful subjects,
-              participate in the network and continue your
-              Built World journey.
-            </p>
-          </div>
-
-
-          <div className="flex flex-wrap gap-3 lg:justify-end">
-
-            <Link
-              href="/join"
-              className="rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-slate-950 transition hover:bg-cyan-50"
-            >
-              Create Arknoz ID
-            </Link>
-
-            <Link
-              href="/explore"
-              className="rounded-full border border-white/20 px-6 py-3.5 text-sm font-semibold text-white"
-            >
-              Keep Exploring
-            </Link>
-
-          </div>
-        </div>
-      </section>
-
-
-
-    </div>
+</div>
   );
 }

@@ -495,11 +495,12 @@ export default function ExploreInteractiveJourney() {
 
   return (
     <section
+      id="arknoz-worlds"
       data-explore-workbench="true"
       className="
         border-t
         border-slate-200
-        bg-[#edf1f5]
+        bg-[#f5f7fb]
         text-slate-950
       "
     >
@@ -507,7 +508,7 @@ export default function ExploreInteractiveJourney() {
       <div
         className="
           mx-auto
-          max-w-[1760px]
+          max-w-[1600px]
           px-4
           py-5
           sm:px-6
@@ -537,11 +538,11 @@ export default function ExploreInteractiveJourney() {
                 text-[10px]
                 font-bold
                 uppercase
-                tracking-[0.2em]
-                text-blue-700
+                tracking-[0.08em]
+                text-red-500
               "
             >
-              ARKNOZ EXPLORE
+              Arknoz Explore
             </p>
 
             <h2
@@ -581,7 +582,7 @@ export default function ExploreInteractiveJourney() {
               flex
               items-center
               overflow-hidden
-              rounded-[18px]
+              rounded-[8px]
               border
               border-slate-200
               bg-white
@@ -624,15 +625,15 @@ export default function ExploreInteractiveJourney() {
             <button
               type="submit"
               className="
-                rounded-[13px]
-                bg-[#071b31]
+                rounded-[6px]
+                bg-[#081f2d]
                 px-5
                 py-3
                 text-xs
                 font-semibold
                 text-white
                 transition
-                hover:bg-[#123d68]
+                hover:bg-[#102f42]
               "
             >
               Search
@@ -651,7 +652,7 @@ export default function ExploreInteractiveJourney() {
           className="
             grid
             gap-4
-            lg:min-h-[720px]
+            lg:min-h-[680px]
             lg:grid-cols-[220px_minmax(0,1fr)_310px]
           "
         >
@@ -660,10 +661,10 @@ export default function ExploreInteractiveJourney() {
 
           <aside
             className="
-              rounded-[22px]
+              rounded-[8px]
               border
               border-slate-200
-              bg-[#071b31]
+              bg-[#081f2d]
               p-3
               text-white
               shadow-sm
@@ -677,8 +678,8 @@ export default function ExploreInteractiveJourney() {
                 text-[9px]
                 font-bold
                 uppercase
-                tracking-[0.18em]
-                text-blue-200
+                tracking-[0.08em]
+                text-red-300
               "
             >
               Discovery lens
@@ -709,7 +710,7 @@ export default function ExploreInteractiveJourney() {
                       )
                     }
                     className={`
-                      rounded-[16px]
+                      rounded-[6px]
                       border
                       p-4
                       text-left
@@ -809,7 +810,7 @@ export default function ExploreInteractiveJourney() {
                       flex
                       items-center
                       justify-between
-                      rounded-[12px]
+                      rounded-[4px]
                       px-3
                       py-2.5
                       text-xs
@@ -840,7 +841,7 @@ export default function ExploreInteractiveJourney() {
             className="
               min-w-0
               overflow-hidden
-              rounded-[24px]
+              rounded-[8px]
               border
               border-slate-200
               bg-white
@@ -951,7 +952,7 @@ export default function ExploreInteractiveJourney() {
                           }
                           className={`
                             min-h-[78px]
-                            rounded-[15px]
+                            rounded-[8px]
                             border
                             px-4
                             py-3
@@ -960,7 +961,7 @@ export default function ExploreInteractiveJourney() {
                             ${
                               worldIndex ===
                               index
-                                ? "border-[#071b31] bg-[#071b31] text-white"
+                                ? "border-[#0a2230] bg-[#0a2230] text-white"
                                 : "border-slate-200 bg-slate-50 text-slate-700 hover:border-slate-300 hover:bg-white"
                             }
                           `}
@@ -1032,16 +1033,13 @@ export default function ExploreInteractiveJourney() {
                   <div
                     className="
                       relative
-                      min-h-[420px]
+                      min-h-[360px]
                       overflow-hidden
                       p-6
                       text-white
                       sm:p-8
                     "
-                    style={{
-                      backgroundImage:
-                        activeWorld.gradient,
-                    }}
+                    style={{ backgroundColor: "#0a2230" }}
                   >
 
                     <div
@@ -1074,7 +1072,7 @@ export default function ExploreInteractiveJourney() {
                             font-bold
                             uppercase
                             tracking-[0.2em]
-                            text-white/55
+                            text-red-300
                           "
                         >
                           ACTIVE WORLD
@@ -1084,10 +1082,10 @@ export default function ExploreInteractiveJourney() {
                           className="
                             mt-5
                             max-w-[11ch]
-                            text-4xl
+                            text-[34px]
                             font-semibold
                             tracking-[-0.05em]
-                            sm:text-5xl
+                            sm:text-[40px]
                           "
                         >
                           {activeWorld.title}
@@ -1119,7 +1117,7 @@ export default function ExploreInteractiveJourney() {
                           w-fit
                           items-center
                           gap-2
-                          rounded-full
+                          rounded-[8px]
                           bg-white
                           px-5
                           py-3
@@ -1141,7 +1139,7 @@ export default function ExploreInteractiveJourney() {
                     className="
                       border-t
                       border-slate-200
-                      bg-[#f7f9fb]
+                      bg-[#f5f7fb]
                       p-5
                       lg:border-l
                       lg:border-t-0
@@ -1190,7 +1188,7 @@ export default function ExploreInteractiveJourney() {
                                 min-h-[52px]
                                 items-center
                                 justify-between
-                                rounded-[14px]
+                                rounded-[8px]
                                 border
                                 border-slate-200
                                 bg-white
@@ -1250,8 +1248,8 @@ export default function ExploreInteractiveJourney() {
               <div
                 className="
                   grid
-                  min-h-[690px]
-                  lg:grid-cols-[280px_1fr]
+                  min-h-[520px]
+                  lg:grid-cols-[250px_1fr]
                 "
               >
 
@@ -1306,7 +1304,7 @@ export default function ExploreInteractiveJourney() {
                             )
                           }
                           className={`
-                            rounded-[14px]
+                            rounded-[8px]
                             border
                             p-4
                             text-left
@@ -1314,7 +1312,7 @@ export default function ExploreInteractiveJourney() {
                             ${
                               intentIndex ===
                               index
-                                ? "border-[#071b31] bg-[#071b31] text-white"
+                                ? "border-[#0a2230] bg-[#0a2230] text-white"
                                 : "border-slate-200 bg-white text-slate-700 hover:border-slate-300"
                             }
                           `}
@@ -1358,12 +1356,12 @@ export default function ExploreInteractiveJourney() {
                   className="
                     relative
                     flex
-                    min-h-[560px]
+                    min-h-[520px]
                     flex-col
-                    justify-between
+                    justify-center gap-8
                     overflow-hidden
-                    p-7
-                    sm:p-10
+                    p-6
+                    sm:p-8
                   "
                 >
 
@@ -1373,9 +1371,9 @@ export default function ExploreInteractiveJourney() {
                       absolute
                       -right-28
                       -top-28
-                      h-96
+                      hidden h-96
                       w-96
-                      rounded-full
+                      rounded-[8px]
                       border
                       border-slate-200
                     "
@@ -1387,7 +1385,7 @@ export default function ExploreInteractiveJourney() {
                       absolute
                       right-10
                       top-10
-                      h-56
+                      hidden h-56
                       w-56
                       rotate-45
                       border
@@ -1406,7 +1404,7 @@ export default function ExploreInteractiveJourney() {
                         font-bold
                         uppercase
                         tracking-[0.18em]
-                        text-blue-700
+                        text-red-500
                       "
                     >
                       YOUR INTENT
@@ -1414,13 +1412,13 @@ export default function ExploreInteractiveJourney() {
 
                     <h3
                       className="
-                        mt-6
+                        mt-4
                         max-w-[11ch]
-                        text-4xl
+                        text-[34px]
                         font-semibold
                         tracking-[-0.05em]
-                        sm:text-5xl
-                        lg:text-6xl
+                        sm:text-[40px]
+                        lg:text-[40px]
                       "
                     >
                       {activeIntent.title}
@@ -1428,10 +1426,10 @@ export default function ExploreInteractiveJourney() {
 
                     <p
                       className="
-                        mt-6
+                        mt-4
                         max-w-xl
-                        text-base
-                        leading-8
+                        text-sm
+                        leading-6
                         text-slate-500
                       "
                     >
@@ -1459,8 +1457,8 @@ export default function ExploreInteractiveJourney() {
                         inline-flex
                         items-center
                         gap-2
-                        rounded-full
-                        bg-[#071b31]
+                        rounded-[8px]
+                        bg-[#0a2230]
                         px-6
                         py-3
                         text-sm
@@ -1479,7 +1477,7 @@ export default function ExploreInteractiveJourney() {
                         inline-flex
                         items-center
                         gap-2
-                        rounded-full
+                        rounded-[8px]
                         border
                         border-slate-200
                         bg-white
@@ -1512,8 +1510,8 @@ export default function ExploreInteractiveJourney() {
               <div
                 className="
                   grid
-                  min-h-[690px]
-                  lg:grid-cols-[1fr_280px]
+                  min-h-[500px]
+                  lg:grid-cols-[1fr_250px]
                 "
               >
 
@@ -1521,11 +1519,11 @@ export default function ExploreInteractiveJourney() {
                   className="
                     relative
                     flex
-                    min-h-[580px]
+                    min-h-[460px]
                     items-center
-                    justify-center
+                    justify-start
                     overflow-hidden
-                    bg-[#eef5f2]
+                    bg-[#f5f7fb]
                   "
                 >
 
@@ -1533,11 +1531,11 @@ export default function ExploreInteractiveJourney() {
                     aria-hidden="true"
                     className="
                       absolute
-                      h-[470px]
+                      hidden h-[470px]
                       w-[470px]
                       rounded-full
                       border
-                      border-emerald-900/15
+                      border-slate-200
                     "
                   />
 
@@ -1545,12 +1543,12 @@ export default function ExploreInteractiveJourney() {
                     aria-hidden="true"
                     className="
                       absolute
-                      h-[360px]
+                      hidden h-[360px]
                       w-[360px]
                       rotate-[25deg]
                       rounded-[50%]
                       border
-                      border-emerald-900/10
+                      border-slate-200
                     "
                   />
 
@@ -1558,12 +1556,12 @@ export default function ExploreInteractiveJourney() {
                     aria-hidden="true"
                     className="
                       absolute
-                      h-[360px]
+                      hidden h-[360px]
                       w-[360px]
                       -rotate-[25deg]
                       rounded-[50%]
                       border
-                      border-emerald-900/10
+                      border-slate-200
                     "
                   />
 
@@ -1571,9 +1569,9 @@ export default function ExploreInteractiveJourney() {
                     aria-hidden="true"
                     className="
                       absolute
-                      h-px
+                      hidden h-px
                       w-[470px]
-                      bg-emerald-900/10
+                      bg-slate-100
                     "
                   />
 
@@ -1581,9 +1579,9 @@ export default function ExploreInteractiveJourney() {
                     aria-hidden="true"
                     className="
                       absolute
-                      h-[470px]
+                      hidden h-[470px]
                       w-px
-                      bg-emerald-900/10
+                      bg-slate-100
                     "
                   />
 
@@ -1592,9 +1590,9 @@ export default function ExploreInteractiveJourney() {
                     className="
                       relative
                       z-10
-                      max-w-sm
-                      px-8
-                      text-center
+                      max-w-xl
+                      p-8
+                      text-left
                     "
                   >
 
@@ -1604,7 +1602,7 @@ export default function ExploreInteractiveJourney() {
                         font-bold
                         uppercase
                         tracking-[0.18em]
-                        text-emerald-800
+                        text-red-500
                       "
                     >
                       GEOGRAPHY LEVEL
@@ -1613,7 +1611,7 @@ export default function ExploreInteractiveJourney() {
                     <h3
                       className="
                         mt-3
-                        text-5xl
+                        text-[40px]
                         font-semibold
                         tracking-[-0.05em]
                       "
@@ -1640,8 +1638,8 @@ export default function ExploreInteractiveJourney() {
                         inline-flex
                         items-center
                         gap-2
-                        rounded-full
-                        bg-[#163b37]
+                        rounded-[8px]
+                        bg-[#0a2230]
                         px-6
                         py-3
                         text-sm
@@ -1707,7 +1705,7 @@ export default function ExploreInteractiveJourney() {
                             )
                           }
                           className={`
-                            rounded-[14px]
+                            rounded-[8px]
                             border
                             px-4
                             py-3
@@ -1718,7 +1716,7 @@ export default function ExploreInteractiveJourney() {
                             ${
                               geographyIndex ===
                               index
-                                ? "border-[#163b37] bg-[#163b37] text-white"
+                                ? "border-[#0a2230] bg-[#0a2230] text-white"
                                 : "border-slate-200 bg-slate-50 text-slate-700 hover:bg-white"
                             }
                           `}
@@ -1766,7 +1764,7 @@ export default function ExploreInteractiveJourney() {
                           key={label}
                           href={href}
                           className="
-                            rounded-full
+                            rounded-[6px]
                             border
                             border-slate-200
                             bg-white
@@ -1776,8 +1774,8 @@ export default function ExploreInteractiveJourney() {
                             font-semibold
                             text-slate-600
                             transition
-                            hover:border-emerald-700
-                            hover:text-emerald-800
+                            hover:border-red-300
+                            hover:text-red-500
                           "
                         >
                           {label}
@@ -1805,9 +1803,9 @@ export default function ExploreInteractiveJourney() {
               <div
                 className="
                   relative
-                  min-h-[690px]
+                  min-h-[500px]
                   overflow-hidden
-                  bg-[#f7f5fb]
+                  bg-[#f5f7fb]
                   p-5
                   sm:p-7
                 "
@@ -1817,11 +1815,11 @@ export default function ExploreInteractiveJourney() {
                   className="
                     mx-auto
                     grid
-                    min-h-[630px]
-                    max-w-[900px]
+                    min-h-[460px]
+                    max-w-none
                     grid-cols-3
                     grid-rows-3
-                    gap-3
+                    gap-2
                   "
                 >
 
@@ -1855,19 +1853,19 @@ export default function ExploreInteractiveJourney() {
                           className={`
                             ${positions[index]}
                             flex
-                            min-h-[145px]
+                            min-h-[120px]
                             flex-col
                             justify-between
-                            rounded-[20px]
+                            rounded-[8px]
                             border
-                            p-5
+                            p-4
                             text-left
                             transition
                             ${
                               connectionIndex ===
                               index
-                                ? "border-[#30285f] bg-[#30285f] text-white shadow-lg"
-                                : "border-slate-200 bg-white text-slate-700 hover:border-violet-300 hover:shadow-sm"
+                                ? "border-[#0a2230] bg-[#0a2230] text-white shadow-sm"
+                                : "border-slate-200 bg-white text-slate-700 hover:border-slate-300 hover:shadow-sm"
                             }
                           `}
                         >
@@ -1906,17 +1904,17 @@ export default function ExploreInteractiveJourney() {
                       col-start-2
                       row-start-2
                       flex
-                      min-h-[145px]
+                      min-h-[120px]
                       flex-col
                       items-center
                       justify-center
-                      rounded-[24px]
+                      rounded-[8px]
                       border
-                      border-violet-200
+                      border-slate-200
                       bg-white
                       p-5
                       text-center
-                      shadow-sm
+                      
                     "
                   >
                     <p
@@ -1925,7 +1923,7 @@ export default function ExploreInteractiveJourney() {
                         font-bold
                         uppercase
                         tracking-[0.18em]
-                        text-violet-700
+                        text-red-500
                       "
                     >
                       ARKNOZ
@@ -1959,7 +1957,7 @@ export default function ExploreInteractiveJourney() {
             className="
               flex
               flex-col
-              rounded-[22px]
+              rounded-[10px]
               border
               border-slate-200
               bg-white
@@ -1974,7 +1972,7 @@ export default function ExploreInteractiveJourney() {
                 font-bold
                 uppercase
                 tracking-[0.18em]
-                text-blue-700
+                text-red-500
               "
             >
               {context.eyebrow}
@@ -2013,8 +2011,8 @@ export default function ExploreInteractiveJourney() {
                 inline-flex
                 items-center
                 justify-between
-                rounded-[14px]
-                bg-[#071b31]
+                rounded-[8px]
+                bg-[#0a2230]
                 px-4
                 py-3
                 text-xs
@@ -2086,7 +2084,7 @@ export default function ExploreInteractiveJourney() {
                         flex
                         items-center
                         justify-between
-                        rounded-[12px]
+                        rounded-[6px]
                         border
                         border-slate-200
                         bg-slate-50

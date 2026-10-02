@@ -7,7 +7,7 @@ import {
 } from "next/navigation";
 
 import ContributionUploader from "@/components/ContributionUploader";
-import GlobalFooter from "@/components/GlobalFooter";
+import UniversalPublicLastScreen from "@/components/UniversalPublicLastScreen";
 import GlobalHeader from "@/components/GlobalHeader";
 import UniversalFooterStrip from "@/components/UniversalFooterStrip";
 
@@ -104,7 +104,7 @@ export default async function ContributePage() {
         <UniversalFooterStrip />
       </main>
 
-      <GlobalFooter />
+      <UniversalPublicLastScreen />
     </>
   );
 }

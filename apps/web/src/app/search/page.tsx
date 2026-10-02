@@ -10,7 +10,7 @@ import GlobalHeader from "@/components/GlobalHeader";
 import GeographyContextBar from "@/components/GeographyContextBar";
 import UniversalTopicHero from "@/components/UniversalTopicHero";
 import UniversalFooterStrip from "@/components/UniversalFooterStrip";
-import GlobalFooter from "@/components/GlobalFooter";
+import UniversalPublicLastScreen from "@/components/UniversalPublicLastScreen";
 import type { EntityRecord } from "@/lib/entities";
 import {
   type GeographyItem,
@@ -53,7 +53,7 @@ const featured = [
     meta: "Global",
     href: "/knowledge/urban-biodiversity",
     image:
-      "/visuals/arknoz-neutral.svg",
+      "/visuals/portal/knowledge.png",
   },
   {
     type: "ORGANISATION",
@@ -61,7 +61,7 @@ const featured = [
     meta: "Sweden",
     href: "/organisations/white-arkitekter",
     image:
-      "/visuals/arknoz-neutral.svg",
+      "/visuals/portal/organisation.png",
   },
 ] as const;
 
@@ -589,7 +589,7 @@ export default function SearchPage() {
       <SearchBody />
 
       <UniversalFooterStrip />
-      <GlobalFooter />
+      <UniversalPublicLastScreen />
     </main>
   );
 }

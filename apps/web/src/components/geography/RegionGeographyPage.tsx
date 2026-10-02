@@ -18,7 +18,7 @@ import {
 
 const cityImages: Record<string, string> = {
   mumbai:
-    "/visuals/arknoz-neutral.svg",
+    "/visuals/portal/place.png",
 };
 
 const worldLinks =
@@ -56,7 +56,7 @@ function getPresentation(
           meta: "Maharashtra",
           href: "/global/mumbai",
           image:
-            "/visuals/arknoz-neutral.svg",
+            "/visuals/portal/place.png",
         },
       ],
 

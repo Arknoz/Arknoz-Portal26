@@ -1,3 +1,4 @@
+import { resolvePortalImage } from "@/lib/portal-image";
 import {
   entities,
   type EntityRecord,
@@ -74,15 +75,15 @@ function entityHref(
 function entityImage(
   entity: EntityRecord
 ) {
+  const realImage =
+    entity.type === "project"
+      ? entity.project?.media?.[0]?.src
+      : null;
 
-  if (
-    entity.type === "project" &&
-    entity.project?.media?.[0]?.src
-  ) {
-    return entity.project.media[0].src;
-  }
-
-  return "/visuals/arknoz-neutral.svg";
+  return resolvePortalImage({
+    src: realImage,
+    kind: entity.type,
+  });
 }
 
 

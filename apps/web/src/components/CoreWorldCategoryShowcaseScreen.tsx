@@ -11,6 +11,10 @@ type SupportedWorld =
   | "knowledge"
   | "learning"
   | "opportunities"
+  | "people"
+  | "organisations"
+  | "universities"
+  | "places"
   | "community";
 
 
@@ -43,15 +47,15 @@ const themes:
     title: "Products",
     recordLabel: "Product",
     recordPlural: "products",
-    accent: "#a64c32",
-    rightBackground: "#f8f4f1",
+    accent: "#a61f46",
+    rightBackground: "#f5f7fb",
     gradients: [
-      "linear-gradient(135deg,#43261f 0%,#774332 100%)",
-      "linear-gradient(135deg,#4c2920 0%,#89503a 100%)",
-      "linear-gradient(135deg,#3f2925 0%,#765047 100%)",
-      "linear-gradient(135deg,#493129 0%,#805a46 100%)",
-      "linear-gradient(135deg,#3f3027 0%,#756047 100%)",
-      "linear-gradient(135deg,#3c2825 0%,#70443b 100%)",
+      "linear-gradient(135deg,#071d2a 0%,#153e57 100%)",
+      "linear-gradient(135deg,#0a2230 0%,#19465f 100%)",
+      "linear-gradient(135deg,#081f2e 0%,#123b53 100%)",
+      "linear-gradient(135deg,#0a2230 0%,#173f56 100%)",
+      "linear-gradient(135deg,#071d2a 0%,#16445d 100%)",
+      "linear-gradient(135deg,#0a2230 0%,#13384d 100%)",
     ],
   },
 
@@ -59,15 +63,15 @@ const themes:
     title: "Knowledge",
     recordLabel: "Knowledge",
     recordPlural: "knowledge records",
-    accent: "#5355a4",
-    rightBackground: "#f4f5fb",
+    accent: "#a61f46",
+    rightBackground: "#f5f7fb",
     gradients: [
-      "linear-gradient(135deg,#1f274b 0%,#404c86 100%)",
-      "linear-gradient(135deg,#25264d 0%,#56538f 100%)",
-      "linear-gradient(135deg,#202d50 0%,#415e8a 100%)",
-      "linear-gradient(135deg,#27284c 0%,#545482 100%)",
-      "linear-gradient(135deg,#202a45 0%,#445478 100%)",
-      "linear-gradient(135deg,#25233e 0%,#554f78 100%)",
+      "linear-gradient(135deg,#071d2a 0%,#153e57 100%)",
+      "linear-gradient(135deg,#0a2230 0%,#19465f 100%)",
+      "linear-gradient(135deg,#081f2e 0%,#123b53 100%)",
+      "linear-gradient(135deg,#0a2230 0%,#173f56 100%)",
+      "linear-gradient(135deg,#071d2a 0%,#16445d 100%)",
+      "linear-gradient(135deg,#0a2230 0%,#13384d 100%)",
     ],
   },
 
@@ -75,15 +79,15 @@ const themes:
     title: "Education",
     recordLabel: "Learning",
     recordPlural: "learning records",
-    accent: "#247f7a",
-    rightBackground: "#f2f8f7",
+    accent: "#a61f46",
+    rightBackground: "#f5f7fb",
     gradients: [
-      "linear-gradient(135deg,#163c40 0%,#28716f 100%)",
-      "linear-gradient(135deg,#183d3b 0%,#32766f 100%)",
-      "linear-gradient(135deg,#17363c 0%,#316a73 100%)",
-      "linear-gradient(135deg,#1b403e 0%,#437b70 100%)",
-      "linear-gradient(135deg,#163a36 0%,#397168 100%)",
-      "linear-gradient(135deg,#17353a 0%,#376970 100%)",
+      "linear-gradient(135deg,#071d2a 0%,#153e57 100%)",
+      "linear-gradient(135deg,#0a2230 0%,#19465f 100%)",
+      "linear-gradient(135deg,#081f2e 0%,#123b53 100%)",
+      "linear-gradient(135deg,#0a2230 0%,#173f56 100%)",
+      "linear-gradient(135deg,#071d2a 0%,#16445d 100%)",
+      "linear-gradient(135deg,#0a2230 0%,#13384d 100%)",
     ],
   },
 
@@ -91,35 +95,111 @@ const themes:
     title: "Opportunities",
     recordLabel: "Opportunity",
     recordPlural: "opportunities",
-    accent: "#a66a32",
-    rightBackground: "#faf6ef",
+    accent: "#a61f46",
+    rightBackground: "#f5f7fb",
     gradients: [
-      "linear-gradient(135deg,#49331f 0%,#7c5a36 100%)",
-      "linear-gradient(135deg,#4d3522 0%,#8a6239 100%)",
-      "linear-gradient(135deg,#423426 0%,#755d43 100%)",
-      "linear-gradient(135deg,#493827 0%,#816344 100%)",
-      "linear-gradient(135deg,#413222 0%,#77603e 100%)",
-      "linear-gradient(135deg,#473226 0%,#7d5641 100%)",
+      "linear-gradient(135deg,#071d2a 0%,#153e57 100%)",
+      "linear-gradient(135deg,#0a2230 0%,#19465f 100%)",
+      "linear-gradient(135deg,#081f2e 0%,#123b53 100%)",
+      "linear-gradient(135deg,#0a2230 0%,#173f56 100%)",
+      "linear-gradient(135deg,#071d2a 0%,#16445d 100%)",
+      "linear-gradient(135deg,#0a2230 0%,#13384d 100%)",
     ],
   },
 
+  people: {
+    title: "People",
+    recordLabel: "Person",
+    recordPlural: "people",
+    accent: "#a61f46",
+    rightBackground: "#f5f7fb",
+    gradients: [
+      "linear-gradient(135deg,#071d2a 0%,#153e57 100%)",
+      "linear-gradient(135deg,#0a2230 0%,#19465f 100%)",
+      "linear-gradient(135deg,#081f2e 0%,#123b53 100%)",
+      "linear-gradient(135deg,#0a2230 0%,#173f56 100%)",
+      "linear-gradient(135deg,#071d2a 0%,#16445d 100%)",
+      "linear-gradient(135deg,#0a2230 0%,#13384d 100%)",
+    ],
+  },
+
+  organisations: {
+    title: "Organisations",
+    recordLabel: "Organisation",
+    recordPlural: "organisations",
+    accent: "#a61f46",
+    rightBackground: "#f5f7fb",
+    gradients: [
+      "linear-gradient(135deg,#071d2a 0%,#153e57 100%)",
+      "linear-gradient(135deg,#0a2230 0%,#19465f 100%)",
+      "linear-gradient(135deg,#081f2e 0%,#123b53 100%)",
+      "linear-gradient(135deg,#0a2230 0%,#173f56 100%)",
+      "linear-gradient(135deg,#071d2a 0%,#16445d 100%)",
+      "linear-gradient(135deg,#0a2230 0%,#13384d 100%)",
+    ],
+  },
+
+  universities: {
+    title: "Universities",
+    recordLabel: "University",
+    recordPlural: "universities",
+    accent: "#a61f46",
+    rightBackground: "#f5f7fb",
+    gradients: [
+      "linear-gradient(135deg,#071d2a 0%,#153e57 100%)",
+      "linear-gradient(135deg,#0a2230 0%,#19465f 100%)",
+      "linear-gradient(135deg,#081f2e 0%,#123b53 100%)",
+      "linear-gradient(135deg,#0a2230 0%,#173f56 100%)",
+      "linear-gradient(135deg,#071d2a 0%,#16445d 100%)",
+      "linear-gradient(135deg,#0a2230 0%,#13384d 100%)",
+    ],
+  },
+
+  places: {
+    title: "Places",
+    recordLabel: "Place",
+    recordPlural: "places",
+    accent: "#a61f46",
+    rightBackground: "#f5f7fb",
+    gradients: [
+      "linear-gradient(135deg,#071d2a 0%,#153e57 100%)",
+      "linear-gradient(135deg,#0a2230 0%,#19465f 100%)",
+      "linear-gradient(135deg,#081f2e 0%,#123b53 100%)",
+      "linear-gradient(135deg,#0a2230 0%,#173f56 100%)",
+      "linear-gradient(135deg,#071d2a 0%,#16445d 100%)",
+      "linear-gradient(135deg,#0a2230 0%,#13384d 100%)",
+    ],
+  },
   community: {
     title: "Community",
     recordLabel: "Community",
     recordPlural: "community records",
-    accent: "#7556a5",
-    rightBackground: "#f7f4fb",
+    accent: "#a61f46",
+    rightBackground: "#f5f7fb",
     gradients: [
-      "linear-gradient(135deg,#312347 0%,#5c4380 100%)",
-      "linear-gradient(135deg,#38264d 0%,#67458a 100%)",
-      "linear-gradient(135deg,#30284d 0%,#594d82 100%)",
-      "linear-gradient(135deg,#36254a 0%,#684780 100%)",
-      "linear-gradient(135deg,#2f2947 0%,#5a5077 100%)",
-      "linear-gradient(135deg,#352447 0%,#634278 100%)",
+      "linear-gradient(135deg,#071d2a 0%,#153e57 100%)",
+      "linear-gradient(135deg,#0a2230 0%,#19465f 100%)",
+      "linear-gradient(135deg,#081f2e 0%,#123b53 100%)",
+      "linear-gradient(135deg,#0a2230 0%,#173f56 100%)",
+      "linear-gradient(135deg,#071d2a 0%,#16445d 100%)",
+      "linear-gradient(135deg,#0a2230 0%,#13384d 100%)",
     ],
   },
 
 };
+
+
+const fallbackImageByWorld:
+  Record<SupportedWorld, string> = {
+    products: "/visuals/portal/product.png",
+    knowledge: "/visuals/portal/knowledge.png",
+    learning: "/visuals/portal/education.png",
+    opportunities: "/visuals/portal/opportunity.png",
+    people: "/visuals/portal/people.png",
+    organisations: "/visuals/portal/organisation.png",
+    universities: "/visuals/portal/education.png",
+    places: "/visuals/portal/place.png",    community: "/visuals/portal/people.png",
+  };
 
 
 function getEntityImage(
@@ -192,46 +272,61 @@ function RecordCard({
 
   if (!entity) {
 
+    const fallbackImage =
+      fallbackImageByWorld[world];
+
     return (
-      <article className="flex min-h-0 flex-col overflow-hidden rounded-[20px] border border-slate-200 bg-white p-5">
+      <article className="group flex min-h-0 flex-col overflow-hidden rounded-[8px] border border-slate-200 bg-white">
 
-        <div className="flex items-start justify-between">
+        <div className="relative h-[43%] min-h-[105px] overflow-hidden bg-[#0a2230]">
 
-          <span
-            className="text-[10px] font-semibold"
-            style={{
-              color:
-                theme.accent,
-            }}
-          >
+          <img
+            src={fallbackImage}
+            alt=""
+            className={`absolute inset-0 h-full w-full object-cover opacity-90 ${
+              index % 3 === 0
+                ? "object-center"
+                : index % 3 === 1
+                  ? "object-left"
+                  : "object-right"
+            }`}
+          />
+
+          <div className="absolute inset-0 bg-gradient-to-t from-[#03121c]/65 via-transparent to-transparent" />
+
+          <span className="absolute left-4 top-4 text-[10px] font-semibold text-white">
             {number}
           </span>
 
-          <span className="text-slate-300">
+          <span className="absolute right-4 top-4 text-white/70">
             →
           </span>
 
         </div>
 
 
-        <div className="my-auto">
+        <div className="flex min-h-0 flex-1 flex-col p-5">
 
-          <p className="text-[9px] font-semibold uppercase tracking-[0.12em] text-slate-400">
+          <p
+            className="text-[9px] font-semibold uppercase tracking-[0.12em]"
+            style={{
+              color:
+                theme.accent,
+            }}
+          >
             {theme.recordLabel}
           </p>
 
+          <h3 className="mt-3 text-[16px] font-semibold leading-[1.15] tracking-[-0.02em] text-[#0a2230]">
+            Explore {theme.title.toLowerCase()}
+          </h3>
 
-          <p className="mt-3 max-w-[250px] text-[12px] leading-5 text-slate-400">
-            No additional eligible published record is available in this category yet.
+          <p className="mt-2 text-[11px] leading-5 text-slate-500">
+            Published records will appear here as they are added to this category.
           </p>
 
-        </div>
-
-
-        <div className="border-t border-slate-100 pt-4">
-
-          <p className="text-[8px] font-semibold uppercase tracking-[0.12em] text-slate-300">
-            Awaiting genuine record
+          <p className="mt-auto border-t border-slate-100 pt-4 text-[8px] font-semibold uppercase tracking-[0.12em] text-slate-400">
+            Awaiting published record
           </p>
 
         </div>
@@ -240,17 +335,17 @@ function RecordCard({
     );
   }
 
-
   const image =
     getEntityImage(
       entity
-    );
+    ) ??
+    fallbackImageByWorld[world];
 
 
   return (
     <Link
       href={getEntityHref(entity)}
-      className="group flex min-h-0 flex-col overflow-hidden rounded-[20px] border border-slate-200 bg-white transition hover:-translate-y-0.5 hover:shadow-md"
+      className="group flex min-h-0 flex-col overflow-hidden rounded-[8px] border border-slate-200 bg-white transition hover:-translate-y-0.5 hover:shadow-md"
     >
 
       <div className="relative h-[43%] min-h-[105px] overflow-hidden bg-[#edf1f4]">
@@ -365,17 +460,20 @@ export default function CoreWorldCategoryShowcaseScreen({
   const featuredImage =
     getEntityImage(
       featuredRecord
-    );
+    ) ??
+    fallbackImageByWorld[world];
 
 
   return (
     <section
       id={`${world}-category-${category.slug}`}
       data-core-category-screen={`${world}:${category.slug}`}
-      className="border-t border-slate-200 bg-white lg:h-[calc(100svh-88px)] lg:min-h-0"
+      className="border-t border-slate-200 bg-[#f5f7fb] px-5 py-5 sm:px-6 lg:h-[calc(100svh-88px)] lg:min-h-0 lg:px-8"
     >
 
-      <div className="grid min-h-[calc(100svh-88px)] lg:h-full lg:min-h-0 lg:grid-cols-[0.72fr_1.28fr]">
+      <div
+        className="mx-auto grid min-h-[calc(100svh-128px)] max-w-[1600px] overflow-hidden rounded-[10px] border border-slate-200 bg-white shadow-[0_18px_50px_rgba(15,23,42,0.06)] lg:h-full lg:min-h-0 lg:grid-cols-[0.72fr_1.28fr]"
+      >
 
 
         {/* LEFT — FEATURED RECORD */}
@@ -474,12 +572,12 @@ export default function CoreWorldCategoryShowcaseScreen({
               <>
 
                 <h3 className="mt-4 max-w-lg text-[32px] font-semibold leading-[1.02] tracking-[-0.035em] text-white/90">
-                  Featured {theme.recordLabel.toLowerCase()} slot
+                  Explore this {theme.title.toLowerCase()} world
                 </h3>
 
 
                 <p className="mt-4 max-w-md text-[12px] leading-6 text-white/55">
-                  No eligible featured record has been assigned to this category yet.
+                  Browse this category as genuine records are published on Arknoz.
                 </p>
 
               </>
@@ -491,11 +589,15 @@ export default function CoreWorldCategoryShowcaseScreen({
               <div>
 
                 <p className="text-[30px] font-semibold leading-none">
-                  {String(totalCount).padStart(2, "0")}
+                  {totalCount > 0
+                    ? String(totalCount).padStart(2, "0")
+                    : "—"}
                 </p>
 
                 <p className="mt-2 text-[8px] font-semibold uppercase tracking-[0.12em] text-white/45">
-                  Published records
+                  {totalCount === 0
+                    ? `Awaiting published ${theme.recordPlural}`
+                    : "Published records"}
                 </p>
 
               </div>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { resolvePortalImage } from "@/lib/portal-image";
 
 import { getEntityHref } from "@/components/EntityCard";
 import { entities, type EntityRecord } from "@/lib/entities";
@@ -17,14 +18,15 @@ const editorChoiceSlugs = [
 function getEditorImage(
   entity: EntityRecord
 ) {
-  if (
-    entity.type === "project" &&
-    entity.project?.media?.[0]?.src
-  ) {
-    return entity.project.media[0].src;
-  }
+  const realImage =
+    entity.type === "project"
+      ? entity.project?.media?.[0]?.src
+      : null;
 
-  return "/visuals/arknoz-built-world-watermark.jpg";
+  return resolvePortalImage({
+    src: realImage,
+    kind: entity.type,
+  });
 }
 
 

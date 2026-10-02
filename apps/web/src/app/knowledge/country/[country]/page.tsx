@@ -79,7 +79,7 @@ export default async function Page({
           title: record.title,
           meta: `${record.publisher}${record.year ? ` · ${record.year}` : ""}`,
           href: `/knowledge/${record.slug}`,
-          image: "/visuals/arknoz-neutral.svg",
+          image: "/visuals/portal/knowledge.png",
         }))}
     />
   );

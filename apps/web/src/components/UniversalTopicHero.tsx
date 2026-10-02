@@ -4,6 +4,7 @@ import Link from "next/link";
 import { FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
 import type { ArknozVisualTheme } from "@/lib/arknoz-visual-theme";
+import { resolvePortalImage } from "@/lib/portal-image";
 
 type Feature = {
   type: string;
@@ -111,8 +112,7 @@ theme,
   // Explore keeps its own content and behaviour,
   // but follows the same visual language as Home.
   const homeVisual =
-    eyebrow === "EXPLORE" &&
-    title === "Explore the Built World.";
+    eyebrow === "EXPLORE";
 
 
   // Exactly three visible card positions.
@@ -167,6 +167,276 @@ theme,
     router.push(getSearchHref(item));
   }
 
+  if (homeVisual) {
+    const exploreMiniCards = [
+      {
+        label: "Products",
+        title: "Materials and systems",
+        href: "/products",
+        image: "/visuals/portal/product.png",
+      },
+      {
+        label: "People",
+        title: "People shaping the Built World",
+        href: "/people",
+        image: "/visuals/portal/people.png",
+      },
+      {
+        label: "Opportunities",
+        title: "Find what comes next",
+        href: "/opportunities",
+        image: "/visuals/portal/opportunity.png",
+      },
+    ];
+
+    return (
+      <section
+        data-explore-first-screen="true"
+        className="border-b border-slate-200 bg-[#f7f8fa] text-[#10253b]"
+      >
+        <div className="mx-auto grid max-w-[1600px] lg:min-h-[calc(100svh-168px)] lg:grid-cols-[.88fr_1.32fr]">
+
+          {/* LEFT — EXPLORE INTRODUCTION */}
+          <div className="flex flex-col border-slate-200 px-6 py-8 lg:border-r lg:px-8 lg:py-10">
+
+            <div className="flex items-end gap-5">
+              <h1 className="text-[54px] font-semibold leading-none tracking-[-0.06em] text-[#172b4d] sm:text-[64px]">
+                Explore
+              </h1>
+
+              <div className="mb-1 hidden h-12 w-px bg-slate-300 sm:block" />
+
+              <p className="mb-1 text-lg text-slate-500">
+                The Built World. Opened.
+              </p>
+            </div>
+
+            <div className="mt-5 h-px w-36 bg-gradient-to-r from-[#a61f46] via-[#a61f46]/35 to-transparent" />
+
+            <p className="mt-7 max-w-[640px] text-[17px] leading-8 text-slate-700">
+              {description}
+            </p>
+
+            <p className="mt-2 max-w-[610px] text-sm leading-6 text-slate-500">
+              Search directly, enter a Built World section, or follow a place,
+              topic or opportunity.
+            </p>
+
+            <form
+              onSubmit={submitSearch}
+              className="mt-7 flex max-w-[650px] border border-slate-300 bg-white shadow-[0_8px_28px_rgba(15,35,55,.05)] focus-within:border-[#a61f46]"
+            >
+              <input
+                value={query}
+                onChange={(event) => setQuery(event.target.value)}
+                placeholder={searchPlaceholder}
+                aria-label={searchPlaceholder}
+                className="min-w-0 flex-1 bg-transparent px-5 py-4 text-sm text-slate-900 outline-none placeholder:text-slate-400"
+              />
+
+              <button
+                type="submit"
+                className="m-1 bg-[#081f2d] px-7 text-xs font-semibold text-white transition hover:bg-[#102f42]"
+              >
+                Search
+              </button>
+            </form>
+
+            <div className="mt-4 flex flex-wrap gap-x-8 gap-y-2 text-xs font-semibold">
+              <Link
+                href="#arknoz-worlds"
+                className="transition hover:text-[#a61f46]"
+              >
+                Browse Worlds →
+              </Link>
+
+              <Link
+                href="/global"
+                className="text-slate-500 transition hover:text-[#a61f46]"
+              >
+                Explore by Place →
+              </Link>
+            </div>
+
+            {/* DISCOVER / UNDERSTAND / CONNECT */}
+            <div className="mt-7 grid max-w-[650px] grid-cols-3 border-y border-slate-200 py-5">
+              <div className="pr-5">
+                <p className="text-[10px] font-bold tracking-[0.08em] text-slate-400">
+                  DISCOVER
+                </p>
+                <p className="mt-2 text-xs leading-5 text-slate-600">
+                  Projects, products and places.
+                </p>
+              </div>
+
+              <div className="border-l border-slate-200 px-5">
+                <p className="text-[10px] font-bold tracking-[0.08em] text-slate-400">
+                  UNDERSTAND
+                </p>
+                <p className="mt-2 text-xs leading-5 text-slate-600">
+                  Knowledge, learning and research.
+                </p>
+              </div>
+
+              <div className="border-l border-slate-200 pl-5">
+                <p className="text-[10px] font-bold tracking-[0.08em] text-slate-400">
+                  CONNECT
+                </p>
+                <p className="mt-2 text-xs leading-5 text-slate-600">
+                  People, organisations and opportunities.
+                </p>
+              </div>
+            </div>
+
+            {/* SMALL VISUAL GATEWAYS */}
+            <div className="mt-auto grid max-w-[650px] grid-cols-3 gap-2 pt-4">
+              {exploreMiniCards.map((card) => (
+                <Link
+                  key={card.href}
+                  href={card.href}
+                  className="group relative min-h-[140px] overflow-hidden bg-slate-900"
+                >
+                  <img
+                    src={resolvePortalImage({
+                      src: card.image,
+                      kind: card.label,
+                    })}
+                    alt=""
+                    className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-[1.035]"
+                  />
+
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/15 to-transparent" />
+
+                  <div className="absolute inset-x-0 bottom-0 p-4 text-white">
+                    <p className="text-[9px] font-bold tracking-[0.08em] text-white/65">
+                      {card.label}
+                    </p>
+
+                    <p className="mt-1 text-sm font-semibold leading-5">
+                      {card.title}
+                    </p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* RIGHT — EXPLORE GATEWAYS */}
+          <div className="px-6 py-8 lg:px-8 lg:py-10">
+
+            <div className="mb-4 flex items-end justify-between gap-6">
+              <div>
+                <p className="flex items-center gap-2 text-[10px] font-bold tracking-[0.1em] text-[#a61f46]">
+                  <span className="h-2 w-2 rounded-full bg-red-500" />
+                  EXPLORE GATEWAYS
+                </p>
+
+                <h2 className="mt-1 text-2xl font-semibold tracking-[-0.04em] text-[#10253b]">
+                  Choose where to enter.
+                </h2>
+              </div>
+
+              <Link
+                href="/global"
+                className="text-xs font-semibold text-slate-500 transition hover:text-[#a61f46]"
+              >
+                Explore places →
+              </Link>
+            </div>
+
+            <div className="grid gap-3 md:h-[560px] md:grid-cols-[1.55fr_.85fr]">
+
+              {lead ? (
+                <Link
+                  href={lead.href}
+                  className="group relative min-h-[360px] overflow-hidden bg-slate-900 md:min-h-0"
+                >
+                  <img
+                    src={resolvePortalImage({
+                      src: lead.image,
+                      kind: lead.type,
+                    })}
+                    alt=""
+                    className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-[1.035]"
+                  />
+
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#061923]/95 via-black/12 to-transparent" />
+
+                  <div className="absolute left-5 top-5">
+                    <span className="bg-white/90 px-2.5 py-1 text-[9px] font-bold tracking-[0.1em] text-[#10253b]">
+                      START HERE
+                    </span>
+                  </div>
+
+                  <div className="absolute inset-x-0 bottom-0 p-6 text-white">
+                    <p className="text-[10px] font-bold tracking-[0.1em] text-white/60">
+                      {lead.type}
+                    </p>
+
+                    <h3 className="mt-2 max-w-xl text-[34px] font-semibold leading-[1.02] tracking-[-0.045em]">
+                      {lead.title}
+                    </h3>
+
+                    <p className="mt-2 text-sm text-white/70">
+                      {lead.meta}
+                    </p>
+
+                    <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold">
+                      Open gateway
+                      <ArrowRight />
+                    </span>
+                  </div>
+                </Link>
+              ) : null}
+
+              <div className="grid gap-3 md:grid-rows-2">
+                {secondary.map((item, index) =>
+                  item ? (
+                    <Link
+                      key={`${item.href}-${index}`}
+                      href={item.href}
+                      className="group relative min-h-[220px] overflow-hidden bg-slate-900 md:min-h-0"
+                    >
+                      <img
+                        src={resolvePortalImage({
+                          src: item.image,
+                          kind: item.type,
+                        })}
+                        alt=""
+                        className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-[1.035]"
+                      />
+
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/10 to-transparent" />
+
+                      <div className="absolute inset-x-0 bottom-0 p-5 text-white">
+                        <p className="text-[9px] font-bold tracking-[0.1em] text-white/55">
+                          {item.type}
+                        </p>
+
+                        <h3 className="mt-1 text-xl font-semibold leading-tight tracking-[-0.025em]">
+                          {item.title}
+                        </h3>
+
+                        <p className="mt-1 text-[11px] text-white/65">
+                          {item.meta}
+                        </p>
+
+                        <span className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold">
+                          Explore
+                          <ArrowRight />
+                        </span>
+                      </div>
+                    </Link>
+                  ) : null
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <>
       <section
@@ -178,8 +448,10 @@ theme,
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage:
-              "url(/visuals/arknoz-built-world-watermark.jpg)",
+            backgroundImage: `url(${resolvePortalImage({
+              src: "/visuals/arknoz-built-world-watermark.jpg",
+              kind: eyebrow,
+            })})`,
           }}
         />
         <div
@@ -280,7 +552,7 @@ theme,
             <h1
               className={
                 homeVisual
-                  ? "mt-4 max-w-[620px] text-[60px] font-bold leading-[0.94] tracking-[-0.055em] sm:text-[66px] md:text-[72px] xl:text-[78px]"
+                  ? "mt-3 max-w-[620px] text-[44px] font-semibold leading-[0.96] tracking-[-0.05em] sm:text-[50px] md:text-[56px] xl:text-[62px]"
                   : "mt-4 text-5xl font-bold leading-[0.96] tracking-[-0.05em] md:text-7xl xl:text-[74px]"
               }
             >
@@ -385,7 +657,10 @@ theme,
                   className="group relative min-h-[330px] overflow-hidden rounded-[26px] border border-white/15 bg-slate-900 shadow-2xl md:h-full md:min-h-0"
                 >
                   <img
-                    src={lead.image}
+                    src={resolvePortalImage({
+                      src: lead.image,
+                      kind: lead.type,
+                    })}
                     alt=""
                     className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-[1.035]"
                   />
@@ -418,7 +693,7 @@ theme,
                   className="relative min-h-[330px] overflow-hidden rounded-[26px] border border-white/15 md:h-full md:min-h-0"
                 >
                   <img
-                    src="/visuals/arknoz-built-world-watermark.jpg"
+                    src={resolvePortalImage({ src: "/visuals/arknoz-built-world-watermark.jpg", kind: eyebrow })}
                     alt=""
                     className="absolute inset-0 h-full w-full object-cover"
                   />
@@ -444,7 +719,10 @@ theme,
                       {homeVisual ? (
                         <>
                           <img
-                            src={item.image}
+                            src={resolvePortalImage({
+                              src: item.image,
+                              kind: item.type,
+                            })}
                             alt=""
                             className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-[1.035]"
                           />
@@ -480,7 +758,10 @@ theme,
                             }
                           >
                             <img
-                              src={item.image}
+                              src={resolvePortalImage({
+                              src: item.image,
+                              kind: item.type,
+                            })}
                               alt=""
                               className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.04]"
                             />
@@ -510,7 +791,7 @@ theme,
                       className="relative min-h-[170px] overflow-hidden rounded-[22px] border border-white/15 md:min-h-0"
                     >
                       <img
-                        src="/visuals/arknoz-built-world-watermark.jpg"
+                        src={resolvePortalImage({ src: "/visuals/arknoz-built-world-watermark.jpg", kind: eyebrow })}
                         alt=""
                         className="absolute inset-0 h-full w-full object-cover"
                       />

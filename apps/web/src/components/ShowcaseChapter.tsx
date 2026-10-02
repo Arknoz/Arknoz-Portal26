@@ -81,7 +81,7 @@ function entityImage(
     return entity.project.media[0].src;
   }
 
-  return "/visuals/arknoz-neutral.svg";
+  return "/visuals/portal/knowledge.png";
 }
 
 

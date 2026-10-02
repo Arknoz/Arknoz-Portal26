@@ -143,16 +143,16 @@ function buildConnectedWorldHref(
 const approvedFeatureImages: Record<string, string> = {
 
   "mass-timber-system":
-    "/visuals/arknoz-neutral.svg",
+    "/visuals/portal/place.png",
 
   "urban-biodiversity":
-    "/visuals/arknoz-neutral.svg",
+    "/visuals/portal/place.png",
 
   "politecnico-di-milano":
-    "/visuals/arknoz-neutral.svg",
+    "/visuals/portal/place.png",
 
   "white-arkitekter":
-    "/visuals/arknoz-neutral.svg",
+    "/visuals/portal/place.png",
 };
 
 function getEntityHref(entity: EntityRecord) {
@@ -318,6 +318,8 @@ export default async function WorldIndexPage({
   compactHero,
   featuredOverride,
   hideTopSubsectionStrip,
+  page = 1,
+  sort = "az",
 }: {
   title: string;
   description: string;
@@ -328,6 +330,8 @@ export default async function WorldIndexPage({
   compactHero?: boolean;
   featuredOverride?: HeroFeature[];
   hideTopSubsectionStrip?: boolean;
+  page?: number;
+  sort?: "az" | "za";
 }) {
   const context =
     geoSlug
@@ -412,6 +416,58 @@ export default async function WorldIndexPage({
         )
     );
 
+  const projectPageSize = 24;
+
+  const projectCategoryRecords =
+    sectionKey === "projects" &&
+    activeSubsectionConfig
+      ? [...visibleRecords].sort(
+          (a, b) => {
+            const comparison =
+              a.title.localeCompare(
+                b.title,
+                undefined,
+                {
+                  sensitivity: "base",
+                }
+              );
+
+            return sort === "za"
+              ? -comparison
+              : comparison;
+          }
+        )
+      : visibleRecords;
+
+  const projectTotalRecords =
+    projectCategoryRecords.length;
+
+  const projectTotalPages =
+    Math.max(
+      1,
+      Math.ceil(
+        projectTotalRecords /
+          projectPageSize
+      )
+    );
+
+  const projectCurrentPage =
+    Math.min(
+      Math.max(page, 1),
+      projectTotalPages
+    );
+
+  const projectPagedRecords =
+    sectionKey === "projects" &&
+    activeSubsectionConfig
+      ? projectCategoryRecords.slice(
+          (projectCurrentPage - 1) *
+            projectPageSize,
+          projectCurrentPage *
+            projectPageSize
+        )
+      : visibleRecords;
+
   const showcaseContext =
     sectionKey &&
     isExploreArknozSection(sectionKey)
@@ -495,7 +551,7 @@ export default async function WorldIndexPage({
           (
             recordSourceOverride &&
             sectionKey === "knowledge"
-              ? "/visuals/arknoz-neutral.svg"
+              ? "/visuals/portal/place.png"
               : undefined
           );
 
@@ -729,6 +785,61 @@ export default async function WorldIndexPage({
         }
         ticker={ticker}
         theme={visualTheme}
+        variant={
+          !locationLabel &&
+          sectionKey === "projects"
+            ? "projects"
+            : !locationLabel &&
+                sectionKey === "products"
+              ? "products"
+              : !locationLabel &&
+                  (
+                    sectionKey === "knowledge" ||
+                    sectionKey === "learning" ||
+                    sectionKey === "opportunities" ||
+                    sectionKey === "people" ||
+                    sectionKey === "organisations" ||
+                    sectionKey === "universities" ||
+                    sectionKey === "places" ||
+                    sectionKey === "community"
+                  )
+                ? "arknoz-world"
+                : "default"
+        }
+        projectsSubsectionLabel={
+          sectionKey === "projects"
+            ? activeSubsectionConfig?.label
+            : undefined
+        }
+        productsSubsectionLabel={
+          sectionKey === "products"
+            ? activeSubsectionConfig?.label
+            : undefined
+        }
+        worldKey={
+          sectionKey === "knowledge" ||
+          sectionKey === "learning" ||
+          sectionKey === "opportunities" ||
+          sectionKey === "people" ||
+          sectionKey === "organisations" ||
+          sectionKey === "universities" ||
+          sectionKey === "places" ||
+          sectionKey === "community"
+            ? sectionKey
+            : undefined
+        }
+        worldSubsectionLabel={
+          sectionKey === "knowledge" ||
+          sectionKey === "learning" ||
+          sectionKey === "opportunities" ||
+          sectionKey === "people" ||
+          sectionKey === "organisations" ||
+          sectionKey === "universities" ||
+          sectionKey === "places" ||
+          sectionKey === "community"
+            ? activeSubsectionConfig?.label
+            : undefined
+        }
       />
       {sectionKey &&
         !(sectionKey === "knowledge" && hideTopSubsectionStrip) && (
@@ -760,6 +871,10 @@ export default async function WorldIndexPage({
         sectionKey === "knowledge" ||
         sectionKey === "learning" ||
         sectionKey === "opportunities" ||
+        sectionKey === "people" ||
+        sectionKey === "organisations" ||
+        sectionKey === "universities" ||
+        sectionKey === "places" ||
         sectionKey === "community"
       ) ? (
 
@@ -776,7 +891,9 @@ export default async function WorldIndexPage({
               displayDescription
             }
             records={
-              visibleRecords
+              sectionKey === "projects"
+                ? projectPagedRecords
+                : visibleRecords
             }
             siblingCategories={
               discoverLanes
@@ -784,6 +901,33 @@ export default async function WorldIndexPage({
             locationLabel={
               locationLabel
             }
+            paginationEnabled={
+              sectionKey === "projects"
+            }
+            totalRecords={
+              sectionKey === "projects"
+                ? projectTotalRecords
+                : visibleRecords.length
+            }
+            currentPage={
+              sectionKey === "projects"
+                ? projectCurrentPage
+                : 1
+            }
+            totalPages={
+              sectionKey === "projects"
+                ? projectTotalPages
+                : 1
+            }
+            sort={
+              sectionKey === "projects"
+                ? sort
+                : undefined
+            }
+            categorySlug={
+              activeSubsectionConfig.slug
+            }
+            geoSlug={geoSlug}
           />
 
         </div>
@@ -820,7 +964,7 @@ export default async function WorldIndexPage({
                 Math.max(
                   0,
                   categoryIndex
-                ) + 2;
+                ) + 1;
 
 
               const categoryRecords =
@@ -943,6 +1087,10 @@ export default async function WorldIndexPage({
         sectionKey === "knowledge" ||
         sectionKey === "learning" ||
         sectionKey === "opportunities" ||
+        sectionKey === "people" ||
+        sectionKey === "organisations" ||
+        sectionKey === "universities" ||
+        sectionKey === "places" ||
         sectionKey === "community"
       ) ? (
 
@@ -974,7 +1122,7 @@ export default async function WorldIndexPage({
                 Math.max(
                   0,
                   categoryIndex
-                ) + 2;
+                ) + 1;
 
 
               const categoryRecords =
@@ -1093,6 +1241,10 @@ export default async function WorldIndexPage({
         sectionKey === "knowledge" ||
         sectionKey === "learning" ||
         sectionKey === "opportunities" ||
+        sectionKey === "people" ||
+        sectionKey === "organisations" ||
+        sectionKey === "universities" ||
+        sectionKey === "places" ||
         sectionKey === "community"
       ) ? null : (
         <>
@@ -1145,6 +1297,10 @@ export default async function WorldIndexPage({
         sectionKey === "knowledge" ||
         sectionKey === "learning" ||
         sectionKey === "opportunities" ||
+        sectionKey === "people" ||
+        sectionKey === "organisations" ||
+        sectionKey === "universities" ||
+        sectionKey === "places" ||
         sectionKey === "community"
       ) ? null : (
       <ArknozChapter
