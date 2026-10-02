@@ -146,13 +146,6 @@ const PROFILE_DETAILS: Record<
         href:
           "/universities/politecnico-di-milano",
       },
-      {
-        label: "KNOWLEDGE",
-        title: "Urban Biodiversity",
-        description:
-          "Connected Arknoz knowledge context.",
-        href: "/knowledge/urban-biodiversity",
-      },
     ],
 
     sources: [
@@ -180,13 +173,6 @@ const PROFILE_DETAILS: Record<
           "/universities/politecnico-di-milano",
         description:
           "Current academic affiliation.",
-      },
-      {
-        type: "KNOWLEDGE",
-        title: "Urban Biodiversity",
-        href: "/knowledge/urban-biodiversity",
-        description:
-          "Related Built World knowledge.",
       },
     ],
   },

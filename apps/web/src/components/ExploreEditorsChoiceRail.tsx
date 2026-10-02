@@ -6,12 +6,10 @@ import { entities, type EntityRecord } from "@/lib/entities";
 
 
 const editorChoiceSlugs = [
-  "urban-biodiversity",
   "bosco-verticale",
   "politecnico-di-milano",
   "milan",
   "white-arkitekter",
-  "mass-timber-system",
 ] as const;
 
 

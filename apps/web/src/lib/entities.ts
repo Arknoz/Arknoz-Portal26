@@ -118,28 +118,7 @@ export const entities: EntityRecord[] = [
       "UN-Habitat's 2024 World Cities Report examines cities and climate action, including urban climate risks, resilience, mitigation and inequality.",
     trust: "Official source",
   },
-  {
-    slug: "mass-timber-system",
-    type: "product",
-    title: "Mass Timber System",
-    subtitle: "Product & System",
-    geography: "Global",
-    geographySlug: "global",
-    summary: "A structured material and building-system example.",
-    trust: "Technical information",
-  },
 
-  {
-    slug: "urban-biodiversity",
-    type: "knowledge",
-    title: "Urban Biodiversity",
-    subtitle: "Knowledge",
-    geography: "Global",
-    geographySlug: "global",
-    summary:
-      "Research and evidence related to biodiversity in the Built World.",
-    trust: "Evidence-led",
-  },
 
   {
     slug: "stefano-boeri",

@@ -48,14 +48,6 @@ const discoveryPrompts = [
 
 const featured = [
   {
-    type: "KNOWLEDGE",
-    title: "Urban Biodiversity",
-    meta: "Global",
-    href: "/knowledge/urban-biodiversity",
-    image:
-      "/visuals/portal/knowledge.png",
-  },
-  {
     type: "ORGANISATION",
     title: "White Arkitekter",
     meta: "Sweden",
