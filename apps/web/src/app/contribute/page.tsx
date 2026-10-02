@@ -38,20 +38,6 @@ export default async function ContributePage() {
     );
   }
 
-  const isPro =
-    String(
-      user.app_metadata
-        ?.membership ??
-        ""
-    ).toUpperCase() ===
-    "PRO";
-
-  if (!isPro) {
-    redirect(
-      "/dashboard?locked=contributions#contributions"
-    );
-  }
-
   return (
     <>
       <GlobalHeader />
@@ -60,7 +46,7 @@ export default async function ContributePage() {
         <section className="border-b border-slate-200 bg-white">
           <div className="mx-auto max-w-[1512px] px-5 py-8 sm:px-8 lg:px-10">
             <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-700">
-              MY ARKNOZ · PRO CONTRIBUTION
+              MY ARKNOZ · CONTRIBUTION
             </p>
 
             <h1 className="mt-2 max-w-5xl text-4xl font-bold tracking-[-0.04em] text-[#17315c] sm:text-5xl">
