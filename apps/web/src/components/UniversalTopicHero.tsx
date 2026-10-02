@@ -199,7 +199,7 @@ theme,
           {/* LEFT — EXPLORE INTRODUCTION */}
           <div className="flex flex-col border-slate-200 px-6 py-8 lg:border-r lg:px-8 lg:py-10">
 
-            <div className="flex items-end gap-5">
+            <div className="flex flex-wrap items-end gap-x-5 gap-y-2">
               <h1 className="text-[54px] font-semibold leading-none tracking-[-0.06em] text-[#172b4d] sm:text-[64px]">
                 Explore
               </h1>
