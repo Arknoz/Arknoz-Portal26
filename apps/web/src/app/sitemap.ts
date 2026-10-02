@@ -22,7 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/knowledge/ideas-insights",
     "/learning",
     "/opportunities",
-    "/community",
+    "/pulse",
     "/global",
     "/featured",
     "/people",

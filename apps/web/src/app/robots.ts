@@ -10,6 +10,8 @@ export default function robots(): MetadataRoute.Robots {
         "/dashboard/",
         "/workspace/",
         "/team/",
+        "/community",
+        "/join",
         "/sign-in",
         "/access-denied",
         "/unavailable",
