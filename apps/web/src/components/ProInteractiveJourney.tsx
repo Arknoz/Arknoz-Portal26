@@ -1538,7 +1538,7 @@ export default function ProInteractiveJourney() {
       data-pro-workbench="true"
       className="border-t border-slate-200 bg-[#f5f7fb] text-slate-950"
     >
-      <div className="mx-auto max-w-[1600px] px-4 py-5 sm:px-6 lg:px-8 lg:py-7">
+      <div className="mx-auto max-w-[1720px] px-4 py-5 sm:px-6 lg:px-8 lg:py-7">
 
         {/* HEADER */}
 

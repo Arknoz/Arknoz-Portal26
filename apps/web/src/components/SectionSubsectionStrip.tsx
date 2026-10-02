@@ -27,7 +27,7 @@ export default function SectionSubsectionStrip({
 
   return (
     <section className="border-b border-slate-200 bg-white">
-      <div className="mx-auto max-w-[1600px] px-6 py-4 lg:px-10">
+      <div className="mx-auto max-w-[1720px] px-6 py-4 lg:px-10">
         <div className="flex items-center gap-2 overflow-x-auto pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           <Link
             href={buildArknozSectionHref(

@@ -66,7 +66,7 @@ export default function IntelligencePortal() {
           className="
             mx-auto
             grid
-            max-w-[1600px]
+            max-w-[1720px]
             overflow-hidden
             rounded-[10px]
             border
@@ -584,7 +584,7 @@ export default function IntelligencePortal() {
           ========================================================= */}
 
       <section className="bg-white px-6 py-14 lg:px-12 lg:py-16">
-        <div className="mx-auto max-w-[1640px]">
+        <div className="mx-auto max-w-[1720px]">
 
           <div className="grid gap-6 border-b border-slate-200 pb-8 lg:grid-cols-[.72fr_1.28fr] lg:items-end">
             <div>

@@ -1030,7 +1030,7 @@ export default function HomeContinuousExperience({
           }}
         />
 
-        <div className="relative mx-auto max-w-[1600px] px-5 sm:px-8 lg:px-8">
+        <div className="relative mx-auto max-w-[1720px] px-5 sm:px-8 lg:px-8">
 
           <div className="grid gap-8 pb-0 pt-4 lg:grid-cols-[0.78fr_1.22fr] lg:gap-10 lg:pb-0 lg:pt-5 xl:min-h-[620px]">
             {/* LEFT — ARKNOZ INTRODUCTION */}
@@ -1999,7 +1999,7 @@ export default function HomeContinuousExperience({
         <div
           className="
             mx-auto
-            max-w-[1600px]
+            max-w-[1720px]
             overflow-hidden
             rounded-[10px]
             border
@@ -2308,7 +2308,7 @@ export default function HomeContinuousExperience({
             relative
             mx-auto
             grid
-            max-w-[1640px]
+            max-w-[1720px]
             gap-14
             lg:grid-cols-[0.88fr_1.12fr]
             lg:items-stretch
@@ -2780,7 +2780,7 @@ export default function HomeContinuousExperience({
         data-home-master="three-layers"
         className="border-t border-slate-200 bg-white px-5 py-16 sm:px-8 lg:px-12 lg:py-20"
       >
-        <div className="mx-auto max-w-[1640px]">
+        <div className="mx-auto max-w-[1720px]">
 
           <div className="grid gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
             <div>
@@ -2946,7 +2946,7 @@ export default function HomeContinuousExperience({
         <div
           className="
             mx-auto
-            max-w-[1600px]
+            max-w-[1720px]
             overflow-hidden
             rounded-[10px]
             border
@@ -3364,7 +3364,7 @@ export default function HomeContinuousExperience({
           lg:py-10
         "
       >
-        <div className="mx-auto max-w-[1600px]">
+        <div className="mx-auto max-w-[1720px]">
 
           {/* HEADER */}
           <div className="flex flex-col gap-3 border-b border-slate-200 pb-5 lg:flex-row lg:items-end lg:justify-between">

@@ -175,7 +175,7 @@ export default function RegionGeographyPage({
         className="bg-[#f6f8fb] py-12"
       >
 
-        <div className="mx-auto max-w-[1600px] px-6 lg:px-10">
+        <div className="mx-auto max-w-[1720px] px-6 lg:px-10">
 
           <div className="flex flex-wrap items-end justify-between gap-5">
 
@@ -294,7 +294,7 @@ export default function RegionGeographyPage({
         className="bg-white py-12"
       >
 
-        <div className="mx-auto max-w-[1600px] px-6 lg:px-10">
+        <div className="mx-auto max-w-[1720px] px-6 lg:px-10">
 
           <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-700">
             CONNECTED BUILT WORLD

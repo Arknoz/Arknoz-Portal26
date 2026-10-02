@@ -472,7 +472,7 @@ export default function CoreWorldCategoryShowcaseScreen({
     >
 
       <div
-        className="mx-auto grid min-h-[calc(100svh-128px)] max-w-[1600px] overflow-hidden rounded-[10px] border border-slate-200 bg-white shadow-[0_18px_50px_rgba(15,23,42,0.06)] lg:h-full lg:min-h-0 lg:grid-cols-[0.72fr_1.28fr]"
+        className="mx-auto grid min-h-[calc(100svh-128px)] max-w-[1720px] overflow-hidden rounded-[10px] border border-slate-200 bg-white shadow-[0_18px_50px_rgba(15,23,42,0.06)] lg:h-full lg:min-h-0 lg:grid-cols-[0.72fr_1.28fr]"
       >
 
 

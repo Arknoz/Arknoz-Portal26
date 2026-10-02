@@ -72,7 +72,7 @@ export default function LearningDetailPage({
           id="learning-intelligence"
           className="border-t border-slate-200 bg-white lg:h-[calc(100svh-88px)]"
         >
-          <div className="mx-auto flex h-full max-w-[1600px] flex-col px-6 py-4 lg:px-8">
+          <div className="mx-auto flex h-full max-w-[1720px] flex-col px-6 py-4 lg:px-8">
 
             <div className="mb-3 flex shrink-0 items-end justify-between gap-8">
               <div>

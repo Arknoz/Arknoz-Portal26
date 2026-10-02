@@ -163,7 +163,7 @@ export default function HomePlatformOverview() {
       data-home-master="platform-overview"
       className="border-b border-slate-200 bg-[#f5f7fb] px-5 py-8 sm:px-8 lg:px-8 lg:py-10"
     >
-      <div className="mx-auto w-full max-w-[1600px]">
+      <div className="mx-auto w-full max-w-[1720px]">
 
         {/* HEADER */}
         <div className="flex flex-col gap-4 border-b border-slate-200 pb-5 lg:flex-row lg:items-end lg:justify-between">

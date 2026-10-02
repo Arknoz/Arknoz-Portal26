@@ -109,7 +109,7 @@ export default function GlobalFooter({
 }) {
   return (
     <footer className="bg-[#06192e] text-slate-300">
-      <div className="mx-auto max-w-[1600px] px-6 pt-6 pb-4 lg:px-10">
+      <div className="mx-auto max-w-[1720px] px-6 pt-6 pb-4 lg:px-10">
         <FooterMetricsPanel
           metrics={metrics}
         />

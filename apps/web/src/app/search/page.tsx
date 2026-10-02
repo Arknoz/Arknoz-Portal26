@@ -258,7 +258,7 @@ function SearchBody() {
   return (
     <>
       <section className="bg-[#f6f8fb] py-10">
-        <div className="mx-auto max-w-[1600px] px-6 lg:px-10">
+        <div className="mx-auto max-w-[1720px] px-6 lg:px-10">
           <div className="rounded-[30px] border border-slate-200 bg-white p-6 md:p-8">
             <form
               onSubmit={submit}
@@ -300,7 +300,7 @@ function SearchBody() {
 
       {urlQuery ? (
         <section className="bg-white py-10">
-          <div className="mx-auto max-w-[1600px] px-6 lg:px-10">
+          <div className="mx-auto max-w-[1720px] px-6 lg:px-10">
             <div className="flex flex-wrap items-end justify-between gap-5">
               <div>
                 <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-700">
@@ -403,7 +403,7 @@ function SearchBody() {
         </section>
       ) : (
         <section className="bg-white py-10">
-          <div className="mx-auto max-w-[1600px] px-6 lg:px-10">
+          <div className="mx-auto max-w-[1720px] px-6 lg:px-10">
             <div>
               <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-700">
                 START DISCOVERING
@@ -436,7 +436,7 @@ function SearchBody() {
       )}
 
       <section className="bg-[#f6f8fb] py-10">
-        <div className="mx-auto max-w-[1600px] px-6 lg:px-10">
+        <div className="mx-auto max-w-[1720px] px-6 lg:px-10">
           <div className="grid gap-5 lg:grid-cols-[.9fr_1.1fr]">
             <div className="rounded-[30px] bg-[#0b2949] p-7 text-white">
               <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-200">

@@ -156,7 +156,7 @@ export default function ArknozWorldNowPanel({
         }
       `}</style>
 
-      <div className="mx-auto max-w-[1600px] overflow-hidden rounded-[10px] border border-slate-200 bg-white shadow-[0_18px_50px_rgba(15,23,42,0.06)]">
+      <div className="mx-auto max-w-[1720px] overflow-hidden rounded-[10px] border border-slate-200 bg-white shadow-[0_18px_50px_rgba(15,23,42,0.06)]">
         <div className="border-b border-slate-200 px-7 pb-4 pt-5 sm:px-9 lg:px-10">
           <div className="flex items-center gap-3">
             <p className="text-[10px] font-bold tracking-[0.08em] text-red-500">

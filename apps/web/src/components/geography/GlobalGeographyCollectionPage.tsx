@@ -115,7 +115,7 @@ function GeographyCollectionGrid({
 }) {
   return (
     <section className="bg-[#f6f8fb] py-14">
-      <div className="mx-auto max-w-[1600px] px-6 lg:px-10">
+      <div className="mx-auto max-w-[1720px] px-6 lg:px-10">
         <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-700">
           GLOBAL GEOGRAPHY
         </p>

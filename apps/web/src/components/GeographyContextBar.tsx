@@ -228,7 +228,7 @@ export default function GeographyContextBar({
 
   return (
     <nav className="border-b border-slate-200 bg-white">
-      <div className="mx-auto flex max-w-[1600px] items-center gap-1 overflow-x-auto px-6 [scrollbar-width:none] lg:px-10 [&::-webkit-scrollbar]:hidden">
+      <div className="mx-auto flex max-w-[1720px] items-center gap-1 overflow-x-auto px-6 [scrollbar-width:none] lg:px-10 [&::-webkit-scrollbar]:hidden">
         {navItems.map(
           (item, index) => (
             <Link

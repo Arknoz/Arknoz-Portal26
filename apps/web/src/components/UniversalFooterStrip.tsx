@@ -59,7 +59,7 @@ function ArrowRight() {
 export default function UniversalFooterStrip() {
   return (
     <div className="w-full border-y border-white/10 bg-[#0b2949] text-white">
-      <div className="mx-auto flex max-w-[1600px] flex-col gap-4 px-6 py-4 lg:flex-row lg:items-center lg:justify-between lg:px-10">
+      <div className="mx-auto flex max-w-[1720px] flex-col gap-4 px-6 py-4 lg:flex-row lg:items-center lg:justify-between lg:px-10">
         <div className="flex min-w-0 flex-1 flex-wrap items-center gap-2">
           <span className="mr-2 text-[10px] font-bold uppercase tracking-[0.18em] text-blue-200">
             EXPLORE ARKNOZ

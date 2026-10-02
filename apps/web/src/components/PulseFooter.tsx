@@ -3,7 +3,7 @@
 export default function PulseFooter() {
   return (
     <footer className="border-t border-white/10 bg-[#06192e] text-slate-300">
-      <div className="mx-auto flex max-w-[1600px] flex-col gap-5 px-5 py-5 text-[12px] lg:flex-row lg:items-center lg:justify-between lg:px-8">
+      <div className="mx-auto flex max-w-[1720px] flex-col gap-5 px-5 py-5 text-[12px] lg:flex-row lg:items-center lg:justify-between lg:px-8">
 
         <div className="flex flex-wrap items-center gap-2">
           <span className="rounded-full border border-white/15 px-3 py-1.5 text-white">

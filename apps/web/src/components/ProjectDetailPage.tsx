@@ -143,7 +143,7 @@ export default function ProjectDetailPage({
         id="project-first-screen"
         className="bg-[#f1efe9] lg:min-h-[calc(100svh-88px)]"
       >
-        <div className="mx-auto flex min-h-[calc(100svh-88px)] max-w-[1600px] flex-col px-6 py-3 lg:px-10">
+        <div className="mx-auto flex min-h-[calc(100svh-88px)] max-w-[1720px] flex-col px-6 py-3 lg:px-10">
 
           {/* breadcrumb */}
           <div className="mb-3 flex shrink-0 flex-wrap items-center gap-2 text-[10px] font-semibold text-slate-500">
@@ -325,7 +325,7 @@ export default function ProjectDetailPage({
         id="project-intelligence"
         className="border-t border-slate-200 bg-[#f4f7fb]"
       >
-        <div className="mx-auto max-w-[1600px] px-6 py-6 lg:px-10">
+        <div className="mx-auto max-w-[1720px] px-6 py-6 lg:px-10">
 
           <div>
             <ProjectDetailTabs entity={entity} candidatePreview={candidatePreview} />

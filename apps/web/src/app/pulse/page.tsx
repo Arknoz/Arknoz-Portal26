@@ -78,7 +78,7 @@ export default function PulsePage() {
       <main>
         {/* PULSE MASTHEAD */}
         <section className="border-b border-slate-200 bg-white">
-          <div className="mx-auto max-w-[1600px] px-5 py-5 lg:px-8">
+          <div className="mx-auto max-w-[1720px] px-5 py-5 lg:px-8">
             <div className="flex items-end gap-4">
               <h1 className="text-[46px] font-black leading-none tracking-[-0.045em] md:text-[54px]">
                 PULSE
@@ -95,7 +95,7 @@ export default function PulsePage() {
 
         {/* STICKY PULSE SECTION BAR */}
         <section className="sticky top-[72px] z-40 border-b border-slate-200 bg-white/95 shadow-[0_2px_8px_rgba(15,23,42,0.04)] backdrop-blur">
-          <div className="mx-auto flex max-w-[1600px] items-center gap-5 px-5 pt-2 lg:px-8">
+          <div className="mx-auto flex max-w-[1720px] items-center gap-5 px-5 pt-2 lg:px-8">
             <div className="hidden shrink-0 items-center gap-2 pb-2 lg:flex">
               <span className="h-2 w-2 rounded-full bg-red-500" />
 
@@ -111,7 +111,7 @@ export default function PulsePage() {
         </section>
         {/* LIVE STRIP */}
         <section className="border-b border-slate-200 bg-white">
-          <div className="mx-auto flex max-w-[1600px] items-center gap-5 overflow-hidden px-5 py-3 lg:px-8">
+          <div className="mx-auto flex max-w-[1720px] items-center gap-5 overflow-hidden px-5 py-3 lg:px-8">
             <span className="shrink-0 rounded bg-red-500 px-2.5 py-1 text-[10px] font-black uppercase tracking-[0.08em] text-white">
               Live
             </span>
@@ -133,7 +133,7 @@ export default function PulsePage() {
         </section>
 
         {/* HERO */}
-        <section className="mx-auto max-w-[1600px] px-5 py-5 lg:px-8">
+        <section className="mx-auto max-w-[1720px] px-5 py-5 lg:px-8">
           <div className="grid gap-4 xl:grid-cols-[minmax(0,1.65fr)_minmax(300px,0.72fr)_minmax(300px,0.72fr)]">
             <article className="group relative min-h-[470px] overflow-hidden rounded-xl bg-slate-900 text-white">
               <Image
@@ -281,7 +281,7 @@ export default function PulsePage() {
         </section>
 
         {/* LATEST */}
-        <section id="latest" className="scroll-mt-32 mx-auto max-w-[1600px] px-5 pb-6 lg:px-8">
+        <section id="latest" className="scroll-mt-32 mx-auto max-w-[1720px] px-5 pb-6 lg:px-8">
           <div className="flex items-center justify-between border-t border-slate-200 pt-5">
             <h2 className="text-lg font-black tracking-[-0.02em]">
               Latest News
@@ -328,7 +328,7 @@ export default function PulsePage() {
         </section>
 
         {/* HORIZONTAL AD */}
-        <section className="mx-auto max-w-[1600px] px-5 pb-6 lg:px-8">
+        <section className="mx-auto max-w-[1720px] px-5 pb-6 lg:px-8">
           <div className="flex min-h-[92px] items-center justify-between overflow-hidden rounded-xl bg-[#08182a] px-6 text-white md:px-10">
             <div>
               <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-white/40">
@@ -347,7 +347,7 @@ export default function PulsePage() {
         </section>
 
         {/* FEATURED */}
-        <section className="mx-auto max-w-[1600px] px-5 pb-7 lg:px-8">
+        <section className="mx-auto max-w-[1720px] px-5 pb-7 lg:px-8">
           <div className="flex items-center justify-between border-t border-slate-200 pt-5">
             <h2 className="text-lg font-black tracking-[-0.02em]">
               Featured This Week
@@ -400,7 +400,7 @@ export default function PulsePage() {
         {/* ARCHITECTURE */}
         <section
           id="architecture"
-          className="scroll-mt-32 mx-auto max-w-[1600px] px-5 py-7 lg:px-8"
+          className="scroll-mt-32 mx-auto max-w-[1720px] px-5 py-7 lg:px-8"
         >
           <div className="flex items-end justify-between border-t border-slate-200 pt-6">
             <div>
@@ -510,7 +510,7 @@ export default function PulsePage() {
         </section>
         {/* CONSTRUCTION */}
         <section id="construction" className="scroll-mt-32 border-y border-slate-200 bg-slate-50">
-          <div className="mx-auto max-w-[1600px] px-5 py-7 lg:px-8">
+          <div className="mx-auto max-w-[1720px] px-5 py-7 lg:px-8">
             <div className="flex items-end justify-between">
               <div>
                 <p className="text-[10px] font-black uppercase tracking-[0.14em] text-slate-400">
@@ -574,7 +574,7 @@ export default function PulsePage() {
         </section>
 
         {/* MID-PAGE EDITORIAL + RIGHT RAIL */}
-        <section className="mx-auto max-w-[1600px] px-5 py-8 lg:px-8">
+        <section className="mx-auto max-w-[1720px] px-5 py-8 lg:px-8">
           <div className="grid items-start gap-6 xl:grid-cols-[minmax(0,1fr)_340px]">
 
             {/* MAIN EDITORIAL */}
@@ -757,7 +757,7 @@ export default function PulsePage() {
           </div>
         </section>
         {/* CITIES + INFRASTRUCTURE */}
-        <section id="cities-infrastructure" className="scroll-mt-32 mx-auto max-w-[1600px] px-5 py-7 lg:px-8">
+        <section id="cities-infrastructure" className="scroll-mt-32 mx-auto max-w-[1720px] px-5 py-7 lg:px-8">
           <div className="grid gap-7 xl:grid-cols-2">
             <div>
               <div className="flex items-end justify-between">
@@ -873,7 +873,7 @@ export default function PulsePage() {
 
         {/* PRODUCTS + MATERIALS */}
         <section id="materials" className="scroll-mt-32 border-y border-slate-200 bg-slate-50">
-          <div className="mx-auto max-w-[1600px] px-5 py-7 lg:px-8">
+          <div className="mx-auto max-w-[1720px] px-5 py-7 lg:px-8">
             <div className="flex items-end justify-between">
               <div>
                 <p className="text-[10px] font-black uppercase tracking-[0.14em] text-slate-400">
@@ -935,7 +935,7 @@ export default function PulsePage() {
 
         {/* LONG FEATURE STRIP */}
         <section className="border-y border-slate-200 bg-slate-950 text-white">
-          <div className="mx-auto max-w-[1600px] px-5 py-7 lg:px-8">
+          <div className="mx-auto max-w-[1720px] px-5 py-7 lg:px-8">
             <article className="grid overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] lg:grid-cols-[1.55fr_0.85fr]">
 
               <div className="relative min-h-[320px] overflow-hidden lg:min-h-[390px]">
@@ -986,7 +986,7 @@ export default function PulsePage() {
         </section>
         {/* TECHNOLOGY + AI */}
         <section id="technology" className="scroll-mt-32 border-t border-slate-200 bg-[#071a2d] text-white">
-          <div className="mx-auto max-w-[1600px] px-5 py-8 lg:px-8">
+          <div className="mx-auto max-w-[1720px] px-5 py-8 lg:px-8">
             <div className="flex items-end justify-between">
               <div>
                 <p className="text-[10px] font-black uppercase tracking-[0.14em] text-white/40">
@@ -1086,7 +1086,7 @@ export default function PulsePage() {
         </section>
 
         {/* SUSTAINABILITY + BUSINESS */}
-        <section id="sustainability-business" className="scroll-mt-32 mx-auto max-w-[1600px] px-5 py-8 lg:px-8">
+        <section id="sustainability-business" className="scroll-mt-32 mx-auto max-w-[1720px] px-5 py-8 lg:px-8">
           <div className="grid gap-10 xl:grid-cols-2">
 
             {/* SUSTAINABILITY */}
@@ -1241,7 +1241,7 @@ export default function PulsePage() {
         </section>
         {/* SECOND EDITORIAL + RIGHT RAIL */}
         <section className="border-y border-slate-200 bg-slate-50">
-          <div className="mx-auto max-w-[1600px] px-5 py-8 lg:px-8">
+          <div className="mx-auto max-w-[1720px] px-5 py-8 lg:px-8">
             <div className="grid items-start gap-6 xl:grid-cols-[minmax(0,1fr)_340px]">
 
               {/* PULSE BRIEFING */}
@@ -1474,7 +1474,7 @@ export default function PulsePage() {
         </section>
         {/* RESEARCH + EDUCATION */}
         <section id="research-education" className="scroll-mt-32 border-t border-slate-200 bg-slate-50">
-          <div className="mx-auto max-w-[1600px] px-5 py-8 lg:px-8">
+          <div className="mx-auto max-w-[1720px] px-5 py-8 lg:px-8">
             <div className="grid items-start gap-8 xl:grid-cols-2">
 
               {/* RESEARCH */}
@@ -1635,7 +1635,7 @@ export default function PulsePage() {
         </section>
 
         {/* WORLD PULSE */}
-        <section id="world" className="scroll-mt-32 mx-auto max-w-[1600px] px-5 py-8 lg:px-8">
+        <section id="world" className="scroll-mt-32 mx-auto max-w-[1720px] px-5 py-8 lg:px-8">
           <div className="flex items-end justify-between">
             <div>
               <p className="text-[10px] font-black uppercase tracking-[0.14em] text-slate-400">
@@ -1714,7 +1714,7 @@ export default function PulsePage() {
         </section>
         {/* WATCH */}
         <section className="bg-[#0b1118] text-white">
-          <div className="mx-auto max-w-[1600px] px-5 py-9 lg:px-8">
+          <div className="mx-auto max-w-[1720px] px-5 py-9 lg:px-8">
             <div className="flex items-end justify-between">
               <div>
                 <p className="text-[10px] font-black uppercase tracking-[0.16em] text-white/40">
@@ -1820,7 +1820,7 @@ export default function PulsePage() {
         </section>
 
         {/* MAGAZINE + BOOKS */}
-        <section id="magazine-books" className="scroll-mt-32 mx-auto max-w-[1600px] px-5 py-9 lg:px-8">
+        <section id="magazine-books" className="scroll-mt-32 mx-auto max-w-[1720px] px-5 py-9 lg:px-8">
           <div className="grid gap-8 xl:grid-cols-[1.35fr_1fr]">
 
             {/* MAGAZINE */}
@@ -1955,7 +1955,7 @@ export default function PulsePage() {
           </div>
         </section>
         {/* PARTNER FEATURE */}
-        <section className="mx-auto max-w-[1600px] px-5 py-7 lg:px-8">
+        <section className="mx-auto max-w-[1720px] px-5 py-7 lg:px-8">
           <div className="relative overflow-hidden rounded-2xl bg-[#071a2d] px-7 py-8 text-white md:px-10 md:py-10">
             <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-white/45">
               Partner Feature

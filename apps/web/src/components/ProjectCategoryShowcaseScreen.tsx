@@ -336,7 +336,7 @@ export default function ProjectCategoryShowcaseScreen({
       className="border-t border-slate-200 bg-[#f5f7fb] px-5 py-5 sm:px-6 lg:px-8"
     >
 
-      <div className="mx-auto grid max-w-[1600px] overflow-hidden rounded-[10px] border border-slate-200 bg-white shadow-[0_18px_50px_rgba(15,23,42,0.06)] lg:min-h-[calc(100svh-168px)] lg:grid-cols-[0.72fr_1.28fr]">
+      <div className="mx-auto grid max-w-[1720px] overflow-hidden rounded-[10px] border border-slate-200 bg-white shadow-[0_18px_50px_rgba(15,23,42,0.06)] lg:min-h-[calc(100svh-168px)] lg:grid-cols-[0.72fr_1.28fr]">
 
 
         {/* ==================================================

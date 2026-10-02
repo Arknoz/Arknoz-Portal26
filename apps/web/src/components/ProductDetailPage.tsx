@@ -154,7 +154,7 @@ export default function ProductDetailPage({
         ================================================== */}
 
         <section className="bg-[#f6f8fb] lg:h-[calc(100svh-88px)]">
-          <div className="mx-auto flex h-full max-w-[1600px] flex-col px-6 py-5 lg:px-8">
+          <div className="mx-auto flex h-full max-w-[1720px] flex-col px-6 py-5 lg:px-8">
 
             <nav className="mb-4 flex shrink-0 flex-wrap items-center gap-2 text-[11px] font-semibold">
               <Link
@@ -347,7 +347,7 @@ export default function ProductDetailPage({
           id="product-intelligence"
           className="border-t border-slate-200 bg-white lg:h-[calc(100svh-88px)]"
         >
-          <div className="mx-auto flex h-full max-w-[1600px] flex-col px-6 py-4 lg:px-8">
+          <div className="mx-auto flex h-full max-w-[1720px] flex-col px-6 py-4 lg:px-8">
 
             <div className="mb-3 flex shrink-0 items-end justify-between gap-8">
               <div>

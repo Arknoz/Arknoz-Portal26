@@ -194,7 +194,7 @@ theme,
         data-explore-first-screen="true"
         className="border-b border-slate-200 bg-[#f7f8fa] text-[#10253b]"
       >
-        <div className="mx-auto grid max-w-[1600px] lg:min-h-[calc(100svh-168px)] lg:grid-cols-[.88fr_1.32fr]">
+        <div className="mx-auto grid max-w-[1720px] lg:min-h-[calc(100svh-168px)] lg:grid-cols-[.88fr_1.32fr]">
 
           {/* LEFT — EXPLORE INTRODUCTION */}
           <div className="flex flex-col border-slate-200 px-6 py-8 lg:border-r lg:px-8 lg:py-10">
@@ -471,7 +471,7 @@ theme,
               backgroundColor: "#081b27",
             }}
           >
-            <div className="mx-auto flex h-11 max-w-[1600px] items-center gap-4 overflow-x-auto px-6 text-[11px] font-semibold text-slate-200 [scrollbar-width:none] lg:px-10 [&::-webkit-scrollbar]:hidden">
+            <div className="mx-auto flex h-11 max-w-[1720px] items-center gap-4 overflow-x-auto px-6 text-[11px] font-semibold text-slate-200 [scrollbar-width:none] lg:px-10 [&::-webkit-scrollbar]:hidden">
               {contextNav.map((item) => (
                 <Link
                   key={`${item.label}-${item.href}`}
@@ -492,7 +492,7 @@ theme,
         ) : null}
 
         <div
-          className={`relative mx-auto grid max-w-[1600px] items-start px-6 lg:grid-cols-[1.16fr_.94fr] lg:px-10 ${
+          className={`relative mx-auto grid max-w-[1720px] items-start px-6 lg:grid-cols-[1.16fr_.94fr] lg:px-10 ${
             compact
               ? contextNav?.length
                 ? "gap-6 pt-16 pb-5 lg:min-h-[420px]"

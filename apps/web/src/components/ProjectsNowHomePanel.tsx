@@ -113,7 +113,7 @@ export default function ProjectsNowHomePanel() {
       <div
         className="
           mx-auto
-          max-w-[1600px]
+          max-w-[1720px]
           overflow-hidden
           rounded-[10px]
           border

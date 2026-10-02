@@ -179,7 +179,7 @@ export function ArknozPartnersExperience() {
       />
 
 
-      <div className="relative mx-auto max-w-[1600px]">
+      <div className="relative mx-auto max-w-[1720px]">
 
         {/* HEADER */}
         <div className="flex flex-col gap-3 border-b border-slate-200 pb-5 lg:flex-row lg:items-end lg:justify-between">
@@ -476,7 +476,7 @@ export function YourArknozExperience() {
         className="
           mx-auto
           grid
-          max-w-[1600px]
+          max-w-[1720px]
           overflow-hidden
           rounded-[10px]
           border

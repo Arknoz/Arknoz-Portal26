@@ -38,7 +38,7 @@ export default function OpportunityDetailPage({
         {/* SCREEN 1 */}
         <section className="bg-[#f6f8fb] lg:h-[calc(100svh-88px)]">
 
-          <div className="mx-auto flex h-full max-w-[1600px] flex-col px-6 py-5 lg:px-8">
+          <div className="mx-auto flex h-full max-w-[1720px] flex-col px-6 py-5 lg:px-8">
 
             <nav className="mb-4 flex gap-2 text-[11px] font-semibold">
 
@@ -276,7 +276,7 @@ export default function OpportunityDetailPage({
           className="border-t border-slate-200 bg-white lg:h-[calc(100svh-88px)]"
         >
 
-          <div className="mx-auto flex h-full max-w-[1600px] flex-col px-6 py-4 lg:px-8">
+          <div className="mx-auto flex h-full max-w-[1720px] flex-col px-6 py-4 lg:px-8">
 
             <div className="mb-3 flex items-end justify-between">
 
