@@ -114,11 +114,11 @@ export default function ProfileDetailTabs({
               <div>
                 <div className="flex items-center justify-between">
 
-                  <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-blue-700">
+                  <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-blue-700">
                     ABOUT
                   </p>
 
-                  <span className="text-[9px] text-slate-400">
+                  <span className="text-[11px] text-slate-400">
                     Public professional record
                   </span>
                 </div>
@@ -130,7 +130,7 @@ export default function ProfileDetailTabs({
 
               <div className="mt-4 border-t border-slate-100 pt-4">
 
-                <p className="mb-2 text-[8px] font-bold uppercase tracking-[0.16em] text-slate-400">
+                <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.16em] text-slate-400">
                   EXPLORE FOCUS
                 </p>
 
@@ -165,7 +165,7 @@ export default function ProfileDetailTabs({
                                 : "bg-[#f5f7fa] hover:-translate-y-[1px] hover:bg-[#eef3f8]"
                             }`}
                           >
-                            <p className="text-[10px] font-bold">
+                            <p className="text-[11px] font-bold">
                               {item.title}
                             </p>
                           </button>
@@ -181,11 +181,11 @@ export default function ProfileDetailTabs({
 
               <div className="flex items-center justify-between">
 
-                <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-blue-700">
+                <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-blue-700">
                   KEY DETAILS
                 </p>
 
-                <span className="rounded-full bg-white px-2.5 py-1 text-[8px] font-semibold text-slate-400">
+                <span className="rounded-full bg-white px-2.5 py-1 text-[10px] font-semibold text-slate-400">
                   Source-backed
                 </span>
               </div>
@@ -229,7 +229,7 @@ export default function ProfileDetailTabs({
                 <div className="relative flex h-full flex-col justify-between">
 
                   <div>
-                    <p className="text-[8px] font-bold uppercase tracking-[0.18em] text-blue-200">
+                    <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-blue-200">
                       PROFILE SIGNAL
                     </p>
 
@@ -237,13 +237,13 @@ export default function ProfileDetailTabs({
                       {activeFocus?.title}
                     </h3>
 
-                    <p className="mt-2 text-[10px] leading-5 text-slate-300">
+                    <p className="mt-2 text-[11px] leading-5 text-slate-300">
                       {activeFocus?.description}
                     </p>
                   </div>
 
                   <div>
-                    <p className="text-[8px] font-bold uppercase tracking-[0.15em] text-blue-200">
+                    <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-blue-200">
                       {kindLabel(
                         detail.kind
                       )}
@@ -260,7 +260,7 @@ export default function ProfileDetailTabs({
               <article className="grid grid-cols-2 gap-3 rounded-[22px] border border-slate-200 bg-white p-4">
 
                 <div>
-                  <p className="text-[8px] font-bold uppercase tracking-[0.16em] text-blue-700">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-blue-700">
                     STATUS
                   </p>
 
@@ -271,7 +271,7 @@ export default function ProfileDetailTabs({
 
                 <div className="border-l border-slate-200 pl-4">
 
-                  <p className="text-[8px] font-bold uppercase tracking-[0.16em] text-blue-700">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-blue-700">
                     SOURCES
                   </p>
 
@@ -279,7 +279,7 @@ export default function ProfileDetailTabs({
                     {detail.sources.length}
                   </p>
 
-                  <p className="text-[9px] text-slate-500">
+                  <p className="text-[11px] text-slate-500">
                     official records
                   </p>
                 </div>
@@ -302,7 +302,7 @@ export default function ProfileDetailTabs({
               <div className="flex items-center justify-between">
 
                 <div>
-                  <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-blue-200">
+                  <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-blue-200">
                     FOCUS & EXPERTISE
                   </p>
 
@@ -317,7 +317,7 @@ export default function ProfileDetailTabs({
                   </h3>
                 </div>
 
-                <span className="rounded-full border border-white/10 bg-white/[0.06] px-3 py-1 text-[9px] text-slate-300">
+                <span className="rounded-full border border-white/10 bg-white/[0.06] px-3 py-1 text-[11px] text-slate-300">
                   {
                     detail.focus
                       .length
@@ -355,7 +355,7 @@ export default function ProfileDetailTabs({
                             : "border-white/10 bg-white/[0.06] hover:bg-white/[0.10]"
                         }`}
                       >
-                        <p className="text-[8px] font-bold text-blue-200">
+                        <p className="text-[10px] font-bold text-blue-200">
                           0
                           {index +
                             1}
@@ -365,7 +365,7 @@ export default function ProfileDetailTabs({
                           {item.title}
                         </p>
 
-                        <p className="mt-1 text-[9px] leading-4 text-slate-300">
+                        <p className="mt-1 text-[11px] leading-4 text-slate-300">
                           {
                             item.description
                           }
@@ -380,7 +380,7 @@ export default function ProfileDetailTabs({
             {/* ACTIVITIES */}
             <article className="rounded-[22px] border border-slate-200 bg-white p-4">
 
-              <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-blue-700">
+              <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-blue-700">
                 PROFILE ACTIVITY
               </p>
 
@@ -397,16 +397,16 @@ export default function ProfileDetailTabs({
                     const content = (
                       <>
                         <div>
-                          <p className="text-[7px] font-bold uppercase tracking-[0.13em] text-blue-700">
+                          <p className="text-[10px] font-bold uppercase tracking-[0.13em] text-blue-700">
                             {item.label}
                           </p>
 
-                          <p className="mt-1 text-[11px] font-bold">
+                          <p className="mt-1 text-[12px] font-bold">
                             {item.title}
                           </p>
 
                           {item.description ? (
-                            <p className="mt-1 text-[9px] leading-4 text-slate-500">
+                            <p className="mt-1 text-[11px] leading-4 text-slate-500">
                               {
                                 item.description
                               }
@@ -446,7 +446,7 @@ export default function ProfileDetailTabs({
             {/* PROFILE PRINCIPLE */}
             <article className="rounded-[22px] border border-slate-200 bg-[#f7f9fc] p-4">
 
-              <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-blue-700">
+              <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-blue-700">
                 ARKNOZ PROFILE
               </p>
 
@@ -454,7 +454,7 @@ export default function ProfileDetailTabs({
                 One canonical identity
               </h3>
 
-              <p className="mt-2 max-w-2xl text-[10px] leading-5 text-slate-600">
+              <p className="mt-2 max-w-2xl text-[11px] leading-5 text-slate-600">
                 Arknoz connects professional identity, work, knowledge, institutions and places without creating duplicate identities or inferring unsupported credentials.
               </p>
 
@@ -464,7 +464,7 @@ export default function ProfileDetailTabs({
                   (item) => (
                     <span
                       key={item.title}
-                      className="rounded-full bg-white px-3 py-1.5 text-[9px] font-semibold ring-1 ring-slate-200"
+                      className="rounded-full bg-white px-3 py-1.5 text-[11px] font-semibold ring-1 ring-slate-200"
                     >
                       {item.title}
                     </span>
@@ -478,7 +478,7 @@ export default function ProfileDetailTabs({
             <article className="grid grid-cols-[1.25fr_.75fr] gap-3 rounded-[22px] border border-slate-200 bg-white p-4">
 
               <div>
-                <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-blue-700">
+                <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-blue-700">
                   OFFICIAL SOURCES
                 </p>
 
@@ -494,13 +494,13 @@ export default function ProfileDetailTabs({
                         className="flex items-center justify-between rounded-[12px] bg-[#f5f7fa] px-3 py-2.5 transition hover:bg-white hover:shadow-sm hover:ring-1 hover:ring-slate-200"
                       >
                         <div>
-                          <p className="text-[10px] font-bold">
+                          <p className="text-[11px] font-bold">
                             {
                               source.label
                             }
                           </p>
 
-                          <p className="text-[9px] text-slate-500">
+                          <p className="text-[11px] text-slate-500">
                             {
                               source.organisation
                             }
@@ -520,7 +520,7 @@ export default function ProfileDetailTabs({
               <div className="flex flex-col justify-between rounded-[16px] bg-[#0b2949] p-4 text-white">
 
                 <div>
-                  <p className="text-[8px] font-bold uppercase tracking-[0.14em] text-blue-200">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-blue-200">
                     PROFILE RULE
                   </p>
 
@@ -528,7 +528,7 @@ export default function ProfileDetailTabs({
                     Public facts only
                   </p>
 
-                  <p className="mt-2 text-[9px] leading-4 text-slate-300">
+                  <p className="mt-2 text-[11px] leading-4 text-slate-300">
                     Private contact details, sensitive traits and unsupported credentials are never inferred.
                   </p>
                 </div>
@@ -540,7 +540,7 @@ export default function ProfileDetailTabs({
                     }
                     target="_blank"
                     rel="noreferrer"
-                    className="mt-3 text-[10px] font-bold text-blue-200"
+                    className="mt-3 text-[11px] font-bold text-blue-200"
                   >
                     Official source →
                   </a>
@@ -560,7 +560,7 @@ export default function ProfileDetailTabs({
 
             <article className="rounded-[22px] bg-[#0b2949] p-5 text-white">
 
-              <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-blue-200">
+              <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-blue-200">
                 CONNECTED BUILT WORLD
               </p>
 
@@ -575,7 +575,7 @@ export default function ProfileDetailTabs({
 
                   <div className="rounded-[18px] bg-white p-5 text-center text-slate-950">
 
-                    <p className="text-[7px] font-bold uppercase tracking-[0.14em] text-blue-700">
+                    <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-blue-700">
                       {kindLabel(
                         detail.kind
                       )}
@@ -585,7 +585,7 @@ export default function ProfileDetailTabs({
                       {entity.title}
                     </p>
 
-                    <p className="mt-1 text-[9px] text-slate-500">
+                    <p className="mt-1 text-[11px] text-slate-500">
                       {detail.location}
                     </p>
                   </div>
@@ -606,20 +606,20 @@ export default function ProfileDetailTabs({
                             }
                             className="block rounded-[14px] border border-white/10 bg-white/[0.07] p-3 transition hover:translate-x-1 hover:bg-white/[0.11]"
                           >
-                            <p className="text-[7px] font-bold uppercase tracking-[0.14em] text-blue-200">
+                            <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-blue-200">
                               {
                                 connection.type
                               }
                             </p>
 
-                            <p className="mt-1 text-[11px] font-bold">
+                            <p className="mt-1 text-[12px] font-bold">
                               {
                                 connection.title
                               }
                             </p>
 
                             {connection.description ? (
-                              <p className="mt-1 text-[9px] leading-4 text-slate-300">
+                              <p className="mt-1 text-[11px] leading-4 text-slate-300">
                                 {
                                   connection.description
                                 }
@@ -637,7 +637,7 @@ export default function ProfileDetailTabs({
                     Connections will appear here when genuine Arknoz relationships are established.
                   </p>
 
-                  <p className="mt-2 text-[9px] leading-4 text-slate-300">
+                  <p className="mt-2 text-[11px] leading-4 text-slate-300">
                     Arknoz does not manufacture relationships merely to fill the profile.
                   </p>
                 </div>
@@ -646,11 +646,11 @@ export default function ProfileDetailTabs({
 
               <div className="mt-6 border-t border-white/10 pt-4">
 
-                <p className="text-[8px] font-bold uppercase tracking-[0.15em] text-blue-200">
+                <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-blue-200">
                   CONNECTION RULE
                 </p>
 
-                <p className="mt-2 text-[10px] leading-5 text-slate-300">
+                <p className="mt-2 text-[11px] leading-5 text-slate-300">
                   Professional relationships are shown only when supported by genuine public or permissioned information.
                 </p>
               </div>
@@ -659,7 +659,7 @@ export default function ProfileDetailTabs({
 
             <article className="rounded-[22px] border border-slate-200 bg-white p-5">
 
-              <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-blue-700">
+              <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-blue-700">
                 CONTINUE EXPLORING
               </p>
 
@@ -708,7 +708,7 @@ export default function ProfileDetailTabs({
                     }`}
                   >
                     <p
-                      className={`text-[8px] font-bold uppercase tracking-[0.14em] ${
+                      className={`text-[10px] font-bold uppercase tracking-[0.14em] ${
                         item.dark
                           ? "text-blue-200"
                           : "text-blue-700"
@@ -722,7 +722,7 @@ export default function ProfileDetailTabs({
                     </p>
 
                     <p
-                      className={`mt-5 text-[10px] font-bold ${
+                      className={`mt-5 text-[11px] font-bold ${
                         item.dark
                           ? "text-blue-200"
                           : "text-blue-700"

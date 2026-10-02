@@ -221,7 +221,7 @@ export default async function UniversalGeographyCollectionPage({
 
             <p
               className="
-                text-[10px]
+                text-[11px]
                 font-bold
                 uppercase
                 tracking-[0.22em]

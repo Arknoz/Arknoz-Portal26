@@ -198,7 +198,7 @@ export default function ArknozWorldPublicHero({
 
             {subsectionLabel ? (
               <div className="mt-7">
-                <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-red-500">
+                <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-red-500">
                   {config.title} World
                 </p>
 
@@ -236,14 +236,14 @@ export default function ArknozWorldPublicHero({
 
               <button
                 type="submit"
-                className="m-1.5 rounded-[6px] bg-[#0a2230] px-5 text-[11px] font-semibold text-white transition hover:bg-[#153e57]"
+                className="m-1.5 rounded-[6px] bg-[#0a2230] px-5 text-[12px] font-semibold text-white transition hover:bg-[#153e57]"
               >
                 Search
               </button>
             </form>
 
             <div className="mt-7 border-t border-slate-200 pt-5">
-              <p className="text-[9px] font-bold uppercase tracking-[0.16em] text-slate-400">
+              <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-slate-400">
                 Explore {config.title.toLowerCase()}
               </p>
 
@@ -267,7 +267,7 @@ export default function ArknozWorldPublicHero({
                       <Link
                         key={`${label}-${href}`}
                         href={href}
-                        className="group flex items-center justify-between border-b border-slate-100 py-2.5 text-[11px] font-semibold text-slate-600 transition hover:text-[#a61f46]"
+                        className="group flex items-center justify-between border-b border-slate-100 py-2.5 text-[12px] font-semibold text-slate-600 transition hover:text-[#a61f46]"
                       >
                         <span>{label}</span>
 
@@ -285,13 +285,13 @@ export default function ArknozWorldPublicHero({
           </div>
 
           <div className="mt-8 flex items-center justify-between border-t border-slate-200 pt-5">
-            <p className="max-w-sm text-[10px] leading-5 text-slate-400">
+            <p className="max-w-sm text-[11px] leading-5 text-slate-400">
               {config.footer}
             </p>
 
             <Link
               href="/global"
-              className="shrink-0 text-[10px] font-bold text-[#0a2230] transition hover:text-[#a61f46]"
+              className="shrink-0 text-[11px] font-bold text-[#0a2230] transition hover:text-[#a61f46]"
             >
               Explore by place →
             </Link>
@@ -302,13 +302,13 @@ export default function ArknozWorldPublicHero({
         <div className="border-t border-slate-200 bg-[#eef2f5] p-4 lg:border-l lg:border-t-0 lg:p-5">
           <div className="flex items-center justify-between pb-4">
             <div>
-              <p className="text-[9px] font-bold uppercase tracking-[0.17em] text-red-500">
+              <p className="text-[11px] font-bold uppercase tracking-[0.17em] text-red-500">
                 {subsectionLabel
                   ? `Featured · ${subsectionLabel}`
                   : `Featured ${config.title}`}
               </p>
 
-              <p className="mt-1 text-[11px] text-slate-500">
+              <p className="mt-1 text-[12px] text-slate-500">
                 Selected records across the Built
                 World.
               </p>
@@ -317,7 +317,7 @@ export default function ArknozWorldPublicHero({
             {featuredHref ? (
               <Link
                 href={featuredHref}
-                className="text-[10px] font-semibold text-[#0a2230] transition hover:text-[#a61f46]"
+                className="text-[11px] font-semibold text-[#0a2230] transition hover:text-[#a61f46]"
               >
                 View featured →
               </Link>
@@ -344,7 +344,7 @@ export default function ArknozWorldPublicHero({
               <div className="absolute inset-0 bg-gradient-to-t from-[#03121c]/95 via-[#03121c]/12 to-transparent" />
 
               <div className="absolute inset-x-0 bottom-0 p-6 text-white lg:p-7">
-                <p className="text-[8px] font-bold uppercase tracking-[0.18em] text-white/65">
+                <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-white/65">
                   {featured[0]?.type ??
                     config.title}
                 </p>
@@ -354,7 +354,7 @@ export default function ArknozWorldPublicHero({
                     resolvePopular(0).label}
                 </h2>
 
-                <p className="mt-3 text-[10px] font-medium text-white/60">
+                <p className="mt-3 text-[11px] font-medium text-white/60">
                   {featured[0]?.meta ??
                     `Arknoz ${config.title}`}
                 </p>
@@ -390,7 +390,7 @@ export default function ArknozWorldPublicHero({
                     <div className="absolute inset-0 bg-gradient-to-t from-[#03121c]/95 via-[#03121c]/15 to-transparent" />
 
                     <div className="absolute inset-x-0 bottom-0 p-5 text-white">
-                      <p className="text-[7px] font-bold uppercase tracking-[0.17em] text-white/60">
+                      <p className="text-[10px] font-bold uppercase tracking-[0.17em] text-white/60">
                         {item?.type ??
                           config.title}
                       </p>
@@ -400,7 +400,7 @@ export default function ArknozWorldPublicHero({
                           fallback.label}
                       </h3>
 
-                      <p className="mt-2 text-[9px] text-white/55">
+                      <p className="mt-2 text-[11px] text-white/55">
                         {item?.meta ??
                           `Arknoz ${config.title}`}
                       </p>

@@ -278,7 +278,7 @@ function WorldRecordCard({
       )}
 
       <div className="p-5">
-        <p className="text-[9px] font-bold uppercase tracking-[0.16em] text-blue-700">
+        <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-blue-700">
           {entity.subtitle}
         </p>
 
@@ -1333,7 +1333,7 @@ export default async function WorldIndexPage({
             />
 
             <div>
-              <p className="text-[8px] font-bold uppercase tracking-[0.16em] text-blue-200">
+              <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-blue-200">
                 Connected Built World
               </p>
 
@@ -1343,7 +1343,7 @@ export default async function WorldIndexPage({
                   : "Continue across the Built World"}
               </h2>
 
-              <p className="mt-4 max-w-md text-[10px] leading-5 text-slate-400">
+              <p className="mt-4 max-w-md text-[11px] leading-5 text-slate-400">
                 Projects, products, knowledge, education, opportunities and
                 the Arknoz community remain connected through one canonical
                 platform structure.
@@ -1368,15 +1368,15 @@ export default async function WorldIndexPage({
             />
 
             <div className="mt-auto border-t border-white/10 pt-4">
-              <p className="text-[7px] font-bold uppercase tracking-[0.15em] text-slate-500">
+              <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-slate-500">
                 Arknoz connection
               </p>
 
-              <p className="mt-2 text-[11px] font-semibold text-slate-200">
+              <p className="mt-2 text-[12px] font-semibold text-slate-200">
                 One context. Multiple worlds.
               </p>
 
-              <p className="mt-2 max-w-sm text-[8px] leading-4 text-slate-500">
+              <p className="mt-2 max-w-sm text-[10px] leading-4 text-slate-500">
                 Move between related parts of the Built World without losing
                 the active Arknoz context.
               </p>

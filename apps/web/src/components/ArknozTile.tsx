@@ -35,7 +35,7 @@ export default function ArknozTile({
           {eyebrow ? (
             <p
               className={[
-                "mb-1 text-[7px] font-bold uppercase tracking-[0.14em]",
+                "mb-1 text-[10px] font-bold uppercase tracking-[0.14em]",
                 tone === "dark"
                   ? "text-blue-300"
                   : "text-blue-700",
@@ -47,7 +47,7 @@ export default function ArknozTile({
 
           <span
             className={[
-              "text-[11px] font-semibold",
+              "text-[12px] font-semibold",
               tone === "dark"
                 ? "text-white"
                 : "text-slate-950",
@@ -74,7 +74,7 @@ export default function ArknozTile({
       {description ? (
         <p
           className={[
-            "mt-3 text-[8px] leading-4",
+            "mt-3 text-[10px] leading-4",
             tone === "dark"
               ? "text-slate-500"
               : "text-slate-500",

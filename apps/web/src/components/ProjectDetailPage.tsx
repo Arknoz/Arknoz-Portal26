@@ -146,7 +146,7 @@ export default function ProjectDetailPage({
         <div className="mx-auto flex min-h-[calc(100svh-88px)] max-w-[1720px] flex-col px-6 py-3 lg:px-10">
 
           {/* breadcrumb */}
-          <div className="mb-3 flex shrink-0 flex-wrap items-center gap-2 text-[10px] font-semibold text-slate-500">
+          <div className="mb-3 flex shrink-0 flex-wrap items-center gap-2 text-[11px] font-semibold text-slate-500">
 
             {breadcrumbGeography.map((item) => (
               <span
@@ -205,14 +205,14 @@ export default function ProjectDetailPage({
             {/* status + place */}
             <div className="absolute left-6 top-6 z-20 flex flex-wrap items-center gap-2">
               {entity.trust ? (
-                <span className="rounded-full bg-[#15261f] px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.11em] text-white">
+                <span className="rounded-full bg-[#15261f] px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.11em] text-white">
                   {entity.trust}
                 </span>
               ) : null}
 
               <Link
                 href={subsectionHref}
-                className="rounded-full border border-white/25 bg-black/20 px-3 py-1.5 text-[10px] font-medium uppercase tracking-[0.10em] text-white backdrop-blur"
+                className="rounded-full border border-white/25 bg-black/20 px-3 py-1.5 text-[11px] font-medium uppercase tracking-[0.10em] text-white backdrop-blur"
               >
                 {subsection}
               </Link>
@@ -220,7 +220,7 @@ export default function ProjectDetailPage({
 
             <Link
               href={placeHref}
-              className="absolute right-6 top-6 z-20 rounded-full border border-white/25 bg-black/20 px-3 py-1.5 text-[10px] font-medium uppercase tracking-[0.10em] text-white backdrop-blur"
+              className="absolute right-6 top-6 z-20 rounded-full border border-white/25 bg-black/20 px-3 py-1.5 text-[11px] font-medium uppercase tracking-[0.10em] text-white backdrop-blur"
             >
               {entity.geography}
             </Link>
@@ -230,7 +230,7 @@ export default function ProjectDetailPage({
               {/* PROJECT IDENTITY */}
               <div className="flex min-h-0 flex-col justify-end p-7 lg:p-9">
 
-                <p className="text-[11px] font-medium uppercase tracking-[0.13em] text-white/65">
+                <p className="text-[12px] font-medium uppercase tracking-[0.13em] text-white/65">
                   Arknoz Project Record
                 </p>
 
@@ -255,7 +255,7 @@ export default function ProjectDetailPage({
                           {fact.value}
                         </p>
 
-                        <p className="mt-2 text-[10px] font-medium uppercase tracking-[0.09em] text-white/60">
+                        <p className="mt-2 text-[11px] font-medium uppercase tracking-[0.09em] text-white/60">
                           {fact.label}
                         </p>
                       </div>
@@ -267,7 +267,7 @@ export default function ProjectDetailPage({
               <div className="flex items-end justify-end p-6 lg:p-9">
                 <aside className="w-full max-w-[360px] border-t border-white/35 pt-5 text-white">
 
-                  <p className="text-[11px] font-medium uppercase tracking-[0.12em] text-white/65">
+                  <p className="text-[12px] font-medium uppercase tracking-[0.12em] text-white/65">
                     Explore the project
                   </p>
 
@@ -297,11 +297,11 @@ export default function ProjectDetailPage({
 
             {heroImageSrc && heroMedia?.attribution ? (
               <div className="absolute bottom-4 right-6 z-20 max-w-[320px] text-right">
-                <p className="text-[10px] font-medium uppercase tracking-[0.10em] text-white/55">
+                <p className="text-[11px] font-medium uppercase tracking-[0.10em] text-white/55">
                   Image credit
                 </p>
 
-                <p className="mt-1 text-[11px] leading-5 text-white/70">
+                <p className="mt-1 text-[12px] leading-5 text-white/70">
                   {heroMedia.attribution}
                   {heroMedia.license
                     ? ` · ${heroMedia.license}`

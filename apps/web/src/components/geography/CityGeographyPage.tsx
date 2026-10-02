@@ -239,7 +239,7 @@ export default async function CityGeographyPage({
       >
         <div className="flex flex-wrap items-end justify-between gap-5">
           <div>
-            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-700">
+            <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-blue-700">
               CONNECTED BUILT WORLD
             </p>
 
@@ -272,14 +272,14 @@ export default async function CityGeographyPage({
                 className="group rounded-[22px] border border-slate-200 bg-white p-6 transition hover:-translate-y-0.5 hover:border-blue-300 hover:shadow-sm"
               >
                 <div className="flex items-center justify-between gap-3">
-                  <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-blue-700">
+                  <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-blue-700">
                     {section.short}
                   </p>
 
                   {isPaidArknozSection(
                     section.key
                   ) && (
-                    <span className="rounded-full border border-slate-300 px-2.5 py-1 text-[9px] font-bold uppercase tracking-[0.12em] text-slate-500">
+                    <span className="rounded-full border border-slate-300 px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.12em] text-slate-500">
                       Arknoz Pro · Coming Later
                     </span>
                   )}
@@ -305,7 +305,7 @@ export default async function CityGeographyPage({
       {children.length > 0 && (
         <section className="bg-slate-50">
           <div className="mx-auto max-w-[1500px] px-6 py-14 lg:px-10">
-            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-700">
+            <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-blue-700">
               PLACES
             </p>
 

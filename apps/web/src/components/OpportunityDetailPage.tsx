@@ -40,7 +40,7 @@ export default function OpportunityDetailPage({
 
           <div className="mx-auto flex h-full max-w-[1720px] flex-col px-6 py-5 lg:px-8">
 
-            <nav className="mb-4 flex gap-2 text-[11px] font-semibold">
+            <nav className="mb-4 flex gap-2 text-[12px] font-semibold">
 
               <Link
                 href="/opportunities"
@@ -70,11 +70,11 @@ export default function OpportunityDetailPage({
                 <div>
 
                   <div className="flex gap-2">
-                    <span className="rounded-full bg-emerald-50 px-3 py-1 text-[8px] font-bold uppercase tracking-[0.17em] text-emerald-700">
+                    <span className="rounded-full bg-emerald-50 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.17em] text-emerald-700">
                       OPEN
                     </span>
 
-                    <span className="rounded-full bg-[#f3f6f9] px-3 py-1 text-[8px] font-bold uppercase tracking-[0.17em] text-slate-600">
+                    <span className="rounded-full bg-[#f3f6f9] px-3 py-1 text-[10px] font-bold uppercase tracking-[0.17em] text-slate-600">
                       {detail.opportunityType}
                     </span>
                   </div>
@@ -99,11 +99,11 @@ export default function OpportunityDetailPage({
                           key={fact.label}
                           className="border-t border-slate-200 py-3"
                         >
-                          <span className="text-[10px] text-slate-500">
+                          <span className="text-[11px] text-slate-500">
                             {fact.label}
                           </span>
 
-                          <strong className="ml-2 text-[11px]">
+                          <strong className="ml-2 text-[12px]">
                             {fact.value}
                           </strong>
                         </div>
@@ -118,14 +118,14 @@ export default function OpportunityDetailPage({
                     href={detail.officialUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="rounded-full bg-[#0b2949] px-5 py-3 text-[10px] font-bold text-white"
+                    className="rounded-full bg-[#0b2949] px-5 py-3 text-[11px] font-bold text-white"
                   >
                     Apply on official site ↗
                   </a>
 
                   <a
                     href="#opportunity-intelligence"
-                    className="text-[11px] font-bold text-blue-700"
+                    className="text-[12px] font-bold text-blue-700"
                   >
                     Opportunity details ↓
                   </a>
@@ -163,7 +163,7 @@ export default function OpportunityDetailPage({
 
                 <div className="absolute left-[7%] top-[10%]">
 
-                  <p className="text-[8px] font-bold uppercase tracking-[0.18em] text-blue-700">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-blue-700">
                     VANCOUVER
                   </p>
 
@@ -178,7 +178,7 @@ export default function OpportunityDetailPage({
 
                 <div className="absolute right-[6%] top-[12%] rounded-[18px] bg-white p-4 shadow-xl">
 
-                  <p className="text-[8px] font-bold uppercase text-blue-700">
+                  <p className="text-[10px] font-bold uppercase text-blue-700">
                     REGISTRATION
                   </p>
 
@@ -186,14 +186,14 @@ export default function OpportunityDetailPage({
                     29 Oct 2026
                   </p>
 
-                  <p className="mt-1 text-[9px] text-slate-500">
+                  <p className="mt-1 text-[11px] text-slate-500">
                     Official deadline
                   </p>
                 </div>
 
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#071b31]/95 to-transparent p-7 pt-20 text-white">
 
-                  <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-blue-200">
+                  <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-blue-200">
                     OPPORTUNITY
                   </p>
 
@@ -201,7 +201,7 @@ export default function OpportunityDetailPage({
                     {entity.title}
                   </h2>
 
-                  <p className="mt-1 text-[11px] text-slate-300">
+                  <p className="mt-1 text-[12px] text-slate-300">
                     Current source-backed record
                   </p>
                 </div>
@@ -213,7 +213,7 @@ export default function OpportunityDetailPage({
                 <article className="flex flex-col justify-between rounded-[24px] bg-[#0b2949] p-5 text-white">
 
                   <div>
-                    <p className="text-[8px] font-bold uppercase text-blue-200">
+                    <p className="text-[10px] font-bold uppercase text-blue-200">
                       CURRENT
                     </p>
 
@@ -223,11 +223,11 @@ export default function OpportunityDetailPage({
                   </div>
 
                   <div>
-                    <p className="text-[9px] text-slate-300">
+                    <p className="text-[11px] text-slate-300">
                       Last checked
                     </p>
 
-                    <p className="mt-1 text-[11px] font-bold">
+                    <p className="mt-1 text-[12px] font-bold">
                       {detail.lastChecked}
                     </p>
                   </div>
@@ -235,7 +235,7 @@ export default function OpportunityDetailPage({
 
                 <article className="rounded-[24px] border border-slate-200 bg-white p-5">
 
-                  <p className="text-[8px] font-bold uppercase tracking-[0.18em] text-blue-700">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-blue-700">
                     AT A GLANCE
                   </p>
 
@@ -246,7 +246,7 @@ export default function OpportunityDetailPage({
                         <div
                           key={fact.label}
                         >
-                          <p className="text-[9px] text-slate-400">
+                          <p className="text-[11px] text-slate-400">
                             {fact.label}
                           </p>
 
@@ -281,7 +281,7 @@ export default function OpportunityDetailPage({
             <div className="mb-3 flex items-end justify-between">
 
               <div>
-                <p className="text-[9px] font-bold uppercase tracking-[0.19em] text-blue-700">
+                <p className="text-[11px] font-bold uppercase tracking-[0.19em] text-blue-700">
                   OPPORTUNITY
                 </p>
 
@@ -290,7 +290,7 @@ export default function OpportunityDetailPage({
                 </h2>
               </div>
 
-              <p className="hidden text-[11px] text-slate-500 lg:block">
+              <p className="hidden text-[12px] text-slate-500 lg:block">
                 Eligibility, timeline, application path and connected Built World context.
               </p>
             </div>
@@ -303,7 +303,7 @@ export default function OpportunityDetailPage({
               />
             </div>
 
-            <div className="mt-3 flex items-center gap-8 border-t border-slate-200 pt-3 text-[10px] font-bold">
+            <div className="mt-3 flex items-center gap-8 border-t border-slate-200 pt-3 text-[11px] font-bold">
 
               <span className="uppercase tracking-[0.18em] text-blue-700">
                 CONTINUE

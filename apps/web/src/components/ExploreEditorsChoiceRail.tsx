@@ -136,7 +136,7 @@ export default function ExploreEditorsChoiceRail() {
 
             <p
               className="
-                text-[10px]
+                text-[11px]
                 font-bold
                 uppercase
                 tracking-[0.22em]
@@ -304,7 +304,7 @@ export default function ExploreEditorsChoiceRail() {
 
                       <p
                         className="
-                          text-[9px]
+                          text-[11px]
                           font-bold
                           uppercase
                           tracking-[0.18em]

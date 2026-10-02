@@ -175,7 +175,7 @@ export default function HomeNowOnArknozLoop({
           <div>
             <p
               className="
-                text-[10px]
+                text-[11px]
                 font-bold
                 uppercase
                 tracking-[0.24em]
@@ -348,7 +348,7 @@ export default function HomeNowOnArknozLoop({
                     >
                       <p
                         className="
-                          text-[8px]
+                          text-[10px]
                           font-bold
                           uppercase
                           tracking-[0.18em]
@@ -376,7 +376,7 @@ export default function HomeNowOnArknozLoop({
                           className="
                             mt-3
                             line-clamp-1
-                            text-[9px]
+                            text-[11px]
                             font-medium
                             text-white/65
                           "

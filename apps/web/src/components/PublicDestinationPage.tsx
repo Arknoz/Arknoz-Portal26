@@ -76,7 +76,7 @@ export default function PublicDestinationPage({
 
         <div className="mx-auto max-w-[1720px]">
 
-          <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-teal-700">
+          <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-teal-700">
             {title}
           </p>
 

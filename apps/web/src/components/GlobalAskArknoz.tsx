@@ -50,7 +50,7 @@ export default function GlobalAskArknoz() {
                 border-slate-200
                 bg-white
                 px-3
-                text-[10px]
+                text-[11px]
                 font-bold
                 uppercase
                 tracking-[0.14em]

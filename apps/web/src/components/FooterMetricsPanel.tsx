@@ -30,7 +30,7 @@ export default function FooterMetricsPanel({
     <section className="rounded-2xl border border-white/10 bg-white/[0.045] px-5 py-4">
       <div className="grid gap-4 xl:grid-cols-[250px_1fr] xl:items-center">
         <div>
-          <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-blue-200">
+          <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-blue-200">
             ARKNOZ AT A GLANCE
           </p>
           <h2 className="mt-1 text-xl font-bold text-white">

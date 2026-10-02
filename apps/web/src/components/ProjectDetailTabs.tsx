@@ -470,7 +470,7 @@ export default function ProjectDetailTabs({
         className="hidden"
       >
         <div className="flex min-h-[62px] items-center gap-4">
-          <span className="hidden shrink-0 text-[9px] font-semibold uppercase tracking-[0.14em] text-blue-700 xl:block">
+          <span className="hidden shrink-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-blue-700 xl:block">
             Project workspace
           </span>
 
@@ -498,11 +498,11 @@ export default function ProjectDetailTabs({
                 }
                 className="group flex min-h-[42px] min-w-0 items-center gap-2 bg-white px-3 py-2 transition hover:bg-[#f5f8fb]"
               >
-                <span className="shrink-0 text-[9px] font-semibold text-slate-400 transition group-hover:text-blue-700">
+                <span className="shrink-0 text-[11px] font-semibold text-slate-400 transition group-hover:text-blue-700">
                   {String(index + 1).padStart(2, "0")}
                 </span>
 
-                <span className="min-w-0 flex-1 truncate text-[11px] font-semibold text-slate-700 transition group-hover:text-slate-950">
+                <span className="min-w-0 flex-1 truncate text-[12px] font-semibold text-slate-700 transition group-hover:text-slate-950">
                   {item.label}
                 </span>
 
@@ -544,7 +544,7 @@ export default function ProjectDetailTabs({
               />
 
               <div className="relative">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-blue-300">
+                <p className="text-[12px] font-semibold uppercase tracking-[0.14em] text-blue-300">
                   02 / Overview
                 </p>
 
@@ -554,7 +554,7 @@ export default function ProjectDetailTabs({
               </div>
 
               <div className="relative mt-20 border-t border-white/20 pt-6">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.13em] text-white/45">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.13em] text-white/45">
                   Arknoz Project Record
                 </p>
 
@@ -566,7 +566,7 @@ export default function ProjectDetailTabs({
 
             <div className="flex flex-col justify-between p-7 lg:p-10 xl:p-12">
               <div>
-                <p className="text-[11px] font-semibold uppercase tracking-[0.13em] text-blue-700">
+                <p className="text-[12px] font-semibold uppercase tracking-[0.13em] text-blue-700">
                   Project understanding
                 </p>
 
@@ -585,7 +585,7 @@ export default function ProjectDetailTabs({
 
               {headlineFacts.length > 0 ? (
                 <div className="mt-14 border-t border-slate-200 pt-6">
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.13em] text-slate-400">
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.13em] text-slate-400">
                     Project snapshot
                   </p>
 
@@ -609,7 +609,7 @@ export default function ProjectDetailTabs({
                           {fact.value}
                         </p>
 
-                        <p className="mt-3 text-[10px] font-medium uppercase tracking-[0.10em] text-slate-400">
+                        <p className="mt-3 text-[11px] font-medium uppercase tracking-[0.10em] text-slate-400">
                           {fact.label}
                         </p>
                       </div>
@@ -643,7 +643,7 @@ export default function ProjectDetailTabs({
             />
 
             <div className="relative">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-blue-200">
+              <p className="text-[12px] font-semibold uppercase tracking-[0.14em] text-blue-200">
                 03 / Media
               </p>
 
@@ -677,7 +677,7 @@ export default function ProjectDetailTabs({
                   {String(overviewPhotos.length).padStart(2, "0")}
                 </p>
 
-                <p className="mt-3 text-[10px] font-medium uppercase tracking-[0.12em] text-white/55">
+                <p className="mt-3 text-[11px] font-medium uppercase tracking-[0.12em] text-white/55">
                   Verified images
                 </p>
               </div>
@@ -687,7 +687,7 @@ export default function ProjectDetailTabs({
                   {String(overviewDrawings.length).padStart(2, "0")}
                 </p>
 
-                <p className="mt-3 text-[10px] font-medium uppercase tracking-[0.12em] text-white/55">
+                <p className="mt-3 text-[11px] font-medium uppercase tracking-[0.12em] text-white/55">
                   Technical sheets
                 </p>
               </div>
@@ -699,7 +699,7 @@ export default function ProjectDetailTabs({
             <div>
               <div className="flex flex-wrap items-end justify-between gap-4">
                 <div>
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.13em] text-blue-700">
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.13em] text-blue-700">
                     Photography
                   </p>
 
@@ -709,7 +709,7 @@ export default function ProjectDetailTabs({
                 </div>
 
                 {overviewPhotos.length > 0 ? (
-                  <span className="text-[11px] text-slate-400">
+                  <span className="text-[12px] text-slate-400">
                     {overviewPhotos.length} verified images
                   </span>
                 ) : null}
@@ -737,13 +737,13 @@ export default function ProjectDetailTabs({
                           />
                         </div>
 
-                        <span className="absolute bottom-3 right-3 rounded-full bg-black/65 px-3 py-1.5 text-[9px] font-semibold text-white backdrop-blur">
+                        <span className="absolute bottom-3 right-3 rounded-full bg-black/65 px-3 py-1.5 text-[11px] font-semibold text-white backdrop-blur">
                           Enlarge
                         </span>
                       </a>
 
                       {(item.role || item.attribution) ? (
-                        <figcaption className="mt-2 text-[10px] leading-4 text-slate-500">
+                        <figcaption className="mt-2 text-[11px] leading-4 text-slate-500">
                           <span className="font-medium capitalize text-slate-700">
                             {item.role ?? "Project image"}
                           </span>
@@ -779,7 +779,7 @@ export default function ProjectDetailTabs({
                           />
 
                           {(item.role || item.attribution) ? (
-                            <p className="mt-3 max-w-4xl text-center text-[11px] text-white/70">
+                            <p className="mt-3 max-w-4xl text-center text-[12px] text-white/70">
                               {item.role ?? "Project image"}
                               {item.attribution
                                 ? ` · ${item.attribution}`
@@ -812,7 +812,7 @@ export default function ProjectDetailTabs({
             >
               <div className="flex flex-wrap items-end justify-between gap-4">
                 <div>
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.13em] text-blue-700">
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.13em] text-blue-700">
                     Technical material
                   </p>
 
@@ -822,7 +822,7 @@ export default function ProjectDetailTabs({
                 </div>
 
                 {overviewDrawings.length > 0 ? (
-                  <span className="text-[11px] text-slate-400">
+                  <span className="text-[12px] text-slate-400">
                     {overviewDrawings.length} verified sheets
                   </span>
                 ) : null}
@@ -850,13 +850,13 @@ export default function ProjectDetailTabs({
                           />
                         </div>
 
-                        <span className="absolute bottom-3 right-3 rounded-full bg-[#0b2949]/90 px-3 py-1.5 text-[9px] font-semibold text-white">
+                        <span className="absolute bottom-3 right-3 rounded-full bg-[#0b2949]/90 px-3 py-1.5 text-[11px] font-semibold text-white">
                           Enlarge
                         </span>
                       </a>
 
                       {(item.role || item.attribution) ? (
-                        <figcaption className="mt-2 text-[10px] leading-4 text-slate-500">
+                        <figcaption className="mt-2 text-[11px] leading-4 text-slate-500">
                           <span className="font-medium capitalize text-slate-800">
                             {item.role ?? "Project drawing"}
                           </span>
@@ -894,7 +894,7 @@ export default function ProjectDetailTabs({
                           </div>
 
                           {(item.role || item.attribution) ? (
-                            <p className="mt-3 max-w-4xl text-center text-[11px] text-white/70">
+                            <p className="mt-3 max-w-4xl text-center text-[12px] text-white/70">
                               {item.role ?? "Project drawing"}
                               {item.attribution
                                 ? ` · ${item.attribution}`
@@ -946,7 +946,7 @@ export default function ProjectDetailTabs({
             />
 
             <div className="relative">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-emerald-200">
+              <p className="text-[12px] font-semibold uppercase tracking-[0.14em] text-emerald-200">
                 04 / Details
               </p>
 
@@ -980,7 +980,7 @@ export default function ProjectDetailTabs({
                   {String(projectProfileFacts.length).padStart(2, "0")}
                 </p>
 
-                <p className="mt-3 text-[10px] font-medium uppercase tracking-[0.12em] text-white/55">
+                <p className="mt-3 text-[11px] font-medium uppercase tracking-[0.12em] text-white/55">
                   Recorded fields
                 </p>
               </div>
@@ -990,7 +990,7 @@ export default function ProjectDetailTabs({
                   {String(anatomy.length).padStart(2, "0")}
                 </p>
 
-                <p className="mt-3 text-[10px] font-medium uppercase tracking-[0.12em] text-white/55">
+                <p className="mt-3 text-[11px] font-medium uppercase tracking-[0.12em] text-white/55">
                   Systems
                 </p>
               </div>
@@ -1000,7 +1000,7 @@ export default function ProjectDetailTabs({
                   {String(detailPeople.length).padStart(2, "0")}
                 </p>
 
-                <p className="mt-3 text-[10px] font-medium uppercase tracking-[0.12em] text-white/55">
+                <p className="mt-3 text-[11px] font-medium uppercase tracking-[0.12em] text-white/55">
                   Team records
                 </p>
               </div>
@@ -1010,7 +1010,7 @@ export default function ProjectDetailTabs({
                   {String(detailTimeline.length).padStart(2, "0")}
                 </p>
 
-                <p className="mt-3 text-[10px] font-medium uppercase tracking-[0.12em] text-white/55">
+                <p className="mt-3 text-[11px] font-medium uppercase tracking-[0.12em] text-white/55">
                   Timeline events
                 </p>
               </div>
@@ -1023,7 +1023,7 @@ export default function ProjectDetailTabs({
               <div>
                 <div className="flex flex-wrap items-end justify-between gap-4">
                   <div>
-                    <p className="text-[10px] font-semibold uppercase tracking-[0.13em] text-emerald-700">
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.13em] text-emerald-700">
                       Project essentials
                     </p>
 
@@ -1032,7 +1032,7 @@ export default function ProjectDetailTabs({
                     </h3>
                   </div>
 
-                  <span className="text-[11px] text-slate-400">
+                  <span className="text-[12px] text-slate-400">
                     {projectProfileFacts.length} recorded fields
                   </span>
                 </div>
@@ -1043,7 +1043,7 @@ export default function ProjectDetailTabs({
                       key={`${fact.label}-${fact.value}`}
                       className="min-w-0 bg-[#f8fafc] p-5"
                     >
-                      <dt className="text-[10px] font-medium uppercase tracking-[0.08em] text-slate-400">
+                      <dt className="text-[11px] font-medium uppercase tracking-[0.08em] text-slate-400">
                         {fact.label}
                       </dt>
 
@@ -1073,7 +1073,7 @@ export default function ProjectDetailTabs({
                 id="systems-materials"
                 className="scroll-mt-[92px] mt-12 border-t border-slate-200 pt-9"
               >
-                <p className="text-[10px] font-semibold uppercase tracking-[0.13em] text-emerald-700">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.13em] text-emerald-700">
                   Design & engineering
                 </p>
 
@@ -1087,7 +1087,7 @@ export default function ProjectDetailTabs({
                       key={`${item.title}-${index}`}
                       className="rounded-[18px] border border-slate-200 bg-[#f8fafc] p-5"
                     >
-                      <span className="text-[11px] font-semibold text-emerald-700">
+                      <span className="text-[12px] font-semibold text-emerald-700">
                         {String(index + 1).padStart(2, "0")}
                       </span>
 
@@ -1111,7 +1111,7 @@ export default function ProjectDetailTabs({
               >
                 <div className="flex flex-wrap items-end justify-between gap-4">
                   <div>
-                    <p className="text-[10px] font-semibold uppercase tracking-[0.13em] text-emerald-700">
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.13em] text-emerald-700">
                       People & organisations
                     </p>
 
@@ -1120,7 +1120,7 @@ export default function ProjectDetailTabs({
                     </h3>
                   </div>
 
-                  <span className="text-[11px] text-slate-400">
+                  <span className="text-[12px] text-slate-400">
                     {detailPeople.length} recorded
                   </span>
                 </div>
@@ -1131,7 +1131,7 @@ export default function ProjectDetailTabs({
                       key={`${item.role}-${item.name}`}
                       className="rounded-[16px] border border-slate-200 bg-[#f8fafc] p-5"
                     >
-                      <p className="text-[10px] font-medium uppercase tracking-[0.08em] text-slate-400">
+                      <p className="text-[11px] font-medium uppercase tracking-[0.08em] text-slate-400">
                         {item.role}
                       </p>
 
@@ -1149,7 +1149,7 @@ export default function ProjectDetailTabs({
                 id="timeline"
                 className="scroll-mt-[92px] mt-12 border-t border-slate-200 pt-9"
               >
-                <p className="text-[10px] font-semibold uppercase tracking-[0.13em] text-emerald-700">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.13em] text-emerald-700">
                   Timeline
                 </p>
 
@@ -1197,7 +1197,7 @@ export default function ProjectDetailTabs({
         >
           <div className="flex flex-wrap items-end justify-between gap-3">
             <div>
-              <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-blue-700">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-blue-700">
                 Articles & publications
               </p>
 
@@ -1206,7 +1206,7 @@ export default function ProjectDetailTabs({
               </h2>
             </div>
 
-            <span className="text-[11px] text-slate-400">
+            <span className="text-[12px] text-slate-400">
               {learning.length} references
             </span>
           </div>
@@ -1219,7 +1219,7 @@ export default function ProjectDetailTabs({
                 className="group flex min-h-[112px] flex-col justify-between rounded-[12px] border border-slate-200 bg-[#f8fafc] p-4 transition hover:-translate-y-0.5 hover:border-blue-300 hover:bg-white hover:shadow-sm"
               >
                 <div className="flex items-center justify-between gap-3">
-                  <span className="text-[10px] font-medium text-slate-400">
+                  <span className="text-[11px] font-medium text-slate-400">
                     {String(index + 1).padStart(2, "0")}
                   </span>
 
@@ -1258,7 +1258,7 @@ export default function ProjectDetailTabs({
             />
 
             <div className="relative">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-300">
+              <p className="text-[12px] font-semibold uppercase tracking-[0.14em] text-slate-300">
                 05 / Sources
               </p>
 
@@ -1292,13 +1292,13 @@ export default function ProjectDetailTabs({
                   {String(sources.length).padStart(2, "0")}
                 </p>
 
-                <p className="mt-3 text-[10px] font-medium uppercase tracking-[0.12em] text-white/50">
+                <p className="mt-3 text-[11px] font-medium uppercase tracking-[0.12em] text-white/50">
                   Linked sources
                 </p>
               </div>
 
               <div className="mt-7 rounded-[14px] border border-white/15 bg-white/[0.06] p-5">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-white/45">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-white/45">
                   Record status
                 </p>
 
@@ -1316,7 +1316,7 @@ export default function ProjectDetailTabs({
           <div className="flex flex-col bg-[#fbf7f8] p-7 text-slate-950 lg:min-h-0 lg:overflow-y-auto lg:p-10 xl:p-12">
             <div className="flex flex-wrap items-end justify-between gap-4">
               <div>
-                <p className="text-[10px] font-semibold uppercase tracking-[0.13em] text-slate-500">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.13em] text-slate-500">
                   Evidence trail
                 </p>
 
@@ -1326,7 +1326,7 @@ export default function ProjectDetailTabs({
               </div>
 
               {sources.length > 0 ? (
-                <span className="rounded-full bg-[#f1f5f9] px-3 py-1.5 text-[10px] font-medium text-slate-500">
+                <span className="rounded-full bg-[#f1f5f9] px-3 py-1.5 text-[11px] font-medium text-slate-500">
                   {sources.length} linked source{sources.length === 1 ? "" : "s"}
                 </span>
               ) : null}
@@ -1347,7 +1347,7 @@ export default function ProjectDetailTabs({
                     className="group flex min-h-[180px] flex-col justify-between rounded-[18px] border border-slate-200 bg-[#f8fafc] p-5 transition hover:-translate-y-0.5 hover:border-slate-400 hover:bg-white hover:shadow-sm"
                   >
                     <div className="flex items-start justify-between gap-4">
-                      <span className="text-[11px] font-semibold text-slate-400">
+                      <span className="text-[12px] font-semibold text-slate-400">
                         {String(index + 1).padStart(2, "0")}
                       </span>
 
@@ -1367,7 +1367,7 @@ export default function ProjectDetailTabs({
                         </p>
                       ) : null}
 
-                      <p className="mt-5 text-[10px] font-semibold uppercase tracking-[0.10em] text-slate-400">
+                      <p className="mt-5 text-[11px] font-semibold uppercase tracking-[0.10em] text-slate-400">
                         View original source
                       </p>
                     </div>
@@ -1414,11 +1414,11 @@ export default function ProjectDetailTabs({
 
             <div className="relative">
               <div className="flex items-center gap-3">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#efbfd0]">
+                <p className="text-[12px] font-semibold uppercase tracking-[0.14em] text-[#efbfd0]">
                   06 / Arknoz Lens
                 </p>
 
-                <span className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/[0.08] px-2.5 py-1 text-[9px] font-semibold uppercase tracking-[0.10em] text-white/75">
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/[0.08] px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.10em] text-white/75">
                   <LockIcon />
                   Pro
                 </span>
@@ -1454,7 +1454,7 @@ export default function ProjectDetailTabs({
                   {String(analysisModules.length).padStart(2, "0")}
                 </p>
 
-                <p className="mt-3 text-[10px] font-medium uppercase tracking-[0.12em] text-white/50">
+                <p className="mt-3 text-[11px] font-medium uppercase tracking-[0.12em] text-white/50">
                   Pro analysis modules
                 </p>
               </div>
@@ -1482,7 +1482,7 @@ export default function ProjectDetailTabs({
 
           <div className="flex flex-col bg-[#fbf7f8] p-7 text-slate-950 lg:min-h-0 lg:overflow-y-auto lg:p-10 xl:p-12">
             <div>
-              <p className="text-[10px] font-semibold uppercase tracking-[0.13em] text-[#8a3c5d]">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.13em] text-[#8a3c5d]">
                 Deeper analysis
               </p>
 
@@ -1504,7 +1504,7 @@ export default function ProjectDetailTabs({
                   className="group relative flex min-h-[190px] flex-col justify-between overflow-hidden rounded-[18px] border border-[#e4d5db] bg-white p-5 transition hover:-translate-y-0.5 hover:border-[#b66d8c] hover:shadow-sm"
                 >
                   <div className="flex items-center justify-between gap-4">
-                    <span className="text-[11px] font-semibold text-[#9d5975]" style={{ color: "#9d5975" }}>
+                    <span className="text-[12px] font-semibold text-[#9d5975]" style={{ color: "#9d5975" }}>
                       {String(index + 1).padStart(2, "0")}
                     </span>
 
@@ -1518,7 +1518,7 @@ export default function ProjectDetailTabs({
                       {title}
                     </p>
 
-                    <div className="mt-5 flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.10em] text-[#8a3c5d]">
+                    <div className="mt-5 flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.10em] text-[#8a3c5d]">
                       <span>
                         Arknoz Pro
                       </span>
@@ -1561,11 +1561,11 @@ export default function ProjectDetailTabs({
 
             <div className="relative">
               <div className="flex items-center gap-3">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-blue-200">
+                <p className="text-[12px] font-semibold uppercase tracking-[0.14em] text-blue-200">
                   07 / Connections
                 </p>
 
-                <span className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/[0.08] px-2.5 py-1 text-[9px] font-semibold uppercase tracking-[0.10em] text-white/75">
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/[0.08] px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.10em] text-white/75">
                   <LockIcon />
                   Pro
                 </span>
@@ -1602,7 +1602,7 @@ export default function ProjectDetailTabs({
                     {String(otherConnections.length).padStart(2, "0")}
                   </p>
 
-                  <p className="mt-3 text-[10px] font-medium uppercase tracking-[0.12em] text-white/55">
+                  <p className="mt-3 text-[11px] font-medium uppercase tracking-[0.12em] text-white/55">
                     Connections
                   </p>
                 </div>
@@ -1612,7 +1612,7 @@ export default function ProjectDetailTabs({
                     {String(connectionTypeCounts.length).padStart(2, "0")}
                   </p>
 
-                  <p className="mt-3 text-[10px] font-medium uppercase tracking-[0.12em] text-white/55">
+                  <p className="mt-3 text-[11px] font-medium uppercase tracking-[0.12em] text-white/55">
                     Connection types
                   </p>
                 </div>
@@ -1642,7 +1642,7 @@ export default function ProjectDetailTabs({
           <div className="flex flex-col bg-[#f7f9fc] p-7 text-slate-950 lg:min-h-0 lg:overflow-y-auto lg:p-10 xl:p-12">
 
             <div>
-              <p className="text-[10px] font-semibold uppercase tracking-[0.13em] text-blue-700">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.13em] text-blue-700">
                 Connected Built World
               </p>
 
@@ -1665,7 +1665,7 @@ export default function ProjectDetailTabs({
                     className="group flex min-h-[170px] flex-col justify-between rounded-[18px] border border-slate-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-blue-300 hover:shadow-sm"
                   >
                     <div className="flex items-start justify-between gap-4">
-                      <span className="text-[11px] font-semibold text-blue-700">
+                      <span className="text-[12px] font-semibold text-blue-700">
                         {String(index + 1).padStart(2, "0")}
                       </span>
 
@@ -1675,7 +1675,7 @@ export default function ProjectDetailTabs({
                     </div>
 
                     <div className="mt-7">
-                      <p className="text-[10px] font-semibold uppercase tracking-[0.10em] text-slate-400">
+                      <p className="text-[11px] font-semibold uppercase tracking-[0.10em] text-slate-400">
                         {item.type}
                       </p>
 
@@ -1689,7 +1689,7 @@ export default function ProjectDetailTabs({
                         </p>
                       ) : null}
 
-                      <p className="mt-4 text-[10px] font-semibold uppercase tracking-[0.10em] text-blue-700">
+                      <p className="mt-4 text-[11px] font-semibold uppercase tracking-[0.10em] text-blue-700">
                         Arknoz Pro →
                       </p>
                     </div>
@@ -1712,7 +1712,7 @@ export default function ProjectDetailTabs({
 
             {topics.length > 0 ? (
               <div className="mt-8 border-t border-slate-200 pt-6">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.11em] text-slate-400">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.11em] text-slate-400">
                   Related topics
                 </p>
 
@@ -1720,7 +1720,7 @@ export default function ProjectDetailTabs({
                   {topics.map((topic) => (
                     <span
                       key={topic}
-                      className="rounded-full border border-slate-200 bg-white px-3 py-2 text-[11px] font-medium text-slate-600"
+                      className="rounded-full border border-slate-200 bg-white px-3 py-2 text-[12px] font-medium text-slate-600"
                     >
                       {topic}
                     </span>
@@ -1735,7 +1735,7 @@ export default function ProjectDetailTabs({
             >
               <div className="flex flex-wrap items-end justify-between gap-4">
                 <div>
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.13em] text-blue-700">
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.13em] text-blue-700">
                     Related projects
                   </p>
 
@@ -1745,7 +1745,7 @@ export default function ProjectDetailTabs({
                 </div>
 
                 {relatedProjects.length > 0 ? (
-                  <span className="text-[11px] text-slate-400">
+                  <span className="text-[12px] text-slate-400">
                     {relatedProjects.length} recorded
                   </span>
                 ) : null}
@@ -1761,7 +1761,7 @@ export default function ProjectDetailTabs({
                       className="group min-h-[150px] rounded-[16px] border border-slate-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-blue-300 hover:shadow-sm"
                     >
                       <div className="flex items-center justify-between gap-4">
-                        <span className="text-[11px] font-semibold text-blue-700">
+                        <span className="text-[12px] font-semibold text-blue-700">
                           {String(index + 1).padStart(2, "0")}
                         </span>
 

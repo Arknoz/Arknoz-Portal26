@@ -85,11 +85,11 @@ export default function OpportunityDetailTabs({
 
               <div>
                 <div className="flex items-center justify-between">
-                  <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-blue-700">
+                  <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-blue-700">
                     ABOUT THIS OPPORTUNITY
                   </p>
 
-                  <span className="rounded-full bg-emerald-50 px-3 py-1 text-[8px] font-bold text-emerald-700">
+                  <span className="rounded-full bg-emerald-50 px-3 py-1 text-[10px] font-bold text-emerald-700">
                     OPEN
                   </span>
                 </div>
@@ -117,11 +117,11 @@ export default function OpportunityDetailTabs({
                     key={label}
                     className="rounded-[12px] bg-[#f5f7fa] px-3 py-2.5"
                   >
-                    <p className="text-[7px] font-bold uppercase tracking-[0.14em] text-blue-700">
+                    <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-blue-700">
                       {label}
                     </p>
 
-                    <p className="mt-1 text-[10px] font-bold">
+                    <p className="mt-1 text-[11px] font-bold">
                       {value}
                     </p>
                   </div>
@@ -132,11 +132,11 @@ export default function OpportunityDetailTabs({
             <article className="rounded-[22px] bg-[#f5f7fa] p-5">
 
               <div className="flex items-center justify-between">
-                <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-blue-700">
+                <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-blue-700">
                   KEY INFORMATION
                 </p>
 
-                <span className="rounded-full bg-white px-2.5 py-1 text-[8px] font-semibold text-slate-400">
+                <span className="rounded-full bg-white px-2.5 py-1 text-[10px] font-semibold text-slate-400">
                   Source-backed
                 </span>
               </div>
@@ -178,7 +178,7 @@ export default function OpportunityDetailTabs({
                 <div className="relative flex h-full flex-col justify-between">
 
                   <div>
-                    <p className="text-[8px] font-bold uppercase tracking-[0.18em] text-blue-200">
+                    <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-blue-200">
                       OPPORTUNITY STATUS
                     </p>
 
@@ -192,7 +192,7 @@ export default function OpportunityDetailTabs({
                       29 Oct 2026
                     </p>
 
-                    <p className="mt-1 text-[10px] text-slate-300">
+                    <p className="mt-1 text-[11px] text-slate-300">
                       Registration deadline
                     </p>
                   </div>
@@ -202,7 +202,7 @@ export default function OpportunityDetailTabs({
               <article className="grid grid-cols-2 gap-3 rounded-[22px] border border-slate-200 bg-white p-4">
 
                 <div>
-                  <p className="text-[8px] font-bold uppercase tracking-[0.16em] text-blue-700">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-blue-700">
                     ORGANISER
                   </p>
 
@@ -210,13 +210,13 @@ export default function OpportunityDetailTabs({
                     {detail.organiser}
                   </p>
 
-                  <p className="mt-1 text-[9px] text-slate-500">
+                  <p className="mt-1 text-[11px] text-slate-500">
                     {detail.geography}
                   </p>
                 </div>
 
                 <div className="border-l border-slate-200 pl-4">
-                  <p className="text-[8px] font-bold uppercase tracking-[0.16em] text-blue-700">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-blue-700">
                     LAST CHECKED
                   </p>
 
@@ -224,7 +224,7 @@ export default function OpportunityDetailTabs({
                     {detail.lastChecked}
                   </p>
 
-                  <p className="text-[9px] text-slate-500">
+                  <p className="text-[11px] text-slate-500">
                     source status
                   </p>
                 </div>
@@ -242,7 +242,7 @@ export default function OpportunityDetailTabs({
 
             <article className="rounded-[22px] bg-[#0b2949] p-4 text-white">
 
-              <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-blue-200">
+              <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-blue-200">
                 ELIGIBILITY
               </p>
 
@@ -258,15 +258,15 @@ export default function OpportunityDetailTabs({
                       key={item.title}
                       className="rounded-[14px] border border-white/10 bg-white/[0.07] p-3"
                     >
-                      <p className="text-[8px] font-bold text-blue-200">
+                      <p className="text-[10px] font-bold text-blue-200">
                         0{index + 1}
                       </p>
 
-                      <p className="mt-1 text-[11px] font-bold">
+                      <p className="mt-1 text-[12px] font-bold">
                         {item.title}
                       </p>
 
-                      <p className="mt-1 text-[9px] leading-4 text-slate-300">
+                      <p className="mt-1 text-[11px] leading-4 text-slate-300">
                         {item.description}
                       </p>
                     </div>
@@ -277,7 +277,7 @@ export default function OpportunityDetailTabs({
 
             <article className="rounded-[22px] border border-slate-200 bg-white p-4">
 
-              <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-blue-700">
+              <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-blue-700">
                 HOW TO APPLY
               </p>
 
@@ -293,15 +293,15 @@ export default function OpportunityDetailTabs({
                       key={item.title}
                       className="rounded-[13px] bg-[#f5f7fa] p-3"
                     >
-                      <p className="text-[7px] font-bold uppercase text-blue-700">
+                      <p className="text-[10px] font-bold uppercase text-blue-700">
                         STEP 0{index + 1}
                       </p>
 
-                      <p className="mt-1 text-[11px] font-bold">
+                      <p className="mt-1 text-[12px] font-bold">
                         {item.title}
                       </p>
 
-                      <p className="mt-1 text-[9px] leading-4 text-slate-500">
+                      <p className="mt-1 text-[11px] leading-4 text-slate-500">
                         {item.description}
                       </p>
                     </div>
@@ -312,7 +312,7 @@ export default function OpportunityDetailTabs({
 
             <article className="rounded-[22px] border border-slate-200 bg-[#f7f9fc] p-4">
 
-              <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-blue-700">
+              <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-blue-700">
                 TIMELINE
               </p>
 
@@ -333,7 +333,7 @@ export default function OpportunityDetailTabs({
                           {item.date}
                         </p>
 
-                        <p className="mt-1 text-[10px] font-bold">
+                        <p className="mt-1 text-[11px] font-bold">
                           {item.title}
                         </p>
                       </div>
@@ -346,7 +346,7 @@ export default function OpportunityDetailTabs({
             <article className="grid grid-cols-[1.2fr_.8fr] gap-3 rounded-[22px] border border-slate-200 bg-white p-4">
 
               <div>
-                <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-blue-700">
+                <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-blue-700">
                   OFFICIAL SOURCES
                 </p>
 
@@ -362,11 +362,11 @@ export default function OpportunityDetailTabs({
                         className="flex items-center justify-between rounded-[12px] bg-[#f5f7fa] px-3 py-2.5"
                       >
                         <div>
-                          <p className="text-[10px] font-bold">
+                          <p className="text-[11px] font-bold">
                             {source.label}
                           </p>
 
-                          <p className="text-[9px] text-slate-500">
+                          <p className="text-[11px] text-slate-500">
                             {source.organisation}
                           </p>
                         </div>
@@ -383,7 +383,7 @@ export default function OpportunityDetailTabs({
               <div className="flex flex-col justify-between rounded-[16px] bg-[#0b2949] p-4 text-white">
 
                 <div>
-                  <p className="text-[8px] font-bold uppercase text-blue-200">
+                  <p className="text-[10px] font-bold uppercase text-blue-200">
                     CURRENT STATE
                   </p>
 
@@ -391,7 +391,7 @@ export default function OpportunityDetailTabs({
                     {detail.status}
                   </p>
 
-                  <p className="mt-2 text-[9px] text-slate-300">
+                  <p className="mt-2 text-[11px] text-slate-300">
                     Last checked:
                     {" "}
                     {detail.lastChecked}
@@ -402,7 +402,7 @@ export default function OpportunityDetailTabs({
                   href={detail.officialUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="mt-3 text-[10px] font-bold text-blue-200"
+                  className="mt-3 text-[11px] font-bold text-blue-200"
                 >
                   Apply / verify →
                 </a>
@@ -420,7 +420,7 @@ export default function OpportunityDetailTabs({
 
             <article className="rounded-[22px] bg-[#0b2949] p-5 text-white">
 
-              <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-blue-200">
+              <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-blue-200">
                 CONNECTED BUILT WORLD
               </p>
 
@@ -435,21 +435,21 @@ export default function OpportunityDetailTabs({
                 <div className="relative z-10 space-y-2">
 
                   <div className="rounded-[14px] border border-white/10 bg-white/[0.07] p-3">
-                    <p className="text-[7px] font-bold uppercase text-blue-200">
+                    <p className="text-[10px] font-bold uppercase text-blue-200">
                       ORGANISER
                     </p>
 
-                    <p className="mt-1 text-[11px] font-bold">
+                    <p className="mt-1 text-[12px] font-bold">
                       {detail.organiser}
                     </p>
                   </div>
 
                   <div className="rounded-[14px] border border-white/10 bg-white/[0.07] p-3">
-                    <p className="text-[7px] font-bold uppercase text-blue-200">
+                    <p className="text-[10px] font-bold uppercase text-blue-200">
                       PLACE
                     </p>
 
-                    <p className="mt-1 text-[11px] font-bold">
+                    <p className="mt-1 text-[12px] font-bold">
                       Vancouver
                     </p>
                   </div>
@@ -457,7 +457,7 @@ export default function OpportunityDetailTabs({
 
                 <div className="relative z-10 rounded-[18px] bg-white p-4 text-center text-slate-950 shadow-lg">
 
-                  <p className="text-[7px] font-bold uppercase text-blue-700">
+                  <p className="text-[10px] font-bold uppercase text-blue-700">
                     OPPORTUNITY
                   </p>
 
@@ -465,7 +465,7 @@ export default function OpportunityDetailTabs({
                     {entity.title}
                   </p>
 
-                  <p className="mt-1 text-[9px] text-slate-500">
+                  <p className="mt-1 text-[11px] text-slate-500">
                     {detail.opportunityType}
                   </p>
                 </div>
@@ -483,7 +483,7 @@ export default function OpportunityDetailTabs({
                           key={topic}
                           className="rounded-[14px] border border-white/10 bg-white/[0.07] p-3"
                         >
-                          <p className="text-[7px] font-bold uppercase text-blue-200">
+                          <p className="text-[10px] font-bold uppercase text-blue-200">
                             {index === 0
                               ? "SUBJECT"
                               : index === 1
@@ -491,7 +491,7 @@ export default function OpportunityDetailTabs({
                               : "CONTEXT"}
                           </p>
 
-                          <p className="mt-1 text-[11px] font-bold">
+                          <p className="mt-1 text-[12px] font-bold">
                             {topic}
                           </p>
                         </div>
@@ -502,11 +502,11 @@ export default function OpportunityDetailTabs({
 
               <div className="mt-6 border-t border-white/10 pt-4">
 
-                <p className="text-[8px] font-bold uppercase text-blue-200">
+                <p className="text-[10px] font-bold uppercase text-blue-200">
                   OPPORTUNITY RULE
                 </p>
 
-                <p className="mt-2 text-[10px] leading-5 text-slate-300">
+                <p className="mt-2 text-[11px] leading-5 text-slate-300">
                   Arknoz surfaces genuine opportunities but applications remain with the official organiser.
                 </p>
               </div>
@@ -514,7 +514,7 @@ export default function OpportunityDetailTabs({
 
             <article className="rounded-[22px] border border-slate-200 bg-white p-5">
 
-              <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-blue-700">
+              <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-blue-700">
                 CONTINUE YOUR JOURNEY
               </p>
 
@@ -565,7 +565,7 @@ export default function OpportunityDetailTabs({
                       }`}
                     >
                       <p
-                        className={`text-[8px] font-bold uppercase tracking-[0.14em] ${
+                        className={`text-[10px] font-bold uppercase tracking-[0.14em] ${
                           index === 0
                             ? "text-blue-200"
                             : "text-blue-700"
@@ -578,7 +578,7 @@ export default function OpportunityDetailTabs({
                         {item.title}
                       </p>
 
-                      <p className="mt-5 text-[10px] font-bold text-blue-600">
+                      <p className="mt-5 text-[11px] font-bold text-blue-600">
                         Explore →
                       </p>
                     </Link>

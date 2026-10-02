@@ -169,7 +169,7 @@ function MoreProjectCard({
           <div className="flex items-start justify-between">
             <span
               className="
-                text-[10px]
+                text-[11px]
                 font-semibold
                 text-red-200
               "
@@ -185,7 +185,7 @@ function MoreProjectCard({
           <div>
             <p
               className="
-                text-[8px]
+                text-[10px]
                 font-bold
                 uppercase
                 tracking-[0.16em]
@@ -210,7 +210,7 @@ function MoreProjectCard({
             <p
               className="
                 mt-2
-                text-[9px]
+                text-[11px]
                 leading-4
                 text-white/55
               "
@@ -261,7 +261,7 @@ function MoreProjectCard({
 
         <div className="flex items-start justify-between">
 
-          <span className="text-[10px] font-semibold text-red-500">
+          <span className="text-[11px] font-semibold text-red-500">
             {number}
           </span>
 
@@ -278,13 +278,13 @@ function MoreProjectCard({
 
 
         {entity.geography ? (
-          <p className="mt-2 text-[9px] leading-4 text-slate-500">
+          <p className="mt-2 text-[11px] leading-4 text-slate-500">
             {entity.geography}
           </p>
         ) : null}
 
 
-        <p className="mt-auto border-t border-slate-100 pt-4 text-[9px] font-semibold text-red-500">
+        <p className="mt-auto border-t border-slate-100 pt-4 text-[11px] font-semibold text-red-500">
           Open project →
         </p>
 
@@ -376,7 +376,7 @@ export default function ProjectCategoryShowcaseScreen({
 
           <div className="relative">
 
-            <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-red-200">
+            <p className="text-[12px] font-semibold uppercase tracking-[0.14em] text-red-200">
               {String(screenNumber).padStart(2, "0")} / Projects
             </p>
 
@@ -395,7 +395,7 @@ export default function ProjectCategoryShowcaseScreen({
 
           <div className="relative mt-auto">
 
-            <p className="text-[9px] font-semibold uppercase tracking-[0.15em] text-red-200">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-red-200">
               Featured Project
             </p>
 
@@ -424,7 +424,7 @@ export default function ProjectCategoryShowcaseScreen({
 
                 <Link
                   href={getEntityHref(featuredProject)}
-                  className="mt-6 inline-flex items-center gap-3 border-b border-white/60 pb-2 text-[11px] font-semibold text-white"
+                  className="mt-6 inline-flex items-center gap-3 border-b border-white/60 pb-2 text-[12px] font-semibold text-white"
                 >
                   Open featured project
                   <span aria-hidden="true">
@@ -459,17 +459,17 @@ export default function ProjectCategoryShowcaseScreen({
                       {String(totalCount).padStart(2, "0")}
                     </p>
 
-                    <p className="mt-2 text-[8px] font-semibold uppercase tracking-[0.12em] text-white/45">
+                    <p className="mt-2 text-[10px] font-semibold uppercase tracking-[0.12em] text-white/45">
                       Published projects
                     </p>
                   </>
                 ) : (
                   <>
-                    <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-red-200">
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-red-200">
                       Awaiting published projects
                     </p>
 
-                    <p className="mt-2 max-w-[220px] text-[9px] leading-4 text-white/45">
+                    <p className="mt-2 max-w-[220px] text-[11px] leading-4 text-white/45">
                       Verified project records will appear here as they are published.
                     </p>
                   </>
@@ -480,7 +480,7 @@ export default function ProjectCategoryShowcaseScreen({
 
               <Link
                 href={categoryHref}
-                className="text-[10px] font-semibold text-white/70 hover:text-white"
+                className="text-[11px] font-semibold text-white/70 hover:text-white"
               >
                 View all →
               </Link>
@@ -502,7 +502,7 @@ export default function ProjectCategoryShowcaseScreen({
 
             <div>
 
-              <p className="text-[10px] font-semibold uppercase tracking-[0.13em] text-red-500">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.13em] text-red-500">
                 Projects
               </p>
 
@@ -516,7 +516,7 @@ export default function ProjectCategoryShowcaseScreen({
 
             <Link
               href={categoryHref}
-              className="hidden shrink-0 text-[10px] font-semibold text-red-500 lg:block"
+              className="hidden shrink-0 text-[11px] font-semibold text-red-500 lg:block"
             >
               View all category →
             </Link>

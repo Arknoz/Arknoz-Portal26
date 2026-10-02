@@ -151,7 +151,7 @@ function GraphicFallback({
           absolute
           bottom-5
           left-6
-          text-[8px]
+          text-[10px]
           font-bold
           uppercase
           tracking-[0.18em]
@@ -279,7 +279,7 @@ function StoryCard({
       >
         <p
           className="
-            text-[8px]
+            text-[10px]
             font-bold
             uppercase
             tracking-[0.18em]
@@ -1090,7 +1090,7 @@ export default function HomeContinuousExperience({
 
                   <button
                     type="submit"
-                    className="bg-[#0a2230] px-6 py-3 text-[11px] font-semibold text-white transition-all duration-300 hover:-translate-y-[1px] hover:bg-[#153e57] hover:shadow-[0_7px_18px_rgba(10,34,48,0.22)] active:translate-y-0"
+                    className="bg-[#0a2230] px-6 py-3 text-[12px] font-semibold text-white transition-all duration-300 hover:-translate-y-[1px] hover:bg-[#153e57] hover:shadow-[0_7px_18px_rgba(10,34,48,0.22)] active:translate-y-0"
                   >
                     Search
                   </button>
@@ -1122,7 +1122,7 @@ export default function HomeContinuousExperience({
                     href="/explore"
                     className="group border-l-2 border-transparent px-3 py-2 transition-all duration-300 hover:-translate-y-[2px] hover:border-[#a61f46] hover:bg-white hover:shadow-[0_8px_22px_rgba(15,23,42,0.07)]"
                   >
-                    <p className="text-[9px] font-bold uppercase tracking-[0.16em] text-slate-400 transition group-hover:text-[#a61f46]">
+                    <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-slate-400 transition group-hover:text-[#a61f46]">
                       Discover
                     </p>
 
@@ -1135,7 +1135,7 @@ export default function HomeContinuousExperience({
                     href="/knowledge"
                     className="group border-l-2 border-transparent px-3 py-2 transition-all duration-300 hover:-translate-y-[2px] hover:border-[#172b4d] hover:bg-white hover:shadow-[0_8px_22px_rgba(15,23,42,0.07)]"
                   >
-                    <p className="text-[9px] font-bold uppercase tracking-[0.16em] text-slate-400 transition group-hover:text-[#172b4d]">
+                    <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-slate-400 transition group-hover:text-[#172b4d]">
                       Understand
                     </p>
 
@@ -1148,7 +1148,7 @@ export default function HomeContinuousExperience({
                     href="/opportunities"
                     className="group border-l-2 border-transparent px-3 py-2 transition-all duration-300 hover:-translate-y-[2px] hover:border-red-500 hover:bg-white hover:shadow-[0_8px_22px_rgba(15,23,42,0.07)]"
                   >
-                    <p className="text-[9px] font-bold uppercase tracking-[0.16em] text-slate-400 transition group-hover:text-red-500">
+                    <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-slate-400 transition group-hover:text-red-500">
                       Participate
                     </p>
 
@@ -1346,7 +1346,7 @@ export default function HomeContinuousExperience({
 
                           <div className="absolute inset-x-0 bottom-0 p-3 text-white">
 
-                            <p className="text-[8px] font-black uppercase tracking-[0.16em] text-white/60">
+                            <p className="text-[10px] font-black uppercase tracking-[0.16em] text-white/60">
                               {mediaItem.sublabel}
                             </p>
 
@@ -1425,7 +1425,7 @@ export default function HomeContinuousExperience({
 
               <div className="mb-4 flex items-end justify-between gap-4">
                 <div>
-                  <p className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.18em] text-red-500">
+                  <p className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.18em] text-red-500">
                     <span className="relative flex h-2 w-2">
                       <span className="absolute inline-flex h-full w-full motion-safe:animate-ping rounded-full bg-red-400 opacity-50" />
                       <span className="relative inline-flex h-2 w-2 rounded-full bg-red-500" />
@@ -1441,7 +1441,7 @@ export default function HomeContinuousExperience({
 
                 <Link
                   href="/explore"
-                  className="text-[11px] font-semibold text-slate-500 transition hover:text-slate-950"
+                  className="text-[12px] font-semibold text-slate-500 transition hover:text-slate-950"
                 >
                   Explore all →
                 </Link>
@@ -1530,13 +1530,13 @@ export default function HomeContinuousExperience({
                         <div className="absolute inset-0 bg-gradient-to-t from-[#04131d]/95 via-[#061722]/20 to-black/5" />
 
                         <div className="absolute left-5 top-5 z-10">
-                          <p className="text-[8px] font-bold uppercase tracking-[0.18em] text-white/85">
+                          <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-white/85">
                             {item.type}
                           </p>
                         </div>
 
                         <div className="absolute right-5 top-5 z-20 flex flex-col items-end gap-2">
-                          <div className="rounded-full border border-white/25 bg-black/30 px-2.5 py-1 text-[8px] font-semibold tracking-[0.12em] text-white/80 backdrop-blur-md">
+                          <div className="rounded-full border border-white/25 bg-black/30 px-2.5 py-1 text-[10px] font-semibold tracking-[0.12em] text-white/80 backdrop-blur-md">
                             {String(
                               featuredSelection[0] + 1
                             ).padStart(2, "0")}
@@ -1547,7 +1547,7 @@ export default function HomeContinuousExperience({
                           </div>
 
                           {loopImageCount > 1 ? (
-                            <div className="rounded-full border border-white/20 bg-black/25 px-2.5 py-1 text-[7px] font-bold uppercase tracking-[0.12em] text-white/70 backdrop-blur-md">
+                            <div className="rounded-full border border-white/20 bg-black/25 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-white/70 backdrop-blur-md">
                               Auto Loop · {loopImageCount} Media
                             </div>
                           ) : null}
@@ -1556,7 +1556,7 @@ export default function HomeContinuousExperience({
                         <div className="absolute inset-x-0 bottom-12 z-10 p-6 pr-16 xl:p-7 xl:pr-20">
 
                           {item.meta ? (
-                            <p className="text-[8px] font-semibold uppercase tracking-[0.14em] text-white/60">
+                            <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-white/60">
                               {item.meta}
                             </p>
                           ) : null}
@@ -1566,7 +1566,7 @@ export default function HomeContinuousExperience({
                           </h3>
 
                           {linkedRecord?.summary ? (
-                            <p className="mt-4 line-clamp-2 max-w-[46ch] text-[11px] leading-5 text-white/65">
+                            <p className="mt-4 line-clamp-2 max-w-[46ch] text-[12px] leading-5 text-white/65">
                               {linkedRecord.summary}
                             </p>
                           ) : null}
@@ -1579,7 +1579,7 @@ export default function HomeContinuousExperience({
                         onClick={() =>
                           setQuickViewItem(item)
                         }
-                        className="absolute right-5 top-20 z-30 translate-y-1 border border-white/30 bg-black/40 px-3 py-2 text-[9px] font-bold uppercase tracking-[0.12em] text-white opacity-0 backdrop-blur-md transition duration-200 hover:bg-white hover:text-slate-950 group-hover:translate-y-0 group-hover:opacity-100"
+                        className="absolute right-5 top-20 z-30 translate-y-1 border border-white/30 bg-black/40 px-3 py-2 text-[11px] font-bold uppercase tracking-[0.12em] text-white opacity-0 backdrop-blur-md transition duration-200 hover:bg-white hover:text-slate-950 group-hover:translate-y-0 group-hover:opacity-100"
                       >
                         Quick view
                       </button>
@@ -1649,12 +1649,12 @@ export default function HomeContinuousExperience({
                                   <div className="absolute inset-0 bg-gradient-to-t from-[#04131d]/95 via-[#061722]/15 to-black/5" />
 
                                   <div className="absolute left-4 top-4">
-                                    <p className="text-[8px] font-bold uppercase tracking-[0.17em] text-white/85">
+                                    <p className="text-[10px] font-bold uppercase tracking-[0.17em] text-white/85">
                                       {item.type}
                                     </p>
                                   </div>
 
-                                  <div className="absolute right-4 top-4 rounded-full border border-white/25 bg-black/30 px-2 py-1 text-[8px] font-semibold tracking-[0.1em] text-white/80 backdrop-blur-md">
+                                  <div className="absolute right-4 top-4 rounded-full border border-white/25 bg-black/30 px-2 py-1 text-[10px] font-semibold tracking-[0.1em] text-white/80 backdrop-blur-md">
                                     {String(
                                       index + 2
                                     ).padStart(2, "0")}
@@ -1664,7 +1664,7 @@ export default function HomeContinuousExperience({
                                   <div className="absolute inset-x-0 bottom-0 p-4 pr-12">
 
                                     {item.meta ? (
-                                      <p className="text-[8px] font-semibold uppercase tracking-[0.13em] text-white/60">
+                                      <p className="text-[10px] font-semibold uppercase tracking-[0.13em] text-white/60">
                                         {item.meta}
                                       </p>
                                     ) : null}
@@ -1761,7 +1761,7 @@ export default function HomeContinuousExperience({
                   <div>
                     <p
                       className="
-                        text-[9px]
+                        text-[11px]
                         font-bold
                         uppercase
                         tracking-[0.24em]
@@ -1793,7 +1793,7 @@ export default function HomeContinuousExperience({
                       border-l
                       border-white/30
                       pl-5
-                      text-[9px]
+                      text-[11px]
                       font-semibold
                       uppercase
                       tracking-[0.2em]
@@ -1828,11 +1828,11 @@ export default function HomeContinuousExperience({
           >
             <div className="flex items-center justify-between border-b border-slate-200 px-6 py-4">
               <div>
-                <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-red-500">
+                <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-red-500">
                   Quick View
                 </p>
 
-                <p className="mt-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-slate-400">
+                <p className="mt-1 text-[12px] font-semibold uppercase tracking-[0.12em] text-slate-400">
                   {quickViewItem.type}
                 </p>
               </div>
@@ -1866,7 +1866,7 @@ export default function HomeContinuousExperience({
 
             <div className="flex flex-1 flex-col px-7 py-7">
               {quickViewItem.meta ? (
-                <p className="text-[9px] font-bold uppercase tracking-[0.16em] text-slate-400">
+                <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-slate-400">
                   {quickViewItem.meta}
                 </p>
               ) : null}
@@ -1876,7 +1876,7 @@ export default function HomeContinuousExperience({
               </h2>
 
               {quickViewRecord?.geography ? (
-                <p className="mt-4 text-[11px] font-semibold uppercase tracking-[0.12em] text-red-500">
+                <p className="mt-4 text-[12px] font-semibold uppercase tracking-[0.12em] text-red-500">
                   {
                     quickViewRecord.geography
                   }
@@ -2024,13 +2024,13 @@ export default function HomeContinuousExperience({
           >
             <div>
               <div className="flex items-center gap-3">
-                <p className="text-[10px] font-bold tracking-[0.08em] text-red-500">
+                <p className="text-[11px] font-bold tracking-[0.08em] text-red-500">
                   Arknoz Now
                 </p>
 
                 <span className="h-1 w-1 rounded-full bg-slate-300" />
 
-                <span className="inline-flex items-center gap-1.5 text-[10px] font-semibold text-slate-500">
+                <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-slate-500">
                   <span className="h-1.5 w-1.5 rounded-full bg-red-500" />
                   Live
                 </span>
@@ -2188,7 +2188,7 @@ export default function HomeContinuousExperience({
                       >
                         <p
                           className="
-                            text-[8px]
+                            text-[10px]
                             font-bold
                             uppercase
                             tracking-[0.18em]
@@ -2222,7 +2222,7 @@ export default function HomeContinuousExperience({
                             className="
                               mt-3
                               line-clamp-1
-                              text-[9px]
+                              text-[11px]
                               font-medium
                               text-white/65
                             "
@@ -2257,7 +2257,7 @@ export default function HomeContinuousExperience({
             <Link
               href="/explore"
               className="
-                text-[11px]
+                text-[12px]
                 font-bold
                 text-[#0a2230]
                 transition
@@ -2423,7 +2423,7 @@ export default function HomeContinuousExperience({
             >
               <p
                 className="
-                  text-[11px]
+                  text-[12px]
                   font-bold
                   uppercase
                   tracking-[0.18em]
@@ -2508,7 +2508,7 @@ export default function HomeContinuousExperience({
             >
               <p
                 className="
-                  text-[11px]
+                  text-[12px]
                   font-bold
                   uppercase
                   tracking-[0.2em]
@@ -2588,7 +2588,7 @@ export default function HomeContinuousExperience({
                 >
                   <p
                     className="
-                      text-[10px]
+                      text-[11px]
                       font-bold
                       uppercase
                       tracking-[0.2em]
@@ -2601,7 +2601,7 @@ export default function HomeContinuousExperience({
                   <p
                     className="
                       hidden
-                      text-[9px]
+                      text-[11px]
                       uppercase
                       tracking-[0.16em]
                       text-cyan-200/45
@@ -2668,7 +2668,7 @@ export default function HomeContinuousExperience({
                       >
                         <p
                           className="
-                            text-[9px]
+                            text-[11px]
                             font-bold
                             text-cyan-200/50
                           "
@@ -2718,7 +2718,7 @@ export default function HomeContinuousExperience({
                 <div>
                   <p
                     className="
-                      text-[9px]
+                      text-[11px]
                       font-bold
                       uppercase
                       tracking-[0.2em]
@@ -2784,7 +2784,7 @@ export default function HomeContinuousExperience({
 
           <div className="grid gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
             <div>
-              <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-teal-700">
+              <p className="text-[12px] font-bold uppercase tracking-[0.22em] text-teal-700">
                 ONE PLATFORM
               </p>
 
@@ -2813,7 +2813,7 @@ export default function HomeContinuousExperience({
               />
 
               <div className="relative z-10 flex h-full flex-col">
-                <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-cyan-200/75">
+                <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-cyan-200/75">
                   PRIMARY GATEWAY
                 </p>
 
@@ -2836,7 +2836,7 @@ export default function HomeContinuousExperience({
                   ].map((item) => (
                     <span
                       key={item}
-                      className="rounded-full border border-white/15 bg-white/[0.06] px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.1em] text-white/80"
+                      className="rounded-full border border-white/15 bg-white/[0.06] px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.1em] text-white/80"
                     >
                       {item}
                     </span>
@@ -2854,7 +2854,7 @@ export default function HomeContinuousExperience({
               href="/community"
               className="group min-h-[330px] rounded-[10px] border border-slate-200 bg-[#f4f7f8] p-8 transition hover:-translate-y-1 hover:shadow-xl"
             >
-              <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-teal-700">
+              <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-teal-700">
                 NEXT LAYER
               </p>
 
@@ -2877,7 +2877,7 @@ export default function HomeContinuousExperience({
               href="/intelligence"
               className="group min-h-[330px] rounded-[10px] border border-slate-200 bg-[#f4f7f8] p-8 transition hover:-translate-y-1 hover:shadow-xl"
             >
-              <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-teal-700">
+              <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-teal-700">
                 DEEPER LAYER
               </p>
 
@@ -2971,13 +2971,13 @@ export default function HomeContinuousExperience({
           >
             <div>
               <div className="flex items-center gap-3">
-                <p className="text-[10px] font-bold tracking-[0.08em] text-red-500">
+                <p className="text-[11px] font-bold tracking-[0.08em] text-red-500">
                   Arknoz Curated
                 </p>
 
                 <span className="h-1 w-1 rounded-full bg-slate-300" />
 
-                <span className="text-[10px] font-semibold text-slate-500">
+                <span className="text-[11px] font-semibold text-slate-500">
                   Selected
                 </span>
               </div>
@@ -3194,7 +3194,7 @@ export default function HomeContinuousExperience({
                       >
                         <p
                           className="
-                            text-[8px]
+                            text-[10px]
                             font-bold
                             uppercase
                             tracking-[0.18em]
@@ -3228,7 +3228,7 @@ export default function HomeContinuousExperience({
                             className="
                               mt-3
                               line-clamp-1
-                              text-[9px]
+                              text-[11px]
                               font-medium
                               text-white/65
                             "
@@ -3371,13 +3371,13 @@ export default function HomeContinuousExperience({
 
             <div>
               <div className="flex items-center gap-3">
-                <p className="text-[10px] font-bold tracking-[0.08em] text-red-500">
+                <p className="text-[11px] font-bold tracking-[0.08em] text-red-500">
                   What next?
                 </p>
 
                 <span className="h-1 w-1 rounded-full bg-slate-300" />
 
-                <p className="text-[10px] font-semibold text-slate-400">
+                <p className="text-[11px] font-semibold text-slate-400">
                   Learn · Collaborate · Act
                 </p>
               </div>
@@ -3411,11 +3411,11 @@ export default function HomeContinuousExperience({
               <div className="relative z-10 flex min-h-[270px] flex-col justify-between p-6">
 
                 <div className="flex items-center justify-between">
-                  <p className="text-[10px] font-bold tracking-[0.08em] text-white/75">
+                  <p className="text-[11px] font-bold tracking-[0.08em] text-white/75">
                     Learn
                   </p>
 
-                  <span className="text-[9px] font-semibold text-white/40">
+                  <span className="text-[11px] font-semibold text-white/40">
                     01
                   </span>
                 </div>
@@ -3425,21 +3425,21 @@ export default function HomeContinuousExperience({
                     Build understanding.
                   </h3>
 
-                  <p className="mt-2 max-w-[42ch] text-[11px] leading-5 text-white/60">
+                  <p className="mt-2 max-w-[42ch] text-[12px] leading-5 text-white/60">
                     Research, cases, references, learning and professional development.
                   </p>
 
                   <div className="mt-4 flex flex-wrap gap-2">
                     <Link
                       href="/knowledge"
-                      className="border border-white/20 bg-black/20 px-3 py-2 text-[10px] font-semibold text-white transition hover:bg-white hover:text-[#0a2230]"
+                      className="border border-white/20 bg-black/20 px-3 py-2 text-[11px] font-semibold text-white transition hover:bg-white hover:text-[#0a2230]"
                     >
                       Knowledge →
                     </Link>
 
                     <Link
                       href="/learning"
-                      className="border border-white/20 bg-black/20 px-3 py-2 text-[10px] font-semibold text-white transition hover:bg-white hover:text-[#0a2230]"
+                      className="border border-white/20 bg-black/20 px-3 py-2 text-[11px] font-semibold text-white transition hover:bg-white hover:text-[#0a2230]"
                     >
                       Learning →
                     </Link>
@@ -3464,11 +3464,11 @@ export default function HomeContinuousExperience({
               <div className="relative z-10 flex min-h-[270px] flex-col justify-between p-6">
 
                 <div className="flex items-center justify-between">
-                  <p className="text-[10px] font-bold tracking-[0.08em] text-white/75">
+                  <p className="text-[11px] font-bold tracking-[0.08em] text-white/75">
                     Collaborate
                   </p>
 
-                  <span className="text-[9px] font-semibold text-white/40">
+                  <span className="text-[11px] font-semibold text-white/40">
                     02
                   </span>
                 </div>
@@ -3478,28 +3478,28 @@ export default function HomeContinuousExperience({
                     Work through connections.
                   </h3>
 
-                  <p className="mt-2 max-w-[42ch] text-[11px] leading-5 text-white/60">
+                  <p className="mt-2 max-w-[42ch] text-[12px] leading-5 text-white/60">
                     Find members, professionals, organisations and collaboration pathways.
                   </p>
 
                   <div className="mt-4 flex flex-wrap gap-2">
                     <Link
                       href="/community"
-                      className="border border-white/20 bg-black/20 px-3 py-2 text-[10px] font-semibold text-white transition hover:bg-white hover:text-[#0a2230]"
+                      className="border border-white/20 bg-black/20 px-3 py-2 text-[11px] font-semibold text-white transition hover:bg-white hover:text-[#0a2230]"
                     >
                       Community →
                     </Link>
 
                     <Link
                       href="/people"
-                      className="border border-white/20 bg-black/20 px-3 py-2 text-[10px] font-semibold text-white transition hover:bg-white hover:text-[#0a2230]"
+                      className="border border-white/20 bg-black/20 px-3 py-2 text-[11px] font-semibold text-white transition hover:bg-white hover:text-[#0a2230]"
                     >
                       People →
                     </Link>
 
                     <Link
                       href="/organisations"
-                      className="border border-white/20 bg-black/20 px-3 py-2 text-[10px] font-semibold text-white transition hover:bg-white hover:text-[#0a2230]"
+                      className="border border-white/20 bg-black/20 px-3 py-2 text-[11px] font-semibold text-white transition hover:bg-white hover:text-[#0a2230]"
                     >
                       Organisations →
                     </Link>
@@ -3524,11 +3524,11 @@ export default function HomeContinuousExperience({
               <div className="relative z-10 flex min-h-[270px] flex-col justify-between p-6">
 
                 <div className="flex items-center justify-between">
-                  <p className="text-[10px] font-bold tracking-[0.08em] text-white/75">
+                  <p className="text-[11px] font-bold tracking-[0.08em] text-white/75">
                     Act
                   </p>
 
-                  <span className="text-[9px] font-semibold text-white/40">
+                  <span className="text-[11px] font-semibold text-white/40">
                     03
                   </span>
                 </div>
@@ -3538,28 +3538,28 @@ export default function HomeContinuousExperience({
                     Find what comes next.
                   </h3>
 
-                  <p className="mt-2 max-w-[42ch] text-[11px] leading-5 text-white/60">
+                  <p className="mt-2 max-w-[42ch] text-[12px] leading-5 text-white/60">
                     Jobs, competitions, funding, events and other opportunities.
                   </p>
 
                   <div className="mt-4 flex flex-wrap gap-2">
                     <Link
                       href="/opportunities"
-                      className="border border-white/20 bg-black/20 px-3 py-2 text-[10px] font-semibold text-white transition hover:bg-white hover:text-[#0a2230]"
+                      className="border border-white/20 bg-black/20 px-3 py-2 text-[11px] font-semibold text-white transition hover:bg-white hover:text-[#0a2230]"
                     >
                       Opportunities →
                     </Link>
 
                     <Link
                       href="/opportunities?type=jobs-careers"
-                      className="border border-white/20 bg-black/20 px-3 py-2 text-[10px] font-semibold text-white transition hover:bg-white hover:text-[#0a2230]"
+                      className="border border-white/20 bg-black/20 px-3 py-2 text-[11px] font-semibold text-white transition hover:bg-white hover:text-[#0a2230]"
                     >
                       Jobs →
                     </Link>
 
                     <Link
                       href="/opportunities?type=competitions-awards"
-                      className="border border-white/20 bg-black/20 px-3 py-2 text-[10px] font-semibold text-white transition hover:bg-white hover:text-[#0a2230]"
+                      className="border border-white/20 bg-black/20 px-3 py-2 text-[11px] font-semibold text-white transition hover:bg-white hover:text-[#0a2230]"
                     >
                       Competitions →
                     </Link>

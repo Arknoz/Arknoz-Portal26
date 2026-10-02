@@ -187,13 +187,13 @@ export function ArknozPartnersExperience() {
           <div>
             <div className="flex items-center gap-3">
 
-              <p className="text-[10px] font-bold tracking-[0.08em] text-red-500">
+              <p className="text-[11px] font-bold tracking-[0.08em] text-red-500">
                 Arknoz Partners
               </p>
 
               <span className="h-1 w-1 rounded-full bg-slate-300" />
 
-              <p className="text-[10px] font-semibold text-slate-400">
+              <p className="text-[11px] font-semibold text-slate-400">
                 Connected network
               </p>
 
@@ -258,7 +258,7 @@ export function ArknozPartnersExperience() {
 
               <div className="flex items-center justify-between">
 
-                <p className="text-[10px] font-bold tracking-[0.08em] text-white/75">
+                <p className="text-[11px] font-bold tracking-[0.08em] text-white/75">
                   Partner Network
                 </p>
 
@@ -274,12 +274,12 @@ export function ArknozPartnersExperience() {
                   Discover partner organisations.
                 </h3>
 
-                <p className="mt-3 max-w-[48ch] text-[11px] leading-5 text-white/65">
+                <p className="mt-3 max-w-[48ch] text-[12px] leading-5 text-white/65">
                   Explore organisations, institutions, universities and
                   professional networks across the Built World.
                 </p>
 
-                <p className="mt-5 text-[10px] font-semibold text-white/75">
+                <p className="mt-5 text-[11px] font-semibold text-white/75">
                   Explore organisations →
                 </p>
               </div>
@@ -307,18 +307,18 @@ export function ArknozPartnersExperience() {
             <div className="flex items-center justify-between gap-5 border-b border-slate-200 px-5 py-4 sm:px-6">
 
               <div>
-                <p className="text-[10px] font-bold tracking-[0.08em] text-red-500">
+                <p className="text-[11px] font-bold tracking-[0.08em] text-red-500">
                   Explore partner networks
                 </p>
 
-                <p className="mt-1 text-[11px] leading-5 text-slate-500">
+                <p className="mt-1 text-[12px] leading-5 text-slate-500">
                   Select any network to continue exploring Arknoz.
                 </p>
               </div>
 
               <Link
                 href="/organisations"
-                className="group inline-flex items-center gap-2 text-[10px] font-semibold text-[#0a2230]"
+                className="group inline-flex items-center gap-2 text-[11px] font-semibold text-[#0a2230]"
               >
                 All organisations
                 <span className="transition-transform group-hover:translate-x-1">
@@ -402,7 +402,7 @@ export function ArknozPartnersExperience() {
 
                         <div className="absolute inset-x-0 bottom-0 z-10 p-4">
 
-                          <p className="text-[9px] font-semibold tracking-[0.06em] text-white/55">
+                          <p className="text-[11px] font-semibold tracking-[0.06em] text-white/55">
                             Partner Network
                           </p>
 
@@ -413,7 +413,7 @@ export function ArknozPartnersExperience() {
                                 {item.title}
                               </h3>
 
-                              <p className="mt-1 text-[9px] leading-4 text-white/55">
+                              <p className="mt-1 text-[11px] leading-4 text-white/55">
                                 {item.subtitle}
                               </p>
                             </div>
@@ -491,13 +491,13 @@ export function YourArknozExperience() {
         <div className="px-7 py-7 sm:px-9 lg:px-10 lg:py-9">
 
           <div className="flex items-center gap-3">
-            <p className="text-[10px] font-bold tracking-[0.08em] text-red-400">
+            <p className="text-[11px] font-bold tracking-[0.08em] text-red-400">
               Your Arknoz
             </p>
 
             <span className="h-1 w-1 rounded-full bg-white/25" />
 
-            <p className="text-[10px] font-semibold text-white/45">
+            <p className="text-[11px] font-semibold text-white/45">
               Continue when it matters
             </p>
           </div>
@@ -539,7 +539,7 @@ export function YourArknozExperience() {
             "
           >
             <div>
-              <p className="text-[9px] font-semibold tracking-[0.08em] text-white/40">
+              <p className="text-[11px] font-semibold tracking-[0.08em] text-white/40">
                 Arknoz ID
               </p>
 
@@ -547,7 +547,7 @@ export function YourArknozExperience() {
                 Create your Arknoz ID
               </p>
 
-              <p className="mt-1 text-[10px] leading-4 text-white/45">
+              <p className="mt-1 text-[11px] leading-4 text-white/45">
                 Save, follow and participate.
               </p>
             </div>
@@ -574,7 +574,7 @@ export function YourArknozExperience() {
             "
           >
             <div>
-              <p className="text-[9px] font-semibold tracking-[0.08em] text-white/40">
+              <p className="text-[11px] font-semibold tracking-[0.08em] text-white/40">
                 Explore
               </p>
 
@@ -582,7 +582,7 @@ export function YourArknozExperience() {
                 Keep exploring
               </p>
 
-              <p className="mt-1 text-[10px] leading-4 text-white/45">
+              <p className="mt-1 text-[11px] leading-4 text-white/45">
                 Continue without creating an ID.
               </p>
             </div>

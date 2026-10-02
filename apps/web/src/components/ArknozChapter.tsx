@@ -48,7 +48,7 @@ export default function ArknozChapter({
             {eyebrow ? (
               <p
                 className={[
-                  "text-[8px] font-bold uppercase tracking-[0.16em]",
+                  "text-[10px] font-bold uppercase tracking-[0.16em]",
                   tone === "dark"
                     ? "text-blue-300"
                     : "text-blue-700",
@@ -67,7 +67,7 @@ export default function ArknozChapter({
             {description ? (
               <p
                 className={[
-                  "mt-2 max-w-2xl text-[10px] leading-5",
+                  "mt-2 max-w-2xl text-[11px] leading-5",
                   tone === "dark"
                     ? "text-slate-400"
                     : "text-slate-600",

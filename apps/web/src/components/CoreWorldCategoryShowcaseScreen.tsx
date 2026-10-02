@@ -294,7 +294,7 @@ function RecordCard({
 
           <div className="absolute inset-0 bg-gradient-to-t from-[#03121c]/65 via-transparent to-transparent" />
 
-          <span className="absolute left-4 top-4 text-[10px] font-semibold text-white">
+          <span className="absolute left-4 top-4 text-[11px] font-semibold text-white">
             {number}
           </span>
 
@@ -308,7 +308,7 @@ function RecordCard({
         <div className="flex min-h-0 flex-1 flex-col p-5">
 
           <p
-            className="text-[9px] font-semibold uppercase tracking-[0.12em]"
+            className="text-[11px] font-semibold uppercase tracking-[0.12em]"
             style={{
               color:
                 theme.accent,
@@ -321,11 +321,11 @@ function RecordCard({
             Explore {theme.title.toLowerCase()}
           </h3>
 
-          <p className="mt-2 text-[11px] leading-5 text-slate-500">
+          <p className="mt-2 text-[12px] leading-5 text-slate-500">
             Published records will appear here as they are added to this category.
           </p>
 
-          <p className="mt-auto border-t border-slate-100 pt-4 text-[8px] font-semibold uppercase tracking-[0.12em] text-slate-400">
+          <p className="mt-auto border-t border-slate-100 pt-4 text-[10px] font-semibold uppercase tracking-[0.12em] text-slate-400">
             Awaiting published record
           </p>
 
@@ -376,7 +376,7 @@ function RecordCard({
         <div className="flex items-start justify-between">
 
           <span
-            className="text-[10px] font-semibold"
+            className="text-[11px] font-semibold"
             style={{
               color:
                 theme.accent,
@@ -403,14 +403,14 @@ function RecordCard({
 
 
         {entity.geography ? (
-          <p className="mt-2 text-[9px] leading-4 text-slate-500">
+          <p className="mt-2 text-[11px] leading-4 text-slate-500">
             {entity.geography}
           </p>
         ) : null}
 
 
         <p
-          className="mt-auto border-t border-slate-100 pt-4 text-[9px] font-semibold"
+          className="mt-auto border-t border-slate-100 pt-4 text-[11px] font-semibold"
           style={{
             color:
               theme.accent,
@@ -511,7 +511,7 @@ export default function CoreWorldCategoryShowcaseScreen({
 
           <div className="relative">
 
-            <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-white/70">
+            <p className="text-[12px] font-semibold uppercase tracking-[0.14em] text-white/70">
               {String(screenNumber).padStart(2, "0")} / {theme.title}
             </p>
 
@@ -530,7 +530,7 @@ export default function CoreWorldCategoryShowcaseScreen({
 
           <div className="relative mt-auto">
 
-            <p className="text-[9px] font-semibold uppercase tracking-[0.15em] text-white/70">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-white/70">
               Featured {theme.recordLabel}
             </p>
 
@@ -559,7 +559,7 @@ export default function CoreWorldCategoryShowcaseScreen({
 
                 <Link
                   href={getEntityHref(featuredRecord)}
-                  className="mt-6 inline-flex items-center gap-3 border-b border-white/60 pb-2 text-[11px] font-semibold text-white"
+                  className="mt-6 inline-flex items-center gap-3 border-b border-white/60 pb-2 text-[12px] font-semibold text-white"
                 >
                   Open featured record
                   <span aria-hidden="true">
@@ -594,7 +594,7 @@ export default function CoreWorldCategoryShowcaseScreen({
                     : "—"}
                 </p>
 
-                <p className="mt-2 text-[8px] font-semibold uppercase tracking-[0.12em] text-white/45">
+                <p className="mt-2 text-[10px] font-semibold uppercase tracking-[0.12em] text-white/45">
                   {totalCount === 0
                     ? `Awaiting published ${theme.recordPlural}`
                     : "Published records"}
@@ -605,7 +605,7 @@ export default function CoreWorldCategoryShowcaseScreen({
 
               <Link
                 href={categoryHref}
-                className="text-[10px] font-semibold text-white/70 hover:text-white"
+                className="text-[11px] font-semibold text-white/70 hover:text-white"
               >
                 View all →
               </Link>
@@ -632,7 +632,7 @@ export default function CoreWorldCategoryShowcaseScreen({
             <div>
 
               <p
-                className="text-[10px] font-semibold uppercase tracking-[0.13em]"
+                className="text-[11px] font-semibold uppercase tracking-[0.13em]"
                 style={{
                   color:
                     theme.accent,
@@ -651,7 +651,7 @@ export default function CoreWorldCategoryShowcaseScreen({
 
             <Link
               href={categoryHref}
-              className="hidden shrink-0 text-[10px] font-semibold lg:block"
+              className="hidden shrink-0 text-[11px] font-semibold lg:block"
               style={{
                 color:
                   theme.accent,

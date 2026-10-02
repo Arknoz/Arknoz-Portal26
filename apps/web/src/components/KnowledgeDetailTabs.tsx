@@ -70,7 +70,7 @@ function KnowledgeSignal({
 
       <div className="relative flex h-full flex-col justify-between">
         <div>
-          <p className="text-[8px] font-bold uppercase tracking-[0.18em] text-blue-200">
+          <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-blue-200">
             KNOWLEDGE SIGNAL
           </p>
 
@@ -81,7 +81,7 @@ function KnowledgeSignal({
           </p>
 
           {theme?.description ? (
-            <p className="mt-2 line-clamp-3 text-[10px] leading-5 text-slate-300">
+            <p className="mt-2 line-clamp-3 text-[11px] leading-5 text-slate-300">
               {theme.description}
             </p>
           ) : null}
@@ -96,7 +96,7 @@ function KnowledgeSignal({
             <div className="h-11 w-8 rounded-t bg-white" />
           </div>
 
-          <p className="mt-2 text-[8px] uppercase tracking-[0.15em] text-blue-200">
+          <p className="mt-2 text-[10px] uppercase tracking-[0.15em] text-blue-200">
             {detail?.geography ?? "Knowledge"}
           </p>
         </div>
@@ -208,11 +208,11 @@ export default function KnowledgeDetailTabs({
             <article className="flex min-h-0 flex-col justify-between rounded-[22px] border border-slate-200 bg-white p-5 shadow-[0_5px_22px_rgba(15,23,42,.035)]">
               <div>
                 <div className="flex items-center justify-between">
-                  <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-blue-700">
+                  <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-blue-700">
                     ABOUT THIS RECORD
                   </p>
 
-                  <span className="text-[9px] text-slate-400">
+                  <span className="text-[11px] text-slate-400">
                     Public knowledge
                   </span>
                 </div>
@@ -225,7 +225,7 @@ export default function KnowledgeDetailTabs({
 
               {themes.length > 0 ? (
                 <div className="mt-4 border-t border-slate-100 pt-4">
-                  <p className="mb-2 text-[8px] font-bold uppercase tracking-[0.16em] text-slate-400">
+                  <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.16em] text-slate-400">
                     EXPLORE KEY THEMES
                   </p>
 
@@ -268,7 +268,7 @@ export default function KnowledgeDetailTabs({
                                   : "bg-[#f5f7fa] text-slate-900 hover:-translate-y-[1px] hover:bg-[#eef3f8]"
                               }`}
                             >
-                              <p className="text-[10px] font-bold leading-4">
+                              <p className="text-[11px] font-bold leading-4">
                                 {
                                   theme.title
                                 }
@@ -284,11 +284,11 @@ export default function KnowledgeDetailTabs({
 
             <article className="min-h-0 rounded-[22px] bg-[#f5f7fa] p-5 ring-1 ring-slate-200/60">
               <div className="flex items-center justify-between">
-                <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-blue-700">
+                <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-blue-700">
                   PUBLICATION DETAILS
                 </p>
 
-                <span className="rounded-full bg-white px-2.5 py-1 text-[8px] font-semibold text-slate-400">
+                <span className="rounded-full bg-white px-2.5 py-1 text-[10px] font-semibold text-slate-400">
                   Source-backed
                 </span>
               </div>
@@ -322,7 +322,7 @@ export default function KnowledgeDetailTabs({
 
               <article className="grid grid-cols-2 gap-3 rounded-[22px] border border-slate-200 bg-white p-4">
                 <div>
-                  <p className="text-[8px] font-bold uppercase tracking-[0.16em] text-blue-700">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-blue-700">
                     PUBLISHER
                   </p>
 
@@ -331,13 +331,13 @@ export default function KnowledgeDetailTabs({
                       "Not established"}
                   </h3>
 
-                  <p className="mt-2 text-[9px] leading-4 text-slate-500">
+                  <p className="mt-2 text-[11px] leading-4 text-slate-500">
                     {detail?.access}
                   </p>
                 </div>
 
                 <div className="border-l border-slate-200 pl-4">
-                  <p className="text-[8px] font-bold uppercase tracking-[0.16em] text-blue-700">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-blue-700">
                     SOURCES
                   </p>
 
@@ -345,7 +345,7 @@ export default function KnowledgeDetailTabs({
                     {sources.length}
                   </p>
 
-                  <p className="text-[10px] text-slate-500">
+                  <p className="text-[11px] text-slate-500">
                     identified sources
                   </p>
                 </div>
@@ -365,7 +365,7 @@ export default function KnowledgeDetailTabs({
             <article className="min-h-0 overflow-hidden rounded-[22px] bg-gradient-to-br from-[#0b2949] to-[#071b31] p-4 text-white shadow-[0_10px_30px_rgba(7,27,49,.12)]">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-blue-200">
+                  <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-blue-200">
                     KEY THEMES
                   </p>
 
@@ -374,7 +374,7 @@ export default function KnowledgeDetailTabs({
                   </h3>
                 </div>
 
-                <span className="rounded-full border border-white/10 bg-white/[0.05] px-3 py-1 text-[9px] text-slate-300">
+                <span className="rounded-full border border-white/10 bg-white/[0.05] px-3 py-1 text-[11px] text-slate-300">
                   {themes.length} themes
                 </span>
               </div>
@@ -419,7 +419,7 @@ export default function KnowledgeDetailTabs({
                           }`}
                         >
                           <div className="flex items-start gap-3">
-                            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-blue-300/15 text-[9px] font-bold text-blue-100">
+                            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-blue-300/15 text-[11px] font-bold text-blue-100">
                               {String(
                                 index + 1
                               ).padStart(
@@ -435,7 +435,7 @@ export default function KnowledgeDetailTabs({
                                 }
                               </h4>
 
-                              <p className="mt-1.5 text-[10px] leading-[1.45] text-slate-300">
+                              <p className="mt-1.5 text-[11px] leading-[1.45] text-slate-300">
                                 {
                                   theme.description
                                 }
@@ -452,7 +452,7 @@ export default function KnowledgeDetailTabs({
             {/* CLASSIFICATION */}
             <article className="min-h-0 overflow-hidden rounded-[22px] border border-slate-200 bg-white p-4">
               <div>
-                <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-blue-700">
+                <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-blue-700">
                   KNOWLEDGE CLASSIFICATION
                 </p>
 
@@ -463,11 +463,11 @@ export default function KnowledgeDetailTabs({
 
               <div className="mt-4 space-y-2">
                 <div className="rounded-[13px] bg-[#0b2949] p-3 text-white">
-                  <p className="text-[7px] font-bold uppercase tracking-[0.14em] text-blue-200">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-blue-200">
                     BUILT WORLD KNOWLEDGE
                   </p>
 
-                  <p className="mt-1 text-[11px] font-bold">
+                  <p className="mt-1 text-[12px] font-bold">
                     {detail?.section ??
                       "Knowledge"}
                   </p>
@@ -493,7 +493,7 @@ export default function KnowledgeDetailTabs({
                           } as React.CSSProperties
                         }
                       >
-                        <p className="text-[10px] font-semibold text-slate-700">
+                        <p className="text-[11px] font-semibold text-slate-700">
                           ↳ {topic}
                         </p>
                       </div>
@@ -504,7 +504,7 @@ export default function KnowledgeDetailTabs({
 
             {/* WHY IT MATTERS */}
             <article className="min-h-0 overflow-hidden rounded-[22px] border border-slate-200 bg-[#f7f9fc] p-4">
-              <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-blue-700">
+              <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-blue-700">
                 ARKNOZ CONTEXT
               </p>
 
@@ -512,7 +512,7 @@ export default function KnowledgeDetailTabs({
                 Why this record matters
               </h3>
 
-              <p className="mt-3 max-w-2xl text-[11px] leading-5 text-slate-600">
+              <p className="mt-3 max-w-2xl text-[12px] leading-5 text-slate-600">
                 This record connects urban climate risk, resilience, planning and the wider Built World. Arknoz keeps the public record concise while preserving the originating source and rights context.
               </p>
 
@@ -522,7 +522,7 @@ export default function KnowledgeDetailTabs({
                   .map((topic) => (
                     <span
                       key={topic}
-                      className="rounded-full bg-white px-3 py-1.5 text-[9px] font-semibold text-slate-700 ring-1 ring-slate-200"
+                      className="rounded-full bg-white px-3 py-1.5 text-[11px] font-semibold text-slate-700 ring-1 ring-slate-200"
                     >
                       {topic}
                     </span>
@@ -533,7 +533,7 @@ export default function KnowledgeDetailTabs({
             {/* SOURCE + RIGHTS */}
             <article className="grid min-h-0 grid-cols-[1.2fr_.8fr] gap-3 overflow-hidden rounded-[22px] border border-slate-200 bg-white p-4">
               <div className="min-w-0">
-                <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-blue-700">
+                <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-blue-700">
                   SOURCE & PROVENANCE
                 </p>
 
@@ -545,18 +545,18 @@ export default function KnowledgeDetailTabs({
                         key={source.label}
                         className="rounded-[12px] bg-[#f5f7fa] px-3 py-2.5 transition hover:-translate-y-[1px] hover:bg-white hover:shadow-sm hover:ring-1 hover:ring-slate-200"
                       >
-                        <p className="text-[10px] font-bold">
+                        <p className="text-[11px] font-bold">
                           {source.label}
                         </p>
 
                         <div className="mt-1 flex items-center justify-between">
-                          <p className="text-[9px] text-slate-500">
+                          <p className="text-[11px] text-slate-500">
                             {
                               source.organisation
                             }
                           </p>
 
-                          <span className="text-[8px] font-semibold text-blue-700">
+                          <span className="text-[10px] font-semibold text-blue-700">
                             {
                               source.status
                             }
@@ -569,7 +569,7 @@ export default function KnowledgeDetailTabs({
 
               <div className="flex min-h-0 flex-col justify-between rounded-[16px] bg-[#0b2949] p-4 text-white">
                 <div>
-                  <p className="text-[8px] font-bold uppercase tracking-[0.16em] text-blue-200">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-blue-200">
                     RIGHTS AWARE
                   </p>
 
@@ -577,12 +577,12 @@ export default function KnowledgeDetailTabs({
                     Public access ≠ reuse rights
                   </p>
 
-                  <p className="mt-2 text-[9px] leading-4 text-slate-300">
+                  <p className="mt-2 text-[11px] leading-4 text-slate-300">
                     {detail?.rights}
                   </p>
                 </div>
 
-                <p className="mt-3 text-[8px] uppercase tracking-[0.14em] text-blue-200">
+                <p className="mt-3 text-[10px] uppercase tracking-[0.14em] text-blue-200">
                   Originating source preserved
                 </p>
               </div>
@@ -598,7 +598,7 @@ export default function KnowledgeDetailTabs({
           <div className="grid h-full min-h-0 gap-3 lg:grid-cols-[.86fr_1.14fr]">
 
             <article className="min-h-0 overflow-hidden rounded-[22px] bg-gradient-to-br from-[#0b2949] to-[#071b31] p-5 text-white">
-              <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-blue-200">
+              <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-blue-200">
                 CONNECTED BUILT WORLD
               </p>
 
@@ -611,7 +611,7 @@ export default function KnowledgeDetailTabs({
 
                 <div className="relative z-10">
                   <div className="rounded-[14px] border border-white/10 bg-white/[0.07] p-3 transition hover:-translate-x-1 hover:bg-white/[0.12]">
-                    <p className="text-[7px] font-bold uppercase tracking-[0.14em] text-blue-200">
+                    <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-blue-200">
                       ORGANISATION
                     </p>
 
@@ -622,7 +622,7 @@ export default function KnowledgeDetailTabs({
                 </div>
 
                 <div className="relative z-10 rounded-[18px] bg-white p-4 text-center text-slate-950 shadow-lg transition hover:scale-[1.025]">
-                  <p className="text-[7px] font-bold uppercase tracking-[0.14em] text-blue-700">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-blue-700">
                     KNOWLEDGE
                   </p>
 
@@ -630,7 +630,7 @@ export default function KnowledgeDetailTabs({
                     {entity.title}
                   </p>
 
-                  <p className="mt-1 text-[9px] text-slate-500">
+                  <p className="mt-1 text-[11px] text-slate-500">
                     {detail?.recordType}
                   </p>
                 </div>
@@ -647,7 +647,7 @@ export default function KnowledgeDetailTabs({
                           key={topic}
                           className="rounded-[14px] border border-white/10 bg-white/[0.07] p-3 transition hover:translate-x-1 hover:bg-blue-300/10"
                         >
-                          <p className="text-[7px] font-bold uppercase tracking-[0.14em] text-blue-200">
+                          <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-blue-200">
                             {index === 0
                               ? "THEME"
                               : index ===
@@ -656,7 +656,7 @@ export default function KnowledgeDetailTabs({
                               : "CONTEXT"}
                           </p>
 
-                          <p className="mt-1 text-[11px] font-bold">
+                          <p className="mt-1 text-[12px] font-bold">
                             {topic}
                           </p>
                         </div>
@@ -666,11 +666,11 @@ export default function KnowledgeDetailTabs({
               </div>
 
               <div className="mt-6 border-t border-white/10 pt-4">
-                <p className="text-[8px] font-bold uppercase tracking-[0.16em] text-blue-200">
+                <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-blue-200">
                   CONNECTION RULE
                 </p>
 
-                <p className="mt-2 text-[10px] leading-5 text-slate-300">
+                <p className="mt-2 text-[11px] leading-5 text-slate-300">
                   Provenance and factual relationships remain separate from discovery recommendations.
                 </p>
               </div>
@@ -679,7 +679,7 @@ export default function KnowledgeDetailTabs({
             <article className="min-h-0 overflow-hidden rounded-[22px] border border-slate-200 bg-white p-5">
               <div className="flex items-end justify-between">
                 <div>
-                  <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-blue-700">
+                  <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-blue-700">
                     DISCOVER
                   </p>
 
@@ -690,7 +690,7 @@ export default function KnowledgeDetailTabs({
 
                 <Link
                   href="/knowledge"
-                  className="group inline-flex items-center gap-1 text-[10px] font-bold text-blue-700"
+                  className="group inline-flex items-center gap-1 text-[11px] font-bold text-blue-700"
                 >
                   All knowledge
                   <Arrow />
@@ -706,7 +706,7 @@ export default function KnowledgeDetailTabs({
                   >
                     <div className="flex min-h-0 flex-1 flex-col justify-between bg-[#0b2949] p-4 text-white">
                       <div>
-                        <p className="text-[7px] font-bold uppercase tracking-[0.14em] text-blue-200">
+                        <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-blue-200">
                           KNOWLEDGE
                         </p>
 
@@ -717,7 +717,7 @@ export default function KnowledgeDetailTabs({
                           }
                         </p>
 
-                        <p className="mt-2 line-clamp-4 text-[9px] leading-4 text-slate-300">
+                        <p className="mt-2 line-clamp-4 text-[11px] leading-4 text-slate-300">
                           {
                             moreKnowledge[0]
                               .summary
@@ -734,7 +734,7 @@ export default function KnowledgeDetailTabs({
                     </div>
 
                     <div className="flex items-center justify-between bg-white p-3">
-                      <span className="text-[9px] font-semibold text-slate-500">
+                      <span className="text-[11px] font-semibold text-slate-500">
                         Open record
                       </span>
 
@@ -757,7 +757,7 @@ export default function KnowledgeDetailTabs({
 
                     <div className="relative flex h-full flex-col justify-between">
                       <div>
-                        <p className="text-[8px] font-bold uppercase tracking-[0.18em] text-blue-700">
+                        <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-blue-700">
                           DISCOVERY LENS
                         </p>
 
@@ -765,7 +765,7 @@ export default function KnowledgeDetailTabs({
                           Follow the knowledge
                         </h4>
 
-                        <p className="mt-2 max-w-md text-[10px] leading-5 text-slate-600">
+                        <p className="mt-2 max-w-md text-[11px] leading-5 text-slate-600">
                           Discover connected topics, projects, products and places as genuine Arknoz relationships become available.
                         </p>
                       </div>
@@ -784,7 +784,7 @@ export default function KnowledgeDetailTabs({
                                 }
                                 className="rounded-[12px] bg-white/75 p-3 ring-1 ring-white"
                               >
-                                <p className="text-[7px] font-bold uppercase tracking-[0.13em] text-blue-700">
+                                <p className="text-[10px] font-bold uppercase tracking-[0.13em] text-blue-700">
                                   {index ===
                                   0
                                     ? "THEME"
@@ -794,7 +794,7 @@ export default function KnowledgeDetailTabs({
                                     : "CONTEXT"}
                                 </p>
 
-                                <p className="mt-1 text-[10px] font-bold">
+                                <p className="mt-1 text-[11px] font-bold">
                                   {
                                     topic
                                   }
@@ -839,7 +839,7 @@ export default function KnowledgeDetailTabs({
                             }`}
                           >
                             <div>
-                              <p className="text-[7px] font-bold uppercase tracking-[0.14em] text-blue-600">
+                              <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-blue-600">
                                 KNOWLEDGE
                               </p>
 
@@ -849,7 +849,7 @@ export default function KnowledgeDetailTabs({
                                 }
                               </p>
 
-                              <p className="mt-2 line-clamp-4 text-[9px] leading-4 opacity-70">
+                              <p className="mt-2 line-clamp-4 text-[11px] leading-4 opacity-70">
                                 {
                                   item.summary
                                 }
@@ -858,7 +858,7 @@ export default function KnowledgeDetailTabs({
                           </div>
 
                           <div className="flex items-center justify-between bg-white p-3">
-                            <span className="text-[9px] text-slate-500">
+                            <span className="text-[11px] text-slate-500">
                               Open
                             </span>
 
@@ -877,7 +877,7 @@ export default function KnowledgeDetailTabs({
                       Related knowledge will appear as genuine Arknoz records are connected.
                     </p>
 
-                    <p className="mt-2 text-[10px] text-slate-500">
+                    <p className="mt-2 text-[11px] text-slate-500">
                       Unsupported relationships are never fabricated.
                     </p>
                   </div>
@@ -910,7 +910,7 @@ export default function KnowledgeDetailTabs({
                   <div className="flex items-center gap-2 text-blue-200">
                     <LockIcon />
 
-                    <p className="text-[9px] font-bold uppercase tracking-[0.18em]">
+                    <p className="text-[11px] font-bold uppercase tracking-[0.18em]">
                       ARKNOZ PRO · DEEP
                     </p>
                   </div>
@@ -940,7 +940,7 @@ export default function KnowledgeDetailTabs({
                       className="cursor-not-allowed rounded-[13px] border border-white/10 bg-white/[0.06] px-3 py-3 opacity-85"
                     >
                       <div className="flex items-center justify-between gap-2">
-                        <p className="text-[10px] font-bold">
+                        <p className="text-[11px] font-bold">
                           {item}
                         </p>
 
@@ -955,7 +955,7 @@ export default function KnowledgeDetailTabs({
             <article className="flex min-h-0 flex-col gap-3">
 
               <div className="flex-1 rounded-[22px] border border-slate-200 bg-[#f6f8fb] p-5">
-                <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-blue-700">
+                <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-blue-700">
                   ARKNOZ PRO PREVIEW
                 </p>
 
@@ -978,11 +978,11 @@ export default function KnowledgeDetailTabs({
                         key={item}
                         className="flex items-center gap-3 rounded-[13px] bg-white px-3 py-2.5 ring-1 ring-slate-200"
                       >
-                        <span className="text-[9px] font-bold text-blue-700">
+                        <span className="text-[11px] font-bold text-blue-700">
                           0{index + 1}
                         </span>
 
-                        <span className="text-[11px] font-semibold">
+                        <span className="text-[12px] font-semibold">
                           {item}
                         </span>
                       </div>
@@ -993,16 +993,16 @@ export default function KnowledgeDetailTabs({
 
               <div className="flex items-center justify-between rounded-[18px] border border-slate-200 bg-white p-4">
                 <div>
-                  <p className="text-[9px] font-bold uppercase tracking-[0.15em] text-blue-700">
+                  <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-blue-700">
                     ARKNOZ PRO
                   </p>
 
-                  <p className="mt-1 max-w-sm text-[10px] leading-4 text-slate-500">
+                  <p className="mt-1 max-w-sm text-[11px] leading-4 text-slate-500">
                     Public knowledge information stays free. Arknoz Deep is planned for Arknoz Pro.
                   </p>
                 </div>
 
-                <span className="inline-flex cursor-not-allowed items-center gap-2 rounded-full bg-[#0b2949] px-4 py-2 text-[11px] font-bold text-white">
+                <span className="inline-flex cursor-not-allowed items-center gap-2 rounded-full bg-[#0b2949] px-4 py-2 text-[12px] font-bold text-white">
                   <LockIcon />
                   Planned
                 </span>

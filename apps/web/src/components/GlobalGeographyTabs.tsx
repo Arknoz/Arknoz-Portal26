@@ -109,7 +109,7 @@ export default function GlobalGeographyTabs() {
     <section id="continents" className="bg-white py-12">
       <div className="mx-auto max-w-[1720px] px-6 lg:px-10">
         <div>
-          <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-700">
+          <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-blue-700">
             CONTINENTS & REGIONS
           </p>
           <h2 className="mt-2 text-3xl font-bold tracking-tight text-slate-950 md:text-4xl">
@@ -157,7 +157,7 @@ export default function GlobalGeographyTabs() {
         >
           <div className="grid lg:grid-cols-[.72fr_1.28fr]">
             <div className="bg-[#0b2949] p-7 text-white">
-              <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-blue-200">
+              <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-blue-200">
                 REGION
               </p>
               <h3 className="mt-2 text-3xl font-bold tracking-tight">
@@ -169,7 +169,7 @@ export default function GlobalGeographyTabs() {
             </div>
 
             <div className="p-6">
-              <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-blue-700">
+              <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-blue-700">
                 AVAILABLE COUNTRY CONTEXT
               </p>
 

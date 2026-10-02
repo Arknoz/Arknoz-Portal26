@@ -261,7 +261,7 @@ theme,
             {/* DISCOVER / UNDERSTAND / CONNECT */}
             <div className="mt-7 grid max-w-[650px] grid-cols-3 border-y border-slate-200 py-5">
               <div className="pr-5">
-                <p className="text-[10px] font-bold tracking-[0.08em] text-slate-400">
+                <p className="text-[11px] font-bold tracking-[0.08em] text-slate-400">
                   DISCOVER
                 </p>
                 <p className="mt-2 text-xs leading-5 text-slate-600">
@@ -270,7 +270,7 @@ theme,
               </div>
 
               <div className="border-l border-slate-200 px-5">
-                <p className="text-[10px] font-bold tracking-[0.08em] text-slate-400">
+                <p className="text-[11px] font-bold tracking-[0.08em] text-slate-400">
                   UNDERSTAND
                 </p>
                 <p className="mt-2 text-xs leading-5 text-slate-600">
@@ -279,7 +279,7 @@ theme,
               </div>
 
               <div className="border-l border-slate-200 pl-5">
-                <p className="text-[10px] font-bold tracking-[0.08em] text-slate-400">
+                <p className="text-[11px] font-bold tracking-[0.08em] text-slate-400">
                   CONNECT
                 </p>
                 <p className="mt-2 text-xs leading-5 text-slate-600">
@@ -308,7 +308,7 @@ theme,
                   <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/15 to-transparent" />
 
                   <div className="absolute inset-x-0 bottom-0 p-4 text-white">
-                    <p className="text-[9px] font-bold tracking-[0.08em] text-white/65">
+                    <p className="text-[11px] font-bold tracking-[0.08em] text-white/65">
                       {card.label}
                     </p>
 
@@ -326,7 +326,7 @@ theme,
 
             <div className="mb-4 flex items-end justify-between gap-6">
               <div>
-                <p className="flex items-center gap-2 text-[10px] font-bold tracking-[0.1em] text-[#a61f46]">
+                <p className="flex items-center gap-2 text-[11px] font-bold tracking-[0.1em] text-[#a61f46]">
                   <span className="h-2 w-2 rounded-full bg-red-500" />
                   EXPLORE GATEWAYS
                 </p>
@@ -363,13 +363,13 @@ theme,
                   <div className="absolute inset-0 bg-gradient-to-t from-[#061923]/95 via-black/12 to-transparent" />
 
                   <div className="absolute left-5 top-5">
-                    <span className="bg-white/90 px-2.5 py-1 text-[9px] font-bold tracking-[0.1em] text-[#10253b]">
+                    <span className="bg-white/90 px-2.5 py-1 text-[11px] font-bold tracking-[0.1em] text-[#10253b]">
                       START HERE
                     </span>
                   </div>
 
                   <div className="absolute inset-x-0 bottom-0 p-6 text-white">
-                    <p className="text-[10px] font-bold tracking-[0.1em] text-white/60">
+                    <p className="text-[11px] font-bold tracking-[0.1em] text-white/60">
                       {lead.type}
                     </p>
 
@@ -409,7 +409,7 @@ theme,
                       <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/10 to-transparent" />
 
                       <div className="absolute inset-x-0 bottom-0 p-5 text-white">
-                        <p className="text-[9px] font-bold tracking-[0.1em] text-white/55">
+                        <p className="text-[11px] font-bold tracking-[0.1em] text-white/55">
                           {item.type}
                         </p>
 
@@ -417,7 +417,7 @@ theme,
                           {item.title}
                         </h3>
 
-                        <p className="mt-1 text-[11px] text-white/65">
+                        <p className="mt-1 text-[12px] text-white/65">
                           {item.meta}
                         </p>
 
@@ -471,7 +471,7 @@ theme,
               backgroundColor: "#081b27",
             }}
           >
-            <div className="mx-auto flex h-11 max-w-[1720px] items-center gap-4 overflow-x-auto px-6 text-[11px] font-semibold text-slate-200 [scrollbar-width:none] lg:px-10 [&::-webkit-scrollbar]:hidden">
+            <div className="mx-auto flex h-11 max-w-[1720px] items-center gap-4 overflow-x-auto px-6 text-[12px] font-semibold text-slate-200 [scrollbar-width:none] lg:px-10 [&::-webkit-scrollbar]:hidden">
               {contextNav.map((item) => (
                 <Link
                   key={`${item.label}-${item.href}`}
@@ -512,7 +512,7 @@ theme,
             {breadcrumb.length > 0 ? (
               <nav
                 aria-label="Breadcrumb"
-                className="flex flex-wrap items-center gap-2 text-[11px] font-bold tracking-[0.08em] text-blue-200"
+                className="flex flex-wrap items-center gap-2 text-[12px] font-bold tracking-[0.08em] text-blue-200"
               >
                 {breadcrumb.map((item, index) => (
                   <span
@@ -544,7 +544,7 @@ theme,
                 ))}
               </nav>
             ) : (
-              <p className="text-[11px] font-bold uppercase tracking-[0.24em] text-blue-200">
+              <p className="text-[12px] font-bold uppercase tracking-[0.24em] text-blue-200">
                 {eyebrow}
               </p>
             )}
@@ -627,7 +627,7 @@ theme,
           <div>
             <div className="mb-3 flex items-end justify-between gap-5">
               <div>
-                <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-blue-200">
+                <p className="text-[12px] font-bold uppercase tracking-[0.2em] text-blue-200">
                   {homeVisual
                     ? "EXPLORE ARKNOZ"
                     : "ARKNOZ FEATURED NOW"}
@@ -668,7 +668,7 @@ theme,
                   <div className="absolute inset-0 bg-gradient-to-t from-black/82 via-black/16 to-transparent" />
 
                   <div className="absolute inset-x-0 bottom-0 p-5">
-                    <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-blue-200">
+                    <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-blue-200">
                       {lead.type}
                     </p>
 
@@ -730,7 +730,7 @@ theme,
                           <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/18 to-transparent" />
 
                           <div className="absolute inset-x-0 bottom-0 p-4">
-                            <p className="text-[9px] font-bold uppercase tracking-[0.16em] text-blue-200">
+                            <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-blue-200">
                               {item.type}
                             </p>
 
@@ -768,7 +768,7 @@ theme,
                           </div>
 
                           <div className="p-3.5">
-                            <p className="text-[9px] font-bold uppercase tracking-[0.16em] text-blue-700">
+                            <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-blue-700">
                               {item.type}
                             </p>
 

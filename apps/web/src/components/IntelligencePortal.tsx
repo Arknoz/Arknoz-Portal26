@@ -233,7 +233,7 @@ export default function IntelligencePortal() {
                   >
                     <p
                       className="
-                        text-[8px]
+                        text-[10px]
                         font-bold
                         tracking-[0.16em]
                         text-[#a61f46]
@@ -245,7 +245,7 @@ export default function IntelligencePortal() {
                     <p
                       className="
                         mt-2
-                        text-[11px]
+                        text-[12px]
                         font-semibold
                         text-[#0a2230]
                       "
@@ -256,7 +256,7 @@ export default function IntelligencePortal() {
                     <p
                       className="
                         mt-1
-                        text-[9px]
+                        text-[11px]
                         leading-4
                         text-slate-400
                       "
@@ -394,7 +394,7 @@ export default function IntelligencePortal() {
                 <div>
                   <p
                     className="
-                      text-[9px]
+                      text-[11px]
                       font-bold
                       uppercase
                       tracking-[0.19em]
@@ -420,7 +420,7 @@ export default function IntelligencePortal() {
                     className="
                       mt-2
                       max-w-lg
-                      text-[11px]
+                      text-[12px]
                       leading-5
                       text-white/45
                     "
@@ -435,7 +435,7 @@ export default function IntelligencePortal() {
                     border-white/15
                     px-2.5
                     py-1.5
-                    text-[8px]
+                    text-[10px]
                     font-bold
                     uppercase
                     tracking-[0.16em]
@@ -495,7 +495,7 @@ export default function IntelligencePortal() {
                         justify-center
                         border
                         border-white/15
-                        text-[8px]
+                        text-[10px]
                         font-semibold
                         text-white/40
                       "
@@ -518,7 +518,7 @@ export default function IntelligencePortal() {
                         className="
                           mt-1
                           max-w-xl
-                          text-[11px]
+                          text-[12px]
                           leading-5
                           text-white/45
                         "
@@ -540,7 +540,7 @@ export default function IntelligencePortal() {
               >
                 <p
                   className="
-                    text-[9px]
+                    text-[11px]
                     font-bold
                     uppercase
                     tracking-[0.16em]
@@ -554,7 +554,7 @@ export default function IntelligencePortal() {
                   className="
                     mt-2
                     max-w-2xl
-                    text-[10px]
+                    text-[11px]
                     leading-5
                     text-white/45
                   "
@@ -588,7 +588,7 @@ export default function IntelligencePortal() {
 
           <div className="grid gap-6 border-b border-slate-200 pb-8 lg:grid-cols-[.72fr_1.28fr] lg:items-end">
             <div>
-              <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-teal-700">
+              <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-teal-700">
                 Access model
               </p>
 
@@ -611,7 +611,7 @@ export default function IntelligencePortal() {
                 key={item.title}
                 className="rounded-[22px] border border-slate-200 bg-[#f8fafb] p-6"
               >
-                <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-teal-700">
+                <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-teal-700">
                   {item.mode}
                 </p>
 

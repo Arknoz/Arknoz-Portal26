@@ -1544,7 +1544,7 @@ export default function ProInteractiveJourney() {
 
         <div className="mb-5 grid gap-4 lg:grid-cols-[1fr_1.25fr] lg:items-end">
           <div>
-            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-700">
+            <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-blue-700">
               ARKNOZ PRO
             </p>
 
@@ -1597,7 +1597,7 @@ export default function ProInteractiveJourney() {
           {/* LEFT NAVIGATOR */}
 
           <aside className="rounded-[10px] border border-slate-200 bg-[#0a2230] p-3 text-white shadow-sm lg:sticky lg:top-28 lg:self-start">
-            <p className="px-3 pt-2 text-[9px] font-bold uppercase tracking-[0.18em] text-blue-200">
+            <p className="px-3 pt-2 text-[11px] font-bold uppercase tracking-[0.18em] text-blue-200">
               Pro navigator
             </p>
 
@@ -1624,12 +1624,12 @@ export default function ProInteractiveJourney() {
                         {item.label}
                       </span>
 
-                      <span className="text-[9px] font-bold tracking-[0.15em] opacity-40">
+                      <span className="text-[11px] font-bold tracking-[0.15em] opacity-40">
                         {item.number}
                       </span>
                     </div>
 
-                    <p className="mt-2 text-[10px] leading-4 opacity-50">
+                    <p className="mt-2 text-[11px] leading-4 opacity-50">
                       {item.description}
                     </p>
                   </button>
@@ -1682,7 +1682,7 @@ export default function ProInteractiveJourney() {
                 <div className="border-b border-slate-200 p-5 sm:p-6">
                   <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
                     <div>
-                      <p className="text-[9px] font-bold uppercase tracking-[0.17em] text-slate-400">
+                      <p className="text-[11px] font-bold uppercase tracking-[0.17em] text-slate-400">
                         ROLE-AWARE WORKSPACES
                       </p>
 
@@ -1744,7 +1744,7 @@ export default function ProInteractiveJourney() {
                                 }
                               </span>
 
-                              <span className="shrink-0 text-[8px] font-bold uppercase tracking-[0.12em] opacity-45">
+                              <span className="shrink-0 text-[10px] font-bold uppercase tracking-[0.12em] opacity-45">
                                 {
                                   role.baseType ===
                                   "personal"
@@ -1760,7 +1760,7 @@ export default function ProInteractiveJourney() {
                               </span>
                             </div>
 
-                            <p className="mt-2 line-clamp-2 text-[9px] leading-4 opacity-50">
+                            <p className="mt-2 line-clamp-2 text-[11px] leading-4 opacity-50">
                               {
                                 role.short
                               }
@@ -1784,7 +1784,7 @@ export default function ProInteractiveJourney() {
                     />
 
                     <div className="relative flex h-full flex-col">
-                      <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-white/55">
+                      <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/55">
                         ACTIVE ROLE
                       </p>
 
@@ -1806,7 +1806,7 @@ export default function ProInteractiveJourney() {
                       matchingWorkspaces.length >
                         0 ? (
                         <div className="mt-7">
-                          <p className="text-[9px] font-bold uppercase tracking-[0.17em] text-white/40">
+                          <p className="text-[11px] font-bold uppercase tracking-[0.17em] text-white/40">
                             YOUR AUTHORISED WORKSPACES
                           </p>
 
@@ -1840,7 +1840,7 @@ export default function ProInteractiveJourney() {
                                       }
                                     </span>
 
-                                    <span className="text-[8px] font-bold uppercase tracking-[0.12em] opacity-45">
+                                    <span className="text-[10px] font-bold uppercase tracking-[0.12em] opacity-45">
                                       {
                                         workspace.role
                                       }
@@ -1855,7 +1855,7 @@ export default function ProInteractiveJourney() {
 
 
                       <div className="mt-7 border-t border-white/10 pt-6">
-                        <p className="text-[9px] font-bold uppercase tracking-[0.17em] text-white/40">
+                        <p className="text-[11px] font-bold uppercase tracking-[0.17em] text-white/40">
                           ACTIVE WORKSPACE
                         </p>
 
@@ -1907,7 +1907,7 @@ export default function ProInteractiveJourney() {
                   <div className="border-t border-slate-200 bg-[#f5f7fb] p-5 lg:border-l lg:border-t-0 sm:p-6">
                     <div className="flex items-end justify-between gap-4">
                       <div>
-                        <p className="text-[9px] font-bold uppercase tracking-[0.17em] text-slate-400">
+                        <p className="text-[11px] font-bold uppercase tracking-[0.17em] text-slate-400">
                           WORKSPACE MODULES
                         </p>
 
@@ -1918,7 +1918,7 @@ export default function ProInteractiveJourney() {
                         </h4>
                       </div>
 
-                      <span className="text-[9px] font-bold uppercase tracking-[0.13em] text-slate-400">
+                      <span className="text-[11px] font-bold uppercase tracking-[0.13em] text-slate-400">
                         {
                           currentModules.length
                         } modules
@@ -1942,7 +1942,7 @@ export default function ProInteractiveJourney() {
                                 >
                                   <div className="min-w-0">
                                     <p className="truncate text-xs font-semibold text-slate-500">
-                                      <span className="mr-3 text-[8px] text-slate-400">
+                                      <span className="mr-3 text-[10px] text-slate-400">
                                         {String(
                                           index +
                                             1
@@ -1957,14 +1957,14 @@ export default function ProInteractiveJourney() {
                                       }
                                     </p>
 
-                                    <p className="mt-1 text-[9px] text-slate-400">
+                                    <p className="mt-1 text-[11px] text-slate-400">
                                       {
                                         module.groupTitle
                                       }
                                     </p>
                                   </div>
 
-                                  <span className="ml-3 shrink-0 rounded-full border border-slate-200 bg-white px-2 py-1 text-[7px] font-bold tracking-[0.12em] text-slate-400">
+                                  <span className="ml-3 shrink-0 rounded-full border border-slate-200 bg-white px-2 py-1 text-[10px] font-bold tracking-[0.12em] text-slate-400">
                                     PRO
                                   </span>
                                 </div>
@@ -1979,7 +1979,7 @@ export default function ProInteractiveJourney() {
                                   className="group flex min-h-[58px] items-center justify-between rounded-[8px] border border-slate-200 bg-white px-4 py-3 text-xs font-semibold text-slate-700 transition hover:border-slate-300 hover:shadow-sm"
                                 >
                                   <span className="min-w-0">
-                                    <span className="mr-3 text-[8px] text-slate-400">
+                                    <span className="mr-3 text-[10px] text-slate-400">
                                       {String(
                                         index +
                                           1
@@ -1993,7 +1993,7 @@ export default function ProInteractiveJourney() {
                                       module.title
                                     }
 
-                                    <span className="mt-1 block pl-7 text-[9px] font-medium text-slate-400">
+                                    <span className="mt-1 block pl-7 text-[11px] font-medium text-slate-400">
                                       {
                                         module.groupTitle
                                       }
@@ -2038,7 +2038,7 @@ export default function ProInteractiveJourney() {
             "tasks" ? (
               <div className="grid min-h-[560px] lg:grid-cols-[300px_1fr]">
                 <div className="border-b border-slate-200 bg-[#f5f7fb] p-5 lg:border-b-0 lg:border-r">
-                  <p className="text-[9px] font-bold uppercase tracking-[0.17em] text-slate-400">
+                  <p className="text-[11px] font-bold uppercase tracking-[0.17em] text-slate-400">
                     START FROM A TASK
                   </p>
 
@@ -2071,7 +2071,7 @@ export default function ProInteractiveJourney() {
                             }
                           </p>
 
-                          <p className="mt-1 text-[9px] leading-4 opacity-50">
+                          <p className="mt-1 text-[11px] leading-4 opacity-50">
                             {
                               task.title
                             }
@@ -2084,7 +2084,7 @@ export default function ProInteractiveJourney() {
 
                 <div className="relative flex min-h-[500px] items-center overflow-hidden bg-white p-8 sm:p-12">
                   <div className="max-w-2xl">
-                    <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-blue-700">
+                    <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-blue-700">
                       PRO TASK · {
                         activeRole.title
                       }
@@ -2104,7 +2104,7 @@ export default function ProInteractiveJourney() {
 
                     {activeTask.target ? (
                       <div className="mt-7 rounded-[8px] border border-slate-200 bg-slate-50 p-5">
-                        <p className="text-[9px] font-bold uppercase tracking-[0.15em] text-slate-400">
+                        <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-slate-400">
                           REAL ARKNOZ MODULE
                         </p>
 
@@ -2150,7 +2150,7 @@ export default function ProInteractiveJourney() {
               <div className="min-h-[560px] bg-[#f5f7fb] p-5 sm:p-7">
                 <div className="flex flex-col gap-3 border-b border-slate-200 pb-5 sm:flex-row sm:items-end sm:justify-between">
                   <div>
-                    <p className="text-[9px] font-bold uppercase tracking-[0.17em] text-slate-400">
+                    <p className="text-[11px] font-bold uppercase tracking-[0.17em] text-slate-400">
                       WORKSPACE INTELLIGENCE
                     </p>
 
@@ -2195,7 +2195,7 @@ export default function ProInteractiveJourney() {
                           }`}
                         >
                           <div className="flex items-start justify-between gap-3">
-                            <span className="text-[8px] font-bold tracking-[0.15em] opacity-40">
+                            <span className="text-[10px] font-bold tracking-[0.15em] opacity-40">
                               {String(
                                 index +
                                   1
@@ -2206,7 +2206,7 @@ export default function ProInteractiveJourney() {
                             </span>
 
                             {item.locked ? (
-                              <span className="rounded-full border border-current/15 px-2 py-1 text-[7px] font-bold tracking-[0.12em] opacity-55">
+                              <span className="rounded-full border border-current/15 px-2 py-1 text-[10px] font-bold tracking-[0.12em] opacity-55">
                                 PRO
                               </span>
                             ) : null}
@@ -2241,7 +2241,7 @@ export default function ProInteractiveJourney() {
 
                 {activeIntelligence ? (
                   <div className="mt-5 rounded-[10px] border border-slate-200 bg-white p-6">
-                    <p className="text-[9px] font-bold uppercase tracking-[0.17em] text-blue-700">
+                    <p className="text-[11px] font-bold uppercase tracking-[0.17em] text-blue-700">
                       ACTIVE INTELLIGENCE
                     </p>
 
@@ -2315,7 +2315,7 @@ export default function ProInteractiveJourney() {
                               : "border-slate-200 bg-white text-slate-700 hover:border-slate-300 hover:shadow-sm"
                           }`}
                         >
-                          <span className="text-[8px] font-bold tracking-[0.15em] opacity-40">
+                          <span className="text-[10px] font-bold tracking-[0.15em] opacity-40">
                             {String(
                               index +
                                 1
@@ -2336,7 +2336,7 @@ export default function ProInteractiveJourney() {
                   )}
 
                   <div className="col-start-2 row-start-2 flex min-h-[118px] flex-col items-center justify-center rounded-[10px] border border-slate-200 bg-white p-5 text-center shadow-sm">
-                    <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-red-500">
+                    <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-red-500">
                       ARKNOZ PRO
                     </p>
 
@@ -2344,7 +2344,7 @@ export default function ProInteractiveJourney() {
                       Connected Built World
                     </p>
 
-                    <p className="mt-2 text-[9px] leading-4 text-slate-400">
+                    <p className="mt-2 text-[11px] leading-4 text-slate-400">
                       {
                         activeRole.title
                       }
@@ -2359,7 +2359,7 @@ export default function ProInteractiveJourney() {
           {/* CONTEXT DRAWER */}
 
           <aside className="flex flex-col rounded-[10px] border border-slate-200 bg-white p-5 shadow-sm lg:sticky lg:top-28 lg:self-start">
-            <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-blue-700">
+            <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-blue-700">
               {
                 context.eyebrow
               }
@@ -2378,7 +2378,7 @@ export default function ProInteractiveJourney() {
             </p>
 
             <div className="mt-5 rounded-[8px] border border-slate-200 bg-slate-50 p-4">
-              <p className="text-[8px] font-bold uppercase tracking-[0.15em] text-slate-400">
+              <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-slate-400">
                 ACTIVE ROLE
               </p>
 
@@ -2389,7 +2389,7 @@ export default function ProInteractiveJourney() {
               </p>
 
               {activeOrganisation ? (
-                <p className="mt-1 text-[9px] text-slate-400">
+                <p className="mt-1 text-[11px] text-slate-400">
                   {
                     activeOrganisation.displayName
                   } · {
@@ -2418,7 +2418,7 @@ export default function ProInteractiveJourney() {
             )}
 
             <div className="mt-6 border-t border-slate-100 pt-5">
-              <p className="text-[9px] font-bold uppercase tracking-[0.16em] text-slate-400">
+              <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-slate-400">
                 QUICK ACCESS
               </p>
 
@@ -2444,7 +2444,7 @@ export default function ProInteractiveJourney() {
                     <Link
                       key={href}
                       href={href}
-                      className="group flex items-center justify-between rounded-[6px] border border-slate-200 bg-slate-50 px-3 py-3 text-[11px] font-semibold text-slate-600 transition hover:bg-white"
+                      className="group flex items-center justify-between rounded-[6px] border border-slate-200 bg-slate-50 px-3 py-3 text-[12px] font-semibold text-slate-600 transition hover:bg-white"
                     >
                       {
                         label

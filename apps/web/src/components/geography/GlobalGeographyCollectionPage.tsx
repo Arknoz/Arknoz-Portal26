@@ -116,7 +116,7 @@ function GeographyCollectionGrid({
   return (
     <section className="bg-[#f6f8fb] py-14">
       <div className="mx-auto max-w-[1720px] px-6 lg:px-10">
-        <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-700">
+        <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-blue-700">
           GLOBAL GEOGRAPHY
         </p>
 
@@ -134,7 +134,7 @@ function GeographyCollectionGrid({
                 )}
                 className="group rounded-[22px] border border-slate-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-blue-300 hover:shadow-lg"
               >
-                <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-blue-700">
+                <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-blue-700">
                   {item.type}
                 </p>
 

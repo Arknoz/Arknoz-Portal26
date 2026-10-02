@@ -218,7 +218,7 @@ export default function GlobalFooter({
               <span aria-hidden="true">{"\u2192"}</span>
             </Link>
             <div className="mt-5 rounded-2xl border border-white/10 bg-white/[0.035] p-4">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-blue-200">
+              <p className="text-[12px] font-semibold uppercase tracking-[0.15em] text-blue-200">
                 Community
               </p>
 
@@ -267,7 +267,7 @@ export default function GlobalFooter({
               />
             </div>
 
-            <div className="text-[11px] leading-5 text-slate-400">
+            <div className="text-[12px] leading-5 text-slate-400">
               <p>
                 (c) 2026 Arknoz Private Limited. All rights reserved.
               </p>
@@ -277,7 +277,7 @@ export default function GlobalFooter({
               </p>
             </div>
 
-            <div className="flex flex-col items-start gap-1 text-[11px] text-slate-400 md:items-end">
+            <div className="flex flex-col items-start gap-1 text-[12px] text-slate-400 md:items-end">
               <div className="flex flex-wrap gap-x-3 gap-y-1">
                 <Link
                   href="/about"

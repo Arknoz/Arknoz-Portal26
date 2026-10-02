@@ -112,13 +112,13 @@ export default function ProductsNowHomePanel() {
       >
         <div className="border-b border-slate-200 px-7 pb-4 pt-5 sm:px-9 lg:px-10">
           <div className="flex items-center gap-3">
-            <p className="text-[10px] font-bold tracking-[0.08em] text-red-500">
+            <p className="text-[11px] font-bold tracking-[0.08em] text-red-500">
               Products Now
             </p>
 
             <span className="h-1 w-1 rounded-full bg-slate-300" />
 
-            <span className="inline-flex items-center gap-1.5 text-[10px] font-semibold text-slate-500">
+            <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-slate-500">
               <span className="h-1.5 w-1.5 rounded-full bg-red-500" />
               Live
             </span>
@@ -200,7 +200,7 @@ export default function ProductsNowHomePanel() {
                     <div className="absolute inset-0 bg-gradient-to-t from-[#03121c]/95 via-[#03121c]/20 to-transparent" />
 
                     <div className="absolute inset-x-0 bottom-0 z-10 p-5 text-white">
-                      <p className="text-[8px] font-bold uppercase tracking-[0.18em] text-white/70">
+                      <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-white/70">
                         {item.type}
                       </p>
 
@@ -208,7 +208,7 @@ export default function ProductsNowHomePanel() {
                         {item.title}
                       </h3>
 
-                      <p className="mt-3 text-[9px] font-medium text-white/60">
+                      <p className="mt-3 text-[11px] font-medium text-white/60">
                         Products
                       </p>
                     </div>
@@ -222,7 +222,7 @@ export default function ProductsNowHomePanel() {
         <div className="flex min-h-[58px] items-center justify-end px-7 sm:px-9 lg:px-10">
           <Link
             href="/products?type=materials-structure"
-            className="text-[11px] font-bold text-[#0a2230] transition hover:text-[#a61f46]"
+            className="text-[12px] font-bold text-[#0a2230] transition hover:text-[#a61f46]"
           >
             Explore product worlds →
           </Link>

@@ -535,7 +535,7 @@ export default function ExploreInteractiveJourney() {
 
             <p
               className="
-                text-[10px]
+                text-[11px]
                 font-bold
                 uppercase
                 tracking-[0.08em]
@@ -675,7 +675,7 @@ export default function ExploreInteractiveJourney() {
               className="
                 px-3
                 pt-2
-                text-[9px]
+                text-[11px]
                 font-bold
                 uppercase
                 tracking-[0.08em]
@@ -743,7 +743,7 @@ export default function ExploreInteractiveJourney() {
 
                       <span
                         className="
-                          text-[9px]
+                          text-[11px]
                           font-bold
                           tracking-[0.15em]
                           opacity-40
@@ -756,7 +756,7 @@ export default function ExploreInteractiveJourney() {
                     <p
                       className="
                         mt-2
-                        text-[10px]
+                        text-[11px]
                         leading-4
                         opacity-50
                       "
@@ -888,7 +888,7 @@ export default function ExploreInteractiveJourney() {
 
                       <p
                         className="
-                          text-[9px]
+                          text-[11px]
                           font-bold
                           uppercase
                           tracking-[0.17em]
@@ -988,7 +988,7 @@ export default function ExploreInteractiveJourney() {
                             {world.paid ? (
                               <span
                                 className="
-                                  text-[7px]
+                                  text-[10px]
                                   font-bold
                                   tracking-[0.14em]
                                   opacity-50
@@ -1004,7 +1004,7 @@ export default function ExploreInteractiveJourney() {
                             className="
                               mt-2
                               line-clamp-2
-                              text-[9px]
+                              text-[11px]
                               leading-4
                               opacity-50
                             "
@@ -1068,7 +1068,7 @@ export default function ExploreInteractiveJourney() {
 
                         <p
                           className="
-                            text-[9px]
+                            text-[11px]
                             font-bold
                             uppercase
                             tracking-[0.2em]
@@ -1149,7 +1149,7 @@ export default function ExploreInteractiveJourney() {
 
                     <p
                       className="
-                        text-[9px]
+                        text-[11px]
                         font-bold
                         uppercase
                         tracking-[0.17em]
@@ -1206,7 +1206,7 @@ export default function ExploreInteractiveJourney() {
                                 <span
                                   className="
                                     mr-3
-                                    text-[8px]
+                                    text-[10px]
                                     text-slate-400
                                   "
                                 >
@@ -1268,7 +1268,7 @@ export default function ExploreInteractiveJourney() {
                     className="
                       px-2
                       pt-2
-                      text-[9px]
+                      text-[11px]
                       font-bold
                       uppercase
                       tracking-[0.17em]
@@ -1319,7 +1319,7 @@ export default function ExploreInteractiveJourney() {
                         >
                           <p
                             className="
-                              text-[8px]
+                              text-[10px]
                               font-bold
                               tracking-[0.15em]
                               opacity-40
@@ -1400,7 +1400,7 @@ export default function ExploreInteractiveJourney() {
 
                     <p
                       className="
-                        text-[9px]
+                        text-[11px]
                         font-bold
                         uppercase
                         tracking-[0.18em]
@@ -1598,7 +1598,7 @@ export default function ExploreInteractiveJourney() {
 
                     <p
                       className="
-                        text-[9px]
+                        text-[11px]
                         font-bold
                         uppercase
                         tracking-[0.18em]
@@ -1669,7 +1669,7 @@ export default function ExploreInteractiveJourney() {
 
                   <p
                     className="
-                      text-[9px]
+                      text-[11px]
                       font-bold
                       uppercase
                       tracking-[0.17em]
@@ -1733,7 +1733,7 @@ export default function ExploreInteractiveJourney() {
                   <p
                     className="
                       mt-7
-                      text-[9px]
+                      text-[11px]
                       font-bold
                       uppercase
                       tracking-[0.17em]
@@ -1770,7 +1770,7 @@ export default function ExploreInteractiveJourney() {
                             bg-white
                             px-3
                             py-2
-                            text-[10px]
+                            text-[11px]
                             font-semibold
                             text-slate-600
                             transition
@@ -1871,7 +1871,7 @@ export default function ExploreInteractiveJourney() {
                         >
                           <span
                             className="
-                              text-[8px]
+                              text-[10px]
                               font-bold
                               tracking-[0.15em]
                               opacity-40
@@ -1919,7 +1919,7 @@ export default function ExploreInteractiveJourney() {
                   >
                     <p
                       className="
-                        text-[9px]
+                        text-[11px]
                         font-bold
                         uppercase
                         tracking-[0.18em]
@@ -1968,7 +1968,7 @@ export default function ExploreInteractiveJourney() {
 
             <p
               className="
-                text-[9px]
+                text-[11px]
                 font-bold
                 uppercase
                 tracking-[0.18em]
@@ -2036,7 +2036,7 @@ export default function ExploreInteractiveJourney() {
 
               <p
                 className="
-                  text-[9px]
+                  text-[11px]
                   font-bold
                   uppercase
                   tracking-[0.16em]
@@ -2090,7 +2090,7 @@ export default function ExploreInteractiveJourney() {
                         bg-slate-50
                         px-3
                         py-3
-                        text-[11px]
+                        text-[12px]
                         font-semibold
                         text-slate-600
                         transition

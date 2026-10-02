@@ -533,7 +533,7 @@ export default function UniversalGeographyExperience({
                       )
                     }
                     className="
-                      text-[11px]
+                      text-[12px]
                       font-semibold
                       text-slate-600
                       transition
@@ -565,7 +565,7 @@ export default function UniversalGeographyExperience({
                 bg-slate-100
                 px-3
                 py-1.5
-                text-[9px]
+                text-[11px]
                 font-bold
                 uppercase
                 tracking-[0.14em]
@@ -589,7 +589,7 @@ export default function UniversalGeographyExperience({
                   )
                 }
                 className="
-                  text-[11px]
+                  text-[12px]
                   font-semibold
                   text-teal-800
                 "
@@ -636,7 +636,7 @@ export default function UniversalGeographyExperience({
 
             <p
               className="
-                text-[10px]
+                text-[11px]
                 font-bold
                 uppercase
                 tracking-[0.22em]
@@ -703,7 +703,7 @@ export default function UniversalGeographyExperience({
                   border-slate-200
                   px-3
                   py-1.5
-                  text-[10px]
+                  text-[11px]
                   font-semibold
                   text-slate-500
                 "
@@ -723,7 +723,7 @@ export default function UniversalGeographyExperience({
                   border-slate-200
                   px-3
                   py-1.5
-                  text-[10px]
+                  text-[11px]
                   font-semibold
                   text-slate-500
                 "
@@ -801,7 +801,7 @@ export default function UniversalGeographyExperience({
 
                     <span
                       className="
-                        text-[8px]
+                        text-[10px]
                         font-bold
                         tracking-[0.18em]
                         text-cyan-100/40
@@ -830,7 +830,7 @@ export default function UniversalGeographyExperience({
                       <p
                         className="
                           mt-2
-                          text-[11px]
+                          text-[12px]
                           leading-5
                           text-white/50
                         "
@@ -842,7 +842,7 @@ export default function UniversalGeographyExperience({
                       <p
                         className="
                           mt-4
-                          text-[10px]
+                          text-[11px]
                           font-semibold
                         "
                       >
@@ -928,7 +928,7 @@ export default function UniversalGeographyExperience({
 
               <p
                 className="
-                  text-[10px]
+                  text-[11px]
                   font-bold
                   uppercase
                   tracking-[0.22em]
@@ -1053,7 +1053,7 @@ export default function UniversalGeographyExperience({
 
                     <p
                       className="
-                        text-[8px]
+                        text-[10px]
                         font-bold
                         uppercase
                         tracking-[0.17em]
@@ -1084,7 +1084,7 @@ export default function UniversalGeographyExperience({
                     <p
                       className="
                         mt-2
-                        text-[11px]
+                        text-[12px]
                         text-white/60
                       "
                     >
@@ -1095,7 +1095,7 @@ export default function UniversalGeographyExperience({
                     <p
                       className="
                         mt-4
-                        text-[10px]
+                        text-[11px]
                         font-semibold
                       "
                     >
@@ -1144,7 +1144,7 @@ export default function UniversalGeographyExperience({
 
               <p
                 className="
-                  text-[10px]
+                  text-[11px]
                   font-bold
                   uppercase
                   tracking-[0.22em]
@@ -1249,7 +1249,7 @@ export default function UniversalGeographyExperience({
 
                       <p
                         className="
-                          text-[8px]
+                          text-[10px]
                           font-bold
                           uppercase
                           tracking-[0.17em]
@@ -1276,7 +1276,7 @@ export default function UniversalGeographyExperience({
                       <p
                         className="
                           mt-3
-                          text-[9px]
+                          text-[11px]
                           text-white/55
                         "
                       >

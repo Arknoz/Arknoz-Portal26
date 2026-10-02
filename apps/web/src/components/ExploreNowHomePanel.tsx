@@ -148,13 +148,13 @@ export default function ExploreNowHomePanel() {
         >
           <div>
             <div className="flex items-center gap-3">
-              <p className="text-[10px] font-bold tracking-[0.08em] text-red-500">
+              <p className="text-[11px] font-bold tracking-[0.08em] text-red-500">
                 Explore Now
               </p>
 
               <span className="h-1 w-1 rounded-full bg-slate-300" />
 
-              <span className="inline-flex items-center gap-1.5 text-[10px] font-semibold text-slate-500">
+              <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-slate-500">
                 <span className="h-1.5 w-1.5 rounded-full bg-red-500" />
                 Live
               </span>
@@ -300,7 +300,7 @@ export default function ExploreNowHomePanel() {
                     >
                       <p
                         className="
-                          text-[8px]
+                          text-[10px]
                           font-bold
                           uppercase
                           tracking-[0.18em]
@@ -327,7 +327,7 @@ export default function ExploreNowHomePanel() {
                         className="
                           mt-3
                           line-clamp-1
-                          text-[9px]
+                          text-[11px]
                           font-medium
                           text-white/65
                         "
@@ -357,7 +357,7 @@ export default function ExploreNowHomePanel() {
           <Link
             href="#arknoz-worlds"
             className="
-              text-[11px]
+              text-[12px]
               font-bold
               text-[#0a2230]
               transition

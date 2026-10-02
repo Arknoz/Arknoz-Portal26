@@ -135,7 +135,7 @@ export default function ProductsPublicHero({
 
             {subsectionLabel ? (
               <div className="mt-7">
-                <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-red-500">
+                <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-red-500">
                   Product World
                 </p>
 
@@ -219,7 +219,7 @@ export default function ProductsPublicHero({
                   rounded-[6px]
                   bg-[#0a2230]
                   px-5
-                  text-[11px]
+                  text-[12px]
                   font-semibold
                   text-white
                   transition
@@ -231,7 +231,7 @@ export default function ProductsPublicHero({
             </form>
 
             <div className="mt-7 border-t border-slate-200 pt-5">
-              <p className="text-[9px] font-bold uppercase tracking-[0.16em] text-slate-400">
+              <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-slate-400">
                 Explore product worlds
               </p>
 
@@ -265,7 +265,7 @@ export default function ProductsPublicHero({
                           border-b
                           border-slate-100
                           py-2.5
-                          text-[11px]
+                          text-[12px]
                           font-semibold
                           text-slate-600
                           transition
@@ -303,7 +303,7 @@ export default function ProductsPublicHero({
               pt-5
             "
           >
-            <p className="max-w-sm text-[10px] leading-5 text-slate-400">
+            <p className="max-w-sm text-[11px] leading-5 text-slate-400">
               Materials, components, building
               systems and equipment connected
               through Arknoz.
@@ -313,7 +313,7 @@ export default function ProductsPublicHero({
               href="/global"
               className="
                 shrink-0
-                text-[10px]
+                text-[11px]
                 font-bold
                 text-[#0a2230]
                 transition
@@ -340,13 +340,13 @@ export default function ProductsPublicHero({
         >
           <div className="flex items-center justify-between pb-4">
             <div>
-              <p className="text-[9px] font-bold uppercase tracking-[0.17em] text-red-500">
+              <p className="text-[11px] font-bold uppercase tracking-[0.17em] text-red-500">
                 {subsectionLabel
                   ? `Featured · ${subsectionLabel}`
                   : "Featured Products"}
               </p>
 
-              <p className="mt-1 text-[11px] text-slate-500">
+              <p className="mt-1 text-[12px] text-slate-500">
                 Selected product records across
                 the Built World.
               </p>
@@ -356,7 +356,7 @@ export default function ProductsPublicHero({
               <Link
                 href={featuredHref}
                 className="
-                  text-[10px]
+                  text-[11px]
                   font-semibold
                   text-[#0a2230]
                   transition
@@ -415,7 +415,7 @@ export default function ProductsPublicHero({
               <div className="absolute inset-0 bg-gradient-to-t from-[#03121c]/95 via-[#03121c]/12 to-transparent" />
 
               <div className="absolute inset-x-0 bottom-0 p-6 text-white lg:p-7">
-                <p className="text-[8px] font-bold uppercase tracking-[0.18em] text-white/65">
+                <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-white/65">
                   {featured[0]?.type ??
                     "Product"}
                 </p>
@@ -435,7 +435,7 @@ export default function ProductsPublicHero({
                     getPopularLabel(0)}
                 </h2>
 
-                <p className="mt-3 text-[10px] font-medium text-white/60">
+                <p className="mt-3 text-[11px] font-medium text-white/60">
                   {featured[0]?.meta ??
                     "Arknoz Products"}
                 </p>
@@ -486,7 +486,7 @@ export default function ProductsPublicHero({
                     <div className="absolute inset-0 bg-gradient-to-t from-[#03121c]/95 via-[#03121c]/15 to-transparent" />
 
                     <div className="absolute inset-x-0 bottom-0 p-5 text-white">
-                      <p className="text-[7px] font-bold uppercase tracking-[0.17em] text-white/60">
+                      <p className="text-[10px] font-bold uppercase tracking-[0.17em] text-white/60">
                         {item?.type ??
                           "Product"}
                       </p>
@@ -507,7 +507,7 @@ export default function ProductsPublicHero({
                           )}
                       </h3>
 
-                      <p className="mt-2 text-[9px] text-white/55">
+                      <p className="mt-2 text-[11px] text-white/55">
                         {item?.meta ??
                           "Arknoz Products"}
                       </p>

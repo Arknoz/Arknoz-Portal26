@@ -48,7 +48,7 @@ export default function ArknozContextPanel({
         <div>
           <p
             className={[
-              "text-[9px] font-semibold uppercase tracking-[0.15em]",
+              "text-[11px] font-semibold uppercase tracking-[0.15em]",
               dark
                 ? "text-white/45"
                 : "text-slate-400",
@@ -59,7 +59,7 @@ export default function ArknozContextPanel({
 
           <p
             className={[
-              "mt-3 text-[10px] font-semibold uppercase tracking-[0.12em]",
+              "mt-3 text-[11px] font-semibold uppercase tracking-[0.12em]",
               dark
                 ? "text-blue-200"
                 : "text-blue-700",
@@ -75,7 +75,7 @@ export default function ArknozContextPanel({
           {description ? (
             <p
               className={[
-                "mt-3 max-w-md text-[11px] leading-5",
+                "mt-3 max-w-md text-[12px] leading-5",
                 dark
                   ? "text-white/55"
                   : "text-slate-500",
@@ -104,7 +104,7 @@ export default function ArknozContextPanel({
       {href && cta ? (
         <p
           className={[
-            "mt-5 text-[11px] font-semibold",
+            "mt-5 text-[12px] font-semibold",
             dark
               ? "text-white"
               : "text-blue-700",

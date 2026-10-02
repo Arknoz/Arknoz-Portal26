@@ -164,7 +164,7 @@ export default function GeographyBrowseClient({
 
             <p
               className="
-                text-[10px]
+                text-[11px]
                 font-bold
                 uppercase
                 tracking-[0.22em]
@@ -289,7 +289,7 @@ export default function GeographyBrowseClient({
                       border
                       px-4
                       py-2
-                      text-[10px]
+                      text-[11px]
                       font-semibold
                       capitalize
                       transition
@@ -332,7 +332,7 @@ export default function GeographyBrowseClient({
                   rounded-full
                   px-3
                   py-1.5
-                  text-[10px]
+                  text-[11px]
                   font-semibold
                   ${
                     sort === "az"
@@ -354,7 +354,7 @@ export default function GeographyBrowseClient({
                   rounded-full
                   px-3
                   py-1.5
-                  text-[10px]
+                  text-[11px]
                   font-semibold
                   ${
                     sort === "za"
@@ -455,7 +455,7 @@ export default function GeographyBrowseClient({
 
                       <p
                         className="
-                          text-[8px]
+                          text-[10px]
                           font-bold
                           uppercase
                           tracking-[0.18em]
@@ -485,7 +485,7 @@ export default function GeographyBrowseClient({
                           className="
                             mt-2
                             line-clamp-2
-                            text-[11px]
+                            text-[12px]
                             leading-5
                             text-white/65
                           "
@@ -501,7 +501,7 @@ export default function GeographyBrowseClient({
                         <p
                           className="
                             mt-3
-                            text-[9px]
+                            text-[11px]
                             font-medium
                             text-white/55
                           "
@@ -515,7 +515,7 @@ export default function GeographyBrowseClient({
                       <p
                         className="
                           mt-4
-                          text-[10px]
+                          text-[11px]
                           font-semibold
                         "
                       >

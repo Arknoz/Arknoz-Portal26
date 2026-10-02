@@ -33,7 +33,7 @@ function KnowledgeHeroVisual({
 
       {/* ORIGINAL ARKNOZ DOCUMENT VISUAL */}
       <div className="absolute left-[10%] top-[10%] h-[70%] w-[55%] rounded-[20px] border border-white/70 bg-white/80 p-6 shadow-[0_20px_50px_rgba(7,27,49,.14)] backdrop-blur-sm">
-        <p className="text-[8px] font-bold uppercase tracking-[0.19em] text-blue-700">
+        <p className="text-[10px] font-bold uppercase tracking-[0.19em] text-blue-700">
           {detail?.recordType ??
             "KNOWLEDGE"}
         </p>
@@ -49,11 +49,11 @@ function KnowledgeHeroVisual({
         </p>
 
         <div className="absolute bottom-6 left-6 right-6">
-          <p className="text-[10px] font-bold text-[#0b2949]">
+          <p className="text-[11px] font-bold text-[#0b2949]">
             Cities and Climate Action
           </p>
 
-          <p className="mt-1 text-[8px] text-slate-500">
+          <p className="mt-1 text-[10px] text-slate-500">
             UN-Habitat
           </p>
         </div>
@@ -69,7 +69,7 @@ function KnowledgeHeroVisual({
       </div>
 
       <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#071b31]/95 to-transparent p-7 pt-20 text-white">
-        <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-blue-200">
+        <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-blue-200">
           KNOWLEDGE
         </p>
 
@@ -77,7 +77,7 @@ function KnowledgeHeroVisual({
           {entity.title}
         </h2>
 
-        <p className="mt-1 text-[11px] text-slate-300">
+        <p className="mt-1 text-[12px] text-slate-300">
           Source-aware knowledge record
         </p>
       </div>
@@ -152,7 +152,7 @@ export default function KnowledgeDetailPage({
 
             <div className="mb-3 flex shrink-0 items-end justify-between gap-8">
               <div>
-                <p className="text-[9px] font-bold uppercase tracking-[0.19em] text-blue-700">
+                <p className="text-[11px] font-bold uppercase tracking-[0.19em] text-blue-700">
                   KNOWLEDGE INTELLIGENCE
                 </p>
 
@@ -161,7 +161,7 @@ export default function KnowledgeDetailPage({
                 </h2>
               </div>
 
-              <p className="hidden max-w-xl text-right text-[11px] leading-5 text-slate-500 lg:block">
+              <p className="hidden max-w-xl text-right text-[12px] leading-5 text-slate-500 lg:block">
                 Context, themes, provenance, rights and connected Built World knowledge in one workspace.
               </p>
             </div>
@@ -174,7 +174,7 @@ export default function KnowledgeDetailPage({
               />
             </div>
 
-            <div className="mt-3 flex shrink-0 items-center gap-8 border-t border-slate-200 pt-3 text-[10px] font-bold">
+            <div className="mt-3 flex shrink-0 items-center gap-8 border-t border-slate-200 pt-3 text-[11px] font-bold">
               <span className="uppercase tracking-[0.18em] text-blue-700">
                 CONTINUE
               </span>

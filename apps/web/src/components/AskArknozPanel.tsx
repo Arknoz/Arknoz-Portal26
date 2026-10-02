@@ -442,7 +442,7 @@ export default function AskArknozPanel() {
 
             <span className="h-2 w-2 rounded-full bg-blue-600" />
 
-            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-700">
+            <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-blue-700">
               ASK ARKNOZ
             </p>
 
@@ -453,7 +453,7 @@ export default function AskArknozPanel() {
           </h2>
         </div>
 
-        <span className="rounded-full border border-slate-200 bg-white px-2.5 py-1 text-[10px] font-semibold text-slate-500">
+        <span className="rounded-full border border-slate-200 bg-white px-2.5 py-1 text-[11px] font-semibold text-slate-500">
           Arknoz Search
         </span>
 
@@ -516,7 +516,7 @@ export default function AskArknozPanel() {
 
                               <div>
 
-                                <p className="text-[9px] font-bold uppercase tracking-[0.16em] text-blue-700">
+                                <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-blue-700">
                                   {result.subtitle}
                                 </p>
 
@@ -579,7 +579,7 @@ export default function AskArknozPanel() {
                     prompt
                   )
                 }
-                className="rounded-full border border-slate-200 bg-white px-2.5 py-1 text-[10px] font-semibold text-slate-600 transition hover:border-blue-300 hover:bg-blue-50"
+                className="rounded-full border border-slate-200 bg-white px-2.5 py-1 text-[11px] font-semibold text-slate-600 transition hover:border-blue-300 hover:bg-blue-50"
               >
                 {prompt}
               </button>
@@ -616,7 +616,7 @@ export default function AskArknozPanel() {
 
         </form>
 
-        <p className="mt-2 px-2 text-[9px] leading-4 text-slate-500">
+        <p className="mt-2 px-2 text-[11px] leading-4 text-slate-500">
           Ask Arknoz searches records currently available in Arknoz.
           If the current record set has no supported match, it says so.
         </p>

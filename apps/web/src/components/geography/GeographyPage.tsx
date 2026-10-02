@@ -85,7 +85,7 @@ export default function GeographyPage({
                 </p>
 
                 {item.paid && (
-                  <span className="rounded-full border border-slate-300 px-2 py-1 text-[8px] font-bold uppercase tracking-[0.12em]">
+                  <span className="rounded-full border border-slate-300 px-2 py-1 text-[10px] font-bold uppercase tracking-[0.12em]">
                     Arknoz Pro &middot; Coming Later
                   </span>
                 )}

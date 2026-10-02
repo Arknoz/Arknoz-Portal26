@@ -99,7 +99,7 @@ export default function PulsePage() {
             <div className="hidden shrink-0 items-center gap-2 pb-2 lg:flex">
               <span className="h-2 w-2 rounded-full bg-red-500" />
 
-              <span className="text-[10px] font-black uppercase tracking-[0.16em] text-slate-950">
+              <span className="text-[11px] font-black uppercase tracking-[0.16em] text-slate-950">
                 Pulse
               </span>
             </div>
@@ -112,7 +112,7 @@ export default function PulsePage() {
         {/* LIVE STRIP */}
         <section className="border-b border-slate-200 bg-white">
           <div className="mx-auto flex max-w-[1720px] items-center gap-5 overflow-hidden px-5 py-3 lg:px-8">
-            <span className="shrink-0 rounded bg-red-500 px-2.5 py-1 text-[10px] font-black uppercase tracking-[0.08em] text-white">
+            <span className="shrink-0 rounded bg-red-500 px-2.5 py-1 text-[11px] font-black uppercase tracking-[0.08em] text-white">
               Live
             </span>
 
@@ -148,12 +148,12 @@ export default function PulsePage() {
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/35 to-black/5" />
 
               <div className="relative flex min-h-[470px] flex-col justify-between p-6 md:p-8">
-                <span className="w-fit rounded bg-red-500 px-2.5 py-1 text-[10px] font-black uppercase tracking-[0.1em]">
+                <span className="w-fit rounded bg-red-500 px-2.5 py-1 text-[11px] font-black uppercase tracking-[0.1em]">
                   Breaking
                 </span>
 
                 <div className="max-w-[760px]">
-                  <p className="text-[11px] font-black uppercase tracking-[0.12em] text-white/75">
+                  <p className="text-[12px] font-black uppercase tracking-[0.12em] text-white/75">
                     Architecture
                   </p>
 
@@ -197,7 +197,7 @@ export default function PulsePage() {
                   <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/50 to-black/15" />
 
                   <div className="relative flex min-h-[146px] flex-col justify-end p-5">
-                    <p className="text-[10px] font-black uppercase tracking-[0.12em] text-white/65">
+                    <p className="text-[11px] font-black uppercase tracking-[0.12em] text-white/65">
                       {category}
                     </p>
 
@@ -205,7 +205,7 @@ export default function PulsePage() {
                       {title}
                     </h3>
 
-                    <p className="mt-2 text-[11px] text-white/55">
+                    <p className="mt-2 text-[12px] text-white/55">
                       {2 + index * 2} hrs ago · 3 min read
                     </p>
                   </div>
@@ -215,7 +215,7 @@ export default function PulsePage() {
 
             <aside className="space-y-4">
               <div className="relative min-h-[245px] overflow-hidden rounded-xl bg-[#06192e] p-6 text-white">
-                <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-white/45">
+                <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-white/45">
                   Featured
                 </p>
 
@@ -244,7 +244,7 @@ export default function PulsePage() {
                     Trending Now
                   </h2>
 
-                  <span className="text-[10px] font-bold uppercase text-red-500">
+                  <span className="text-[11px] font-bold uppercase text-red-500">
                     Live
                   </span>
                 </div>
@@ -261,7 +261,7 @@ export default function PulsePage() {
                       key={item}
                       className="grid grid-cols-[25px_1fr_auto] gap-2 py-2.5"
                     >
-                      <span className="text-[11px] font-black text-slate-400">
+                      <span className="text-[12px] font-black text-slate-400">
                         {String(index + 1).padStart(2, "0")}
                       </span>
 
@@ -269,7 +269,7 @@ export default function PulsePage() {
                         {item}
                       </span>
 
-                      <span className="whitespace-nowrap text-[9px] text-slate-400">
+                      <span className="whitespace-nowrap text-[11px] text-slate-400">
                         {12 + index * 16}m
                       </span>
                     </li>
@@ -310,7 +310,7 @@ export default function PulsePage() {
                 </div>
 
                 <div className="p-3">
-                  <p className="text-[9px] font-black uppercase tracking-[0.12em] text-[#17315c]">
+                  <p className="text-[11px] font-black uppercase tracking-[0.12em] text-[#17315c]">
                     {story.category}
                   </p>
 
@@ -318,7 +318,7 @@ export default function PulsePage() {
                     {story.title}
                   </h3>
 
-                  <p className="mt-2 text-[10px] text-slate-400">
+                  <p className="mt-2 text-[11px] text-slate-400">
                     {story.time} · 3 min read
                   </p>
                 </div>
@@ -331,7 +331,7 @@ export default function PulsePage() {
         <section className="mx-auto max-w-[1720px] px-5 pb-6 lg:px-8">
           <div className="flex min-h-[92px] items-center justify-between overflow-hidden rounded-xl bg-[#08182a] px-6 text-white md:px-10">
             <div>
-              <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-white/40">
+              <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-white/40">
                 Featured
               </p>
 
@@ -381,7 +381,7 @@ export default function PulsePage() {
                 </div>
 
                 <div className="p-3">
-                  <p className="text-[9px] font-black uppercase tracking-[0.12em] text-blue-700">
+                  <p className="text-[11px] font-black uppercase tracking-[0.12em] text-blue-700">
                     {category}
                   </p>
 
@@ -389,7 +389,7 @@ export default function PulsePage() {
                     {title}
                   </h3>
 
-                  <p className="mt-2 text-[10px] text-slate-400">
+                  <p className="mt-2 text-[11px] text-slate-400">
                     {3 + index} hrs ago · 3 min read
                   </p>
                 </div>
@@ -404,7 +404,7 @@ export default function PulsePage() {
         >
           <div className="flex items-end justify-between border-t border-slate-200 pt-6">
             <div>
-              <p className="text-[10px] font-black uppercase tracking-[0.14em] text-slate-400">
+              <p className="text-[11px] font-black uppercase tracking-[0.14em] text-slate-400">
                 Pulse Stream
               </p>
 
@@ -434,7 +434,7 @@ export default function PulsePage() {
               </div>
 
               <div className="flex flex-1 flex-col p-5">
-                <p className="text-[10px] font-black uppercase tracking-[0.12em] text-[#17315c]">
+                <p className="text-[11px] font-black uppercase tracking-[0.12em] text-[#17315c]">
                   Architecture
                 </p>
 
@@ -487,7 +487,7 @@ export default function PulsePage() {
                   </div>
 
                   <div className="flex min-w-0 flex-col p-4">
-                    <p className="text-[9px] font-black uppercase tracking-[0.12em] text-[#17315c]">
+                    <p className="text-[11px] font-black uppercase tracking-[0.12em] text-[#17315c]">
                       {category}
                     </p>
 
@@ -499,7 +499,7 @@ export default function PulsePage() {
                       {summary}
                     </p>
 
-                    <p className="mt-auto pt-3 text-[10px] text-slate-400">
+                    <p className="mt-auto pt-3 text-[11px] text-slate-400">
                       {time}
                     </p>
                   </div>
@@ -513,7 +513,7 @@ export default function PulsePage() {
           <div className="mx-auto max-w-[1720px] px-5 py-7 lg:px-8">
             <div className="flex items-end justify-between">
               <div>
-                <p className="text-[10px] font-black uppercase tracking-[0.14em] text-slate-400">
+                <p className="text-[11px] font-black uppercase tracking-[0.14em] text-slate-400">
                   Pulse Stream
                 </p>
 
@@ -555,7 +555,7 @@ export default function PulsePage() {
                   </div>
 
                   <div className="p-4">
-                    <p className="text-[9px] font-black uppercase tracking-[0.12em] text-slate-500">
+                    <p className="text-[11px] font-black uppercase tracking-[0.12em] text-slate-500">
                       Construction
                     </p>
 
@@ -563,7 +563,7 @@ export default function PulsePage() {
                       {title}
                     </h3>
 
-                    <p className="mt-3 text-[10px] text-slate-400">
+                    <p className="mt-3 text-[11px] text-slate-400">
                       {1 + index} hrs ago
                     </p>
                   </div>
@@ -581,7 +581,7 @@ export default function PulsePage() {
             <div className="min-w-0">
               <div className="flex items-end justify-between border-t border-slate-200 pt-5">
                 <div>
-                  <p className="text-[10px] font-black uppercase tracking-[0.14em] text-slate-400">
+                  <p className="text-[11px] font-black uppercase tracking-[0.14em] text-slate-400">
                     Built World Briefing
                   </p>
 
@@ -609,7 +609,7 @@ export default function PulsePage() {
                   </div>
 
                   <div className="p-5">
-                    <p className="text-[10px] font-black uppercase tracking-[0.12em] text-[#17315c]">
+                    <p className="text-[11px] font-black uppercase tracking-[0.12em] text-[#17315c]">
                       Infrastructure
                     </p>
 
@@ -665,7 +665,7 @@ export default function PulsePage() {
                       </div>
 
                       <div>
-                        <p className="text-[9px] font-black uppercase tracking-[0.12em] text-slate-400">
+                        <p className="text-[11px] font-black uppercase tracking-[0.12em] text-slate-400">
                           {category}
                         </p>
 
@@ -673,7 +673,7 @@ export default function PulsePage() {
                           {title}
                         </h3>
 
-                        <p className="mt-2 text-[10px] text-slate-400">
+                        <p className="mt-2 text-[11px] text-slate-400">
                           {1 + index}h ago
                         </p>
                       </div>
@@ -701,7 +701,7 @@ export default function PulsePage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/25 to-transparent" />
 
                   <div className="absolute inset-x-0 bottom-0 p-5">
-                    <p className="text-[8px] font-bold uppercase tracking-[0.18em] text-white/50">
+                    <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-white/50">
                       Sponsored
                     </p>
 
@@ -713,7 +713,7 @@ export default function PulsePage() {
                       Partner stories and launches presented within Arknoz Pulse.
                     </p>
 
-                    <span className="mt-4 inline-flex rounded-full border border-white/25 px-4 py-2 text-[10px] font-bold">
+                    <span className="mt-4 inline-flex rounded-full border border-white/25 px-4 py-2 text-[11px] font-bold">
                       Explore →
                     </span>
                   </div>
@@ -727,7 +727,7 @@ export default function PulsePage() {
                     Most Read
                   </h3>
 
-                  <span className="text-[9px] font-bold uppercase tracking-[0.12em] text-slate-400">
+                  <span className="text-[11px] font-bold uppercase tracking-[0.12em] text-slate-400">
                     Today
                   </span>
                 </div>
@@ -797,7 +797,7 @@ export default function PulsePage() {
                     </div>
 
                     <div>
-                      <p className="text-[9px] font-black uppercase tracking-[0.12em] text-slate-400">
+                      <p className="text-[11px] font-black uppercase tracking-[0.12em] text-slate-400">
                         Cities
                       </p>
 
@@ -805,7 +805,7 @@ export default function PulsePage() {
                         {title}
                       </h3>
 
-                      <p className="mt-2 text-[10px] text-slate-400">
+                      <p className="mt-2 text-[11px] text-slate-400">
                         {2 + index} hrs ago
                       </p>
                     </div>
@@ -852,7 +852,7 @@ export default function PulsePage() {
                     </div>
 
                     <div>
-                      <p className="text-[9px] font-black uppercase tracking-[0.12em] text-slate-400">
+                      <p className="text-[11px] font-black uppercase tracking-[0.12em] text-slate-400">
                         Infrastructure
                       </p>
 
@@ -860,7 +860,7 @@ export default function PulsePage() {
                         {title}
                       </h3>
 
-                      <p className="mt-2 text-[10px] text-slate-400">
+                      <p className="mt-2 text-[11px] text-slate-400">
                         {3 + index} hrs ago
                       </p>
                     </div>
@@ -876,7 +876,7 @@ export default function PulsePage() {
           <div className="mx-auto max-w-[1720px] px-5 py-7 lg:px-8">
             <div className="flex items-end justify-between">
               <div>
-                <p className="text-[10px] font-black uppercase tracking-[0.14em] text-slate-400">
+                <p className="text-[11px] font-black uppercase tracking-[0.14em] text-slate-400">
                   New + Notable
                 </p>
 
@@ -919,7 +919,7 @@ export default function PulsePage() {
                   </div>
 
                   <div className="p-3">
-                    <p className="text-[9px] font-black uppercase tracking-[0.12em] text-[#17315c]">
+                    <p className="text-[11px] font-black uppercase tracking-[0.12em] text-[#17315c]">
                       {index % 2 === 0 ? "Product" : "Material"}
                     </p>
 
@@ -950,14 +950,14 @@ export default function PulsePage() {
 
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-black/5 to-black/30" />
 
-                <div className="absolute left-5 top-5 rounded-full border border-white/20 bg-black/25 px-3 py-1.5 text-[9px] font-bold uppercase tracking-[0.16em] backdrop-blur-sm">
+                <div className="absolute left-5 top-5 rounded-full border border-white/20 bg-black/25 px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.16em] backdrop-blur-sm">
                   Featured
                 </div>
               </div>
 
               <div className="flex flex-col justify-between p-7 md:p-9">
                 <div>
-                  <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-white/40">
+                  <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-white/40">
                     Sponsored · Built World Feature
                   </p>
 
@@ -972,11 +972,11 @@ export default function PulsePage() {
                 </div>
 
                 <div className="mt-8 flex items-center justify-between border-t border-white/10 pt-5">
-                  <span className="text-[10px] uppercase tracking-[0.14em] text-white/35">
+                  <span className="text-[11px] uppercase tracking-[0.14em] text-white/35">
                     Partner Feature
                   </span>
 
-                  <span className="rounded-full border border-white/25 px-4 py-2 text-[10px] font-bold">
+                  <span className="rounded-full border border-white/25 px-4 py-2 text-[11px] font-bold">
                     Explore story →
                   </span>
                 </div>
@@ -989,7 +989,7 @@ export default function PulsePage() {
           <div className="mx-auto max-w-[1720px] px-5 py-8 lg:px-8">
             <div className="flex items-end justify-between">
               <div>
-                <p className="text-[10px] font-black uppercase tracking-[0.14em] text-white/40">
+                <p className="text-[11px] font-black uppercase tracking-[0.14em] text-white/40">
                   Digital Built World
                 </p>
 
@@ -1020,7 +1020,7 @@ export default function PulsePage() {
                 </div>
 
                 <div className="p-5">
-                  <p className="text-[10px] font-black uppercase tracking-[0.12em] text-white/45">
+                  <p className="text-[11px] font-black uppercase tracking-[0.12em] text-white/45">
                     AI + Built Environment
                   </p>
 
@@ -1067,7 +1067,7 @@ export default function PulsePage() {
                   </div>
 
                   <div className="p-4">
-                    <p className="text-[9px] font-black uppercase tracking-[0.12em] text-white/40">
+                    <p className="text-[11px] font-black uppercase tracking-[0.12em] text-white/40">
                       {category}
                     </p>
 
@@ -1075,7 +1075,7 @@ export default function PulsePage() {
                       {title}
                     </h3>
 
-                    <p className="mt-3 text-[10px] text-white/30">
+                    <p className="mt-3 text-[11px] text-white/30">
                       {2 + index} hrs ago
                     </p>
                   </div>
@@ -1093,7 +1093,7 @@ export default function PulsePage() {
             <div>
               <div className="flex items-end justify-between">
                 <div>
-                  <p className="text-[10px] font-black uppercase tracking-[0.14em] text-slate-400">
+                  <p className="text-[11px] font-black uppercase tracking-[0.14em] text-slate-400">
                     Climate + Resilience
                   </p>
 
@@ -1123,7 +1123,7 @@ export default function PulsePage() {
                 </div>
 
                 <div className="p-5">
-                  <p className="text-[9px] font-black uppercase tracking-[0.12em] text-[#17315c]">
+                  <p className="text-[11px] font-black uppercase tracking-[0.12em] text-[#17315c]">
                     Sustainability
                   </p>
 
@@ -1151,7 +1151,7 @@ export default function PulsePage() {
                       {title}
                     </h3>
 
-                    <span className="text-[10px] text-slate-400">
+                    <span className="text-[11px] text-slate-400">
                       {2 + index}h
                     </span>
                   </article>
@@ -1163,7 +1163,7 @@ export default function PulsePage() {
             <div>
               <div className="flex items-end justify-between">
                 <div>
-                  <p className="text-[10px] font-black uppercase tracking-[0.14em] text-slate-400">
+                  <p className="text-[11px] font-black uppercase tracking-[0.14em] text-slate-400">
                     Markets + Companies
                   </p>
 
@@ -1221,7 +1221,7 @@ export default function PulsePage() {
                     </div>
 
                     <div>
-                      <p className="text-[9px] font-black uppercase tracking-[0.12em] text-slate-400">
+                      <p className="text-[11px] font-black uppercase tracking-[0.12em] text-slate-400">
                         {category}
                       </p>
 
@@ -1229,7 +1229,7 @@ export default function PulsePage() {
                         {title}
                       </h3>
 
-                      <p className="mt-2 text-[10px] text-slate-400">
+                      <p className="mt-2 text-[11px] text-slate-400">
                         {1 + index} hrs ago
                       </p>
                     </div>
@@ -1248,7 +1248,7 @@ export default function PulsePage() {
               <div className="min-w-0">
                 <div className="flex items-end justify-between">
                   <div>
-                    <p className="text-[10px] font-black uppercase tracking-[0.14em] text-slate-400">
+                    <p className="text-[11px] font-black uppercase tracking-[0.14em] text-slate-400">
                       Pulse Briefing
                     </p>
 
@@ -1299,7 +1299,7 @@ export default function PulsePage() {
                       </div>
 
                       <div className="py-1">
-                        <p className="text-[9px] font-black uppercase tracking-[0.12em] text-[#17315c]">
+                        <p className="text-[11px] font-black uppercase tracking-[0.12em] text-[#17315c]">
                           {category}
                         </p>
 
@@ -1307,7 +1307,7 @@ export default function PulsePage() {
                           {title}
                         </h3>
 
-                        <p className="mt-2 text-[10px] text-slate-400">
+                        <p className="mt-2 text-[11px] text-slate-400">
                           {1 + index} hrs ago
                         </p>
                       </div>
@@ -1322,7 +1322,7 @@ export default function PulsePage() {
                     "Design and engineering firms expand specialist capabilities",
                   ].map((title, index) => (
                     <article key={title} className="border-l border-slate-200 pl-4">
-                      <p className="text-[9px] font-black uppercase tracking-[0.12em] text-slate-400">
+                      <p className="text-[11px] font-black uppercase tracking-[0.12em] text-slate-400">
                         Quick Read
                       </p>
 
@@ -1330,7 +1330,7 @@ export default function PulsePage() {
                         {title}
                       </h3>
 
-                      <p className="mt-2 text-[10px] text-slate-400">
+                      <p className="mt-2 text-[11px] text-slate-400">
                         {5 + index}h ago
                       </p>
                     </article>
@@ -1351,14 +1351,14 @@ export default function PulsePage() {
 
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#071a2d]/30" />
 
-                    <span className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-[8px] font-black uppercase tracking-[0.16em] text-slate-900">
+                    <span className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-[10px] font-black uppercase tracking-[0.16em] text-slate-900">
                       Sponsored
                     </span>
                   </div>
 
                   <div className="flex flex-col justify-between p-6 md:p-7">
                     <div>
-                      <p className="text-[9px] font-black uppercase tracking-[0.16em] text-white/40">
+                      <p className="text-[11px] font-black uppercase tracking-[0.16em] text-white/40">
                         Pulse Spotlight
                       </p>
 
@@ -1374,11 +1374,11 @@ export default function PulsePage() {
                     </div>
 
                     <div className="mt-6 flex items-center justify-between border-t border-white/10 pt-4">
-                      <span className="text-[9px] uppercase tracking-[0.14em] text-white/35">
+                      <span className="text-[11px] uppercase tracking-[0.14em] text-white/35">
                         Partner Feature
                       </span>
 
-                      <span className="rounded-full border border-white/25 px-4 py-2 text-[10px] font-bold">
+                      <span className="rounded-full border border-white/25 px-4 py-2 text-[11px] font-bold">
                         Explore →
                       </span>
                     </div>
@@ -1401,13 +1401,13 @@ export default function PulsePage() {
                       style={{ objectPosition: "center 30%" }}
                     />
 
-                    <span className="absolute left-3 top-3 rounded-full bg-white/90 px-2.5 py-1 text-[8px] font-black uppercase tracking-[0.15em] text-slate-600">
+                    <span className="absolute left-3 top-3 rounded-full bg-white/90 px-2.5 py-1 text-[10px] font-black uppercase tracking-[0.15em] text-slate-600">
                       Sponsored
                     </span>
                   </div>
 
                   <div className="p-3">
-                    <p className="text-[9px] font-black uppercase tracking-[0.12em] text-slate-400">
+                    <p className="text-[11px] font-black uppercase tracking-[0.12em] text-slate-400">
                       Partner Spotlight
                     </p>
 
@@ -1415,12 +1415,12 @@ export default function PulsePage() {
                       A premium place for Built World brands, launches and ideas
                     </h3>
 
-                    <p className="mt-2 text-[11px] leading-4 text-slate-500">
+                    <p className="mt-2 text-[12px] leading-4 text-slate-500">
                       Integrated into the Pulse editorial environment without
                       interrupting the reading experience.
                     </p>
 
-                    <span className="mt-4 inline-flex text-[10px] font-black uppercase tracking-[0.12em] text-[#17315c]">
+                    <span className="mt-4 inline-flex text-[11px] font-black uppercase tracking-[0.12em] text-[#17315c]">
                       Discover →
                     </span>
                   </div>
@@ -1430,7 +1430,7 @@ export default function PulsePage() {
                 <div className="rounded-xl bg-[#071a2d] p-4 text-white">
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="text-[9px] font-black uppercase tracking-[0.15em] text-white/40">
+                      <p className="text-[11px] font-black uppercase tracking-[0.15em] text-white/40">
                         Live
                       </p>
 
@@ -1450,7 +1450,7 @@ export default function PulsePage() {
                     ].map(([time, title]) => (
                       <article key={title} className="py-3">
                         <div className="grid grid-cols-[48px_1fr] gap-3">
-                          <span className="text-[9px] font-bold text-white/35">
+                          <span className="text-[11px] font-bold text-white/35">
                             {time}
                           </span>
 
@@ -1463,7 +1463,7 @@ export default function PulsePage() {
                   </div>
 
                   <div className="mt-3 border-t border-white/10 pt-4">
-                    <span className="text-[10px] font-bold uppercase tracking-[0.12em] text-white/45">
+                    <span className="text-[11px] font-bold uppercase tracking-[0.12em] text-white/45">
                       View all live updates →
                     </span>
                   </div>
@@ -1481,7 +1481,7 @@ export default function PulsePage() {
               <div>
                 <div className="flex items-end justify-between">
                   <div>
-                    <p className="text-[10px] font-black uppercase tracking-[0.14em] text-slate-400">
+                    <p className="text-[11px] font-black uppercase tracking-[0.14em] text-slate-400">
                       Evidence + Discovery
                     </p>
 
@@ -1511,7 +1511,7 @@ export default function PulsePage() {
                   </div>
 
                   <div className="p-5">
-                    <p className="text-[9px] font-black uppercase tracking-[0.12em] text-[#17315c]">
+                    <p className="text-[11px] font-black uppercase tracking-[0.12em] text-[#17315c]">
                       Research
                     </p>
 
@@ -1544,7 +1544,7 @@ export default function PulsePage() {
                         {title}
                       </h3>
 
-                      <span className="text-[10px] text-slate-400">
+                      <span className="text-[11px] text-slate-400">
                         {3 + index}h
                       </span>
                     </article>
@@ -1556,7 +1556,7 @@ export default function PulsePage() {
               <div>
                 <div className="flex items-end justify-between">
                   <div>
-                    <p className="text-[10px] font-black uppercase tracking-[0.14em] text-slate-400">
+                    <p className="text-[11px] font-black uppercase tracking-[0.14em] text-slate-400">
                       Schools + Learning
                     </p>
 
@@ -1614,7 +1614,7 @@ export default function PulsePage() {
                       </div>
 
                       <div>
-                        <p className="text-[9px] font-black uppercase tracking-[0.12em] text-slate-400">
+                        <p className="text-[11px] font-black uppercase tracking-[0.12em] text-slate-400">
                           {category}
                         </p>
 
@@ -1622,7 +1622,7 @@ export default function PulsePage() {
                           {title}
                         </h3>
 
-                        <p className="mt-2 text-[10px] text-slate-400">
+                        <p className="mt-2 text-[11px] text-slate-400">
                           {1 + index} hrs ago
                         </p>
                       </div>
@@ -1638,7 +1638,7 @@ export default function PulsePage() {
         <section id="world" className="scroll-mt-32 mx-auto max-w-[1720px] px-5 py-8 lg:px-8">
           <div className="flex items-end justify-between">
             <div>
-              <p className="text-[10px] font-black uppercase tracking-[0.14em] text-slate-400">
+              <p className="text-[11px] font-black uppercase tracking-[0.14em] text-slate-400">
                 Across the Built World
               </p>
 
@@ -1696,7 +1696,7 @@ export default function PulsePage() {
                 </div>
 
                 <div className="p-4">
-                  <p className="text-[9px] font-black uppercase tracking-[0.14em] text-[#17315c]">
+                  <p className="text-[11px] font-black uppercase tracking-[0.14em] text-[#17315c]">
                     {region}
                   </p>
 
@@ -1704,7 +1704,7 @@ export default function PulsePage() {
                     {title}
                   </h3>
 
-                  <p className="mt-3 text-[10px] text-slate-400">
+                  <p className="mt-3 text-[11px] text-slate-400">
                     Updated {1 + index}h ago
                   </p>
                 </div>
@@ -1717,7 +1717,7 @@ export default function PulsePage() {
           <div className="mx-auto max-w-[1720px] px-5 py-9 lg:px-8">
             <div className="flex items-end justify-between">
               <div>
-                <p className="text-[10px] font-black uppercase tracking-[0.16em] text-white/40">
+                <p className="text-[11px] font-black uppercase tracking-[0.16em] text-white/40">
                   Arknoz Video
                 </p>
 
@@ -1753,7 +1753,7 @@ export default function PulsePage() {
                   </div>
 
                   <div className="absolute bottom-5 left-20 right-5">
-                    <p className="text-[9px] font-black uppercase tracking-[0.14em] text-white/55">
+                    <p className="text-[11px] font-black uppercase tracking-[0.14em] text-white/55">
                       Featured Video
                     </p>
 
@@ -1798,13 +1798,13 @@ export default function PulsePage() {
                         }}
                       />
 
-                      <span className="absolute bottom-1.5 right-1.5 rounded bg-black/70 px-1.5 py-0.5 text-[9px] font-bold">
+                      <span className="absolute bottom-1.5 right-1.5 rounded bg-black/70 px-1.5 py-0.5 text-[11px] font-bold">
                         {duration}
                       </span>
                     </div>
 
                     <div className="py-1">
-                      <p className="text-[9px] font-black uppercase tracking-[0.12em] text-white/35">
+                      <p className="text-[11px] font-black uppercase tracking-[0.12em] text-white/35">
                         {category}
                       </p>
 
@@ -1839,7 +1839,7 @@ export default function PulsePage() {
                   <div className="absolute inset-0 bg-black/15" />
 
                   <div className="absolute left-5 top-5 text-white">
-                    <p className="text-[10px] font-black uppercase tracking-[0.2em]">
+                    <p className="text-[11px] font-black uppercase tracking-[0.2em]">
                       ARKNOZ
                     </p>
 
@@ -1849,7 +1849,7 @@ export default function PulsePage() {
                   </div>
 
                   <div className="absolute bottom-5 left-5 right-5 text-white">
-                    <p className="text-[9px] font-black uppercase tracking-[0.14em] text-white/65">
+                    <p className="text-[11px] font-black uppercase tracking-[0.14em] text-white/65">
                       Monthly · Issue 01
                     </p>
 
@@ -1861,7 +1861,7 @@ export default function PulsePage() {
 
                 <div className="flex flex-col justify-between p-7 md:p-8">
                   <div>
-                    <p className="text-[10px] font-black uppercase tracking-[0.16em] text-slate-500">
+                    <p className="text-[11px] font-black uppercase tracking-[0.16em] text-slate-500">
                       Arknoz Magazine
                     </p>
 
@@ -1889,7 +1889,7 @@ export default function PulsePage() {
             <div className="rounded-2xl border border-slate-200 bg-white p-6">
               <div className="flex items-end justify-between">
                 <div>
-                  <p className="text-[10px] font-black uppercase tracking-[0.16em] text-slate-400">
+                  <p className="text-[11px] font-black uppercase tracking-[0.16em] text-slate-400">
                     Reading
                   </p>
 
@@ -1928,7 +1928,7 @@ export default function PulsePage() {
                       <div className="absolute inset-0 bg-gradient-to-t from-black/55 to-transparent" />
 
                       <div className="absolute bottom-3 left-3 right-3 text-white">
-                        <p className="text-[8px] font-black uppercase tracking-[0.13em] text-white/60">
+                        <p className="text-[10px] font-black uppercase tracking-[0.13em] text-white/60">
                           {category}
                         </p>
 
@@ -1957,7 +1957,7 @@ export default function PulsePage() {
         {/* PARTNER FEATURE */}
         <section className="mx-auto max-w-[1720px] px-5 py-7 lg:px-8">
           <div className="relative overflow-hidden rounded-2xl bg-[#071a2d] px-7 py-8 text-white md:px-10 md:py-10">
-            <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-white/45">
+            <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-white/45">
               Partner Feature
             </p>
 

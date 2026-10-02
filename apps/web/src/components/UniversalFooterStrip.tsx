@@ -61,7 +61,7 @@ export default function UniversalFooterStrip() {
     <div className="w-full border-y border-white/10 bg-[#0b2949] text-white">
       <div className="mx-auto flex max-w-[1720px] flex-col gap-4 px-6 py-4 lg:flex-row lg:items-center lg:justify-between lg:px-10">
         <div className="flex min-w-0 flex-1 flex-wrap items-center gap-2">
-          <span className="mr-2 text-[10px] font-bold uppercase tracking-[0.18em] text-blue-200">
+          <span className="mr-2 text-[11px] font-bold uppercase tracking-[0.18em] text-blue-200">
             EXPLORE ARKNOZ
           </span>
 
@@ -98,7 +98,7 @@ export default function UniversalFooterStrip() {
           className="group flex shrink-0 items-center justify-between gap-6 rounded-[18px] border border-white/10 bg-white/[0.055] px-4 py-3"
         >
           <div>
-            <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-blue-200">
+            <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-blue-200">
               WHAT&apos;S NEW
             </p>
 

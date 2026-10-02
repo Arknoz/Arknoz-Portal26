@@ -28,7 +28,7 @@ export default function ArknozLivePlatformPanel({
 
         <div className="flex min-h-[58px] items-center justify-between border-b border-white/10 px-4 lg:border-b-0 lg:border-r">
           <div>
-            <p className="text-[8px] font-bold uppercase tracking-[0.17em] text-blue-200">
+            <p className="text-[10px] font-bold uppercase tracking-[0.17em] text-blue-200">
               Arknoz Live
             </p>
 
@@ -51,7 +51,7 @@ export default function ArknozLivePlatformPanel({
               key={metric.key}
               className="flex min-h-[58px] flex-col justify-center border-b border-r border-white/10 px-3 lg:border-b-0"
             >
-              <p className="text-[7px] font-bold uppercase tracking-[0.10em] text-slate-500">
+              <p className="text-[10px] font-bold uppercase tracking-[0.10em] text-slate-500">
                 {metric.label}
               </p>
 
@@ -59,7 +59,7 @@ export default function ArknozLivePlatformPanel({
                 className={
                   hasValue
                     ? "mt-1.5 text-[18px] font-semibold leading-none text-white"
-                    : "mt-1.5 text-[9px] text-slate-400"
+                    : "mt-1.5 text-[11px] text-slate-400"
                 }
               >
                 {hasValue ? metric.value : "Connecting…"}

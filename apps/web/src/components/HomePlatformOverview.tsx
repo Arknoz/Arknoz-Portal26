@@ -169,13 +169,13 @@ export default function HomePlatformOverview() {
         <div className="flex flex-col gap-4 border-b border-slate-200 pb-5 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <div className="flex items-center gap-3">
-              <p className="text-[10px] font-bold tracking-[0.08em] text-red-500">
+              <p className="text-[11px] font-bold tracking-[0.08em] text-red-500">
                 Arknoz at a glance
               </p>
 
               <span className="h-1 w-1 rounded-full bg-slate-300" />
 
-              <p className="text-[10px] font-semibold text-slate-400">
+              <p className="text-[11px] font-semibold text-slate-400">
                 Built World gateway
               </p>
             </div>
@@ -210,11 +210,11 @@ export default function HomePlatformOverview() {
                 <div className="absolute inset-0 bg-gradient-to-t from-[#04131d]/95 via-[#061722]/35 to-black/10" />
 
                 <div className="absolute left-4 right-4 top-4 flex items-center justify-between">
-                  <p className="text-[9px] font-bold tracking-[0.08em] text-white/80">
+                  <p className="text-[11px] font-bold tracking-[0.08em] text-white/80">
                     {group.eyebrow}
                   </p>
 
-                  <span className="text-[9px] font-semibold text-white/45">
+                  <span className="text-[11px] font-semibold text-white/45">
                     {group.number}
                   </span>
                 </div>
@@ -224,7 +224,7 @@ export default function HomePlatformOverview() {
                     {group.title}
                   </h3>
 
-                  <p className="mt-2 line-clamp-2 text-[10px] leading-4 text-white/60">
+                  <p className="mt-2 line-clamp-2 text-[11px] leading-4 text-white/60">
                     {group.description}
                   </p>
                 </div>
@@ -255,7 +255,7 @@ export default function HomePlatformOverview() {
                       ${index >= 2 ? "border-t" : ""}
                     `}
                   >
-                    <span className="text-[11px] font-semibold leading-4">
+                    <span className="text-[12px] font-semibold leading-4">
                       {item.label}
                     </span>
 
@@ -277,7 +277,7 @@ export default function HomePlatformOverview() {
               className="group flex items-center justify-between gap-5 border-b border-white/10 px-5 py-4 transition hover:bg-white/[0.06] md:border-b-0 md:border-r"
             >
               <div>
-                <p className="text-[9px] font-semibold tracking-[0.08em] text-white/40">
+                <p className="text-[11px] font-semibold tracking-[0.08em] text-white/40">
                   Explore
                 </p>
 
@@ -294,7 +294,7 @@ export default function HomePlatformOverview() {
               className="group flex items-center justify-between gap-5 border-b border-white/10 px-5 py-4 transition hover:bg-white/[0.06] md:border-b-0 md:border-r"
             >
               <div>
-                <p className="text-[9px] font-semibold tracking-[0.08em] text-white/40">
+                <p className="text-[11px] font-semibold tracking-[0.08em] text-white/40">
                   Search Arknoz
                 </p>
 
@@ -311,7 +311,7 @@ export default function HomePlatformOverview() {
               className="group flex items-center justify-between gap-5 px-5 py-4 transition hover:bg-white/[0.06]"
             >
               <div>
-                <p className="text-[9px] font-semibold tracking-[0.08em] text-white/40">
+                <p className="text-[11px] font-semibold tracking-[0.08em] text-white/40">
                   Arknoz Pro
                 </p>
 

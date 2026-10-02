@@ -97,7 +97,7 @@ function Card({
 
         <p
           className="
-            text-[8px]
+            text-[10px]
             font-bold
             uppercase
             tracking-[0.18em]
@@ -126,7 +126,7 @@ function Card({
             className="
               mt-2
               line-clamp-2
-              text-[11px]
+              text-[12px]
               leading-5
               text-white/65
             "
@@ -140,7 +140,7 @@ function Card({
           <p
             className="
               mt-3
-              text-[9px]
+              text-[11px]
               font-medium
               text-white/55
             "
@@ -153,7 +153,7 @@ function Card({
         <p
           className="
             mt-4
-            text-[10px]
+            text-[11px]
             font-semibold
           "
         >
@@ -332,7 +332,7 @@ export default function GeographyInteractiveExplorer({
 
             <p
               className="
-                text-[10px]
+                text-[11px]
                 font-bold
                 uppercase
                 tracking-[0.22em]
@@ -381,7 +381,7 @@ export default function GeographyInteractiveExplorer({
                   rounded-full
                   px-4
                   py-2
-                  text-[11px]
+                  text-[12px]
                   font-semibold
                   transition
                   ${
@@ -407,7 +407,7 @@ export default function GeographyInteractiveExplorer({
                 rounded-full
                 px-4
                 py-2
-                text-[11px]
+                text-[12px]
                 font-semibold
                 transition
                 ${
@@ -507,7 +507,7 @@ export default function GeographyInteractiveExplorer({
                       border
                       px-3.5
                       py-2
-                      text-[10px]
+                      text-[11px]
                       font-semibold
                       capitalize
                       transition

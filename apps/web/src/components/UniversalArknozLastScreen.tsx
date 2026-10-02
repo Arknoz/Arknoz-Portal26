@@ -96,7 +96,7 @@ export default function UniversalArknozLastScreen() {
                 />
               </div>
 
-              <p className="mt-4 text-[8px] font-bold uppercase tracking-[0.18em] text-blue-200">
+              <p className="mt-4 text-[10px] font-bold uppercase tracking-[0.18em] text-blue-200">
                 The Digital Built World
               </p>
 
@@ -104,7 +104,7 @@ export default function UniversalArknozLastScreen() {
                 One connected place for the Built World
               </h2>
 
-              <p className="mt-3 max-w-[500px] text-[10px] leading-5 text-slate-400">
+              <p className="mt-3 max-w-[500px] text-[11px] leading-5 text-slate-400">
                 Discover projects, products, knowledge, education,
                 opportunities, people, organisations and places through
                 one connected Arknoz platform.
@@ -112,7 +112,7 @@ export default function UniversalArknozLastScreen() {
 
               <Link
                 href="/explore"
-                className="mt-4 inline-flex items-center gap-5 rounded-full border border-white/25 px-4 py-2 text-[9px] font-semibold hover:bg-white/[0.06]"
+                className="mt-4 inline-flex items-center gap-5 rounded-full border border-white/25 px-4 py-2 text-[11px] font-semibold hover:bg-white/[0.06]"
               >
                 Explore Arknoz
                 <Arrow />
@@ -124,7 +124,7 @@ export default function UniversalArknozLastScreen() {
             {/* PLATFORM PRINCIPLES */}
             <div className="relative z-10 mt-auto">
 
-              <p className="mb-2 text-[7px] font-bold uppercase tracking-[0.16em] text-slate-500">
+              <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.16em] text-slate-500">
                 Platform principles
               </p>
 
@@ -134,7 +134,7 @@ export default function UniversalArknozLastScreen() {
                     key={item}
                     className="rounded-[10px] border border-white/8 bg-white/[0.035] px-3 py-2.5"
                   >
-                    <span className="text-[9px] font-medium text-slate-300">
+                    <span className="text-[11px] font-medium text-slate-300">
                       {item}
                     </span>
                   </div>
@@ -147,7 +147,7 @@ export default function UniversalArknozLastScreen() {
                   <Link
                     key={label}
                     href={href}
-                    className="rounded-[9px] border border-white/8 bg-white/[0.03] px-1 py-2 text-center text-[7px] text-slate-300 hover:bg-white/[0.07] hover:text-white"
+                    className="rounded-[9px] border border-white/8 bg-white/[0.03] px-1 py-2 text-center text-[10px] text-slate-300 hover:bg-white/[0.07] hover:text-white"
                   >
                     {label}
                   </Link>
@@ -166,7 +166,7 @@ export default function UniversalArknozLastScreen() {
           <section className="flex min-h-0 flex-col rounded-[18px] border border-white/10 bg-white/[0.035] p-5">
 
             <div>
-              <p className="text-[8px] font-bold uppercase tracking-[0.16em] text-blue-300">
+              <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-blue-300">
                 Discover
               </p>
 
@@ -174,7 +174,7 @@ export default function UniversalArknozLastScreen() {
                 Explore the Built World
               </h3>
 
-              <p className="mt-1.5 text-[9px] text-slate-500">
+              <p className="mt-1.5 text-[11px] text-slate-500">
                 Move through Arknoz by content, search or geography.
               </p>
             </div>
@@ -190,14 +190,14 @@ export default function UniversalArknozLastScreen() {
                     className="group flex min-h-[76px] flex-col justify-between rounded-[12px] border border-white/10 bg-white/[0.025] p-3 transition hover:bg-white/[0.06]"
                   >
                     <div className="flex items-start justify-between gap-3">
-                      <span className="text-[11px] font-semibold text-white">
+                      <span className="text-[12px] font-semibold text-white">
                         {label}
                       </span>
 
                       <Arrow />
                     </div>
 
-                    <span className="text-[8px] leading-4 text-slate-500">
+                    <span className="text-[10px] leading-4 text-slate-500">
                       {description}
                     </span>
                   </Link>
@@ -211,7 +211,7 @@ export default function UniversalArknozLastScreen() {
               href="/featured"
               className="mt-auto rounded-[13px] border border-blue-400/20 bg-[#0b3154] p-3.5 hover:border-blue-300/40"
             >
-              <p className="text-[7px] font-bold uppercase tracking-[0.15em] text-blue-200">
+              <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-blue-200">
                 Arknoz Featured
               </p>
 
@@ -221,7 +221,7 @@ export default function UniversalArknozLastScreen() {
                     Selected across Arknoz
                   </h4>
 
-                  <p className="mt-1 text-[8px] text-slate-400">
+                  <p className="mt-1 text-[10px] text-slate-400">
                     Genuine featured and editorial selections.
                   </p>
                 </div>
@@ -240,7 +240,7 @@ export default function UniversalArknozLastScreen() {
           <section className="flex min-h-0 flex-col rounded-[18px] border border-white/10 bg-white/[0.035] p-5">
 
             <div>
-              <p className="text-[8px] font-bold uppercase tracking-[0.16em] text-emerald-300">
+              <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-emerald-300">
                 Participate
               </p>
 
@@ -248,7 +248,7 @@ export default function UniversalArknozLastScreen() {
                 Be part of Arknoz
               </h3>
 
-              <p className="mt-1.5 text-[9px] text-slate-500">
+              <p className="mt-1.5 text-[11px] text-slate-500">
                 People, organisations, universities, community and opportunities across the Built World.
               </p>
             </div>
@@ -264,14 +264,14 @@ export default function UniversalArknozLastScreen() {
                     className="group flex min-h-[76px] flex-col justify-between rounded-[12px] border border-white/10 bg-white/[0.025] p-3 transition hover:bg-white/[0.06]"
                   >
                     <div className="flex items-start justify-between gap-3">
-                      <span className="text-[11px] font-semibold text-white">
+                      <span className="text-[12px] font-semibold text-white">
                         {label}
                       </span>
 
                       <Arrow />
                     </div>
 
-                    <span className="text-[8px] leading-4 text-slate-500">
+                    <span className="text-[10px] leading-4 text-slate-500">
                       {description}
                     </span>
                   </Link>
@@ -283,14 +283,14 @@ export default function UniversalArknozLastScreen() {
                 className="group flex min-h-[76px] flex-col justify-between rounded-[12px] border border-white/10 bg-white/[0.025] p-3 transition hover:bg-white/[0.06]"
               >
                 <div className="flex items-start justify-between gap-3">
-                  <span className="text-[11px] font-semibold text-white">
+                  <span className="text-[12px] font-semibold text-white">
                     About Arknoz
                   </span>
 
                   <Arrow />
                 </div>
 
-                <span className="text-[8px] leading-4 text-slate-500">
+                <span className="text-[10px] leading-4 text-slate-500">
                   Mission and platform
                 </span>
               </Link>
@@ -302,7 +302,7 @@ export default function UniversalArknozLastScreen() {
               href="/global"
               className="mt-auto rounded-[13px] border border-white/10 bg-white/[0.04] p-3.5 hover:bg-white/[0.07]"
             >
-              <p className="text-[7px] font-bold uppercase tracking-[0.15em] text-slate-400">
+              <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-slate-400">
                 Global
               </p>
 
@@ -312,7 +312,7 @@ export default function UniversalArknozLastScreen() {
                     Explore by place
                   </h4>
 
-                  <p className="mt-1 text-[8px] text-slate-400">
+                  <p className="mt-1 text-[10px] text-slate-400">
                     Continent → Country → Region → City
                   </p>
                 </div>
@@ -346,14 +346,14 @@ export default function UniversalArknozLastScreen() {
 
               <Link
                 href="/global"
-                className="rounded-full border border-white/15 bg-white/[0.04] px-3 py-1.5 text-[11px] leading-4 lg:text-[12px]"
+                className="rounded-full border border-white/15 bg-white/[0.04] px-3 py-1.5 text-[12px] leading-4 lg:text-[12px]"
               >
                 Global
               </Link>
             </div>
 
 
-            <div className="flex min-w-0 flex-wrap items-center justify-center gap-x-4 gap-y-1 text-[11px] leading-5 text-slate-300 lg:justify-self-center xl:gap-x-5 xl:text-[12px]">
+            <div className="flex min-w-0 flex-wrap items-center justify-center gap-x-4 gap-y-1 text-[12px] leading-5 text-slate-300 lg:justify-self-center xl:gap-x-5 xl:text-[12px]">
               <Link
                 href="/about"
                 className="transition hover:text-white"
@@ -419,7 +419,7 @@ export default function UniversalArknozLastScreen() {
             </div>
 
 
-            <div className="text-left text-[10px] leading-4 text-slate-400 lg:mr-36 lg:justify-self-end lg:whitespace-nowrap lg:text-right lg:text-[11px] xl:mr-40">
+            <div className="text-left text-[11px] leading-4 text-slate-400 lg:mr-36 lg:justify-self-end lg:whitespace-nowrap lg:text-right lg:text-[12px] xl:mr-40">
               <p>© 2026 Arknoz Private Limited.</p>
               <p>Knowledge today. A better built tomorrow.</p>
             </div>

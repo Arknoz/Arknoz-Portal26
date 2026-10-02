@@ -815,7 +815,7 @@ export default async function ArknozGeographyExperience({
                       <p
                         className="
                           mt-2
-                          text-[10px]
+                          text-[11px]
                           leading-5
                           text-white/60
                         "
@@ -901,7 +901,7 @@ export default async function ArknozGeographyExperience({
 
               <p
                 className="
-                  text-[9px]
+                  text-[11px]
                   font-bold
                   uppercase
                   tracking-[0.22em]
@@ -988,7 +988,7 @@ export default async function ArknozGeographyExperience({
                   <p
                     className="
                       mt-2
-                      text-[10px]
+                      text-[11px]
                       leading-4
                       text-slate-500
                     "
@@ -1000,7 +1000,7 @@ export default async function ArknozGeographyExperience({
                   <p
                     className="
                       mt-4
-                      text-[9px]
+                      text-[11px]
                       font-semibold
                       text-[#0b7180]
                     "
@@ -1058,7 +1058,7 @@ export default async function ArknozGeographyExperience({
 
                 <p
                   className="
-                    text-[9px]
+                    text-[11px]
                     font-bold
                     uppercase
                     tracking-[0.22em]
@@ -1162,7 +1162,7 @@ export default async function ArknozGeographyExperience({
 
                       <p
                         className="
-                          text-[8px]
+                          text-[10px]
                           font-bold
                           uppercase
                           tracking-[0.17em]
@@ -1189,7 +1189,7 @@ export default async function ArknozGeographyExperience({
                       <p
                         className="
                           mt-3
-                          text-[9px]
+                          text-[11px]
                           text-white/55
                         "
                       >

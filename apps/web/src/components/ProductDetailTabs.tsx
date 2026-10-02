@@ -69,7 +69,7 @@ function ProductSignal({
         <div className="absolute inset-0 bg-gradient-to-t from-[#071b31]/95 via-[#071b31]/15 to-transparent" />
 
         <div className="absolute inset-x-0 bottom-0 p-4 text-white">
-          <p className="text-[8px] font-bold uppercase tracking-[0.18em] text-blue-200">
+          <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-blue-200">
             PRODUCT FEATURE
           </p>
 
@@ -99,7 +99,7 @@ function ProductSignal({
 
       <div className="relative flex h-full flex-col justify-between">
         <div>
-          <p className="text-[8px] font-bold uppercase tracking-[0.18em] text-blue-200">
+          <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-blue-200">
             PRODUCT SIGNAL
           </p>
 
@@ -117,7 +117,7 @@ function ProductSignal({
                 ≥30%
               </p>
 
-              <p className="mt-1 text-[10px] leading-4 text-slate-300">
+              <p className="mt-1 text-[11px] leading-4 text-slate-300">
                 Manufacturer-reported lower CO₂ threshold
               </p>
             </>
@@ -246,11 +246,11 @@ export default function ProductDetailTabs({
             <article className="flex min-h-0 flex-col justify-between rounded-[22px] border border-slate-200 bg-white p-5 shadow-[0_5px_22px_rgba(15,23,42,.035)]">
               <div>
                 <div className="flex items-center justify-between">
-                  <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-blue-700">
+                  <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-blue-700">
                     ABOUT THIS PRODUCT
                   </p>
 
-                  <span className="text-[9px] text-slate-400">
+                  <span className="text-[11px] text-slate-400">
                     Public information
                   </span>
                 </div>
@@ -263,7 +263,7 @@ export default function ProductDetailTabs({
 
               {properties.length > 0 ? (
                 <div className="mt-4 border-t border-slate-100 pt-4">
-                  <p className="mb-2 text-[8px] font-bold uppercase tracking-[0.16em] text-slate-400">
+                  <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.16em] text-slate-400">
                     EXPLORE PRODUCT SIGNALS
                   </p>
 
@@ -293,7 +293,7 @@ export default function ProductDetailTabs({
                                 : "bg-[#f5f7fa] text-slate-900 hover:-translate-y-[1px] hover:bg-[#eef3f8]"
                             }`}
                           >
-                            <p className="text-[10px] font-bold leading-4">
+                            <p className="text-[11px] font-bold leading-4">
                               {item.title}
                             </p>
                           </button>
@@ -306,11 +306,11 @@ export default function ProductDetailTabs({
 
             <article className="min-h-0 rounded-[22px] bg-[#f5f7fa] p-5 ring-1 ring-slate-200/60">
               <div className="flex items-center justify-between">
-                <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-blue-700">
+                <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-blue-700">
                   KEY DETAILS
                 </p>
 
-                <span className="rounded-full bg-white px-2.5 py-1 text-[8px] font-semibold text-slate-400">
+                <span className="rounded-full bg-white px-2.5 py-1 text-[10px] font-semibold text-slate-400">
                   Source-backed
                 </span>
               </div>
@@ -344,11 +344,11 @@ export default function ProductDetailTabs({
 
                 {focusedProperty ? (
                   <div className="pointer-events-none absolute inset-x-3 bottom-3 rounded-[13px] border border-white/10 bg-[#071b31]/80 p-3 text-white backdrop-blur-sm">
-                    <p className="text-[9px] font-bold">
+                    <p className="text-[11px] font-bold">
                       {focusedProperty.title}
                     </p>
 
-                    <p className="mt-1 line-clamp-2 text-[9px] leading-4 text-slate-300">
+                    <p className="mt-1 line-clamp-2 text-[11px] leading-4 text-slate-300">
                       {focusedProperty.description}
                     </p>
                   </div>
@@ -357,7 +357,7 @@ export default function ProductDetailTabs({
 
               <article className="grid grid-cols-2 gap-3 rounded-[22px] border border-slate-200 bg-white p-4 shadow-[0_4px_18px_rgba(15,23,42,.03)]">
                 <div>
-                  <p className="text-[8px] font-bold uppercase tracking-[0.16em] text-blue-700">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-blue-700">
                     MANUFACTURER
                   </p>
 
@@ -373,7 +373,7 @@ export default function ProductDetailTabs({
                       }
                       target="_blank"
                       rel="noreferrer"
-                      className="group mt-2 inline-flex items-center gap-1 text-[10px] font-bold text-blue-700"
+                      className="group mt-2 inline-flex items-center gap-1 text-[11px] font-bold text-blue-700"
                     >
                       Official site
                       <Arrow />
@@ -382,7 +382,7 @@ export default function ProductDetailTabs({
                 </div>
 
                 <div className="border-l border-slate-200 pl-4">
-                  <p className="text-[8px] font-bold uppercase tracking-[0.16em] text-blue-700">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-blue-700">
                     SOURCES
                   </p>
 
@@ -390,7 +390,7 @@ export default function ProductDetailTabs({
                     {sources.length}
                   </p>
 
-                  <p className="text-[10px] text-slate-500">
+                  <p className="text-[11px] text-slate-500">
                     identified sources
                   </p>
                 </div>
@@ -410,7 +410,7 @@ export default function ProductDetailTabs({
             <article className="min-h-0 overflow-hidden rounded-[22px] bg-gradient-to-br from-[#0b2949] to-[#071b31] p-4 text-white shadow-[0_10px_30px_rgba(7,27,49,.12)]">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-blue-200">
+                  <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-blue-200">
                     PRODUCT PROPERTIES
                   </p>
 
@@ -419,7 +419,7 @@ export default function ProductDetailTabs({
                   </h3>
                 </div>
 
-                <span className="rounded-full border border-white/10 bg-white/[0.05] px-3 py-1 text-[9px] text-slate-300">
+                <span className="rounded-full border border-white/10 bg-white/[0.05] px-3 py-1 text-[11px] text-slate-300">
                   {properties.length} signals
                 </span>
               </div>
@@ -451,7 +451,7 @@ export default function ProductDetailTabs({
                         }`}
                       >
                         <div className="flex items-start gap-3">
-                          <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-blue-300/15 text-[9px] font-bold text-blue-100">
+                          <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-blue-300/15 text-[11px] font-bold text-blue-100">
                             {String(
                               index + 1
                             ).padStart(
@@ -465,7 +465,7 @@ export default function ProductDetailTabs({
                               {item.title}
                             </h4>
 
-                            <p className="mt-1.5 text-[10px] leading-[1.45] text-slate-300">
+                            <p className="mt-1.5 text-[11px] leading-[1.45] text-slate-300">
                               {
                                 item.description
                               }
@@ -482,7 +482,7 @@ export default function ProductDetailTabs({
             <article className="min-h-0 overflow-hidden rounded-[22px] border border-slate-200 bg-white p-4 shadow-[0_5px_22px_rgba(15,23,42,.035)]">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-blue-700">
+                  <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-blue-700">
                     APPLICATIONS
                   </p>
 
@@ -491,7 +491,7 @@ export default function ProductDetailTabs({
                   </h3>
                 </div>
 
-                <span className="text-[9px] text-slate-400">
+                <span className="text-[11px] text-slate-400">
                   Manufacturer context
                 </span>
               </div>
@@ -529,7 +529,7 @@ export default function ProductDetailTabs({
                         }`}
                       >
                         <p
-                          className={`text-[8px] font-bold uppercase tracking-[0.13em] ${
+                          className={`text-[10px] font-bold uppercase tracking-[0.13em] ${
                             selected
                               ? "text-blue-200"
                               : "text-blue-700"
@@ -538,13 +538,13 @@ export default function ProductDetailTabs({
                           APPLICATION
                         </p>
 
-                        <p className="mt-1 text-[11px] font-bold">
+                        <p className="mt-1 text-[12px] font-bold">
                           {item.title}
                         </p>
 
                         {item.description ? (
                           <p
-                            className={`mt-1 line-clamp-2 text-[9px] leading-4 ${
+                            className={`mt-1 line-clamp-2 text-[11px] leading-4 ${
                               selected
                                 ? "text-slate-300"
                                 : "text-slate-500"
@@ -562,11 +562,11 @@ export default function ProductDetailTabs({
 
               {focusedApplication ? (
                 <div className="mt-3 rounded-[13px] border border-slate-200 bg-[#fafbfc] p-3">
-                  <p className="text-[8px] font-bold uppercase tracking-[0.14em] text-blue-700">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-blue-700">
                     ACTIVE APPLICATION
                   </p>
 
-                  <p className="mt-1 text-[10px] font-semibold text-slate-700">
+                  <p className="mt-1 text-[11px] font-semibold text-slate-700">
                     {
                       focusedApplication.title
                     }
@@ -578,11 +578,11 @@ export default function ProductDetailTabs({
             {/* SUSTAINABILITY */}
             <article className="min-h-0 overflow-hidden rounded-[22px] border border-slate-200 bg-[#f7f9fc] p-4">
               <div className="flex items-center justify-between">
-                <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-blue-700">
+                <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-blue-700">
                   SUSTAINABILITY & CONTEXT
                 </p>
 
-                <span className="text-[9px] text-slate-400">
+                <span className="text-[11px] text-slate-400">
                   Source-backed claims
                 </span>
               </div>
@@ -597,11 +597,11 @@ export default function ProductDetailTabs({
                     >
                       <div className="mb-2 h-1 w-7 rounded-full bg-blue-700" />
 
-                      <p className="text-[10px] font-bold">
+                      <p className="text-[11px] font-bold">
                         {item.title}
                       </p>
 
-                      <p className="mt-1 line-clamp-3 text-[9px] leading-4 text-slate-500">
+                      <p className="mt-1 line-clamp-3 text-[11px] leading-4 text-slate-500">
                         {item.description}
                       </p>
                     </div>
@@ -612,7 +612,7 @@ export default function ProductDetailTabs({
             {/* EVIDENCE */}
             <article className="grid min-h-0 grid-cols-[1.25fr_.75fr] gap-3 overflow-hidden rounded-[22px] border border-slate-200 bg-white p-4 shadow-[0_5px_22px_rgba(15,23,42,.035)]">
               <div className="min-w-0">
-                <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-blue-700">
+                <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-blue-700">
                   EVIDENCE & SOURCES
                 </p>
 
@@ -628,11 +628,11 @@ export default function ProductDetailTabs({
                         className="group flex items-center justify-between gap-3 rounded-[12px] bg-[#f5f7fa] px-3 py-2.5 transition-all duration-200 hover:-translate-y-[1px] hover:bg-white hover:shadow-sm hover:ring-1 hover:ring-slate-200"
                       >
                         <div className="min-w-0">
-                          <p className="truncate text-[10px] font-bold text-slate-900">
+                          <p className="truncate text-[11px] font-bold text-slate-900">
                             {source.label}
                           </p>
 
-                          <p className="text-[9px] text-slate-500">
+                          <p className="text-[11px] text-slate-500">
                             {
                               source.organisation
                             }
@@ -649,7 +649,7 @@ export default function ProductDetailTabs({
 
               <div className="flex min-h-0 flex-col justify-between rounded-[16px] bg-[#0b2949] p-4 text-white">
                 <div>
-                  <p className="text-[8px] font-bold uppercase tracking-[0.16em] text-blue-200">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-blue-200">
                     OFFICIAL SOURCE
                   </p>
 
@@ -658,7 +658,7 @@ export default function ProductDetailTabs({
                       "Manufacturer"}
                   </p>
 
-                  <p className="mt-1 text-[9px] leading-4 text-slate-300">
+                  <p className="mt-1 text-[11px] leading-4 text-slate-300">
                     Verify current product information with the originating source.
                   </p>
                 </div>
@@ -668,7 +668,7 @@ export default function ProductDetailTabs({
                     href={detail.officialUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="group mt-3 inline-flex items-center gap-1 text-[10px] font-bold text-blue-200"
+                    className="group mt-3 inline-flex items-center gap-1 text-[11px] font-bold text-blue-200"
                   >
                     Open source
                     <Arrow />
@@ -687,7 +687,7 @@ export default function ProductDetailTabs({
           <div className="grid h-full min-h-0 gap-3 lg:grid-cols-[.86fr_1.14fr]">
 
             <article className="min-h-0 overflow-hidden rounded-[22px] bg-gradient-to-br from-[#0b2949] to-[#071b31] p-5 text-white shadow-[0_10px_30px_rgba(7,27,49,.12)]">
-              <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-blue-200">
+              <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-blue-200">
                 CONNECTED BUILT WORLD
               </p>
 
@@ -717,7 +717,7 @@ export default function ProductDetailTabs({
                       }
                       className="block rounded-[14px] border border-white/10 bg-white/[0.07] p-3 transition hover:-translate-x-1 hover:bg-white/[0.12]"
                     >
-                      <p className="text-[7px] font-bold uppercase tracking-[0.14em] text-blue-200">
+                      <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-blue-200">
                         MANUFACTURER
                       </p>
 
@@ -729,7 +729,7 @@ export default function ProductDetailTabs({
                 </div>
 
                 <div className="relative z-10 rounded-[18px] bg-white p-4 text-center text-slate-950 shadow-lg transition hover:scale-[1.025]">
-                  <p className="text-[7px] font-bold uppercase tracking-[0.14em] text-blue-700">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-blue-700">
                     PRODUCT
                   </p>
 
@@ -737,7 +737,7 @@ export default function ProductDetailTabs({
                     {entity.title}
                   </p>
 
-                  <p className="mt-1 text-[9px] text-slate-500">
+                  <p className="mt-1 text-[11px] text-slate-500">
                     {detail?.subCategory ??
                       detail?.category ??
                       "Product"}
@@ -752,7 +752,7 @@ export default function ProductDetailTabs({
                         key={topic}
                         className="rounded-[14px] border border-white/10 bg-white/[0.07] p-3 transition hover:translate-x-1 hover:bg-blue-300/10"
                       >
-                        <p className="text-[7px] font-bold uppercase tracking-[0.14em] text-blue-200">
+                        <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-blue-200">
                           {index === 0
                             ? "MATERIAL"
                             : index === 1
@@ -760,7 +760,7 @@ export default function ProductDetailTabs({
                             : "CONTEXT"}
                         </p>
 
-                        <p className="mt-1 text-[11px] font-bold">
+                        <p className="mt-1 text-[12px] font-bold">
                           {topic}
                         </p>
                       </div>
@@ -769,11 +769,11 @@ export default function ProductDetailTabs({
               </div>
 
               <div className="mt-6 border-t border-white/10 pt-4">
-                <p className="text-[8px] font-bold uppercase tracking-[0.16em] text-blue-200">
+                <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-blue-200">
                   ARKNOZ CONNECTION RULE
                 </p>
 
-                <p className="mt-2 text-[10px] leading-5 text-slate-300">
+                <p className="mt-2 text-[11px] leading-5 text-slate-300">
                   Factual product relationships remain separate from discovery and future promoted visibility.
                 </p>
               </div>
@@ -782,7 +782,7 @@ export default function ProductDetailTabs({
             <article className="min-h-0 overflow-hidden rounded-[22px] border border-slate-200 bg-white p-5 shadow-[0_5px_22px_rgba(15,23,42,.035)]">
               <div className="flex items-end justify-between">
                 <div>
-                  <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-blue-700">
+                  <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-blue-700">
                     DISCOVER
                   </p>
 
@@ -793,7 +793,7 @@ export default function ProductDetailTabs({
 
                 <Link
                   href="/products"
-                  className="group inline-flex items-center gap-1 text-[10px] font-bold text-blue-700"
+                  className="group inline-flex items-center gap-1 text-[11px] font-bold text-blue-700"
                 >
                   All products
                   <Arrow />
@@ -810,7 +810,7 @@ export default function ProductDetailTabs({
     >
       <div className="flex min-h-0 flex-1 flex-col justify-between bg-[#0b2949] p-4 text-white">
         <div>
-          <p className="text-[7px] font-bold uppercase tracking-[0.14em] text-blue-200">
+          <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-blue-200">
             PRODUCT
           </p>
 
@@ -818,7 +818,7 @@ export default function ProductDetailTabs({
             {moreProducts[0].title}
           </p>
 
-          <p className="mt-2 line-clamp-4 text-[9px] leading-4 text-slate-300">
+          <p className="mt-2 line-clamp-4 text-[11px] leading-4 text-slate-300">
             {moreProducts[0].summary}
           </p>
         </div>
@@ -832,7 +832,7 @@ export default function ProductDetailTabs({
       </div>
 
       <div className="flex shrink-0 items-center justify-between bg-white p-3">
-        <span className="text-[9px] font-semibold text-slate-500">
+        <span className="text-[11px] font-semibold text-slate-500">
           View product
         </span>
 
@@ -857,7 +857,7 @@ export default function ProductDetailTabs({
 
         <div className="relative flex h-full flex-col justify-between">
           <div>
-            <p className="text-[8px] font-bold uppercase tracking-[0.18em] text-blue-700">
+            <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-blue-700">
               DISCOVERY LENS
             </p>
 
@@ -865,7 +865,7 @@ export default function ProductDetailTabs({
               Explore the product context
             </h4>
 
-            <p className="mt-2 max-w-md text-[10px] leading-5 text-slate-600">
+            <p className="mt-2 max-w-md text-[11px] leading-5 text-slate-600">
               Discover connected materials, applications and Built World topics as genuine Arknoz records become available.
             </p>
           </div>
@@ -876,7 +876,7 @@ export default function ProductDetailTabs({
                 key={topic}
                 className="rounded-[12px] bg-white/75 p-3 ring-1 ring-white transition hover:-translate-y-[1px] hover:bg-white"
               >
-                <p className="text-[7px] font-bold uppercase tracking-[0.13em] text-blue-700">
+                <p className="text-[10px] font-bold uppercase tracking-[0.13em] text-blue-700">
                   {index === 0
                     ? "MATERIAL"
                     : index === 1
@@ -884,7 +884,7 @@ export default function ProductDetailTabs({
                     : "CONTEXT"}
                 </p>
 
-                <p className="mt-1 text-[10px] font-bold text-slate-900">
+                <p className="mt-1 text-[11px] font-bold text-slate-900">
                   {topic}
                 </p>
               </div>
@@ -895,18 +895,18 @@ export default function ProductDetailTabs({
 
       <div className="flex items-center justify-between rounded-[15px] border border-slate-200 bg-white px-4 py-3">
         <div>
-          <p className="text-[8px] font-bold uppercase tracking-[0.14em] text-blue-700">
+          <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-blue-700">
             ARKNOZ RULE
           </p>
 
-          <p className="mt-1 text-[9px] text-slate-500">
+          <p className="mt-1 text-[11px] text-slate-500">
             Only genuine related products are displayed.
           </p>
         </div>
 
         <Link
           href="/products"
-          className="text-[10px] font-bold text-blue-700"
+          className="text-[11px] font-bold text-blue-700"
         >
           Browse all →
         </Link>
@@ -938,7 +938,7 @@ export default function ProductDetailTabs({
         >
           <div>
             <p
-              className={`text-[7px] font-bold uppercase tracking-[0.14em] ${
+              className={`text-[10px] font-bold uppercase tracking-[0.14em] ${
                 index === 0
                   ? "text-blue-200"
                   : "text-blue-700"
@@ -952,7 +952,7 @@ export default function ProductDetailTabs({
             </p>
 
             <p
-              className={`mt-2 line-clamp-3 text-[9px] leading-4 ${
+              className={`mt-2 line-clamp-3 text-[11px] leading-4 ${
                 index === 0
                   ? "text-slate-300"
                   : "text-slate-500"
@@ -971,7 +971,7 @@ export default function ProductDetailTabs({
         </div>
 
         <div className="flex items-center justify-between bg-white p-3">
-          <span className="text-[9px] font-semibold text-slate-500">
+          <span className="text-[11px] font-semibold text-slate-500">
             View product
           </span>
 
@@ -989,7 +989,7 @@ export default function ProductDetailTabs({
         More products will appear here as genuine Arknoz records are connected.
       </p>
 
-      <p className="mt-2 text-[10px] text-slate-500">
+      <p className="mt-2 text-[11px] text-slate-500">
         Arknoz does not fabricate related products to fill the interface.
       </p>
     </div>
@@ -1022,7 +1022,7 @@ export default function ProductDetailTabs({
                   <div className="flex items-center gap-2 text-blue-200">
                     <LockIcon />
 
-                    <p className="text-[9px] font-bold uppercase tracking-[0.18em]">
+                    <p className="text-[11px] font-bold uppercase tracking-[0.18em]">
                       ARKNOZ PRO · DEEP
                     </p>
                   </div>
@@ -1053,7 +1053,7 @@ export default function ProductDetailTabs({
                       className="cursor-not-allowed rounded-[13px] border border-white/10 bg-white/[0.06] px-3 py-3 opacity-85 transition hover:bg-white/[0.09]"
                     >
                       <div className="flex items-center justify-between gap-2">
-                        <p className="text-[10px] font-bold">
+                        <p className="text-[11px] font-bold">
                           {item}
                         </p>
 
@@ -1067,7 +1067,7 @@ export default function ProductDetailTabs({
 
             <article className="flex min-h-0 flex-col gap-3">
               <div className="flex-1 rounded-[22px] border border-slate-200 bg-[#f6f8fb] p-5">
-                <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-blue-700">
+                <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-blue-700">
                   ARKNOZ PRO PREVIEW
                 </p>
 
@@ -1087,11 +1087,11 @@ export default function ProductDetailTabs({
                         key={item}
                         className="flex items-center gap-3 rounded-[13px] bg-white px-3 py-2.5 ring-1 ring-slate-200 transition hover:ring-slate-300"
                       >
-                        <span className="text-[9px] font-bold text-blue-700">
+                        <span className="text-[11px] font-bold text-blue-700">
                           0{index + 1}
                         </span>
 
-                        <span className="text-[11px] font-semibold">
+                        <span className="text-[12px] font-semibold">
                           {item}
                         </span>
                       </div>
@@ -1102,16 +1102,16 @@ export default function ProductDetailTabs({
 
               <div className="flex items-center justify-between rounded-[18px] border border-slate-200 bg-white p-4">
                 <div>
-                  <p className="text-[9px] font-bold uppercase tracking-[0.15em] text-blue-700">
+                  <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-blue-700">
                     ARKNOZ PRO
                   </p>
 
-                  <p className="mt-1 max-w-sm text-[10px] leading-4 text-slate-500">
+                  <p className="mt-1 max-w-sm text-[11px] leading-4 text-slate-500">
                     Public product information stays free. Arknoz Deep is planned for Arknoz Pro.
                   </p>
                 </div>
 
-                <span className="inline-flex cursor-not-allowed items-center gap-2 rounded-full bg-[#0b2949] px-4 py-2 text-[11px] font-bold text-white">
+                <span className="inline-flex cursor-not-allowed items-center gap-2 rounded-full bg-[#0b2949] px-4 py-2 text-[12px] font-bold text-white">
                   <LockIcon />
                   Planned
                 </span>

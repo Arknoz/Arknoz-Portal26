@@ -162,7 +162,7 @@ export default function ArknozGeographyBrowser({
 
             <p
               className="
-                text-[9px]
+                text-[11px]
                 font-bold
                 uppercase
                 tracking-[0.22em]
@@ -280,7 +280,7 @@ export default function ArknozGeographyBrowser({
                     border
                     px-4
                     py-2
-                    text-[10px]
+                    text-[11px]
                     font-semibold
                     capitalize
                     transition
@@ -323,7 +323,7 @@ export default function ArknozGeographyBrowser({
                 rounded-full
                 px-3
                 py-1.5
-                text-[10px]
+                text-[11px]
                 font-semibold
                 ${
                   order === "az"
@@ -345,7 +345,7 @@ export default function ArknozGeographyBrowser({
                 rounded-full
                 px-3
                 py-1.5
-                text-[10px]
+                text-[11px]
                 font-semibold
                 ${
                   order === "za"
@@ -441,7 +441,7 @@ export default function ArknozGeographyBrowser({
 
                       <p
                         className="
-                          text-[8px]
+                          text-[10px]
                           font-bold
                           uppercase
                           tracking-[0.17em]
@@ -471,7 +471,7 @@ export default function ArknozGeographyBrowser({
                           className="
                             mt-2
                             line-clamp-2
-                            text-[10px]
+                            text-[11px]
                             leading-5
                             text-white/65
                           "
@@ -487,7 +487,7 @@ export default function ArknozGeographyBrowser({
                         <p
                           className="
                             mt-3
-                            text-[9px]
+                            text-[11px]
                             text-white/55
                           "
                         >
@@ -500,7 +500,7 @@ export default function ArknozGeographyBrowser({
                       <p
                         className="
                           mt-4
-                          text-[10px]
+                          text-[11px]
                           font-semibold
                         "
                       >

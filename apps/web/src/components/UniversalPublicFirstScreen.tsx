@@ -245,7 +245,7 @@ export default function UniversalPublicFirstScreen({
                   <div className="mt-7">
                     <p
                       className="
-                        text-[9px]
+                        text-[11px]
                         font-bold
                         uppercase
                         tracking-[0.18em]
@@ -340,7 +340,7 @@ export default function UniversalPublicFirstScreen({
                       rounded-[6px]
                       bg-[#0a2230]
                       px-5
-                      text-[11px]
+                      text-[12px]
                       font-semibold
                       text-white
                       transition
@@ -362,7 +362,7 @@ export default function UniversalPublicFirstScreen({
                 >
                   <p
                     className="
-                      text-[9px]
+                      text-[11px]
                       font-bold
                       uppercase
                       tracking-[0.16em]
@@ -406,7 +406,7 @@ export default function UniversalPublicFirstScreen({
                               border-b
                               border-slate-100
                               py-2.5
-                              text-[11px]
+                              text-[12px]
                               font-semibold
                               text-slate-600
                               transition
@@ -449,7 +449,7 @@ export default function UniversalPublicFirstScreen({
                 <p
                   className="
                     max-w-sm
-                    text-[10px]
+                    text-[11px]
                     leading-5
                     text-slate-400
                   "
@@ -463,7 +463,7 @@ export default function UniversalPublicFirstScreen({
                   href="/global"
                   className="
                     shrink-0
-                    text-[10px]
+                    text-[11px]
                     font-bold
                     text-[#0a2230]
                     transition
@@ -499,7 +499,7 @@ export default function UniversalPublicFirstScreen({
                 <div>
                   <p
                     className="
-                      text-[9px]
+                      text-[11px]
                       font-bold
                       uppercase
                       tracking-[0.17em]
@@ -514,7 +514,7 @@ export default function UniversalPublicFirstScreen({
                   <p
                     className="
                       mt-1
-                      text-[11px]
+                      text-[12px]
                       text-slate-500
                     "
                   >
@@ -526,7 +526,7 @@ export default function UniversalPublicFirstScreen({
                   <Link
                     href={featuredHref}
                     className="
-                      text-[10px]
+                      text-[11px]
                       font-semibold
                       text-[#0a2230]
                       transition
@@ -602,7 +602,7 @@ export default function UniversalPublicFirstScreen({
                   >
                     <p
                       className="
-                        text-[8px]
+                        text-[10px]
                         font-bold
                         uppercase
                         tracking-[0.18em]
@@ -630,7 +630,7 @@ export default function UniversalPublicFirstScreen({
                     <p
                       className="
                         mt-3
-                        text-[10px]
+                        text-[11px]
                         font-medium
                         text-white/60
                       "
@@ -704,7 +704,7 @@ export default function UniversalPublicFirstScreen({
                         >
                           <p
                             className="
-                              text-[7px]
+                              text-[10px]
                               font-bold
                               uppercase
                               tracking-[0.17em]
@@ -732,7 +732,7 @@ export default function UniversalPublicFirstScreen({
                           <p
                             className="
                               mt-2
-                              text-[9px]
+                              text-[11px]
                               text-white/55
                             "
                           >
@@ -821,7 +821,7 @@ export default function UniversalPublicFirstScreen({
               <Link
                 key={`${item.label}-${item.href}`}
                 href={item.href}
-                className="shrink-0 rounded-full border border-slate-200 px-4 py-2 text-[11px] font-semibold text-slate-700 transition hover:bg-slate-50"
+                className="shrink-0 rounded-full border border-slate-200 px-4 py-2 text-[12px] font-semibold text-slate-700 transition hover:bg-slate-50"
               >
                 {item.label}
               </Link>

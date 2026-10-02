@@ -76,7 +76,7 @@ export default function LearningDetailPage({
 
             <div className="mb-3 flex shrink-0 items-end justify-between gap-8">
               <div>
-                <p className="text-[9px] font-bold uppercase tracking-[0.19em] text-blue-700">
+                <p className="text-[11px] font-bold uppercase tracking-[0.19em] text-blue-700">
                   LEARNING INTELLIGENCE
                 </p>
 
@@ -85,7 +85,7 @@ export default function LearningDetailPage({
                 </h2>
               </div>
 
-              <p className="hidden max-w-xl text-right text-[11px] leading-5 text-slate-500 lg:block">
+              <p className="hidden max-w-xl text-right text-[12px] leading-5 text-slate-500 lg:block">
                 Outcomes, resources, provider context, source state and connected Built World pathways in one workspace.
               </p>
             </div>
@@ -96,7 +96,7 @@ export default function LearningDetailPage({
               />
             </div>
 
-            <div className="mt-3 flex shrink-0 items-center gap-8 border-t border-slate-200 pt-3 text-[10px] font-bold">
+            <div className="mt-3 flex shrink-0 items-center gap-8 border-t border-slate-200 pt-3 text-[11px] font-bold">
               <span className="uppercase tracking-[0.18em] text-blue-700">
                 CONTINUE
               </span>

@@ -330,7 +330,7 @@ export default function ArknozDiscoveryRibbon() {
                   cursor-pointer
                   items-center
                   px-5
-                  text-[11px]
+                  text-[12px]
                   font-semibold
                   uppercase
                   tracking-[0.16em]

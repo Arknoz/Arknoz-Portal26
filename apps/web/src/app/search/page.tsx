@@ -303,7 +303,7 @@ function SearchBody() {
           <div className="mx-auto max-w-[1720px] px-6 lg:px-10">
             <div className="flex flex-wrap items-end justify-between gap-5">
               <div>
-                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-700">
+                <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-blue-700">
                   SEARCH RESULTS
                 </p>
                 <h2 className="mt-2 text-3xl font-bold tracking-tight text-slate-950 md:text-4xl">
@@ -326,7 +326,7 @@ function SearchBody() {
 
               <div className="mt-7 rounded-[28px] border border-slate-200 bg-[#f8fafc] p-7">
 
-                <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-blue-700">
+                <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-blue-700">
                   SEARCHING PUBLISHED ARKNOZ RECORDS
                 </p>
 
@@ -340,7 +340,7 @@ function SearchBody() {
 
               <div className="mt-7 rounded-[28px] border border-slate-200 bg-[#f8fafc] p-7">
 
-                <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-blue-700">
+                <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-blue-700">
                   SEARCH TEMPORARILY UNAVAILABLE
                 </p>
 
@@ -358,7 +358,7 @@ function SearchBody() {
                     href={getEntityHref(entity)}
                     className="group rounded-[24px] border border-slate-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-blue-300 hover:shadow-sm"
                   >
-                    <p className="text-[9px] font-bold uppercase tracking-[0.16em] text-blue-700">
+                    <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-blue-700">
                       {entity.subtitle || entity.type}
                     </p>
                     <h3 className="mt-2 text-xl font-bold text-slate-950">
@@ -375,7 +375,7 @@ function SearchBody() {
               </div>
             ) : (
               <div className="mt-7 rounded-[28px] border border-slate-200 bg-[#f8fafc] p-7">
-                <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-blue-700">
+                <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-blue-700">
                   NO EXACT MATCH
                 </p>
                 <h3 className="mt-2 text-2xl font-bold text-slate-950">
@@ -405,7 +405,7 @@ function SearchBody() {
         <section className="bg-white py-10">
           <div className="mx-auto max-w-[1720px] px-6 lg:px-10">
             <div>
-              <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-700">
+              <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-blue-700">
                 START DISCOVERING
               </p>
               <h2 className="mt-2 text-3xl font-bold tracking-tight text-slate-950 md:text-4xl">
@@ -439,7 +439,7 @@ function SearchBody() {
         <div className="mx-auto max-w-[1720px] px-6 lg:px-10">
           <div className="grid gap-5 lg:grid-cols-[.9fr_1.1fr]">
             <div className="rounded-[30px] bg-[#0b2949] p-7 text-white">
-              <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-200">
+              <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-blue-200">
                 SEARCH ACROSS WORLDS
               </p>
               <h2 className="mt-2 text-3xl font-bold tracking-tight md:text-4xl">
@@ -462,7 +462,7 @@ function SearchBody() {
             </div>
 
             <div className="rounded-[30px] border border-slate-200 bg-white p-7">
-              <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-700">
+              <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-blue-700">
                 SEARCH PRINCIPLES
               </p>
               <div className="mt-5 grid gap-3 sm:grid-cols-2">

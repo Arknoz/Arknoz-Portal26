@@ -75,7 +75,7 @@ export default function UniversalRunningRail({
         <div className="flex items-end justify-between gap-8 px-7 py-6 lg:px-10">
 
           <div>
-            <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-teal-700">
+            <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-teal-700">
               {eyebrow}
             </p>
 
@@ -132,7 +132,7 @@ export default function UniversalRunningRail({
                   <div className="absolute inset-x-0 bottom-0 z-10 p-5 text-white">
 
                     {item.eyebrow ? (
-                      <p className="text-[8px] font-bold uppercase tracking-[0.18em] text-white/70">
+                      <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-white/70">
                         {item.eyebrow}
                       </p>
                     ) : null}
@@ -142,7 +142,7 @@ export default function UniversalRunningRail({
                     </h3>
 
                     {item.context ? (
-                      <p className="mt-3 text-[10px] text-white/65">
+                      <p className="mt-3 text-[11px] text-white/65">
                         {item.context}
                       </p>
                     ) : null}

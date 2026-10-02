@@ -62,7 +62,7 @@ function ProfileHeroVisual({
 
       <div className="absolute right-[7%] top-[13%] w-[38%]">
 
-        <p className="text-[8px] font-bold uppercase tracking-[0.18em] text-blue-700">
+        <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-blue-700">
           {detail.kind === "person"
             ? "PROFESSIONAL PROFILE"
             : detail.kind ===
@@ -82,7 +82,7 @@ function ProfileHeroVisual({
             .map((item) => (
               <div
                 key={item.title}
-                className="rounded-[12px] bg-white/55 px-3 py-2 text-[9px] font-bold text-[#0b2949] backdrop-blur-sm"
+                className="rounded-[12px] bg-white/55 px-3 py-2 text-[11px] font-bold text-[#0b2949] backdrop-blur-sm"
               >
                 {item.title}
               </div>
@@ -93,7 +93,7 @@ function ProfileHeroVisual({
 
       <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#071b31]/95 to-transparent p-7 pt-20 text-white">
 
-        <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-blue-200">
+        <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-blue-200">
           PROFILE
         </p>
 
@@ -101,7 +101,7 @@ function ProfileHeroVisual({
           {entity.title}
         </h2>
 
-        <p className="mt-1 text-[11px] text-slate-300">
+        <p className="mt-1 text-[12px] text-slate-300">
           Canonical Arknoz identity
         </p>
       </div>
@@ -212,7 +212,7 @@ export default function ProfileDetailPage({
 
           <div className="mx-auto flex h-full max-w-[1720px] flex-col px-6 py-5 lg:px-8">
 
-            <nav className="mb-4 flex flex-wrap items-center gap-2 text-[11px] font-semibold">
+            <nav className="mb-4 flex flex-wrap items-center gap-2 text-[12px] font-semibold">
 
               <Link
                 href={parentRoute}
@@ -249,7 +249,7 @@ export default function ProfileDetailPage({
 
                   <div className="flex flex-wrap gap-2">
 
-                    <span className="rounded-full bg-blue-50 px-3 py-1 text-[8px] font-bold uppercase tracking-[0.17em] text-blue-700">
+                    <span className="rounded-full bg-blue-50 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.17em] text-blue-700">
                       {detail.kind ===
                       "person"
                         ? "PERSON"
@@ -259,7 +259,7 @@ export default function ProfileDetailPage({
                         : "ORGANISATION"}
                     </span>
 
-                    <span className="rounded-full bg-[#f3f6f9] px-3 py-1 text-[8px] font-bold uppercase tracking-[0.17em] text-slate-600">
+                    <span className="rounded-full bg-[#f3f6f9] px-3 py-1 text-[10px] font-bold uppercase tracking-[0.17em] text-slate-600">
                       {detail.category}
                     </span>
                   </div>
@@ -297,11 +297,11 @@ export default function ProfileDetailPage({
                             key={fact.label}
                             className="border-t border-slate-200 py-3"
                           >
-                            <span className="text-[10px] text-slate-500">
+                            <span className="text-[11px] text-slate-500">
                               {fact.label}
                             </span>
 
-                            <strong className="ml-2 text-[11px]">
+                            <strong className="ml-2 text-[12px]">
                               {fact.value}
                             </strong>
                           </div>
@@ -321,7 +321,7 @@ export default function ProfileDetailPage({
                       }
                       target="_blank"
                       rel="noreferrer"
-                      className="rounded-full bg-[#0b2949] px-5 py-3 text-[10px] font-bold text-white transition hover:-translate-y-[1px] hover:shadow-md"
+                      className="rounded-full bg-[#0b2949] px-5 py-3 text-[11px] font-bold text-white transition hover:-translate-y-[1px] hover:shadow-md"
                     >
                       {detail.officialLabel ??
                         "Official source"}{" "}
@@ -334,7 +334,7 @@ export default function ProfileDetailPage({
 
                   <a
                     href="#profile-detail"
-                    className="text-[11px] font-bold text-blue-700"
+                    className="text-[12px] font-bold text-blue-700"
                   >
                     Profile details ↓
                   </a>
@@ -355,7 +355,7 @@ export default function ProfileDetailPage({
                 <article className="flex flex-col justify-between rounded-[24px] bg-[#0b2949] p-5 text-white">
 
                   <div>
-                    <p className="text-[8px] font-bold uppercase tracking-[0.18em] text-blue-200">
+                    <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-blue-200">
                       CANONICAL
                     </p>
 
@@ -364,7 +364,7 @@ export default function ProfileDetailPage({
                     </h3>
                   </div>
 
-                  <p className="text-[10px] leading-5 text-slate-300">
+                  <p className="text-[11px] leading-5 text-slate-300">
                     Professional identity, work and genuine Built World connections.
                   </p>
                 </article>
@@ -372,7 +372,7 @@ export default function ProfileDetailPage({
 
                 <article className="rounded-[24px] border border-slate-200 bg-white p-5">
 
-                  <p className="text-[8px] font-bold uppercase tracking-[0.18em] text-blue-700">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-blue-700">
                     AT A GLANCE
                   </p>
 
@@ -383,7 +383,7 @@ export default function ProfileDetailPage({
                         <div
                           key={fact.label}
                         >
-                          <p className="text-[9px] text-slate-400">
+                          <p className="text-[11px] text-slate-400">
                             {fact.label}
                           </p>
 
@@ -422,7 +422,7 @@ export default function ProfileDetailPage({
             <div className="mb-3 flex items-end justify-between gap-8">
 
               <div>
-                <p className="text-[9px] font-bold uppercase tracking-[0.19em] text-blue-700">
+                <p className="text-[11px] font-bold uppercase tracking-[0.19em] text-blue-700">
                   PROFILE
                 </p>
 
@@ -432,7 +432,7 @@ export default function ProfileDetailPage({
               </div>
 
 
-              <p className="hidden max-w-xl text-right text-[11px] leading-5 text-slate-500 lg:block">
+              <p className="hidden max-w-xl text-right text-[12px] leading-5 text-slate-500 lg:block">
                 Identity, professional or institutional focus, official sources and connected Built World records.
               </p>
             </div>
@@ -447,7 +447,7 @@ export default function ProfileDetailPage({
             </div>
 
 
-            <div className="mt-3 flex items-center gap-8 border-t border-slate-200 pt-3 text-[10px] font-bold">
+            <div className="mt-3 flex items-center gap-8 border-t border-slate-200 pt-3 text-[11px] font-bold">
 
               <span className="uppercase tracking-[0.18em] text-blue-700">
                 CONTINUE

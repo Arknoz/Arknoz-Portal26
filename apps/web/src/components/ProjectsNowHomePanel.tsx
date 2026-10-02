@@ -137,7 +137,7 @@ export default function ProjectsNowHomePanel() {
           <div className="flex items-center gap-3">
             <p
               className="
-                text-[10px]
+                text-[11px]
                 font-bold
                 tracking-[0.08em]
                 text-red-500
@@ -153,7 +153,7 @@ export default function ProjectsNowHomePanel() {
                 inline-flex
                 items-center
                 gap-1.5
-                text-[10px]
+                text-[11px]
                 font-semibold
                 text-slate-500
               "
@@ -305,7 +305,7 @@ export default function ProjectsNowHomePanel() {
                     >
                       <p
                         className="
-                          text-[8px]
+                          text-[10px]
                           font-bold
                           uppercase
                           tracking-[0.18em]
@@ -331,7 +331,7 @@ export default function ProjectsNowHomePanel() {
                       <p
                         className="
                           mt-3
-                          text-[9px]
+                          text-[11px]
                           font-medium
                           text-white/60
                         "
@@ -361,7 +361,7 @@ export default function ProjectsNowHomePanel() {
           <Link
             href="#project-category-buildings-architecture"
             className="
-              text-[11px]
+              text-[12px]
               font-bold
               text-[#0a2230]
               transition

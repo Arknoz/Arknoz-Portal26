@@ -94,7 +94,7 @@ export default function ContactPage() {
 
       <section className="bg-[#f6f8fb] px-5 py-14 sm:px-6 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-[1720px]">
-          <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-teal-700">
+          <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-teal-700">
             CONTACT ARKNOZ
           </p>
 

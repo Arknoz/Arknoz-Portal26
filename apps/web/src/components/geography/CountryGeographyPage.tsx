@@ -338,7 +338,7 @@ export default async function CountryGeographyPage({
 
             <div>
 
-              <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-700">
+              <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-blue-700">
                 REGIONS & PLACES
               </p>
 
@@ -408,7 +408,7 @@ export default async function CountryGeographyPage({
 
                     <div className="p-5">
 
-                      <p className="text-[9px] font-bold uppercase tracking-[0.16em] text-blue-700">
+                      <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-blue-700">
                         {child.type}
                       </p>
 
@@ -451,7 +451,7 @@ export default async function CountryGeographyPage({
 
         <div className="mx-auto max-w-[1720px] px-6 lg:px-10">
 
-          <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-700">
+          <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-blue-700">
             CONNECTED BUILT WORLD
           </p>
 
@@ -493,7 +493,7 @@ export default async function CountryGeographyPage({
                 >
                   <div className="flex flex-wrap items-start justify-between gap-2">
                     <p
-                      className={`text-[9px] font-bold uppercase tracking-[0.16em] ${
+                      className={`text-[11px] font-bold uppercase tracking-[0.16em] ${
                         item.paid
                           ? "text-slate-500"
                           : index === 0
@@ -505,7 +505,7 @@ export default async function CountryGeographyPage({
                     </p>
 
                     {item.paid && (
-                      <span className="rounded-full border border-slate-300 px-2 py-1 text-[8px] font-bold uppercase tracking-[0.12em] text-slate-500">
+                      <span className="rounded-full border border-slate-300 px-2 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-slate-500">
                         Arknoz Pro &middot; Coming Later
                       </span>
                     )}

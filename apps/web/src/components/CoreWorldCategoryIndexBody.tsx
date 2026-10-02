@@ -198,7 +198,7 @@ function RecordCard({
       <div className="flex flex-1 flex-col p-5">
 
         {entity.subtitle ? (
-          <p className="text-[9px] font-semibold uppercase tracking-[0.12em] text-slate-400">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-slate-400">
             {entity.subtitle}
           </p>
         ) : null}
@@ -210,21 +210,21 @@ function RecordCard({
 
 
         {entity.geography ? (
-          <p className="mt-3 text-[10px] leading-5 text-slate-500">
+          <p className="mt-3 text-[11px] leading-5 text-slate-500">
             {entity.geography}
           </p>
         ) : null}
 
 
         {entity.summary ? (
-          <p className="mt-3 line-clamp-3 text-[11px] leading-5 text-slate-500">
+          <p className="mt-3 line-clamp-3 text-[12px] leading-5 text-slate-500">
             {entity.summary}
           </p>
         ) : null}
 
 
         <p
-          className="mt-auto border-t border-slate-100 pt-4 text-[10px] font-semibold"
+          className="mt-auto border-t border-slate-100 pt-4 text-[11px] font-semibold"
           style={{
             color:
               accent,
@@ -404,7 +404,7 @@ export default function CoreWorldCategoryIndexBody({
           <div>
 
             <p
-              className="text-[10px] font-semibold uppercase tracking-[0.14em]"
+              className="text-[11px] font-semibold uppercase tracking-[0.14em]"
               style={{
                 color:
                   presentation.accent,
@@ -425,7 +425,7 @@ export default function CoreWorldCategoryIndexBody({
 
 
             {locationLabel ? (
-              <p className="mt-3 text-[10px] font-medium text-slate-400">
+              <p className="mt-3 text-[11px] font-medium text-slate-400">
                 Geography: {locationLabel}
               </p>
             ) : null}
@@ -439,7 +439,7 @@ export default function CoreWorldCategoryIndexBody({
               {publishedCount}
             </p>
 
-            <p className="mt-2 text-[9px] font-semibold uppercase tracking-[0.12em] text-slate-400">
+            <p className="mt-2 text-[11px] font-semibold uppercase tracking-[0.12em] text-slate-400">
               Published records
             </p>
 
@@ -453,18 +453,18 @@ export default function CoreWorldCategoryIndexBody({
           <>
             {paginationEnabled ? (
               <div className="mt-6 flex flex-col gap-3 border-b border-slate-200 pb-5 sm:flex-row sm:items-center sm:justify-between">
-                <p className="text-[10px] font-medium uppercase tracking-[0.1em] text-slate-400">
+                <p className="text-[11px] font-medium uppercase tracking-[0.1em] text-slate-400">
                   {publishedCount} projects · Page {currentPage} of {totalPages}
                 </p>
 
                 <div className="flex items-center gap-2">
-                  <span className="mr-1 text-[9px] font-semibold uppercase tracking-[0.12em] text-slate-400">
+                  <span className="mr-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-slate-400">
                     Sort
                   </span>
 
                   <Link
                     href={buildResultsHref(1, "az")}
-                    className={`border px-3 py-2 text-[10px] font-semibold transition ${
+                    className={`border px-3 py-2 text-[11px] font-semibold transition ${
                       resolvedSort === "az"
                         ? "border-[#0a2230] bg-[#0a2230] text-white"
                         : "border-slate-200 bg-white text-slate-600 hover:border-slate-400"
@@ -475,7 +475,7 @@ export default function CoreWorldCategoryIndexBody({
 
                   <Link
                     href={buildResultsHref(1, "za")}
-                    className={`border px-3 py-2 text-[10px] font-semibold transition ${
+                    className={`border px-3 py-2 text-[11px] font-semibold transition ${
                       resolvedSort === "za"
                         ? "border-[#0a2230] bg-[#0a2230] text-white"
                         : "border-slate-200 bg-white text-slate-600 hover:border-slate-400"
@@ -515,12 +515,12 @@ export default function CoreWorldCategoryIndexBody({
                     href={buildResultsHref(
                       currentPage - 1
                     )}
-                    className="border border-slate-200 bg-white px-4 py-2.5 text-[10px] font-semibold text-slate-600 transition hover:border-slate-400 hover:text-slate-950"
+                    className="border border-slate-200 bg-white px-4 py-2.5 text-[11px] font-semibold text-slate-600 transition hover:border-slate-400 hover:text-slate-950"
                   >
                     ← Previous
                   </Link>
                 ) : (
-                  <span className="border border-slate-100 bg-slate-50 px-4 py-2.5 text-[10px] font-semibold text-slate-300">
+                  <span className="border border-slate-100 bg-slate-50 px-4 py-2.5 text-[11px] font-semibold text-slate-300">
                     ← Previous
                   </span>
                 )}
@@ -534,7 +534,7 @@ export default function CoreWorldCategoryIndexBody({
                         <span
                           key={token}
                           aria-current="page"
-                          className="flex min-h-9 min-w-9 items-center justify-center bg-[#0a2230] px-3 text-[10px] font-semibold text-white"
+                          className="flex min-h-9 min-w-9 items-center justify-center bg-[#0a2230] px-3 text-[11px] font-semibold text-white"
                         >
                           {token}
                         </span>
@@ -544,7 +544,7 @@ export default function CoreWorldCategoryIndexBody({
                           href={buildResultsHref(
                             token
                           )}
-                          className="flex min-h-9 min-w-9 items-center justify-center border border-slate-200 bg-white px-3 text-[10px] font-semibold text-slate-600 transition hover:border-slate-400 hover:text-slate-950"
+                          className="flex min-h-9 min-w-9 items-center justify-center border border-slate-200 bg-white px-3 text-[11px] font-semibold text-slate-600 transition hover:border-slate-400 hover:text-slate-950"
                         >
                           {token}
                         </Link>
@@ -552,7 +552,7 @@ export default function CoreWorldCategoryIndexBody({
                     ) : (
                       <span
                         key={token}
-                        className="flex min-h-9 min-w-7 items-center justify-center text-[11px] text-slate-400"
+                        className="flex min-h-9 min-w-7 items-center justify-center text-[12px] text-slate-400"
                       >
                         …
                       </span>
@@ -565,12 +565,12 @@ export default function CoreWorldCategoryIndexBody({
                     href={buildResultsHref(
                       currentPage + 1
                     )}
-                    className="border border-slate-200 bg-white px-4 py-2.5 text-[10px] font-semibold text-slate-600 transition hover:border-slate-400 hover:text-slate-950"
+                    className="border border-slate-200 bg-white px-4 py-2.5 text-[11px] font-semibold text-slate-600 transition hover:border-slate-400 hover:text-slate-950"
                   >
                     Next →
                   </Link>
                 ) : (
-                  <span className="border border-slate-100 bg-slate-50 px-4 py-2.5 text-[10px] font-semibold text-slate-300">
+                  <span className="border border-slate-100 bg-slate-50 px-4 py-2.5 text-[11px] font-semibold text-slate-300">
                     Next →
                   </span>
                 )}
@@ -582,7 +582,7 @@ export default function CoreWorldCategoryIndexBody({
 
           <div className="mt-8 rounded-[20px] border border-slate-200 bg-white px-6 py-14">
 
-            <p className="text-[10px] font-semibold uppercase tracking-[0.13em] text-slate-400">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.13em] text-slate-400">
               No published records
             </p>
 
