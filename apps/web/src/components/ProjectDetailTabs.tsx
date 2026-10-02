@@ -122,7 +122,7 @@ export default function ProjectDetailTabs({
   // ARKNOZ_PROJECT_INTERACTION_V4
   //
   // Current Arknoz premium access surface.
-  // When dedicated checkout exists, change only this value.
+  // Keep the Arknoz Pro destination centralized here.
   const proAccessHref =
     "/intelligence";
 
@@ -1461,13 +1461,13 @@ export default function ProjectDetailTabs({
 
               <Link
                 href={proAccessHref}
-                aria-label="Unlock Arknoz Pro"
+                aria-label="Explore Arknoz Pro"
                 className="group mt-7 inline-flex items-center gap-3 rounded-[12px] border border-white/20 bg-white/[0.06] px-4 py-3 text-[12px] font-medium transition hover:border-white/40 hover:bg-white/[0.10]"
               >
                 <LockIcon />
 
                 <span>
-                  Unlock Arknoz Pro
+                  Arknoz Pro · Coming Later
                 </span>
 
                 <span

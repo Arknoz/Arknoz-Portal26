@@ -46,7 +46,7 @@ const ribbonItems: RibbonItem[] = [
 
   { label: "For Business", href: "/business" },
   { label: "Partnerships", href: "/partnerships" },
-  { label: "Pricing", href: "/pricing" },
+  { label: "Access", href: "/pricing" },
   { label: "About Arknoz", href: "/about" },
 ];
 

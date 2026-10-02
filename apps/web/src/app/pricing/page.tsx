@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Pricing",
+  title: "Access",
   description:
-    "Understand Arknoz public access, free Arknoz ID membership and the Arknoz Pro professional layer.",
+    "Understand free public Arknoz access, free Arknoz ID membership and the future Arknoz Pro professional layer.",
 };
 import PublicDestinationPage from "@/components/PublicDestinationPage";
 
@@ -11,8 +11,8 @@ import PublicDestinationPage from "@/components/PublicDestinationPage";
 export default function Page() {
   return (
     <PublicDestinationPage
-      title="Pricing"
-      description="Arknoz provides broad public discovery access, with deeper professional capabilities delivered through Arknoz Pro and organisation workspaces."
+      title="Access"
+      description="Arknoz public discovery and Arknoz ID membership are free. Arknoz Pro is the future professional layer and is not yet available for activation."
       cards={[
         {
           title: "Explore Arknoz",
@@ -26,7 +26,7 @@ export default function Page() {
         },
         {
           title: "Arknoz Pro",
-          description: "Paid professional operating layer with advanced workspaces, collaboration, messaging, tools, analytics and deeper intelligence.",
+          description: "Future professional operating layer with advanced workspaces, messaging, tools, analytics and deeper intelligence. Coming later.",
           href: "/intelligence",
         },
         {
@@ -34,12 +34,12 @@ export default function Page() {
           description: "Company, university and institution capabilities are delivered through authorised Arknoz workspaces.",
         },
         {
-          title: "Pricing Information",
-          description: "Commercial pricing will be published when the corresponding paid services are opened for wider access.",
+          title: "Arknoz Pro Availability",
+          description: "Arknoz Pro is not being sold during the public-beta launch. Access details will be published before activation.",
         },
         {
           title: "Current Access",
-          description: "Public discovery remains open. Arknoz ID provides free member access. Arknoz Pro paid access will open when commercial activation is ready.",
+          description: "Public discovery is free. Arknoz ID is free. Arknoz Pro remains visible as the future professional layer and is coming later.",
           href: "/explore",
         },
       ]}

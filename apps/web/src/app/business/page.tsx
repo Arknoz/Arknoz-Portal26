@@ -41,7 +41,7 @@ export default function Page() {
         },
         {
           title: "Arknoz Pro",
-          description: "Professional operating tools and intelligence for the Built World.",
+          description: "Professional workspaces, tools and intelligence for the Built World, coming later through Arknoz Pro.",
           href: "/intelligence",
         },
       ]}

@@ -9,7 +9,7 @@ import UniversalPublicLastScreen from "@/components/UniversalPublicLastScreen";
 const accessLayers = [
   {
     title: "Arknoz",
-    mode: "Explore + Participate",
+    mode: "Free Public Access",
     text: "Discover the Built World through projects, products, knowledge, people, organisations and opportunities.",
   },
   {
@@ -19,8 +19,8 @@ const accessLayers = [
   },
   {
     title: "Arknoz Pro",
-    mode: "Paid Professional Layer",
-    text: "Use role-aware workspaces, professional collaboration, messaging, analytics, tools and deeper intelligence.",
+    mode: "Coming Later",
+    text: "Future professional operating layer for role-aware workspaces, messaging, analytics, tools and deeper intelligence.",
   },
 ] as const;
 
@@ -172,7 +172,7 @@ export default function IntelligencePortal() {
                     sm:text-[16px]
                   "
                 >
-                  Professional intelligence layer
+                  Professional operating + intelligence layer
                 </p>
 
                 <h1
@@ -200,10 +200,10 @@ export default function IntelligencePortal() {
                     text-slate-600
                   "
                 >
-                  Explore the Built World freely. Arknoz Pro adds the
+                  Explore the Built World freely. Arknoz Pro will add the
                   professional tools to operate within it — connecting
                   people, organisations, knowledge, projects, products
-                  and opportunities through one intelligence layer.
+                  and opportunities through one professional intelligence layer. Activation is coming later.
                 </p>
               </div>
 
@@ -593,12 +593,12 @@ export default function IntelligencePortal() {
               </p>
 
               <h2 className="mt-3 max-w-[13ch] text-4xl font-semibold leading-[0.98] tracking-[-0.045em] sm:text-5xl">
-                Free gives access. Pro gives capability.
+                Free now. Pro capability later.
               </h2>
             </div>
 
             <p className="max-w-2xl text-sm leading-7 text-slate-500 lg:justify-self-end">
-              Arknoz remains useful before payment. Arknoz ID carries identity
+              Arknoz public access and Arknoz ID are free. Arknoz ID carries identity
               and continuity. Pro activates professional workflow, intelligence,
               tools, intelligence, management and measurement when they are needed.
             </p>

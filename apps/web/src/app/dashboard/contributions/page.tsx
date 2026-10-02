@@ -2,17 +2,17 @@ import DashboardModuleFrame from "@/components/DashboardModuleFrame";
 import MemberContributionHistory from "@/components/MemberContributionHistory";
 
 import {
-  requireProUser,
+  requireDashboardUser,
 } from "@/lib/dashboard/access";
 
 export default async function ContributionsPage() {
-  await requireProUser(
+  await requireDashboardUser(
     "/dashboard/contributions"
   );
 
   return (
     <DashboardModuleFrame
-      eyebrow="ARKNOZ PRO"
+      eyebrow="ARKNOZ ID"
       title="Contributions"
       description="Contribute genuine Built World records and evidence, then follow their Arknoz review status."
     >

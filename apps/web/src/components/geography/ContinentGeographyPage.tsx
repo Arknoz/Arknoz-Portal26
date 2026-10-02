@@ -563,7 +563,7 @@ export default async function ContinentGeographyPage({
 
                     {item.paid && (
                       <span className="rounded-full border border-slate-300 px-2 py-1 text-[8px] font-bold uppercase tracking-[0.12em] text-slate-500">
-                        Arknoz Pro &middot; Locked
+                        Arknoz Pro &middot; Coming Later
                       </span>
                     )}
                   </div>
@@ -582,7 +582,7 @@ export default async function ContinentGeographyPage({
                     }`}
                   >
                     {item.paid
-                      ? "Preview Arknoz Pro →"
+                      ? "Explore Arknoz Pro →"
                       : "Explore →"}
                   </p>
                 </Link>

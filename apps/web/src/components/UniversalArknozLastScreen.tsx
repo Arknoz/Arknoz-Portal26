@@ -386,7 +386,7 @@ export default function UniversalArknozLastScreen() {
                 href="/pricing"
                 className="transition hover:text-white"
               >
-                Pricing
+                Access
               </Link>
 
               <Link

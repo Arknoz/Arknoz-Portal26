@@ -68,27 +68,6 @@ export async function POST(
         }
       );
     }
-    const isPro =
-      String(
-        user.app_metadata
-          ?.membership ??
-          ""
-      ).toUpperCase() ===
-      "PRO";
-
-    if (!isPro) {
-      return NextResponse.json(
-        {
-          ok: false,
-          error:
-            "Arknoz Pro membership is required for contributions.",
-        },
-        {
-          status: 403,
-        }
-      );
-    }
-
     const body =
       await request.json();
 

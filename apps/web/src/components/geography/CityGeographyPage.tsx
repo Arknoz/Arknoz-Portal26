@@ -280,7 +280,7 @@ export default async function CityGeographyPage({
                     section.key
                   ) && (
                     <span className="rounded-full border border-slate-300 px-2.5 py-1 text-[9px] font-bold uppercase tracking-[0.12em] text-slate-500">
-                      Arknoz Pro · Locked
+                      Arknoz Pro · Coming Later
                     </span>
                   )}
                 </div>

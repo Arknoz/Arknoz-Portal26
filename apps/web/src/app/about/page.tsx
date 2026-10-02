@@ -36,7 +36,7 @@ export default function AboutPage() {
         },
         {
           title: "Intelligence",
-          description: "Professional operating tools and intelligence through Arknoz Pro.",
+          description: "Arknoz Pro is the future professional operating and intelligence layer of Arknoz, coming later.",
           href: "/intelligence",
         },
         {

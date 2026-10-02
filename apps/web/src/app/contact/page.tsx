@@ -42,9 +42,9 @@ const contactAreas = [
   {
     title: "Arknoz Pro",
     description:
-      "For professional workspaces, tools, intelligence and Arknoz Pro access.",
+      "For future professional workspaces, tools and intelligence. Arknoz Pro is coming later.",
     href: "/intelligence",
-    action: "Arknoz Pro",
+    action: "Arknoz Pro · Coming Later",
   },
   {
     title: "General Enquiries",

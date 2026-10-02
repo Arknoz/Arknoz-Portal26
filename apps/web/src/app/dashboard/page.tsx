@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import { redirect } from "next/navigation";
 
 import GlobalFooter from "@/components/GlobalFooter";
@@ -94,6 +94,14 @@ const GROUPS = [
         href: "/dashboard/opportunities",
         access: "FREE",
       },
+      {
+        id: "contributions",
+        title: "Contributions",
+        description:
+          "Contribute structured Built World records and evidence.",
+        href: "/dashboard/contributions",
+        access: "FREE",
+      },
     ],
   },
 
@@ -138,14 +146,6 @@ const GROUPS = [
     accessLabel: "PRO",
 
     services: [
-      {
-        id: "contributions",
-        title: "Contributions",
-        description:
-          "Contribute structured Built World records and evidence.",
-        href: "/dashboard/contributions",
-        access: "PRO",
-      },
 
       {
         id: "advanced-analytics",
@@ -447,7 +447,7 @@ export default async function DashboardPage() {
 
             <div className="flex gap-2">
               <span className="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-[9px] font-bold uppercase tracking-[0.12em] text-slate-500">
-                7 Free
+                8 Free
               </span>
 
               <span className="rounded-full border border-blue-100 bg-blue-50 px-3 py-1.5 text-[9px] font-bold uppercase tracking-[0.12em] text-blue-700">
@@ -683,7 +683,7 @@ export default async function DashboardPage() {
             <div className="mt-3 flex justify-end">
               <div className="rounded-xl border border-blue-100 bg-blue-50/70 px-4 py-2">
                 <p className="text-[10px] font-bold text-blue-700">
-                  Unlock 6 professional services with Arknoz Pro &rarr;</p>
+                  Arknoz Pro · 5 professional services coming later</p>
               </div>
             </div>
           ) : (
