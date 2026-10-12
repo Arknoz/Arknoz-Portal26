@@ -10,6 +10,11 @@ import type {
 } from "@/lib/entities";
 import { getProductionEntity } from "@/lib/data/production-entities";
 import { getProductionProjectDetail } from "@/lib/data/production-project-detail";
+import {
+  getArknozAccessDecision,
+  resolveArknozAudience,
+} from "@/lib/entitlements/arknoz-audience";
+import { createClient } from "@/lib/supabase/server";
 
 type GiftCityPreviewPackage = {
   entity: {
@@ -113,10 +118,194 @@ export async function generateMetadata({
 }
 export default async function Page({
   params,
+  searchParams,
 }: {
   params: Promise<{ slug: string }>;
+  searchParams: Promise<{
+    geo?: string | string[];
+    idPreview?: string | string[];
+    proPreview?: string | string[];
+  }>;
 }) {
   const { slug } = await params;
+
+  const query =
+    await searchParams;
+
+  const browsingGeoSlug =
+    typeof query.geo === "string"
+      ? query.geo
+      : undefined;
+
+  const arknozIdPreview =
+    process.env.NODE_ENV !== "production" &&
+    typeof query.idPreview === "string" &&
+    query.idPreview === "1";
+  const arknozProPreview =
+    process.env.NODE_ENV !== "production" &&
+    typeof query.proPreview === "string" &&
+    query.proPreview === "1";
+
+
+  // =========================================================
+  // PROJECT 26 VIEWER ACCESS
+  //
+  // Overview  = public
+  // Record    = Arknoz ID
+  // Lens      = Arknoz Pro
+  // Staff     = full access
+  //
+  // Authentication and RPC calls below are read-only.
+  // =========================================================
+
+  const supabase =
+    await createClient();
+
+  const {
+    data: { user },
+  } =
+    await supabase.auth.getUser();
+
+
+  let memberAccessStatus:
+    unknown = null;
+
+  let platformRole:
+    unknown = null;
+
+  let memberAccessCheckOk =
+    !user;
+
+  let platformRoleCheckOk =
+    !user;
+
+
+  if (user) {
+
+    const [
+      memberAccessResult,
+      platformRoleResult,
+    ] =
+      await Promise.all([
+        supabase.rpc(
+          "get_my_platform_member_access_status"
+        ),
+
+        supabase.rpc(
+          "get_my_platform_role"
+        ),
+      ]);
+
+
+    memberAccessCheckOk =
+      !memberAccessResult.error;
+
+    platformRoleCheckOk =
+      !platformRoleResult.error;
+
+    memberAccessStatus =
+      memberAccessResult.data;
+
+    platformRole =
+      platformRoleResult.data;
+
+  }
+
+
+  const suspended =
+    String(
+      memberAccessStatus ?? ""
+    )
+      .trim()
+      .toLowerCase() ===
+    "suspended";
+
+
+  const normalizedPlatformRole =
+    String(
+      platformRole ?? ""
+    )
+      .trim()
+      .toUpperCase();
+
+
+  const staff =
+    Boolean(user) &&
+    memberAccessCheckOk &&
+    platformRoleCheckOk &&
+    !suspended &&
+    [
+      "OWNER",
+      "ADMIN",
+      "EDITOR",
+      "MODERATOR",
+    ].includes(
+      normalizedPlatformRole
+    );
+
+
+  /*
+   * Fail closed.
+   *
+   * If membership status cannot be verified, the viewer is
+   * treated as public rather than accidentally receiving
+   * protected Record or Lens data.
+   */
+  const authenticatedForAudience =
+    Boolean(user) &&
+    memberAccessCheckOk &&
+    !suspended;
+
+
+  const audience =
+    resolveArknozAudience({
+      authenticated:
+        authenticatedForAudience,
+
+      membership:
+        authenticatedForAudience
+          ? user?.app_metadata
+              ?.membership
+          : undefined,
+
+      staff,
+    });
+
+
+  const recordAccess =
+    getArknozAccessDecision(
+      audience,
+      {
+        required: "id",
+        availability: "live",
+        unauthorized: "gate",
+      }
+    );
+
+
+  const lensAccess =
+    getArknozAccessDecision(
+      audience,
+      {
+        required: "pro",
+        availability: "live",
+        unauthorized: "preview",
+      }
+    );
+
+  /*
+   * Development-only Arknoz ID preview.
+   * Production authentication and entitlements are unchanged.
+   */
+  const effectiveRecordAccessMode =
+    arknozProPreview || arknozIdPreview
+      ? "full"
+      : recordAccess.mode;
+
+  const effectiveLensAccessMode =
+    arknozProPreview
+      ? "full"
+      : lensAccess.mode;
 
   // Development-only Gold Master preview.
   // Never used by production builds.
@@ -130,6 +319,9 @@ export default async function Page({
     return (
       <ProjectDetailPage
         entity={entity}
+        browsingGeoSlug={browsingGeoSlug}
+        recordAccessMode={effectiveRecordAccessMode}
+        lensAccessMode={effectiveLensAccessMode}
       />
     );
   }
@@ -147,6 +339,9 @@ export default async function Page({
         ...entity,
         project: project ?? entity.project,
       }}
+      browsingGeoSlug={browsingGeoSlug}
+      recordAccessMode={effectiveRecordAccessMode}
+      lensAccessMode={effectiveLensAccessMode}
     />
   );
 }

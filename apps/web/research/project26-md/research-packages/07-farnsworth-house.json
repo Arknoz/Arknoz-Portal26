@@ -1,0 +1,593 @@
+{
+    "schema":  "arknoz-project26-md-research-v1",
+    "packageVersion":  "1.1.0",
+    "research":  {
+                     "intake":  {
+                                    "route":  "arknoz-curated",
+                                    "adminReviewCompleted":  true
+                                },
+                     "reviewStatus":  "reviewed",
+                     "evidenceReviewed":  true,
+                     "mediaRightsReviewed":  true,
+                     "collectionVisible":  true,
+                     "preparedBy":  "Arknoz Project26 curated research",
+                     "notes":  [
+                                   "Curated Project26 package for Edith Farnsworth House.",
+                                   "Permanent Arknoz Project ID ARK-PRJ-00000020 assigned after exact slug and ID conflict checks returned clear.",
+                                   "Facts are evidence-mapped to Library of Congress, National Trust for Historic Preservation and National Park Service sources.",
+                                   "Six Carol M. Highsmith photographs and three HABS measured drawings are used as public-domain media.",
+                                   "Downloaded PDF files are intentionally excluded from the Project26 package and documents remains empty.",
+                                   "No database write, R2 write, publication, commit or deployment is performed."
+                               ]
+                 },
+    "project":  {
+                    "identity":  {
+                                     "slug":  "farnsworth-house",
+                                     "arknozEntityId":  "ARK-PRJ-00000020",
+                                     "title":  "Edith Farnsworth House",
+                                     "geography":  "Plano, Illinois, USA",
+                                     "summary":  "Mies van der Rohe\u0027s steel-and-glass weekend house for Edith Farnsworth was completed in 1951 beside the Fox River in Plano, Illinois.",
+                                     "projectBrief":  "Designed by Ludwig Mies van der Rohe for Dr. Edith Farnsworth as a weekend retreat, the house is elevated above the Fox River floodplain and organized as a minimal steel-and-glass pavilion. Horizontal roof, floor and terrace planes are carried by slender steel columns, while a compact service core preserves an open interior and continuous visual relationship with the surrounding landscape."
+                                 },
+                    "classification":  {
+                                           "projectKind":  "building",
+                                           "primaryCategory":  {
+                                                                   "slug":  "residential",
+                                                                   "label":  "Residential"
+                                                               },
+                                           "typologies":  [
+                                                              {
+                                                                  "slug":  "house",
+                                                                  "label":  "House"
+                                                              },
+                                                              {
+                                                                  "slug":  "historic-house",
+                                                                  "label":  "Historic House"
+                                                              }
+                                                          ],
+                                           "useSectors":  [
+                                                              {
+                                                                  "slug":  "residential",
+                                                                  "label":  "Residential"
+                                                              },
+                                                              {
+                                                                  "slug":  "heritage",
+                                                                  "label":  "Heritage"
+                                                              }
+                                                          ],
+                                           "subtypes":  [
+
+                                                        ],
+                                           "searchAliases":  [
+                                                                 "Edith Farnsworth House",
+                                                                 "Farnsworth House",
+                                                                 "Mies van der Rohe Farnsworth House",
+                                                                 "Farnsworth House Plano",
+                                                                 "Mies Glass House"
+                                                             ]
+                                       },
+                    "claims":  [
+                                   {
+                                       "id":  "ov01",
+                                       "label":  "Project Type",
+                                       "value":  "Weekend house / country retreat",
+                                       "overviewRole":  "project-type",
+                                       "overviewPriority":  0,
+                                       "provenanceStatus":  "source-backed",
+                                       "evidenceIds":  [
+                                                           "s1",
+                                                           "s2"
+                                                       ]
+                                   },
+                                   {
+                                       "id":  "ov02",
+                                       "label":  "Location",
+                                       "value":  "Plano, Illinois, USA",
+                                       "overviewRole":  "location",
+                                       "overviewPriority":  1,
+                                       "provenanceStatus":  "source-backed",
+                                       "evidenceIds":  [
+                                                           "s1",
+                                                           "s5"
+                                                       ]
+                                   },
+                                   {
+                                       "id":  "ov03",
+                                       "label":  "Lead Designer",
+                                       "value":  "Ludwig Mies van der Rohe",
+                                       "overviewRole":  "lead-designer",
+                                       "overviewPriority":  2,
+                                       "provenanceStatus":  "source-backed",
+                                       "evidenceIds":  [
+                                                           "s1",
+                                                           "s5"
+                                                       ]
+                                   },
+                                   {
+                                       "id":  "ov04",
+                                       "label":  "Completion",
+                                       "value":  "1951",
+                                       "overviewRole":  "completion",
+                                       "overviewPriority":  3,
+                                       "provenanceStatus":  "source-backed",
+                                       "evidenceIds":  [
+                                                           "s1",
+                                                           "s2"
+                                                       ]
+                                   },
+                                   {
+                                       "id":  "ov05",
+                                       "label":  "Area",
+                                       "value":  "1,586 sq ft",
+                                       "overviewRole":  "area",
+                                       "overviewPriority":  4,
+                                       "provenanceStatus":  "source-backed",
+                                       "evidenceIds":  [
+                                                           "s3"
+                                                       ]
+                                   },
+                                   {
+                                       "id":  "ov06",
+                                       "label":  "Status",
+                                       "value":  "National Trust Historic Site / house museum",
+                                       "overviewRole":  "status",
+                                       "overviewPriority":  5,
+                                       "provenanceStatus":  "source-backed",
+                                       "evidenceIds":  [
+                                                           "s2",
+                                                           "s4"
+                                                       ]
+                                   },
+                                   {
+                                       "id":  "c01",
+                                       "label":  "Commission",
+                                       "value":  "Commissioned by Dr. Edith Farnsworth after she acquired a site beside the Fox River in 1945.",
+                                       "record01Role":  "commission",
+                                       "provenanceStatus":  "source-backed",
+                                       "evidenceIds":  [
+                                                           "s2",
+                                                           "s3"
+                                                       ]
+                                   },
+                                   {
+                                       "id":  "c02",
+                                       "label":  "Purpose",
+                                       "value":  "A weekend country retreat for relaxing, entertaining and experiencing the surrounding landscape.",
+                                       "record01Role":  "purpose",
+                                       "provenanceStatus":  "source-backed",
+                                       "evidenceIds":  [
+                                                           "s2",
+                                                           "s3"
+                                                       ]
+                                   },
+                                   {
+                                       "id":  "c03",
+                                       "label":  "Lead Team",
+                                       "value":  "Architect Ludwig Mies van der Rohe for client Dr. Edith Farnsworth.",
+                                       "record01Role":  "team",
+                                       "provenanceStatus":  "source-backed",
+                                       "evidenceIds":  [
+                                                           "s1",
+                                                           "s3"
+                                                       ]
+                                   },
+                                   {
+                                       "id":  "c04",
+                                       "label":  "Programme",
+                                       "value":  "Single-story open-plan residence organized around a compact internal service core.",
+                                       "record01Role":  "programme",
+                                       "provenanceStatus":  "source-backed",
+                                       "evidenceIds":  [
+                                                           "s3"
+                                                       ]
+                                   },
+                                   {
+                                       "id":  "c05",
+                                       "label":  "Scale",
+                                       "value":  "Approximately 1,586 square feet.",
+                                       "record01Role":  "scale",
+                                       "provenanceStatus":  "source-backed",
+                                       "evidenceIds":  [
+                                                           "s3"
+                                                       ]
+                                   },
+                                   {
+                                       "id":  "c06",
+                                       "label":  "Development",
+                                       "value":  "First conceived in 1945; the house was constructed from 1949 to 1951.",
+                                       "record01Role":  "development",
+                                       "provenanceStatus":  "source-backed",
+                                       "evidenceIds":  [
+                                                           "s1",
+                                                           "s2"
+                                                       ]
+                                   },
+                                   {
+                                       "id":  "c07",
+                                       "label":  "Stewardship",
+                                       "value":  "The property was acquired for the National Trust in 2003 and opened for public tours in 2004.",
+                                       "record01Role":  "development",
+                                       "provenanceStatus":  "source-backed",
+                                       "evidenceIds":  [
+                                                           "s2"
+                                                       ]
+                                   },
+                                   {
+                                       "id":  "c08",
+                                       "label":  "Current Status",
+                                       "value":  "Owned and operated by the National Trust for Historic Preservation as a house museum.",
+                                       "record01Role":  "status",
+                                       "provenanceStatus":  "source-backed",
+                                       "evidenceIds":  [
+                                                           "s2"
+                                                       ]
+                                   },
+                                   {
+                                       "id":  "c09",
+                                       "label":  "Recognition",
+                                       "value":  "Listed in the National Register of Historic Places in 2004 and designated a National Historic Landmark in 2006.",
+                                       "record01Role":  "recognition",
+                                       "provenanceStatus":  "source-backed",
+                                       "evidenceIds":  [
+                                                           "s4",
+                                                           "s5"
+                                                       ]
+                                   },
+                                   {
+                                       "id":  "c10",
+                                       "label":  "Architectural Context",
+                                       "value":  "An internationally significant expression of Mies van der Rohe\u0027s American-period International Style architecture.",
+                                       "record01Role":  "other",
+                                       "provenanceStatus":  "source-backed",
+                                       "evidenceIds":  [
+                                                           "s1",
+                                                           "s5"
+                                                       ]
+                                   },
+                                   {
+                                       "id":  "c11",
+                                       "label":  "Fox River Setting",
+                                       "value":  "The house occupies a meadow and wooded landscape beside the Fox River near Plano.",
+                                       "record02Section":  "site",
+                                       "provenanceStatus":  "source-backed",
+                                       "evidenceIds":  [
+                                                           "s2",
+                                                           "s3"
+                                                       ]
+                                   },
+                                   {
+                                       "id":  "c12",
+                                       "label":  "Floodplain Elevation",
+                                       "value":  "The main floor is raised approximately 5 feet 3 inches above grade in response to the flood-prone river setting.",
+                                       "record02Section":  "site",
+                                       "provenanceStatus":  "source-backed",
+                                       "evidenceIds":  [
+                                                           "s2",
+                                                           "s6"
+                                                       ]
+                                   },
+                                   {
+                                       "id":  "c13",
+                                       "label":  "Landscape Relationship",
+                                       "value":  "Mies treated the surrounding landscape as an integral part of the architectural composition.",
+                                       "record02Section":  "site",
+                                       "provenanceStatus":  "source-backed",
+                                       "evidenceIds":  [
+                                                           "s2"
+                                                       ]
+                                   },
+                                   {
+                                       "id":  "c14",
+                                       "label":  "Horizontal Composition",
+                                       "value":  "The composition is defined by three strong horizontal planes: terrace, house floor and roof.",
+                                       "record02Section":  "design",
+                                       "provenanceStatus":  "source-backed",
+                                       "evidenceIds":  [
+                                                           "s2"
+                                                       ]
+                                   },
+                                   {
+                                       "id":  "c15",
+                                       "label":  "Glass Enclosure",
+                                       "value":  "Floor-to-ceiling glazing creates a visually continuous relationship between the interior and surrounding landscape.",
+                                       "record02Section":  "design",
+                                       "provenanceStatus":  "source-backed",
+                                       "evidenceIds":  [
+                                                           "s3"
+                                                       ]
+                                   },
+                                   {
+                                       "id":  "c16",
+                                       "label":  "Open Interior",
+                                       "value":  "The principal living space is conceived as an open, largely uninterrupted interior rather than a sequence of enclosed rooms.",
+                                       "record02Section":  "design",
+                                       "provenanceStatus":  "source-backed",
+                                       "evidenceIds":  [
+                                                           "s1",
+                                                           "s3"
+                                                       ]
+                                   },
+                                   {
+                                       "id":  "c17",
+                                       "label":  "Service Core",
+                                       "value":  "A freestanding central core organizes domestic services while preserving the openness of the surrounding living space.",
+                                       "record02Section":  "design",
+                                       "provenanceStatus":  "source-backed",
+                                       "evidenceIds":  [
+                                                           "s3"
+                                                       ]
+                                   },
+                                   {
+                                       "id":  "c18",
+                                       "label":  "Primary Structural System",
+                                       "value":  "A welded steel structural frame supports the elevated house.",
+                                       "record02Section":  "structure",
+                                       "provenanceStatus":  "source-backed",
+                                       "evidenceIds":  [
+                                                           "s1",
+                                                           "s3"
+                                                       ]
+                                   },
+                                   {
+                                       "id":  "c19",
+                                       "label":  "Steel Columns",
+                                       "value":  "Slender steel flange columns support the floor and roof planes while maintaining the building\u0027s visual lightness.",
+                                       "record02Section":  "structure",
+                                       "provenanceStatus":  "source-backed",
+                                       "evidenceIds":  [
+                                                           "s2"
+                                                       ]
+                                   },
+                                   {
+                                       "id":  "c20",
+                                       "label":  "Clear Interior",
+                                       "value":  "The structural strategy enables a clear-span living space with minimal interruption inside the glazed enclosure.",
+                                       "record02Section":  "structure",
+                                       "provenanceStatus":  "source-backed",
+                                       "evidenceIds":  [
+                                                           "s3",
+                                                           "s4"
+                                                       ]
+                                   },
+                                   {
+                                       "id":  "c21",
+                                       "label":  "Steel",
+                                       "value":  "Painted structural steel forms the primary frame and the thin external column system.",
+                                       "record02Section":  "materials",
+                                       "provenanceStatus":  "source-backed",
+                                       "evidenceIds":  [
+                                                           "s1",
+                                                           "s2"
+                                                       ]
+                                   },
+                                   {
+                                       "id":  "c22",
+                                       "label":  "Glass",
+                                       "value":  "Large plate-glass panels form the transparent exterior enclosure.",
+                                       "record02Section":  "materials",
+                                       "provenanceStatus":  "source-backed",
+                                       "evidenceIds":  [
+                                                           "s1",
+                                                           "s3"
+                                                       ]
+                                   },
+                                   {
+                                       "id":  "c23",
+                                       "label":  "Travertine and Primavera",
+                                       "value":  "Travertine is used for the terraces, while primavera wood partitions define the internal service core.",
+                                       "record02Section":  "materials",
+                                       "provenanceStatus":  "source-backed",
+                                       "evidenceIds":  [
+                                                           "s3"
+                                                       ]
+                                   },
+                                   {
+                                       "id":  "c24",
+                                       "label":  "Service Consolidation",
+                                       "value":  "Two bathrooms, the kitchen, heating and electrical equipment, and the fireplace are concentrated within the central core.",
+                                       "record02Section":  "systems",
+                                       "provenanceStatus":  "source-backed",
+                                       "evidenceIds":  [
+                                                           "s3"
+                                                       ]
+                                   },
+                                   {
+                                       "id":  "c25",
+                                       "label":  "Heating and Electrical",
+                                       "value":  "Heating and electrical equipment are integrated into the service core rather than dispersed through the open living space.",
+                                       "record02Section":  "systems",
+                                       "provenanceStatus":  "source-backed",
+                                       "evidenceIds":  [
+                                                           "s3"
+                                                       ]
+                                   },
+                                   {
+                                       "id":  "c26",
+                                       "label":  "Flood Resilience",
+                                       "value":  "Flood exposure remains an active preservation issue, with the National Trust maintaining dedicated flood-response and mitigation measures.",
+                                       "record02Section":  "systems",
+                                       "provenanceStatus":  "source-backed",
+                                       "evidenceIds":  [
+                                                           "s6"
+                                                       ]
+                                   }
+                               ],
+                    "media":  [
+                                  {
+                                      "id":  "m1",
+                                      "src":  "/media/public-media/projects/ARK-PRJ-00000020/farnsworth-house/farnsworth-photo-01.jpg",
+                                      "alt":  "Edith Farnsworth House in its Fox River landscape",
+                                      "role":  "hero",
+                                      "rightsStatus":  "public-domain",
+                                      "sourceLabel":  "Carol M. Highsmith / Library of Congress - Public Domain",
+                                      "sourceUrl":  "https://www.loc.gov/resource/highsm.16819/"
+                                  },
+                                  {
+                                      "id":  "m2",
+                                      "src":  "/media/public-media/projects/ARK-PRJ-00000020/farnsworth-house/farnsworth-photo-02.jpg",
+                                      "alt":  "Exterior view of the Edith Farnsworth House",
+                                      "role":  "record",
+                                      "rightsStatus":  "public-domain",
+                                      "sourceLabel":  "Carol M. Highsmith / Library of Congress - Public Domain",
+                                      "sourceUrl":  "https://www.loc.gov/resource/highsm.16820/"
+                                  },
+                                  {
+                                      "id":  "m3",
+                                      "src":  "/media/public-media/projects/ARK-PRJ-00000020/farnsworth-house/farnsworth-photo-03.jpg",
+                                      "alt":  "Steel and glass exterior of the Edith Farnsworth House",
+                                      "role":  "record",
+                                      "rightsStatus":  "public-domain",
+                                      "sourceLabel":  "Carol M. Highsmith / Library of Congress - Public Domain",
+                                      "sourceUrl":  "https://www.loc.gov/resource/highsm.16821/"
+                                  },
+                                  {
+                                      "id":  "m4",
+                                      "src":  "/media/public-media/projects/ARK-PRJ-00000020/farnsworth-house/farnsworth-photo-04.jpg",
+                                      "alt":  "Edith Farnsworth House viewed within its wooded setting",
+                                      "role":  "context",
+                                      "rightsStatus":  "public-domain",
+                                      "sourceLabel":  "Carol M. Highsmith / Library of Congress - Public Domain",
+                                      "sourceUrl":  "https://www.loc.gov/resource/highsm.16822/"
+                                  },
+                                  {
+                                      "id":  "m5",
+                                      "src":  "/media/public-media/projects/ARK-PRJ-00000020/farnsworth-house/farnsworth-photo-05.jpg",
+                                      "alt":  "Elevated terraces and glazed enclosure of the Edith Farnsworth House",
+                                      "role":  "context",
+                                      "rightsStatus":  "public-domain",
+                                      "sourceLabel":  "Carol M. Highsmith / Library of Congress - Public Domain",
+                                      "sourceUrl":  "https://www.loc.gov/resource/highsm.16823/"
+                                  },
+                                  {
+                                      "id":  "m6",
+                                      "src":  "/media/public-media/projects/ARK-PRJ-00000020/farnsworth-house/farnsworth-photo-06.jpg",
+                                      "alt":  "Farnsworth House exterior and surrounding landscape",
+                                      "role":  "record",
+                                      "rightsStatus":  "public-domain",
+                                      "sourceLabel":  "Carol M. Highsmith / Library of Congress - Public Domain",
+                                      "sourceUrl":  "https://www.loc.gov/resource/highsm.13115/"
+                                  },
+                                  {
+                                      "id":  "m7",
+                                      "src":  "/media/public-media/projects/ARK-PRJ-00000020/farnsworth-house/farnsworth-drawing-01.jpg",
+                                      "alt":  "Historic American Buildings Survey measured drawing of Edith Farnsworth House",
+                                      "role":  "drawing",
+                                      "rightsStatus":  "public-domain",
+                                      "sourceLabel":  "Historic American Buildings Survey / Library of Congress - Public Domain",
+                                      "sourceUrl":  "https://www.loc.gov/resource/hhh.il0323.sheet/?sp=1"
+                                  },
+                                  {
+                                      "id":  "m8",
+                                      "src":  "/media/public-media/projects/ARK-PRJ-00000020/farnsworth-house/farnsworth-drawing-02.jpg",
+                                      "alt":  "Historic American Buildings Survey architectural drawing of Edith Farnsworth House",
+                                      "role":  "drawing",
+                                      "rightsStatus":  "public-domain",
+                                      "sourceLabel":  "Historic American Buildings Survey / Library of Congress - Public Domain",
+                                      "sourceUrl":  "https://www.loc.gov/resource/hhh.il0323.sheet/?sp=2"
+                                  },
+                                  {
+                                      "id":  "m9",
+                                      "src":  "/media/public-media/projects/ARK-PRJ-00000020/farnsworth-house/farnsworth-drawing-03.jpg",
+                                      "alt":  "Historic American Buildings Survey plan and elevation drawing of Edith Farnsworth House",
+                                      "role":  "drawing",
+                                      "rightsStatus":  "public-domain",
+                                      "sourceLabel":  "Historic American Buildings Survey / Library of Congress - Public Domain",
+                                      "sourceUrl":  "https://www.loc.gov/resource/hhh.il0323.sheet/?sp=3"
+                                  }
+                              ],
+                    "documents":  [
+
+                                  ],
+                    "schemaVersion":  "1.0.0",
+                    "sources":  [
+                                    {
+                                        "id":  "s1",
+                                        "label":  "Edith Farnsworth House ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â HABS IL-1105",
+                                        "url":  "https://www.loc.gov/item/il0323/",
+                                        "publisher":  "Library of Congress / Historic American Buildings Survey",
+                                        "type":  "archive"
+                                    },
+                                    {
+                                        "id":  "s2",
+                                        "label":  "History of the Farnsworth House",
+                                        "url":  "https://edithfarnsworthhouse.org/history-farnsworth-house/",
+                                        "publisher":  "Edith Farnsworth House / National Trust for Historic Preservation",
+                                        "type":  "primary"
+                                    },
+                                    {
+                                        "id":  "s3",
+                                        "label":  "The Past, Present, and Future of Farnsworth House",
+                                        "url":  "https://savingplaces.org/stories/the-past-present-future-of-farnsworth-house",
+                                        "publisher":  "National Trust for Historic Preservation",
+                                        "type":  "institutional"
+                                    },
+                                    {
+                                        "id":  "s4",
+                                        "label":  "Lost or Saved ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â Farnsworth House",
+                                        "url":  "https://www.nps.gov/subjects/historicpreservation/lost-saved.htm",
+                                        "publisher":  "U.S. National Park Service",
+                                        "type":  "institutional"
+                                    },
+                                    {
+                                        "id":  "s5",
+                                        "label":  "Farnsworth House ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â National Historic Landmark",
+                                        "url":  "https://npgallery.nps.gov/NRHP/AssetDetail/dc5cb291-4929-461a-80d4-ce451a1e2b6c",
+                                        "publisher":  "U.S. National Park Service",
+                                        "type":  "institutional"
+                                    },
+                                    {
+                                        "id":  "s6",
+                                        "label":  "History of Flooding at Farnsworth House",
+                                        "url":  "https://edithfarnsworthhouse.org/history-of-flooding/",
+                                        "publisher":  "Edith Farnsworth House / National Trust for Historic Preservation",
+                                        "type":  "primary"
+                                    }
+                                ],
+                    "evidence":  {
+                                     "sources":  [
+                                                     {
+                                                         "id":  "s1",
+                                                         "label":  "Edith Farnsworth House ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â HABS IL-1105",
+                                                         "url":  "https://www.loc.gov/item/il0323/",
+                                                         "publisher":  "Library of Congress / Historic American Buildings Survey",
+                                                         "type":  "archive"
+                                                     },
+                                                     {
+                                                         "id":  "s2",
+                                                         "label":  "History of the Farnsworth House",
+                                                         "url":  "https://edithfarnsworthhouse.org/history-farnsworth-house/",
+                                                         "publisher":  "Edith Farnsworth House / National Trust for Historic Preservation",
+                                                         "type":  "primary"
+                                                     },
+                                                     {
+                                                         "id":  "s3",
+                                                         "label":  "The Past, Present, and Future of Farnsworth House",
+                                                         "url":  "https://savingplaces.org/stories/the-past-present-future-of-farnsworth-house",
+                                                         "publisher":  "National Trust for Historic Preservation",
+                                                         "type":  "institutional"
+                                                     },
+                                                     {
+                                                         "id":  "s4",
+                                                         "label":  "Lost or Saved ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â Farnsworth House",
+                                                         "url":  "https://www.nps.gov/subjects/historicpreservation/lost-saved.htm",
+                                                         "publisher":  "U.S. National Park Service",
+                                                         "type":  "institutional"
+                                                     },
+                                                     {
+                                                         "id":  "s5",
+                                                         "label":  "Farnsworth House ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â National Historic Landmark",
+                                                         "url":  "https://npgallery.nps.gov/NRHP/AssetDetail/dc5cb291-4929-461a-80d4-ce451a1e2b6c",
+                                                         "publisher":  "U.S. National Park Service",
+                                                         "type":  "institutional"
+                                                     },
+                                                     {
+                                                         "id":  "s6",
+                                                         "label":  "History of Flooding at Farnsworth House",
+                                                         "url":  "https://edithfarnsworthhouse.org/history-of-flooding/",
+                                                         "publisher":  "Edith Farnsworth House / National Trust for Historic Preservation",
+                                                         "type":  "primary"
+                                                     }
+                                                 ]
+                                 }
+                }
+}

@@ -1,0 +1,555 @@
+{
+  "schema": "arknoz-project26-md-research-v1",
+  "packageVersion": "1.1.0",
+  "research": {
+    "intake": {
+      "route": "arknoz-curated",
+      "adminReviewCompleted": true
+    },
+    "reviewStatus": "reviewed",
+    "evidenceReviewed": true,
+    "mediaRightsReviewed": true,
+    "collectionVisible": true,
+    "preparedBy": "Arknoz Project26 curated research",
+    "notes": [
+      "Migration of the canonical Fallingwater project into the Project26 standard.",
+      "Permanent Arknoz Project ID ARK-PRJ-00000001 is preserved.",
+      "Facts are evidence-mapped to Fallingwater, UNESCO and Library of Congress institutional sources.",
+      "Official Fallingwater timeline evidence covers the 2003 closed-loop zero-discharge wastewater system.",
+      "Six previously approved Wikimedia Commons images retain verified reusable CC licensing.",
+      "No database write, R2 write, publication, commit or deployment is performed."
+    ]
+  },
+  "project": {
+    "identity": {
+      "slug": "fallingwater",
+      "arknozEntityId": "ARK-PRJ-00000001",
+      "title": "Fallingwater",
+      "geography": "Mill Run, Pennsylvania, USA",
+      "summary": "Commissioned by Edgar J. Kaufmann, the main house was constructed from 1936–1938; a guest house followed in 1939.",
+      "projectBrief": "Designed by Frank Lloyd Wright for Edgar J. Kaufmann as a weekend residence at Bear Run, Fallingwater places the house directly above the waterfall. Site-quarried sandstone anchors the composition while reinforced-concrete terraces project outward over the stream, joining landscape, structure, material and occupation into one architectural system."
+    },
+    "classification": {
+      "projectKind": "building",
+      "primaryCategory": {
+        "slug": "residential",
+        "label": "Residential"
+      },
+      "typologies": [
+        {
+          "slug": "house",
+          "label": "House"
+        },
+        {
+          "slug": "historic-house",
+          "label": "Historic House"
+        }
+      ],
+      "useSectors": [
+        {
+          "slug": "residential",
+          "label": "Residential"
+        },
+        {
+          "slug": "heritage",
+          "label": "Heritage"
+        }
+      ],
+      "subtypes": [],
+      "searchAliases": [
+        "Fallingwater",
+        "Edgar J. Kaufmann House",
+        "Frank Lloyd Wright Fallingwater",
+        "Fallingwater Mill Run",
+        "Bear Run Fallingwater"
+      ]
+    },
+    "claims": [
+      {
+        "id": "ov01",
+        "label": "Project Type",
+        "value": "Weekend house / residence",
+        "overviewRole": "project-type",
+        "overviewPriority": 0,
+        "provenanceStatus": "source-backed",
+        "evidenceIds": [
+          "s1",
+          "s2"
+        ]
+      },
+      {
+        "id": "ov02",
+        "label": "Location",
+        "value": "Mill Run, Pennsylvania, USA",
+        "overviewRole": "location",
+        "overviewPriority": 1,
+        "provenanceStatus": "source-backed",
+        "evidenceIds": [
+          "s1",
+          "s5"
+        ]
+      },
+      {
+        "id": "ov03",
+        "label": "Lead Designer",
+        "value": "Frank Lloyd Wright",
+        "overviewRole": "lead-designer",
+        "overviewPriority": 2,
+        "provenanceStatus": "source-backed",
+        "evidenceIds": [
+          "s1",
+          "s2"
+        ]
+      },
+      {
+        "id": "ov04",
+        "label": "Completion",
+        "value": "Main house completed in 1937; guest house completed in 1939",
+        "overviewRole": "completion",
+        "overviewPriority": 3,
+        "provenanceStatus": "source-backed",
+        "evidenceIds": [
+          "s3"
+        ]
+      },
+      {
+        "id": "ov05",
+        "label": "Status",
+        "value": "Preserved under Western Pennsylvania Conservancy stewardship",
+        "overviewRole": "status",
+        "overviewPriority": 4,
+        "provenanceStatus": "source-backed",
+        "evidenceIds": [
+          "s2",
+          "s3"
+        ]
+      },
+      {
+        "id": "ov06",
+        "label": "Use",
+        "value": "Originally commissioned as a weekend house for the Kaufmann family",
+        "overviewRole": "use",
+        "overviewPriority": 5,
+        "provenanceStatus": "source-backed",
+        "evidenceIds": [
+          "s1",
+          "s2"
+        ]
+      },
+      {
+        "id": "c01",
+        "label": "Commission",
+        "value": "Edgar J. Kaufmann commissioned Frank Lloyd Wright to design a weekend house near Bear Run",
+        "record01Role": "commission",
+        "provenanceStatus": "source-backed",
+        "evidenceIds": [
+          "s1",
+          "s3"
+        ]
+      },
+      {
+        "id": "c02",
+        "label": "Purpose",
+        "value": "Create a weekend residence for the Kaufmann family at Bear Run",
+        "record01Role": "purpose",
+        "provenanceStatus": "source-backed",
+        "evidenceIds": [
+          "s1",
+          "s2"
+        ]
+      },
+      {
+        "id": "c03",
+        "label": "Lead Team",
+        "value": "Frank Lloyd Wright served as architect for client Edgar J. Kaufmann and the Kaufmann family",
+        "record01Role": "team",
+        "provenanceStatus": "source-backed",
+        "evidenceIds": [
+          "s1",
+          "s2"
+        ]
+      },
+      {
+        "id": "c04",
+        "label": "Programme",
+        "value": "Main house, extensive outdoor terraces and a later guest house",
+        "record01Role": "programme",
+        "provenanceStatus": "source-backed",
+        "evidenceIds": [
+          "s2",
+          "s3"
+        ]
+      },
+      {
+        "id": "c05",
+        "label": "Scale",
+        "value": "Main house approximately 9,300 sq ft and guest house approximately 4,990 sq ft, including substantial terrace areas",
+        "record01Role": "scale",
+        "provenanceStatus": "source-backed",
+        "evidenceIds": [
+          "s2"
+        ]
+      },
+      {
+        "id": "c06",
+        "label": "Development",
+        "value": "Designed in 1935, construction began in 1936, the main house was completed in 1937 and the guest house in 1939",
+        "record01Role": "development",
+        "provenanceStatus": "source-backed",
+        "evidenceIds": [
+          "s3"
+        ]
+      },
+      {
+        "id": "c07",
+        "label": "Stewardship",
+        "value": "Edgar Kaufmann jr. entrusted Fallingwater to the Western Pennsylvania Conservancy in 1963",
+        "record01Role": "development",
+        "provenanceStatus": "source-backed",
+        "evidenceIds": [
+          "s2",
+          "s3"
+        ]
+      },
+      {
+        "id": "c08",
+        "label": "Current Status",
+        "value": "The property remains under Western Pennsylvania Conservancy stewardship",
+        "record01Role": "status",
+        "provenanceStatus": "source-backed",
+        "evidenceIds": [
+          "s2",
+          "s3"
+        ]
+      },
+      {
+        "id": "c09",
+        "label": "Recognition",
+        "value": "Fallingwater was inscribed in 2019 as a component of The 20th-Century Architecture of Frank Lloyd Wright",
+        "record01Role": "recognition",
+        "provenanceStatus": "source-backed",
+        "evidenceIds": [
+          "s4"
+        ]
+      },
+      {
+        "id": "c10",
+        "label": "Context",
+        "value": "The house occupies the Bear Run site near Mill Run and is positioned directly above the waterfall",
+        "record01Role": "other",
+        "provenanceStatus": "source-backed",
+        "evidenceIds": [
+          "s1",
+          "s5"
+        ]
+      },
+      {
+        "id": "c11",
+        "label": "Bear Run",
+        "value": "The waterfall at Bear Run is the project's primary site condition",
+        "record02Section": "site",
+        "provenanceStatus": "source-backed",
+        "evidenceIds": [
+          "s1",
+          "s5"
+        ]
+      },
+      {
+        "id": "c12",
+        "label": "Position Above the Waterfall",
+        "value": "The house is positioned above the waterfall rather than facing it from a detached viewpoint",
+        "record02Section": "site",
+        "provenanceStatus": "source-backed",
+        "evidenceIds": [
+          "s1",
+          "s5"
+        ]
+      },
+      {
+        "id": "c13",
+        "label": "Landscape Setting",
+        "value": "The wooded Bear Run landscape is treated as an integral part of the architectural composition",
+        "record02Section": "site",
+        "provenanceStatus": "source-backed",
+        "evidenceIds": [
+          "s1",
+          "s5"
+        ]
+      },
+      {
+        "id": "c14",
+        "label": "Primary Design Order",
+        "value": "A central sandstone mass anchors the composition while rooms and terraces extend outward",
+        "record02Section": "design",
+        "provenanceStatus": "source-backed",
+        "evidenceIds": [
+          "s1",
+          "s5"
+        ]
+      },
+      {
+        "id": "c15",
+        "label": "Cantilevered Terraces",
+        "value": "Stacked terraces project outward above Bear Run and extend occupation into the landscape",
+        "record02Section": "design",
+        "provenanceStatus": "source-backed",
+        "evidenceIds": [
+          "s1",
+          "s5"
+        ]
+      },
+      {
+        "id": "c16",
+        "label": "Interior–Exterior Relationship",
+        "value": "Interior rooms and exterior terraces form a layered spatial relationship with the surrounding landscape",
+        "record02Section": "design",
+        "provenanceStatus": "source-backed",
+        "evidenceIds": [
+          "s1",
+          "s5"
+        ]
+      },
+      {
+        "id": "c17",
+        "label": "Outdoor Terraces",
+        "value": "Outdoor terraces form a substantial proportion of both the main-house and guest-house floor areas",
+        "record02Section": "design",
+        "provenanceStatus": "source-backed",
+        "evidenceIds": [
+          "s2"
+        ]
+      },
+      {
+        "id": "c18",
+        "label": "Primary Structural System",
+        "value": "Reinforced concrete enables the principal projecting cantilevers and terraces",
+        "record02Section": "structure",
+        "provenanceStatus": "source-backed",
+        "evidenceIds": [
+          "s2",
+          "s5"
+        ]
+      },
+      {
+        "id": "c19",
+        "label": "Masonry Anchor",
+        "value": "Locally quarried Pottsville sandstone forms the central chimney and major masonry elements",
+        "record02Section": "structure",
+        "provenanceStatus": "source-backed",
+        "evidenceIds": [
+          "s2",
+          "s5"
+        ]
+      },
+      {
+        "id": "c20",
+        "label": "Structural Projection",
+        "value": "The cantilevered concrete trays carry terraces outward above the stream",
+        "record02Section": "structure",
+        "provenanceStatus": "source-backed",
+        "evidenceIds": [
+          "s1",
+          "s5"
+        ]
+      },
+      {
+        "id": "c21",
+        "label": "Cantilever Strengthening",
+        "value": "Structural strengthening of the principal living-room cantilevers was completed in 2002",
+        "record02Section": "structure",
+        "provenanceStatus": "source-backed",
+        "evidenceIds": [
+          "s3"
+        ]
+      },
+      {
+        "id": "c22",
+        "label": "Sandstone",
+        "value": "Site-quarried Pottsville sandstone provides the principal masonry material",
+        "record02Section": "materials",
+        "provenanceStatus": "source-backed",
+        "evidenceIds": [
+          "s2",
+          "s5"
+        ]
+      },
+      {
+        "id": "c23",
+        "label": "Reinforced Concrete",
+        "value": "Reinforced concrete forms the projecting terraces and major horizontal elements",
+        "record02Section": "materials",
+        "provenanceStatus": "source-backed",
+        "evidenceIds": [
+          "s2",
+          "s5"
+        ]
+      },
+      {
+        "id": "c24",
+        "label": "Steel",
+        "value": "Painted steel forms part of Fallingwater's documented material and structural construction",
+        "record02Section": "materials",
+        "provenanceStatus": "source-backed",
+        "evidenceIds": [
+          "s2",
+          "s5"
+        ]
+      },
+      {
+        "id": "c25",
+        "label": "Wastewater System",
+        "value": "A closed-loop, zero-discharge wastewater treatment facility was installed in 2003; treated water is reused for non-potable uses and drip irrigation",
+        "record02Section": "systems",
+        "provenanceStatus": "source-backed",
+        "evidenceIds": [
+          "s3"
+        ]
+      },
+      {
+        "id": "c26",
+        "label": "Long-Term Structural Responsibility",
+        "value": "The later cantilever strengthening documents the long-term structural consequences of the original projecting system",
+        "record02Section": "performance",
+        "provenanceStatus": "source-backed",
+        "evidenceIds": [
+          "s3",
+          "s5"
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "s1",
+        "label": "What is Fallingwater?",
+        "url": "https://fallingwater.org/what-is-fallingwater/",
+        "publisher": "Western Pennsylvania Conservancy / Fallingwater",
+        "type": "primary"
+      },
+      {
+        "id": "s2",
+        "label": "Fallingwater Facts",
+        "url": "https://fallingwater.org/media-resources/fallingwater-facts/",
+        "publisher": "Western Pennsylvania Conservancy / Fallingwater",
+        "type": "primary"
+      },
+      {
+        "id": "s3",
+        "label": "Fallingwater Timeline",
+        "url": "https://fallingwater.org/history/timeline/",
+        "publisher": "Western Pennsylvania Conservancy / Fallingwater",
+        "type": "primary"
+      },
+      {
+        "id": "s4",
+        "label": "The 20th-Century Architecture of Frank Lloyd Wright",
+        "url": "https://whc.unesco.org/en/list/1496",
+        "publisher": "UNESCO World Heritage Centre",
+        "type": "institutional"
+      },
+      {
+        "id": "s5",
+        "label": "Fallingwater · HABS PA-5346",
+        "url": "https://www.loc.gov/item/pa1690/",
+        "publisher": "Library of Congress / Historic American Buildings Survey",
+        "type": "institutional"
+      }
+    ],
+    "media": [
+      {
+        "id": "m1",
+        "src": "/media/public-media/projects/ARK-PRJ-00000001/fallingwater/approved-v2-01-7811677512f1d930.jpg",
+        "alt": "Fallingwater at Mill Run, Pennsylvania",
+        "role": "hero",
+        "rightsStatus": "cc-by",
+        "sourceLabel": "Bmzuckerman / Wikimedia Commons · CC BY 4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Frank_Lloyd_Wright_-_Mill_Run,_PA_-_Fallingwater_(D).jpg"
+      },
+      {
+        "id": "m2",
+        "src": "/media/public-media/projects/ARK-PRJ-00000001/fallingwater/approved-v2-02-98f0816476cc7aa7.jpg",
+        "alt": "Fallingwater exterior view at Mill Run",
+        "role": "record",
+        "rightsStatus": "cc-by",
+        "sourceLabel": "Bmzuckerman / Wikimedia Commons · CC BY 4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Frank_Lloyd_Wright_-_Mill_Run,_PA_-_Fallingwater_(O).jpg"
+      },
+      {
+        "id": "m3",
+        "src": "/media/public-media/projects/ARK-PRJ-00000001/fallingwater/approved-v2-03-8dbdeca2bb735c7e.jpg",
+        "alt": "Fallingwater and its wooded Bear Run setting",
+        "role": "context",
+        "rightsStatus": "cc-by",
+        "sourceLabel": "Bmzuckerman / Wikimedia Commons · CC BY 4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Frank_Lloyd_Wright_-_Mill_Run,_Pa_-_Fallingwater_(F).jpg"
+      },
+      {
+        "id": "m4",
+        "src": "/media/public-media/projects/ARK-PRJ-00000001/fallingwater/approved-v2-04-ee140c3f03a79086.jpg",
+        "alt": "Exterior detail of Fallingwater",
+        "role": "record",
+        "rightsStatus": "cc-by",
+        "sourceLabel": "Bmzuckerman / Wikimedia Commons · CC BY 4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Frank_Lloyd_Wright_-_Mill_Run,_PA_-_Fallingwater_(B).jpg"
+      },
+      {
+        "id": "m5",
+        "src": "/media/public-media/projects/ARK-PRJ-00000001/fallingwater/approved-v2-05-e3fc57930496efa3.jpg",
+        "alt": "Interior of Fallingwater",
+        "role": "record",
+        "rightsStatus": "cc-by-sa",
+        "sourceLabel": "Eritak / Wikimedia Commons · CC BY-SA 3.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fallingwater_interior.JPG"
+      },
+      {
+        "id": "m6",
+        "src": "/media/public-media/projects/ARK-PRJ-00000001/fallingwater/approved-v2-06-2bbc8735700e3aa6.jpg",
+        "alt": "Interior view of Fallingwater",
+        "role": "context",
+        "rightsStatus": "cc-by-sa",
+        "sourceLabel": "Amy K Posner / Wikimedia Commons · CC BY-SA 4.0",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fallingwater_National_Hist'c_Landmark.jpg"
+      }
+    ],
+    "documents": [],
+    "schemaVersion": "1.0.0",
+    "evidence": {
+      "sources": [
+        {
+          "id": "s1",
+          "label": "What is Fallingwater?",
+          "url": "https://fallingwater.org/what-is-fallingwater/",
+          "publisher": "Western Pennsylvania Conservancy / Fallingwater",
+          "type": "primary"
+        },
+        {
+          "id": "s2",
+          "label": "Fallingwater Facts",
+          "url": "https://fallingwater.org/media-resources/fallingwater-facts/",
+          "publisher": "Western Pennsylvania Conservancy / Fallingwater",
+          "type": "primary"
+        },
+        {
+          "id": "s3",
+          "label": "Fallingwater Timeline",
+          "url": "https://fallingwater.org/history/timeline/",
+          "publisher": "Western Pennsylvania Conservancy / Fallingwater",
+          "type": "primary"
+        },
+        {
+          "id": "s4",
+          "label": "The 20th-Century Architecture of Frank Lloyd Wright",
+          "url": "https://whc.unesco.org/en/list/1496",
+          "publisher": "UNESCO World Heritage Centre",
+          "type": "institutional"
+        },
+        {
+          "id": "s5",
+          "label": "Fallingwater · HABS PA-5346",
+          "url": "https://www.loc.gov/item/pa1690/",
+          "publisher": "Library of Congress / Historic American Buildings Survey",
+          "type": "institutional"
+        }
+      ]
+    }
+  }
+}

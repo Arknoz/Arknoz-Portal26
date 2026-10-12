@@ -1,339 +1,723 @@
-import HomeNowOnArknozLoop from "@/components/HomeNowOnArknozLoop";
 import Link from "next/link";
+import { notFound } from "next/navigation";
+
 import GlobalHeader from "@/components/GlobalHeader";
-import UniversalPublicLastScreen from "@/components/UniversalPublicLastScreen";
-import MemberActions from "@/components/MemberActions";
 import ProjectDetailTabs from "@/components/ProjectDetailTabs";
-import type { EntityRecord } from "@/lib/entities";
+import UniversalPublicLastScreen from "@/components/UniversalPublicLastScreen";
+import UniversalRecordOverview from "@/components/UniversalRecordOverview";
+import UniversalRecordSystem from "@/components/UniversalRecordSystem";
+
+import type {
+  EntityRecord,
+} from "@/lib/entities";
+
+import {
+  applyProject26MDToProjectRecord,
+} from "@/lib/project26-md-project-bridge";
+import { validateProject26MD } from "@/lib/project26-md";
+import type {
+  ArknozAccessMode,
+} from "@/lib/entitlements/arknoz-audience";
 import {
   buildArknozSectionHref,
-  getArknozSection,
 } from "@/lib/arknoz-sections";
+
 import {
   buildGeographyHref,
-  geography,
-  getGeographyPath,
 } from "@/lib/geography";
+
 
 export default function ProjectDetailPage({
   entity,
   candidatePreview = false,
+  recordAccessMode = "sign_in",
+  lensAccessMode = "preview",
 }: {
   entity: EntityRecord;
+  browsingGeoSlug?: string;
   candidatePreview?: boolean;
+  recordAccessMode?: ArknozAccessMode;
+  lensAccessMode?: ArknozAccessMode;
 }) {
-  const p = entity.project;
-  const facts = p?.facts ?? [];
-  const media = p?.media ?? [];
 
-  const heroMedia =
-    media.find((item) => item.role === "hero") ??
-    media[0];
+  /*
+   * PROJECT 26 MD SERVER BOUNDARY
+   *
+   * Existing projects pass through unchanged.
+   * READY MD projects use the canonical MD renderer payload.
+   * HOLD MD projects are never promoted.
+   */
+  const project =
+    applyProject26MDToProjectRecord(
+      entity.project
+    );
 
-  const heroImageSrc =
-    heroMedia?.src &&
-    !heroMedia.src.includes(
-      "commons.wikimedia.org/wiki/Special:Redirect"
-    )
-      ? heroMedia.src
+  /*
+   * PROJECT26-ONLY DETAIL GATE
+   *
+   * Only the current normalized Project26 contract may render
+   * through the public Project Detail page.
+   */
+  const project26MD =
+    (
+      entity.project as
+        | { project26MD?: unknown }
+        | undefined
+    )?.project26MD;
+
+  const project26Validation =
+    project26MD === undefined
+      ? undefined
+      : validateProject26MD(project26MD);
+
+  if (
+    !project?.structuredRecord ||
+    !project26Validation?.ready
+  ) {
+    notFound();
+  }
+
+
+  /*
+   * PROJECT 26 CLIENT DATA BOUNDARY
+   *
+   * The public Overview is rendered here from the original
+   * server-side entity.
+   *
+   * ProjectDetailTabs is a client component, therefore data
+   * outside the viewer's entitlement is removed BEFORE the
+   * entity is serialized to the browser.
+   */
+
+  const recordFullAccess =
+    recordAccessMode === "full";
+
+  const lensFullAccess =
+    lensAccessMode === "full";
+
+
+  const project26TabsEntity:
+    EntityRecord =
+    recordFullAccess &&
+    lensFullAccess
+      ? {
+          ...entity,
+          project,
+        }
+      : {
+          ...entity,
+
+          project:
+            project
+              ? {
+                  ...project,
+
+                  ...(recordFullAccess
+                    ? {}
+                    : {
+                        structuredRecord:
+                          undefined,
+
+                        facts: [],
+
+                        signature: [],
+
+                        topics: [],
+
+                        anatomy: [],
+
+                        timeline: [],
+
+                        people: [],
+
+                        documents: [],
+
+                        sources: [],
+                      }),
+
+                  /*
+                   * Lens analytical material is never sent to
+                   * a non-Pro browser.
+                   */
+                  lens:
+                    lensFullAccess
+                      ? project.lens
+                      : undefined,
+                }
+              : undefined,
+        };
+
+  const facts =
+    project?.facts ?? [];
+
+  const signature =
+    project?.signature?.length
+      ? project.signature
+      : facts;
+
+
+  /*
+   * OVERVIEW FACT PRIORITY
+   * Uses recorded data only.
+   * Nothing is invented.
+   */
+  const overviewFactPriority = (
+    fact: {
+      label: string;
+      overviewRole?: string;
+      overviewPriority?: number;
+    }
+  ) => {
+
+    /*
+     * New normalized Arknoz project data.
+     */
+    if (
+      typeof fact.overviewPriority ===
+      "number"
+    ) {
+      return fact.overviewPriority;
+    }
+
+
+    const rolePriority:
+      Record<string, number> = {
+        "project-type": 0,
+        location: 1,
+        "lead-designer": 2,
+        completion: 3,
+        status: 4,
+        area: 5,
+        height: 5,
+        floors: 5,
+        capacity: 5,
+        use: 6,
+        other: 20,
+      };
+
+
+    if (
+      fact.overviewRole &&
+      rolePriority[
+        fact.overviewRole
+      ] !== undefined
+    ) {
+      return rolePriority[
+        fact.overviewRole
+      ];
+    }
+
+
+
+    return 20;
+  };
+
+  const overviewFacts =
+    [
+      ...signature,
+      ...facts,
+    ]
+      .filter(
+        (
+          fact,
+          index,
+          array
+        ) =>
+          array.findIndex(
+            (candidate) =>
+              candidate.label
+                .trim()
+                .toLowerCase() ===
+                fact.label
+                  .trim()
+                  .toLowerCase()
+          ) === index
+      )
+      .filter(
+        (fact) =>
+          !/(fee|fees|cost|costs|price|pricing|budget|investment|contract value|project value|construction value)/i.test(
+            fact.label.trim()
+          )
+      )
+      .map(
+        (
+          fact,
+          index
+        ) => ({
+          fact,
+          index,
+        })
+      )
+      .sort(
+        (
+          a,
+          b
+        ) => {
+
+          const priorityDifference =
+            overviewFactPriority(
+              a.fact
+            ) -
+            overviewFactPriority(
+              b.fact
+            );
+
+
+          return priorityDifference !== 0
+            ? priorityDifference
+            : a.index - b.index;
+        }
+      )
+      .slice(
+        0,
+        6
+      )
+      .map(
+        ({ fact }) =>
+          fact
+      );
+
+
+  /*
+   * =========================================================
+   * PROJECT 26 — PUBLIC PROJECT PROFILE PAYLOAD
+   *
+   * Universal publication boundary for Record Index 01.
+   *
+   * Overview:
+   *   signature orientation facts
+   *
+   * Project Profile:
+   *   editorial Project Brief + deliberately public factual
+   *   profile information
+   *
+   * Protected structuredRecord is NOT used to construct this
+   * payload for logged-out users.
+   * =========================================================
+   */
+
+  const publicProjectBrief =
+    project?.projectBrief?.trim() ?? "";
+
+
+  const normalizeProject26PublicFact = (
+    label: string,
+    value: string
+  ) =>
+    `${label.trim().toLowerCase()}::${value
+      .trim()
+      .toLowerCase()}`;
+
+
+  const overviewPublicFactKeys =
+    new Set(
+      overviewFacts.map(
+        (fact) =>
+          normalizeProject26PublicFact(
+            fact.label,
+            fact.value
+          )
+      )
+    );
+
+
+  const publicProjectProfile =
+    (project?.publicProfile ?? [])
+      .filter(
+        (field) =>
+          field.label.trim().length > 0 &&
+          field.value.trim().length > 0
+      )
+      .filter(
+        (field) =>
+          field.role === "team" ||
+          !overviewPublicFactKeys.has(
+            normalizeProject26PublicFact(
+              field.label,
+              field.value
+            )
+          )
+      )
+      .map(
+        (
+          field,
+          index
+        ) => ({
+          field,
+          index,
+        })
+      )
+      .sort(
+        (
+          a,
+          b
+        ) => {
+
+          const priorityDifference =
+            (a.field.priority ?? 100) -
+            (b.field.priority ?? 100);
+
+
+          return priorityDifference !== 0
+            ? priorityDifference
+            : a.index - b.index;
+
+        }
+      )
+      .map(
+        ({ field }) =>
+          field
+      );
+
+  const media =
+    project?.media?.length
+      ? project.media
+      : entity.media ?? [];
+
+
+  /*
+   * PROJECT OVERVIEW MEDIA ORDER
+   *
+   * Semantic media roles define Overview presentation:
+   * hero -> record -> context -> drawing -> diagram.
+   * Unknown roles retain their original relative order.
+   * Source media is never mutated.
+   */
+  const overviewMediaRolePriority:
+    Record<string, number> = {
+      hero: 0,
+      record: 1,
+      context: 2,
+      drawing: 3,
+      diagram: 4,
+    };
+
+  const overviewMedia =
+    media
+      .map(
+        (item, index) => ({
+          item,
+          index,
+        })
+      )
+      .sort(
+        (a, b) => {
+          const roleDifference =
+            (
+              overviewMediaRolePriority[
+                a.item.role ?? ""
+              ] ?? 100
+            ) -
+            (
+              overviewMediaRolePriority[
+                b.item.role ?? ""
+              ] ?? 100
+            );
+
+          return roleDifference !== 0 ? roleDifference : a.index - b.index;
+        }
+      )
+      .map(
+        ({ item }) => item
+      );
+
+  const sources =
+    project?.sources ?? [];
+
+
+  const primarySourceUrl =
+    sources[0]?.href;
+
+  const category =
+    project?.category ??
+    "Projects";
+
+  const categorySlug =
+    entity.sectionSubsections
+      ?.projects?.[0];
+
+
+  const categoryHref =
+    categorySlug
+      ? buildArknozSectionHref(
+          "projects",
+          {
+            subsection:
+              categorySlug,
+          }
+        )
+      : "/projects";
+
+
+  /*
+   * Canonical context rule:
+   * store the deepest geography leaf on the entity;
+   * parent geography is inherited from the geography tree.
+   */
+  const contextHref =
+    entity.geographySlug
+      ? buildGeographyHref(
+          entity.geographySlug
+        )
       : undefined;
 
-  const supportingMedia = media
-    .filter(
-      (item) =>
-        item !== heroMedia &&
-        item.src &&
-        !["diagram", "drawing", "document"].includes(
-          (item.role ?? "").toLowerCase()
-        ) &&
-        !item.src.includes(
-          "commons.wikimedia.org/wiki/Special:Redirect"
-        )
-    )
-    .slice(0, 2);
 
-  // Screen 1:
-  // LEFT = project identity only.
-  // RIGHT = non-duplicated project facts.
-  const primaryFacts = facts.slice(0, 0);
+  /*
+   * OVERVIEW RULE
+   *
+   * Overview = concise identity and orientation.
+   * Record = deeper Arknoz interpretation and evidence.
+   *
+   * Do not duplicate the full Lens here.
+   */
 
-  const signature = (
-    p?.signature?.length
-      ? p.signature
-      : facts.slice(0, 4)
-  ).slice(0, 4);
+  /*
+   * Permanent Arknoz rule:
+   *
+   * OVERVIEW:
+   * project identity + short orientation + core facts.
+   *
+   * RECORD:
+   * deeper Arknoz interpretation, evidence and intelligence.
+   *
+   * Never place the full Lens on Overview.
+   */
 
-  const signatureKeys = new Set(
-    signature.map(
-      (fact) => `${fact.label}::${fact.value}`
-    )
-  );
 
-  const atGlance = facts
-    .filter(
-      (fact) =>
-        !signatureKeys.has(
-          `${fact.label}::${fact.value}`
-        )
-    )
-    .slice(0, 4);
+  /*
+   * PROJECT OVERVIEW FRAME FIT
+   *
+   * The Project conforms to the frozen Arknoz Overview.
+   * Canonical Project data is never rewritten here.
+   */
+  const compactOverviewText = (
+    value: string | undefined,
+    _maxLength: number
+  ) => {
+    const normalized =
+      value
+        ?.replace(/\s+/g, " ")
+        .trim();
 
-  const topics = (p?.topics ?? [])
-    .filter(Boolean)
-    .slice(0, 5);
+    return normalized || undefined;
+  };
 
-  const subsection = p?.category || "Projects";
-  const canonicalUrl = `/projects/${entity.slug}`;
-  const projectSection = getArknozSection("projects");
+  const overviewStrapline =
+    compactOverviewText(
+      project?.strapline,
+      80
+    );
 
-  const subsectionSlug =
-    projectSection?.subsections.find(
-      (item) => item.label === subsection
-    )?.slug;
-
-  const subsectionHref = subsectionSlug
-    ? buildArknozSectionHref("projects", {
-        subsection: subsectionSlug,
-      })
-    : "/projects";
-
-  const placeHref = p?.placeHref || "/global";
-
-  const geographyPath = entity.geographySlug
-    ? getGeographyPath(entity.geographySlug)
-    : (() => {
-        const legacyLabel = entity.geography.toLowerCase();
-
-        const deepestMatch = geography
-          .filter(
-            (item) =>
-              ["country", "region", "city", "place"].includes(
-                item.type
-              ) &&
-              legacyLabel.includes(
-                item.name.toLowerCase()
-              )
-          )
-          .sort(
-            (a, b) =>
-              getGeographyPath(b.slug).length -
-              getGeographyPath(a.slug).length
-          )[0];
-
-        return deepestMatch
-          ? getGeographyPath(deepestMatch.slug)
-          : [];
-      })();
-
-  const breadcrumbGeography = geographyPath.filter(
-    (item) =>
-      ["country", "region", "city", "place"].includes(
-        item.type
-      )
-  );
+  const overviewSummary =
+    compactOverviewText(
+      entity.summary,
+      110
+    ) ?? entity.summary;
 
   return (
-    <main className="bg-white text-slate-950">
+    <>
       <GlobalHeader />
-      {/* ==================================================
-          SCREEN 1 — UNIVERSAL PROJECT MASTER
-      ================================================== */}
 
-      <section
-        id="project-first-screen"
-        className="bg-[#f1efe9] lg:min-h-[calc(100svh-88px)]"
-      >
-        <div className="mx-auto flex min-h-[calc(100svh-88px)] max-w-[1720px] flex-col px-6 py-3 lg:px-10">
+      <main>
 
-          {/* breadcrumb */}
-          <div className="mb-3 flex shrink-0 flex-wrap items-center gap-2 text-[11px] font-semibold text-slate-500">
+        <UniversalRecordSystem
+          overview={
+            <>
+              {/* ==================================================
+                  SCREEN 1
+                  UNIVERSAL ARKNOZ OVERVIEW
+              ================================================== */}
 
-            {breadcrumbGeography.map((item) => (
-              <span
-                key={item.slug}
-                className="contents"
-              >
-                <Link
-                  href={buildGeographyHref(item.slug)}
-                  className="transition hover:text-blue-700"
-                >
-                  {item.name}
-                </Link>
+        <section className="bg-[#f4f6f9] lg:h-[calc(100svh-106px)]">
 
-                <span className="text-slate-300">/</span>
-              </span>
-            ))}
+          <div className="mx-auto flex h-full max-w-[1500px] flex-col px-5 py-4 lg:px-7">
 
-            <Link
-              href="/projects"
-              className="transition hover:text-blue-700"
-            >
-              Projects
-            </Link>
+            {/* BREADCRUMB */}
 
-            <span className="text-slate-300">/</span>
-
-            <Link
-              href={subsectionHref}
-              className="transition hover:text-blue-700"
-            >
-              {subsection}
-            </Link>
-
-            <span className="text-slate-300">/</span>
-
-            <span className="font-bold text-slate-950">
-              {entity.title}
-            </span>
-          </div>
-
-          <article className="relative min-h-[650px] flex-1 overflow-hidden rounded-[30px] bg-[#17231d] shadow-[0_22px_70px_rgba(15,23,42,.14)]">
-
-            {heroImageSrc ? (
-              <img
-                src={heroImageSrc}
-                alt={heroMedia.alt ?? entity.title}
-                className="absolute inset-0 h-full w-full object-cover"
-              />
-            ) : (
-              <div className="absolute inset-0 bg-gradient-to-br from-[#123d68] via-[#0b2949] to-[#071b31]" />
-            )}
-
-            <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/20 to-black/55" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-black/10" />
-
-            {/* status + place */}
-            <div className="absolute left-6 top-6 z-20 flex flex-wrap items-center gap-2">
-              {entity.trust ? (
-                <span className="rounded-full bg-[#15261f] px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.11em] text-white">
-                  {entity.trust}
-                </span>
-              ) : null}
+            <nav className="mb-3 flex shrink-0 flex-wrap items-center gap-2 text-[10px] font-semibold">
 
               <Link
-                href={subsectionHref}
-                className="rounded-full border border-white/25 bg-black/20 px-3 py-1.5 text-[11px] font-medium uppercase tracking-[0.10em] text-white backdrop-blur"
+                href="/projects"
+                className="text-blue-700"
               >
-                {subsection}
+                Projects
               </Link>
-            </div>
 
-            <Link
-              href={placeHref}
-              className="absolute right-6 top-6 z-20 rounded-full border border-white/25 bg-black/20 px-3 py-1.5 text-[11px] font-medium uppercase tracking-[0.10em] text-white backdrop-blur"
-            >
-              {entity.geography}
-            </Link>
+              <span className="text-slate-400">
+                /
+              </span>
 
-            <div className="relative z-10 grid min-h-[650px] lg:grid-cols-[1.35fr_.65fr]">
+              <Link
+                href={categoryHref}
+                className="cursor-pointer text-blue-700 transition hover:text-blue-950"
+              >
+                {category}
+              </Link>
 
-              {/* PROJECT IDENTITY */}
-              <div className="flex min-h-0 flex-col justify-end p-7 lg:p-9">
+              <span className="text-slate-400">
+                /
+              </span>
 
-                <p className="text-[12px] font-medium uppercase tracking-[0.13em] text-white/65">
-                  Arknoz Project Record
-                </p>
-
-                <h1 className="mt-3 max-w-[720px] text-[54px] font-semibold leading-[.94] tracking-[-0.045em] text-white xl:text-[76px]">
-                  {entity.title}
-                </h1>
-
-                <p className="mt-4 max-w-2xl text-[16px] font-medium leading-7 text-white/82">
-                  {candidatePreview
-                    ? "Source-backed project record in development."
-                    : p?.strapline ?? entity.summary}
-                </p>
-
-                {signature.length > 0 ? (
-                  <div className="mt-7 grid max-w-[820px] gap-2 sm:grid-cols-2 lg:grid-cols-4">
-                    {signature.map((fact) => (
-                      <div
-                        key={`${fact.label}-${fact.value}`}
-                        className="rounded-[16px] border border-white/15 bg-black/25 px-4 py-3 backdrop-blur-sm"
-                      >
-                        <p className="text-[19px] font-semibold leading-tight text-white">
-                          {fact.value}
-                        </p>
-
-                        <p className="mt-2 text-[11px] font-medium uppercase tracking-[0.09em] text-white/60">
-                          {fact.label}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                ) : null}
-              </div>
-              {/* PROJECT ENTRY */}
-              <div className="flex items-end justify-end p-6 lg:p-9">
-                <aside className="w-full max-w-[360px] border-t border-white/35 pt-5 text-white">
-
-                  <p className="text-[12px] font-medium uppercase tracking-[0.12em] text-white/65">
-                    Explore the project
-                  </p>
-
-                  <h2 className="mt-3 text-[27px] font-medium leading-[1.08] tracking-[-0.035em]">
-                    One continuous project record.
-                  </h2>
-
-                  <p className="mt-3 max-w-[330px] text-[14px] leading-6 text-white/70">
-                    Move from project data to design, connections, evidence and Arknoz Pro.
-                  </p>
-
-                  <a
-                    href="#project-intelligence"
-                    className="mt-7 inline-flex items-center gap-4 border-b border-white/60 pb-2 text-[14px] font-medium text-white transition hover:border-white"
-                  >
-                    Explore project
-                    <span aria-hidden="true">↓</span>
-                  </a>
-
-                  <div className="mt-7 border-t border-white/20 pt-4">
-                    <MemberActions returnTo={canonicalUrl} />
-                  </div>
-
-                </aside>
-              </div>
-            </div>
-
-            {heroImageSrc && heroMedia?.attribution ? (
-              <div className="absolute bottom-4 right-6 z-20 max-w-[320px] text-right">
-                <p className="text-[11px] font-medium uppercase tracking-[0.10em] text-white/55">
-                  Image credit
-                </p>
-
-                <p className="mt-1 text-[12px] leading-5 text-white/70">
-                  {heroMedia.attribution}
-                  {heroMedia.license
-                    ? ` · ${heroMedia.license}`
-                    : ""}
-                </p>
-              </div>
-            ) : null}
-
-          </article>
-        </div>
-      </section>
-
-      {/* ==================================================
-          02 — ARKNOZ NOW · UNIVERSAL
-      ================================================== */}
-
-      <HomeNowOnArknozLoop />
+              <span className="text-slate-950">
+                {entity.title}
+              </span>
 
 
-      <section
-        id="project-intelligence"
-        className="border-t border-slate-200 bg-[#f4f7fb]"
-      >
-        <div className="mx-auto max-w-[1720px] px-6 py-6 lg:px-10">
+              {candidatePreview ? (
+                <>
+                </>
+              ) : null}
 
-          <div>
-            <ProjectDetailTabs entity={entity} candidatePreview={candidatePreview} />
+            </nav>
+
+
+            <UniversalRecordOverview
+              typeLabel="Project"
+
+              arknozEntityId={
+                entity.arknozEntityId
+              }
+
+              title={
+                entity.title
+              }
+
+              strapline={
+                overviewStrapline
+              }
+
+              summary={overviewSummary}
+
+              facts={
+                overviewFacts
+              }
+
+              media={
+                overviewMedia
+                  .filter(
+                    (item) =>
+                      Boolean(
+                        item.src
+                      )
+                  )
+                  .map(
+                    (item) => ({
+                      src:
+                        item.src,
+
+                      alt:
+                        item.alt ??
+                        entity.title,
+
+                      attribution:
+                        item.attribution,
+
+                      license:
+                        item.license,
+
+                      sourceUrl:
+                        item.sourceUrl,
+
+                      rightsStatus:
+                        item.rightsStatus,
+
+                      provenanceStatus:
+                        item.provenanceStatus,
+                    })
+                  )
+              }
+
+              visualLabel={
+                category
+              }
+
+              contextLabel={
+                entity.geography
+              }
+              contextHref={
+                contextHref
+              }
+              provenanceLabel="Source-backed record"
+
+              sourceCount={
+                sources.length
+              }
+
+              officialUrl={primarySourceUrl}
+
+              sourceLinkLabel="Open primary source"
+
+
+
+              continueHref="#arknoz-record-workspace"
+
+
+
+              continueLabel="Explore project"
+            />
+
           </div>
-        </div>
-      </section>
 
-      <UniversalPublicLastScreen />
-    </main>
+        </section>
+
+
+            </>
+          }
+
+          workspace={
+            <>
+              {/* ==================================================
+                  SCREEN 2
+                  RECORD · CONNECTIONS · INTELLIGENCE
+              ================================================== */}
+
+        <section
+          id="project-record"
+          className="border-t border-slate-200 bg-white"
+        >
+
+          <div className="mx-auto max-w-[1500px] px-5 lg:px-7">
+
+            <ProjectDetailTabs
+              entity={project26TabsEntity}
+              candidatePreview={
+                candidatePreview
+              }
+              recordAccessMode={
+                recordAccessMode
+              }
+              lensAccessMode={
+                lensAccessMode
+              }
+              publicProjectBrief={
+                publicProjectBrief
+              }
+              publicProjectProfile={
+                publicProjectProfile
+              }              publicRecordSourceCount={
+                sources.length
+              }
+              publicRecordMediaCount={
+                media.length
+              }
+            />
+
+          </div>
+
+        </section>
+
+
+            </>
+          }
+        />
+
+        {/* ==================================================
+            UNIVERSAL FINAL SCREEN
+        ================================================== */}
+
+        <UniversalPublicLastScreen />
+
+      </main>
+    </>
   );
 }
